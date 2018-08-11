@@ -1,3 +1,13 @@
-<div>
-  App Component
-</div>
+<navbar-component></navbar-component>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <side-nav></side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

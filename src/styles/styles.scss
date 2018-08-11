@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@charset "UTF-8";
+
+// Color
+@import "materialize/sass/components/color-variables";
+@import "materialize/sass/components/color-classes";
+
+// Variables;
+@import "materialize/sass/components/variables";
+
+// Reset
+@import "materialize/sass/components/normalize";
+
+// components
+@import "materialize/sass/components/global";
+
+
+
+@import "materialize/sass/components/_cards";
+@import "materialize/sass/components/_grid";
+@import "materialize/sass/components/_navbar";
+
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+
+@import "variables";
+@import "layout";
