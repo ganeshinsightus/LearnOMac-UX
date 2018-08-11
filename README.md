@@ -1,6 +1,4 @@
 ## Libraries Used
 
-# Angular Material
-# Bootstrap 4
-# MDBootstrap
-# aG Grid
+1. Materialize CSS Framework
+2. Angular Material
