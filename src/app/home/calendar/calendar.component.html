@@ -1,0 +1,32 @@
+<div class="card bq-orange">
+    <div class="card-content">
+
+        <div class="col s6 calendar-left">
+            <span class="card-title">Calendar</span>
+            <ul>
+                <li>
+                    Holiday - Vinayagar Sathurthi
+                    <br>
+                </li>
+                <li>
+                    Sports Day
+                    <br>
+                </li>
+                <li>
+                    Independence Day
+                    <br>
+                </li>
+                <li>
+                    Krishna Jayanthi
+                    <br>
+                </li>
+            </ul>
+
+        </div>
+        <div class="col s6 calendar-right">
+            <mat-calendar [selected]="selectedDate" (selectedChange)="selectedChange($event)" (yearSelected)="yearSelected()" (monthSelected)="monthSelected()"
+                (_userSelection)="userSelection()" (cdkAutofill)="cdkAutofill()"> </mat-calendar>
+        </div>
+
+    </div>
+</div>
