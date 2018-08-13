@@ -1,0 +1,58 @@
+@import "../styles/variables";
+
+  .sidenav-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .sidenav {
+    font-family: sans-serif;
+    padding: 20px;
+    cursor: pointer;
+    background-color: $color-royalblue;
+    line-height: 4.3rem;  
+    color: $color-white;
+  }
+  
+  .material-icons{
+    font-size: 25px;
+    overflow: hidden;
+  }
+  .sidenav div{
+    font-family: sans-serif;
+    box-shadow: 0px 1px 0px $color-blueborder;
+      a{
+        color:$color-white;
+        i {
+            cursor: pointer;
+        } 
+        span{
+          font-size: 15px;
+          cursor: pointer;
+          text-transform: uppercase;
+          font-family: sans-serif;
+          position: relative;
+          bottom: 6px;
+          left: 6px;
+        }
+      }
+  }
+
+  .sidenav :hover{
+    color: $color-orange;
+  }
+
+
+  //footer
+  footer{
+    font-family: sans-serif;
+    text-align: center;
+    background: $color-orange;
+    color: $color-lightgrey;
+    padding: 14px 0;
+    text-transform: uppercase;
+    display: none;
+  }
+  

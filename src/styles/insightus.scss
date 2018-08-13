@@ -1,0 +1,152 @@
+@import './variables';
+
+//btn - style button , btn active- button click action , bq-color - border-left style ,bq-color-text - font color style ,badge-color - badge style right side , colors used - black ,white, red , pink , green , orange , indigo , blue
+
+.btn{
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border: 0;
+    border-radius: 0.125rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    white-space: normal;
+    word-wrap: break-word;
+}
+.btn:active {
+    transform: translateY(2px);
+}
+.btn:hover{
+    box-shadow: 0px 4px 1px lightgrey;
+}
+.btn::selection{
+    background: #212529 !important;
+}
+.btn-primary{
+    background-color:$color-primary !important;
+    color: $color-white !important;
+    border-color: $color-bprimary;
+}
+.btn-warning{
+    background-color:$color-warning !important;
+    color: $color-white !important;
+    border-color: $color-bwarning;
+}
+.btn-danger{
+    background-color:$color-danger !important;
+    color: $color-white !important;
+    border-color: $color-bdanger;
+}
+.btn-success{
+    background-color:$color-success !important;
+    color: $color-white !important;
+    border-color: $color-bsuccess;
+}
+.bq-green{
+    border-left: 3px solid $color-green !important; 
+    color:$color-green !important;
+}
+.btn-green{
+    background-color:$color-green !important;
+    color: white !important;
+}
+.bq-green-text{
+    color:$color-green !important;
+}
+.badge-green{
+    float: right;
+    color: $color-green !important;
+}
+.badge-green:active{
+    transform: translateY(2px);
+}
+.bq-blue{
+    border-left: 3px solid $color-blue !important; 
+    color:$color-blue !important;
+}
+.btn-blue{
+    background-color:$color-blue !important;
+    color: white !important;
+}
+.bq-blue-text{
+    color:$color-blue !important;
+}
+.badge-blue{
+    float: right;
+    color: $color-blue !important;
+}
+.badge-blue:active{
+    transform: translateY(2px);
+}
+.bq-orange{
+    border-left: 3px solid $color-orange !important; 
+    color:$color-orange !important;
+}
+.btn-orange{
+    background-color:$color-orange !important;
+    color: white !important;
+}
+.bq-orange-text{
+    color:$color-orange !important;
+}
+.badge-orange{
+    float: right;
+    color: $color-orange !important;
+}
+.badge-orange:active{
+    transform: translateY(2px);
+}
+.badge-red{
+    float: right;
+    color: $color-red !important;
+}
+.badge-red:active{
+    transform: translateY(2px);
+}
+.bq-red{
+    border-left: 3px solid $color-red !important;
+    color: $color-red !important;
+}
+.btn-red{
+    background-color:$color-red !important;
+    color: white !important;
+}
+.bq-red-text{
+    color:$color-red !important;
+}
+.bq-pink{
+    border-left: 3px solid $color-pink !important;
+    color: $color-pink !important;
+}
+.btn-pink{
+    background-color:$color-pink !important;
+    color: white !important;
+}
+.bq-pink-text{
+    color:$color-pink !important;
+}
+.badge-pink{
+    float: right;
+    color: $color-pink !important;
+}
+.badge-pink:active{
+    transform: translateY(2px);
+}
+.bq-indigo{
+    border-left: 3px solid $color-indigo !important;
+    color: $color-indigo !important;
+}
+.btn-indigo{
+    background-color:$color-indigo !important;
+    color: white !important;
+}
+.bq-indigo-text{
+    color:$color-indigo !important;
+}
+.badge-indigo{
+    float: right;
+    color: $color-indigo !important;
+}
+.badge-indigo:active{
+    transform: translateY(2px);
+}
+
