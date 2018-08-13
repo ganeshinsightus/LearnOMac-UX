@@ -1,15 +1,104 @@
+<!--Header-->
 <navbar-component></navbar-component>
+<!--Header-->
+<mat-drawer-container style="height: calc(89.4vh);" autosize>
 
-<mat-drawer-container autosize>
-  
-  <mat-drawer mode="side" opened>
-    <side-nav></side-nav>
+  <!--Sidenav bar-->
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
+    <div mode="side" (click)="showFiller = !showFiller">
+      <i>
+        <mat-icon>menu</mat-icon>
+      </i>
+    </div>
+    <div>
+      <a [routerLink]="['dashboard']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
+        <i>
+          <mat-icon>dashboard</mat-icon>
+        </i>
+        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+          Dashboard
+        </span>
+      </a>
+    </div>
+    <div>
+      <a [routerLink]="['studentprofiles']" [routerLinkActive]="'active'">
+        <i>
+          <mat-icon>assignment_in</mat-icon>
+        </i>
+        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+          Student Profiles
+        </span>
+      </a>
+    </div>
+    <div>
+      <a [routerLink]="['lessonmgmt']" [routerLinkActive]="'active'">
+        <i>
+          <mat-icon>track_changes</mat-icon>
+        </i>
+        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+          Lesson Management
+        </span>
+      </a>
+    </div>
+
+    <div>
+      <a [routerLink]="['attendance']" [routerLinkActive]="'active'">
+        <i>
+          <mat-icon>playlist_add_check</mat-icon>
+        </i>
+        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+          Attendance
+        </span>
+      </a>
+    </div>
+
+    <div>
+      <a [routerLink]="['classperformance']" [routerLinkActive]="'active'">
+        <i>
+          <mat-icon>insert_chart</mat-icon>
+        </i>
+        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+          Class Performance
+        </span>
+      </a>
+    </div>
+
+    <div>
+      <a [routerLink]="['courses']" [routerLinkActive]="'active'">
+        <i>
+          <mat-icon>insert_drive_file</mat-icon>
+        </i>
+        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+          Courses
+        </span>
+      </a>
+    </div>
+
+    <div>
+      <a [routerLink]="['resources']" [routerLinkActive]="'active'">
+        <i>
+          <mat-icon>library_books</mat-icon>
+        </i>
+        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+          My Learning Resources
+        </span>
+      </a>
+    </div>
+
+
   </mat-drawer>
+  <!--Sidenav bar-->
 
-  <mat-drawer-content>
-
+  <!--main content-->
+  <mat-drawer-content style="background-color: #dfebf7;overflow: auto;">
     <router-outlet></router-outlet>
-
   </mat-drawer-content>
+  <!--main content-->
+
+  <!--footer-->
+  <footer style="text-align: center;background:rgb(255, 153, 51);color:white; ">
+    Copyright 2018 @ LEARNOMAC
+  </footer>
+  <!--footer-->
 
 </mat-drawer-container>

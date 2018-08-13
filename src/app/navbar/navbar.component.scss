@@ -1,19 +1,41 @@
 @import "../../styles/variables";
+@import "../../styles/common";
 
 nav {
-    background-color: $color-lightgrey;
+  background-color: $color-lightgrey;
 }
 
 .logo {
-    width: 150px;
-    height: 64px;
-    background: url('/assets/images/logo.png');
-    background-repeat: no-repeat, repeat;
-    background-color: $color-lightgrey;
-    background-position: center;
-    // background-size: contain;
-    background-size: 175px;
-    display: inline-block;
-    left: 20px;
-    position: relative;
+  width: 150px;
+  height: 64px;
+  background: url("/assets/images/logo.png");
+  background-repeat: no-repeat, repeat;
+  background-color: $color-lightgrey;
+  background-position: center;
+  // background-size: contain;
+  background-size: 175px;
+  display: inline-block;
+  left: 20px;
+  position: relative;
+}
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  height: 0;
+  padding: 35px;
+}
+.logo > img {
+  width: 30%;
+}
+.header-logout {
+  font-size: 10px;
+  padding: 0 14px;
+}
+.header-spacer {
+  flex: 1 1 auto;
+}
+.btn-royalblue {
+  background-color: $color-royalblue;
+  color: $color-white;
+  font-size: 12px;
+  cursor: pointer;
 }
