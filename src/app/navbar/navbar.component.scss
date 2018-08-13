@@ -1,5 +1,19 @@
 @import "../../styles/variables";
 
 nav {
-    background-color: $color-indigo !important;
+    background-color: $color-lightgrey;
+}
+
+.logo {
+    width: 150px;
+    height: 64px;
+    background: url('/assets/images/logo.png');
+    background-repeat: no-repeat, repeat;
+    background-color: $color-lightgrey;
+    background-position: center;
+    // background-size: contain;
+    background-size: 175px;
+    display: inline-block;
+    left: 20px;
+    position: relative;
 }

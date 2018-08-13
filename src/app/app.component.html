@@ -1,13 +1,15 @@
 <navbar-component></navbar-component>
 
-<mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened>
+<mat-drawer-container autosize>
+  
+  <mat-drawer mode="side" opened>
     <side-nav></side-nav>
-  </mat-sidenav>
-  <mat-sidenav-content>
+  </mat-drawer>
+
+  <mat-drawer-content>
 
     <router-outlet></router-outlet>
 
-  </mat-sidenav-content>
+  </mat-drawer-content>
 
-</mat-sidenav-container>
+</mat-drawer-container>
