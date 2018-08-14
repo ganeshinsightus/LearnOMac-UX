@@ -5,8 +5,17 @@
   height: 0;
   padding: 35px;
 }
-.logo > img {
-    width: 30%;
+.logo[_ngcontent-c1] {
+    width: 150px;
+    height: 64px;
+    background: url(/assets/images/logo.png);
+    background-repeat: no-repeat, repeat;
+    background-color: #f5f5f5;
+    background-position: center;
+    background-size: 175px;
+    display: inline-block;
+    left: 20px;
+    position: relative;
 }
 .header-logout {
     font-size: 10px;

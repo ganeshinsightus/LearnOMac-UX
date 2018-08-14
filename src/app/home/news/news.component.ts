@@ -10,6 +10,7 @@ import { NewsDialogComponent } from './news-dialog/news-dialog.component';
 export class NewsComponent {
 
   newsDialogRef: MatDialogRef<NewsDialogComponent>;
+  showScroll:boolean = false;
 
   constructor(public dialog: MatDialog) { }
   openDialog() {
