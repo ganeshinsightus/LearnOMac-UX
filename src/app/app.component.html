@@ -1,7 +1,7 @@
 <!--Header-->
 <navbar-component></navbar-component>
 <!--Header-->
-<mat-drawer-container style="height: calc(89.4vh);" autosize>
+<mat-drawer-container style="height: calc(90.4vh);" autosize>
 
   <!--Sidenav bar-->
   <mat-drawer #drawer class="sidenav" mode="side" opened>
@@ -16,7 +16,27 @@
           <mat-icon>dashboard</mat-icon>
         </i>
         <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          Dashboard
+          My Dashboard
+        </span>
+      </a>
+    </div>
+    <div>
+      <a [routerLink]="['dashboard']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
+        <i>
+          <mat-icon>dashboard</mat-icon>
+        </i>
+        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+          Classroom Dashboard
+        </span>
+      </a>
+    </div>
+    <div>
+      <a [routerLink]="['attendance']" [routerLinkActive]="'active'">
+        <i>
+          <mat-icon>playlist_add_check</mat-icon>
+        </i>
+        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+          Attendance
         </span>
       </a>
     </div>
@@ -40,18 +60,16 @@
         </span>
       </a>
     </div>
-
     <div>
-      <a [routerLink]="['attendance']" [routerLinkActive]="'active'">
+      <a [routerLink]="['dashboard']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
         <i>
-          <mat-icon>playlist_add_check</mat-icon>
+          <mat-icon>dashboard</mat-icon>
         </i>
         <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          Attendance
+          Curriculum Content
         </span>
       </a>
     </div>
-
     <div>
       <a [routerLink]="['classperformance']" [routerLinkActive]="'active'">
         <i>
@@ -62,7 +80,6 @@
         </span>
       </a>
     </div>
-
     <div>
       <a [routerLink]="['courses']" [routerLinkActive]="'active'">
         <i>
@@ -73,7 +90,6 @@
         </span>
       </a>
     </div>
-
     <div>
       <a [routerLink]="['resources']" [routerLinkActive]="'active'">
         <i>

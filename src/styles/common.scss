@@ -113,6 +113,36 @@
 .bq-red-text{
     color:$color-red !important;
 }
+.bq-brown{
+    border-left: 3px solid $color-brown !important;
+    color: $color-brown !important;
+}
+.btn-brown{
+    background-color:$color-brown !important;
+    color: white !important;
+}
+.bq-brown-text{
+    color:$color-brown !important;
+}
+.badge-brown{
+    float: right;
+    color: $color-brown !important;
+}
+.bq-purple{
+    border-left: 3px solid $color-purple !important;
+    color: $color-brown !important;
+}
+.btn-purple{
+    background-color:$color-purple !important;
+    color: white !important;
+}
+.bq-purple-text{
+    color:$color-purple !important;
+}
+.badge-purple{
+    float: right;
+    color: $color-purple !important;
+}
 .bq-pink{
     border-left: 3px solid $color-pink !important;
     color: $color-pink !important;
@@ -149,4 +179,26 @@
 .badge-indigo:active{
     transform: translateY(2px);
 }
-
+@mixin progress($dark-color,$light-color) {
+    .progress {
+        position: relative;
+        height: 15px;
+        display: block;
+        width: 100px;
+        background-color: $dark-color;
+        border-radius: 2px;
+        background-clip: padding-box;
+        margin: 0.5rem 0 1rem 0;
+        overflow: hidden; }
+        .progress .determinate{
+          position: absolute;
+          background-color: inherit;
+          top: 0;
+          bottom: 0;
+          background-color: $light-color;
+          transition: width .3s linear; 
+        }
+}
+.progress-black{
+    @include progress(darkblue, skyblue);
+}
