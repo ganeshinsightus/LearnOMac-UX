@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @charset "UTF-8";
-
+@import "~ag-grid/dist/styles/ag-grid.css";
+@import "~ag-grid/dist/styles/ag-theme-balham.css";
 // Color
 @import "materialize/sass/components/color-variables";
 @import "materialize/sass/components/color-classes";
@@ -20,7 +21,11 @@
 @import "materialize/sass/components/_grid";
 @import "materialize/sass/components/_navbar";
 @import "materialize/sass/components/_buttons";
+@import "materialize/sass/components/_dropdown";
+@import "materialize/sass/components/_pulse";
+@import "materialize/sass/components/_tooltip";
 @import "materialize/sass/components/_icons-material-design";
+
 
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";

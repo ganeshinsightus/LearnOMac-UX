@@ -5,27 +5,29 @@ import { CircularsDialogComponent } from './circulars/circulars-dialog/circulars
 import { CoursesComponent } from './courses/courses.component';
 import { HomeComponent } from './home.component';
 import { MessagesComponent } from './messages/messages.component';
-import { MessagesDialogComponent } from './messages/messages-dialog/messages-dialog.component';
 import { NewsComponent } from './news/news.component';
-import { NewsDetailsComponent } from './news/news-details/news-details.component';
 import { NewsDialogComponent } from './news/news-dialog/news-dialog.component';
 import { NgMaterialModule } from '../ng-material.module';
 import { NgModule } from '@angular/core';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { NotificationsDialogComponent } from './notifications/notifications-dialog/notifications-dialog.component';
+import { NewsListComponent } from './news/news-list/news-list.component';
+import { CircularListComponent } from './circulars/circulars-list/circulars-list.component';
+import { NotificationsListComponent } from './notifications/notifications-list/notifications-list.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
         NewsComponent,
         NewsDialogComponent,
-        NewsDetailsComponent,
+        NewsListComponent,
         NotificationsComponent,
         NotificationsDialogComponent,
+        NotificationsListComponent,
         CircularsComponent,
         CircularsDialogComponent,
+        CircularListComponent,
         MessagesComponent,
-        MessagesDialogComponent,
         CoursesComponent,
         CalendarComponent
     ],
@@ -38,7 +40,6 @@ import { NotificationsDialogComponent } from './notifications/notifications-dial
         NewsDialogComponent,
         CircularsDialogComponent,
         NotificationsDialogComponent,
-        MessagesDialogComponent
     ],
 })
 export class HomeModule {

@@ -1,33 +1,55 @@
+import { AgGridModule } from 'ag-grid-angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
     MatDatepickerModule,
     MatDialogModule,
+    MatFormFieldModule,
     MatIconModule,
+    MatInputModule,
     MatNativeDateModule,
+    MatRadioModule,
+    MatSelectModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatProgressBarModule,
+    MatTooltipModule
     } from '@angular/material';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
-// A shared module which imports and exports all the Angular Material 
 @NgModule({
-    declarations: [],
-    imports: [
-        MatSidenavModule,
-        MatDialogModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatNativeDateModule,
-        MatDatepickerModule
-    ],
-    exports: [
-        MatSidenavModule,
-        MatDialogModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatNativeDateModule,
-        MatDatepickerModule
-    ]
+  declarations: [],
+  imports: [
+    AgGridModule.withComponents([]),
+    MatSidenavModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatProgressBarModule,
+    MatTooltipModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    AgGridModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatProgressBarModule,
+    MatTooltipModule,
+    ReactiveFormsModule
+  ]
 })
-export class NgMaterialModule {
-
-}
+export class NgMaterialModule {}

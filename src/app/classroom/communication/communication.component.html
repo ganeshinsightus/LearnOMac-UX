@@ -1,0 +1,99 @@
+<div class="card bq-pink">
+        <div class="card-content">
+                <span class="card-title bq-pink-text">Communication
+                        <a>
+                                <span class="btn btn-pink create-new" (click)="openCommunicationList()">View All</span>
+                        </a>
+                        <a>
+                                <span class="btn btn-pink " (click)="openNewDialog()">Create New</span>
+                        </a>
+                </span>
+
+                <div class="communication-content right">
+                        <span class="col s12  ">
+                                <select class="dropdown">
+                                        <option selected>Select Message Type</option>
+                                        <option value="Message">Message</option>
+                                        <option value="Notification">Notification</option>
+                                </select>
+                        </span>
+                </div>
+                <br>
+                <div class="content-list">
+                        <ul class="list-group">
+                                <li>
+                                        <span mat-raised-button matTooltip="Parent of Ganesh">
+                                                Could not do well in Science -
+                                                <span class="bq-orange-text">11/10/18</span>
+                                        </span>&nbsp;
+                                        <sup class="btn-success">replied</sup>
+                                        <span class="badge-pink right" (click)="openRepliedDialog()">
+                                                <mat-icon>visibility</mat-icon>
+                                        </span>
+                                </li>
+                                <li>
+                                        <span mat-raised-button matTooltip="Parent of Rajendra">
+                                                Could not do well in Maths -
+                                                <span class="bq-orange-text">11/10/18</span>
+                                        </span>&nbsp;
+                                        <sup class="btn-blue">new</sup>&nbsp;
+                                        <span class="badge-pink right create-new" (click)="openReplyDialog()">
+                                                <mat-icon>reply</mat-icon>
+                                        </span>
+                                        <span class="badge-pink right" (click)="openViewDialog()">
+                                                <mat-icon>visibility</mat-icon>
+                                        </span>
+                                </li>
+                                <div *ngIf="showScroll" id="scroll">
+                                        <li>
+                                                <span mat-raised-button matTooltip="Parent of Ganesh">
+                                                        Could not do well in Social -
+                                                        <span class="bq-orange-text">11/10/18</span>
+                                                </span>&nbsp;
+                                                <sup class="btn-success">replied</sup>
+                                                <span class="badge-pink right" (click)="openRepliedDialog()">
+                                                        <mat-icon>visibility</mat-icon>
+                                                </span>
+                                        </li>
+                                        <li>
+                                                <span mat-raised-button matTooltip="Parent of Kiran">
+                                                        Could not do well in Science -
+                                                        <span class="bq-orange-text">11/10/18</span>
+                                                </span>&nbsp;
+                                                <sup class="btn-blue">new</sup>&nbsp;
+                                                <span class="badge-pink right create-new" (click)="openReplyDialog()">
+                                                        <mat-icon>reply</mat-icon>
+                                                </span>
+                                                <span class="badge-pink right" (click)="openViewDialog()">
+                                                        <mat-icon>visibility</mat-icon>
+                                                </span>
+
+                                        </li>
+                                        <li>
+                                                <span mat-raised-button matTooltip="Parent of Suresh">
+                                                        Could not do well in Maths -
+                                                        <span class="bq-orange-text">11/10/18</span>
+                                                </span>&nbsp;
+                                                <sup class="btn-blue" >new</sup>&nbsp;
+                                                <span class="badge-pink right create-new" (click)="openReplyDialog()">
+                                                        <mat-icon>reply</mat-icon>
+                                                </span>
+                                                <span class="badge-pink right" (click)="openViewDialog()">
+                                                        <mat-icon>visibility</mat-icon>
+                                                </span>
+
+                                        </li>
+                                </div>
+                        </ul>
+                        <a class="badge-pink" (click)="showScroll = !showScroll">
+                                <p *ngIf="!showScroll">
+                                        <mat-icon>more_horiz</mat-icon>
+                                </p>
+                                <p *ngIf="showScroll">
+                                        <mat-icon>expand_less</mat-icon>
+                                </p>
+                        </a>
+
+                </div>
+        </div>
+</div>

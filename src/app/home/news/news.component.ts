@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { NewsDialogComponent } from './news-dialog/news-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home-news',
@@ -11,7 +12,7 @@ export class NewsComponent {
 
   newsDialogRef: MatDialogRef<NewsDialogComponent>;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog , private routes:Router ) { }
   openDialog() {
     this.newsDialogRef = this.dialog.open(NewsDialogComponent, {
       width: '50%',
@@ -21,5 +22,7 @@ export class NewsComponent {
     this.newsDialogRef.disableClose = true;
   }
 
-
+  openNewsList(){
+    this.routes.navigateByUrl('/news-list');
+  }
 }

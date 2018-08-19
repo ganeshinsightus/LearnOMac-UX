@@ -6,6 +6,7 @@
     margin-right: 0;
     margin-bottom: 0;
     margin-top: 0;
+    padding-top:0; 
 }
 .col{
     padding-left: 5px;
@@ -32,6 +33,10 @@
         font-size: 11px;
         float: right;
     }
+}
+sup{
+    padding: 2px;
+    border-radius: 20px;
 }
 .content-list ul li{
     color: $color-contentgrey;
@@ -66,11 +71,13 @@
     font-size: 51px;
     color: black;
     text-align: center;
+    padding-top: 40px;
 }
 .count-span{
   font-size: 9px;
   padding: 10px;
   text-transform: uppercase;
+  border-radius: 20px;
 }
 .count-list{
     padding: 5px;

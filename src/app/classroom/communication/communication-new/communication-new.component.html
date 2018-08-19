@@ -1,0 +1,48 @@
+<div class="dialog">
+        <h5 class="card-title bq-pink-text">Create New Communication
+                <a (click)="closeDialog()">
+                        <span class="btn btn-danger right">
+                                <mat-icon>clear</mat-icon>
+                        </span>
+                </a>
+        </h5>
+        <div class="collection">
+                <div class="collection-item">
+                        <mat-radio-group>
+                                <mat-radio-button value="1">Parent Communication </mat-radio-button>&nbsp;
+                                <mat-radio-button value="2">Student Communication</mat-radio-button>
+                        </mat-radio-group>
+                </div>
+                <div class="collection-item">
+                        <mat-form-field>
+                                <mat-select placeholder="To" [formControl]="students" multiple>
+                                        <mat-option #allS [value]="-1" >Select All</mat-option>
+                                        <mat-option *ngFor="let students of studentsList" [value]="students">{{students}}</mat-option>
+                                </mat-select>
+                        </mat-form-field>
+                </div>
+                <div class="collection-item">
+                        <!-- <b>SUBJECT</b>: -->
+                        <br>
+                        <mat-form-field class="example-full-width" style="width: 100%">
+                                <textarea matInput placeholder="Subject "></textarea>
+                        </mat-form-field>
+                </div>
+                <div class="collection-item">
+                        <!-- <b>MESSAGE</b>:-->
+                        <br>
+                        <mat-form-field class="example-full-width" style="width: 100%">
+                                <textarea matInput placeholder="Message "></textarea>
+                        </mat-form-field>
+                        <div class="col s12 right">
+                                <span class="btn btn-success">
+                                        Send
+                                </span>
+                                <span class="btn btn-danger" (click)="closeDialog()">
+                                        Cancel
+                                </span>
+                        </div>
+                </div>
+
+        </div>
+</div>

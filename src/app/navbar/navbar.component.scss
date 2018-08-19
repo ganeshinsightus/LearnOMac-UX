@@ -4,10 +4,9 @@
 nav {
   background-color: $color-lightgrey;
 }
-
 .logo {
   width: 150px;
-  height: 64px;
+  height: 60px;
   background: url("/assets/images/logo.png");
   background-repeat: no-repeat, repeat;
   background-color: $color-lightgrey;
@@ -21,7 +20,7 @@ nav {
 .mat-toolbar-row,
 .mat-toolbar-single-row {
   height: 0;
-  padding: 35px;
+  padding: 30px;
 }
 .logo > img {
   width: 30%;

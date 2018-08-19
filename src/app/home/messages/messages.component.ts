@@ -1,25 +1,33 @@
-import { Component } from '@angular/core';
-
-import { MatDialog, MatDialogRef } from '@angular/material';
-import { MessagesDialogComponent } from './messages-dialog/messages-dialog.component';
+import { CommunicationRepliedComponent } from "../../classroom/communication/communication-replied/communication-replied.component";
+import { CommunicationViewComponent } from "../../classroom/communication/communication-view/communication-view.component";
+import { Component } from "@angular/core";
+import { MatDialog, MatDialogRef } from "@angular/material";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'home-messages',
-  templateUrl: './messages.component.html',
-  styleUrls: ['../home.component.scss']
+  selector: "home-messages",
+  templateUrl: "./messages.component.html",
+  styleUrls: ["../home.component.scss"]
 })
 export class MessagesComponent {
+  repliedDialogRef: MatDialogRef<CommunicationRepliedComponent>;
+  viewDialogRef: MatDialogRef<CommunicationViewComponent>;
 
-  messagesDialogRef: MatDialogRef<MessagesDialogComponent>;
-
-  constructor(public dialog: MatDialog) { }
-  openDialog() {
-    this.messagesDialogRef = this.dialog.open(MessagesDialogComponent, {
-      width: '50%',
-      height: '60vh'
+  constructor(public dialog: MatDialog ,public routes:Router) {}
+  openRepliedDialog() {
+    this.repliedDialogRef = this.dialog.open(CommunicationRepliedComponent, {
+      width: "50%",
+      height: "52vh"
     });
-    //this.messagesDialogRef.componentInstance.title = "odioCras justo odio";
-    this.messagesDialogRef.disableClose = true;
+    this.repliedDialogRef.disableClose = true;
   }
-
+  openViewDialog() {
+    this.viewDialogRef = this.dialog.open(CommunicationViewComponent, {
+      width: "50%",
+      height: "42vh"
+    });
+  }
+  openMessageList(){
+    this.routes.navigateByUrl('/message-list');
+  }
 }

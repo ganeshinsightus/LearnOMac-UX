@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NotificationsDialogComponent } from './notifications-dialog/notifications-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home-notifications',
@@ -9,7 +10,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 })
 export class NotificationsComponent {
   notificationsDialogRef: MatDialogRef<NotificationsDialogComponent>;
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog , public routes: Router) { }
 
   openDialog() {
     this.notificationsDialogRef = this.dialog.open(NotificationsDialogComponent, {
@@ -20,4 +21,7 @@ export class NotificationsComponent {
     this.notificationsDialogRef.disableClose = true;
   }
 
+  openNotificationsList(){
+    this.routes.navigateByUrl('/notifications-list')
+  }
 }
