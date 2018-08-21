@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Coordiantes } from './stacked-bar-chart/stacked-bar-chart';
+import { Coordinates } from './stacked-bar-chart/stacked-bar-chart';
 
 @Component({
   selector: 'performance-summary',
@@ -10,7 +10,7 @@ export class PerformanceSummaryComponent {
 
   showScroll:boolean;
   
-  values1: Coordiantes[] = [
+  values1: Coordinates[] = [
     { title: "At Risk", value: 9},
     { title: "Below Average", value:40},
     { title: "Averge", value: 21 },
@@ -18,7 +18,7 @@ export class PerformanceSummaryComponent {
     { title: "Master", value: 9 }
   ];
 
-  values2: Coordiantes[] = [
+  values2: Coordinates[] = [
     { title: "At Risk", value: 10},
     { title: "Below Average", value:25},
     { title: "Averge", value: 30 },
@@ -26,7 +26,7 @@ export class PerformanceSummaryComponent {
     { title: "Master", value: 3 }
   ];
 
-  values3: Coordiantes[] = [
+  values3: Coordinates[] = [
     { title: "At Risk", value: 19},
     { title: "Below Average", value:60},
     { title: "Averge", value: 29},
@@ -34,7 +34,7 @@ export class PerformanceSummaryComponent {
     { title: "Master", value: 10}
   ];
 
-  values4: Coordiantes[] = [
+  values4: Coordinates[] = [
     { title: "At Risk", value: 12},
     { title: "Below Average", value:22},
     { title: "Averge", value: 4},

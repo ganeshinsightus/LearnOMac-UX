@@ -1,0 +1,220 @@
+<div class="row">
+        <div class="col s12 m12 l6">
+                <div class="card-profile bq-black">
+                        <span class="card-title bq-black-text">Assessment Summary
+                        </span>
+                        <div class="chart-list">
+                                <ul>
+                                        <li>
+                                                <div class="title left">
+                                                        Pre-requisive Standards Assessments
+                                                </div>
+                                                <span class="btn-black btn-change right">
+                                                        Update Knowledge Level
+                                                </span>
+
+                                                <div class="col s10">
+                                                        <stacked-bar-chart [values]="values1">
+                                                        </stacked-bar-chart>
+                                                </div>
+
+                                                <span class="btn-black btn-change right">
+                                                        View Details
+                                                </span>
+
+
+                                        </li>
+                                        <li>
+                                                <div class="title left">
+                                                        Post Lesson Assessments
+                                                </div>
+                                                <span class="btn-black btn-change right">
+                                                        Update Knowledge Level
+                                                </span>
+
+                                                <div class="col s10">
+                                                        <stacked-bar-chart [values]="values2">
+                                                        </stacked-bar-chart>
+                                                </div>
+
+                                                <span class="btn-black btn-change right">
+                                                        View Details
+                                                </span>
+
+
+
+                                        </li>
+                                        <li>
+                                                <div class="title left">
+                                                        Adhoc Assessments
+                                                </div>
+                                                <span class="btn-black btn-change right">
+                                                        Update Knowledge Level
+                                                </span>
+
+                                                <div class="col s10">
+                                                        <stacked-bar-chart [values]="values4">
+                                                        </stacked-bar-chart>
+                                                </div>
+
+                                                <span class="btn-black btn-change right">
+                                                        View Details
+                                                </span>
+
+                                        </li>
+
+                                </ul>
+
+                        </div>
+                </div>
+        </div>
+        <div class="col s12 m12 l6">
+                <div class="card-profile bq-orange">
+                        <span class="card-title bq-orange-text">Assignment Summary
+                                <a>
+                                        <span class="btn btn-orange create-new">Add New</span>
+                                </a>
+                        </span>
+                        <div class="assignment-list">
+                                <ul>
+                                        <li>
+                                                <div class="titles left">
+                                                        Assignment - Pre-requisive Standards
+                                                </div>
+
+                                                <div class="col s10">
+                                                        <stacked-bar-chart-level4 [values]="courses2"></stacked-bar-chart-level4>
+                                                </div>
+
+                                                <span class="btn-orange btn-change right">
+                                                        View Details
+                                                </span>
+
+
+                                        </li>
+                                        <li>
+                                                <div class="titles left">
+                                                        Assignment - Curicullum Lesson Standards
+                                                </div>
+
+                                                <div class="col s10">
+                                                        <stacked-bar-chart-level4 [values]="courses3"></stacked-bar-chart-level4>
+                                                </div>
+
+                                                <span class="btn-orange btn-change right">
+                                                        View Details
+                                                </span>
+                                        </li>
+                                        <li>
+                                                <div class="titles left">
+                                                        Assignment - Courses
+                                                </div>
+                                                <div class="col s10">
+                                                        <stacked-bar-chart-level4 [values]="courses1"></stacked-bar-chart-level4>
+                                                </div>
+                                                <span class="btn-orange btn-change right">
+                                                        View Details
+                                                </span>
+                                        </li>
+
+                                        <div *ngIf="showAssignment">
+                                                <li>
+                                                        <div class="titles left">
+                                                                Assignment - Mixed Standards
+                                                        </div>
+                                                        <div class="col s10">
+                                                                <stacked-bar-chart-level4 [values]="courses2"></stacked-bar-chart-level4>
+                                                        </div>
+                                                        <span class="btn-orange btn-change right">
+                                                                View Details
+                                                        </span>
+                                                </li>
+                                        </div>
+                                </ul>
+                        </div>
+                        <a class="badge-orange" style="margin: 2px;" (click)="showAssignment = !showAssignment">
+                                <p *ngIf="!showAssignment">
+                                        <mat-icon>more_horiz</mat-icon>
+                                </p>
+                                <p *ngIf="showAssignment">
+                                        <mat-icon>expand_less</mat-icon>
+                                </p>
+                        </a>
+                </div>
+        </div>
+        <div class="col s12 m12 l6">
+                <div class="card-profile bq-pink">
+                        <span class="card-title bq-pink-text">Courses
+                        </span>
+                        <div class="courses-list">
+                                <ul>
+                                        <li>
+                                                <div class="col s10">
+                                                        <stacked-bar-chart-level4 [values]="courses1"></stacked-bar-chart-level4>
+                                                </div>
+
+                                                <span class="btn-pink btn-change right">
+                                                        View Details
+                                                </span>
+
+
+                                        </li>
+                                </ul>
+                        </div>
+                        <a style="padding: 20px;">
+                                <span class="btn btn-pink right">Assign a new course</span>
+                        </a>
+                </div>
+
+        </div>
+        <div class="col s12 m12 l6">
+                <div class="card-profile bq-indigo">
+                        <span class="card-title bq-indigo-text">Projects / Activities
+                        </span>
+                        <div class="chart-list">
+                                <ul>
+                                        <li>
+                                                <div class="title left">
+                                                        Completed (5)
+                                                </div>
+                                                <span class="btn-indigo btn-change right">
+                                                        Update Knowledge Level
+                                                </span>
+
+                                                <div class="col s10">
+                                                        <stacked-bar-chart [values]="values4">
+                                                        </stacked-bar-chart>
+                                                </div>
+
+                                                <span class="btn-indigo btn-change right">
+                                                        View Details
+                                                </span>
+
+
+                                        </li>
+                                        <li>
+                                                <div class="title left">
+                                                        Assessment Pending (10)
+                                                </div>
+                                                <span class="btn-indigo btn-change right">
+                                                        Update Knowledge Level
+                                                </span>
+
+                                                <div class="col s10">
+                                                        <stacked-bar-chart [values]="values3">
+                                                        </stacked-bar-chart>
+                                                </div>
+
+                                                <span class="btn-indigo btn-change right">
+                                                        View Details
+                                                </span>
+
+                                        </li>
+
+                                </ul>
+
+                        </div>
+                </div>
+
+        </div>
+</div>

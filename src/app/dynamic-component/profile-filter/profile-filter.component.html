@@ -1,0 +1,46 @@
+<div class="dialog">
+    <span class="card-title">Filter
+        <a (click)="closeDialog()">
+            <span class="btn btn-danger right">
+                <mat-icon>clear</mat-icon>
+            </span>
+        </a>
+    </span>
+    <div class="collection">
+        <form [formGroup]="filterForm">
+            <div class="collection-item">
+                <label>Grade :</label>
+                <select formControlName="grade" class="dropdown">
+                    <option [ngValue]="''">Select Grade</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="collection-item">
+                <label>Section :</label>
+                <select formControlName="section" class="dropdown">
+                    <option [ngValue]="''">Select Section</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+            </div>
+            <div class="collection-item">
+                <label>Student :</label>
+                <select formControlName="student" class="dropdown">
+                    <option [ngValue]="''">Select Student</option>
+                    <option value="Rajesh">Rajesh</option>
+                    <option value="Suresh">Suresh</option>
+                    <option value="Ramesh">Ramesh</option>
+                    <option value="Ajith">Ajith</option>
+                    <option value="Vijay">Vijay</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
