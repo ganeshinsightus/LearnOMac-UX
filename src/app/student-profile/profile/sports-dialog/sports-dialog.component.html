@@ -1,0 +1,54 @@
+<div class="dialog">
+    <h5 class="card-title bq-pink-text">Add/Edit New Medals
+        <a (click)="closeDialog()">
+            <span class="btn btn-danger right">
+                <mat-icon>clear</mat-icon>
+            </span>
+        </a>
+    </h5>
+    <div class="collection">
+        <div class="collection-item">
+            <mat-form-field>
+                <mat-select placeholder="Medals">
+                    <mat-option [value]="1">Gold</mat-option>
+                    <mat-option [value]="2">Silver</mat-option>
+                    <mat-option [value]="3">Bronze</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="collection-item">
+            <mat-form-field>
+                <mat-select placeholder="Sports">
+                    <mat-option [value]="1">Cricket</mat-option>
+                    <mat-option [value]="2">Chess</mat-option>
+                    <mat-option [value]="3">Football</mat-option>
+                    <mat-option [value]="4">Basket Ball</mat-option>
+                    <mat-option [value]="5">Volley Ball</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="collection-item">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Competition Level">
+            </mat-form-field>
+        </div>
+        <div class="collection-item">
+                <mat-form-field>
+                        <input matInput [matDatepicker]="picker" placeholder="Received on">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+        </div>
+        <div class="collection-item">
+            <div class="col s12 right">
+                <span class="btn btn-success">
+                    Save
+                </span>
+                <span class="btn btn-danger" (click)="closeDialog()">
+                    Cancel
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>

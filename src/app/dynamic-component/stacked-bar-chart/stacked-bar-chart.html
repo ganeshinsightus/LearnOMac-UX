@@ -1,0 +1,6 @@
+<div class="progress progress-stacked" #progresscontainer>
+    <span class="bg-red"  mat-raised-button matTooltip="Low performing ({{values[0].value}})" (click)="openAtRiskDialog()"></span>
+    <span class="bg-yellow" mat-raised-button matTooltip="Satisfactory ({{values[1].value}})"></span>
+    <span class="bg-blue" mat-raised-button matTooltip="Above average ({{values[2].value}})"></span>
+    <span class="bg-green" mat-raised-button matTooltip="Mastered ({{values[3].value}})"></span>
+</div>

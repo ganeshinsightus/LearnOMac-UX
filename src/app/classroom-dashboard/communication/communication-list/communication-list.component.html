@@ -1,0 +1,40 @@
+<div class="row card bq-indigo">
+    <div class="col l12">
+        <h5 class="title bq-text-indigo">
+            Communication List
+            <span class="btn btn-indigo right" (click)="onBack()">Back</span>
+        </h5>
+        <span class="col l4 right">
+                <select class="dropdown col l8">
+                        <option value="default" selected="selected">Select Message Type</option>
+                        <option value="Messages">
+                            Messages
+                        </option>
+                        <option value="Notifications">
+                            Notifications
+                        </option>
+                    </select>&nbsp;
+                    <select class="dropdown col l3 right">
+                            <option value="inbox" selected="selected">
+                                Inbox
+                            </option>
+                            <option value="sent">
+                                Sent
+                            </option>
+                        </select>
+        </span>
+      
+           
+        <div class="col l12">
+            <div class="grid">
+                <ag-grid-angular class="ag-theme-balham" style="width: 100%;
+                            height: 70vh;margin-left: 0px;" [enableSorting]="true" [enableFilter]="false" [rowData]="rowData"
+                    [columnDefs]="columnDefs" rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true"
+                    [suppressMenuColumnPanel]="true" [floatingFilter]="true" 
+                    [enableColResize]="true"
+                    (cellClicked)="onCellClicked($event)">
+                </ag-grid-angular>
+            </div>
+        </div>
+    </div>
+</div>

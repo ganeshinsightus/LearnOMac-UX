@@ -3,28 +3,34 @@ import { Observable, BehaviorSubject } from "rxjs";
 
 @Injectable()
 export class FilterService {
-    private showClassroomFilter:boolean;
-    private showStudentProfileFilter:boolean;
-    private showStudentPerformanceFilter:boolean;
-    private classroomPath:string = "";
+    private activateFilter:boolean;
+    private filterPath:string = "";
     
     get isShowFilter(){
-       return this.showClassroomFilter = true;
+       return this.activateFilter = true;
     }
 
-    get isClassroomPath(){
-        return this.classroomPath = "/classroom";
+    get isClassroomDashboardPath(){
+        return this.filterPath = "/classroom/dashboard";
+    }
+
+    get isClassroomPerformancePath(){
+        return this.filterPath = "/classroom/performance";
+    }
+
+    get isClassroomPerformanceDetailedViewPath(){
+        return this.filterPath = "/classroom/performance/detailed-view";
     }
 
     get isStudentProfilePath(){
-        return this.classroomPath = "/student/profile";
+        return this.filterPath = "/student/profile";
     }
 
     get isStudentPerformancePath(){
-        return this.classroomPath = "/student/performance";
+        return this.filterPath = "/student/performance";
     }
 
     get isStudentCommunicationPath(){
-        return this.classroomPath = "/student/communication";
+        return this.filterPath = "/student/parent-communication";
     }
 }

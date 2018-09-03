@@ -21,7 +21,7 @@
       </a>
     </div>
     <div>
-      <a [routerLink]="['/classroom']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
+      <a [routerLink]="['/classroom/dashboard']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
         <i>
           <mat-icon>dashboard</mat-icon>
         </i>
@@ -71,12 +71,22 @@
       </a>
     </div>
     <div>
-      <a [routerLink]="['classperformance']" [routerLinkActive]="'active'">
+      <a [routerLink]="['classroom/performance']" [routerLinkActive]="'active'">
         <i>
           <mat-icon>insert_chart</mat-icon>
         </i>
         <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
           Class Performance
+        </span>
+      </a>
+    </div>
+    <div>
+      <a [routerLink]="['/assessment']" [routerLinkActive]="'active'">
+        <i>
+          <mat-icon>dashboard</mat-icon>
+        </i>
+        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+          Assessment
         </span>
       </a>
     </div>
@@ -100,7 +110,6 @@
         </span>
       </a>
     </div>
-
 
   </mat-drawer>
   <!--Sidenav bar-->

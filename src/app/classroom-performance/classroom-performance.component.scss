@@ -1,0 +1,88 @@
+@import "../../styles/variables";
+@import "../../styles/common";
+.row {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+.col {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+ul{
+  margin: 0;
+}
+.card {
+  height: calc(87.3vh);
+  margin: 10px;
+  padding: 10px;
+  font-family: sans-serif;
+  box-shadow: 0 2px 5px 0 rgba(20, 6, 6, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border: 0;
+  font-weight: 400;
+  overflow: auto;
+}
+.title{
+  font-family: sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 8px 0;
+ }
+.collection a.collection-item {
+  color: $color-contentgrey;
+}
+.icon {
+  padding-right: 10px;
+}
+.chart-list {
+  .title {
+    font-size: 15px;
+    font-family: sans-serif;
+    color: $color-contentgrey;
+    line-height: 38px;
+    font-weight: 500;
+  }
+}
+.btn-change{
+  font-size: 11px;
+  margin:0 0.5pc;
+}
+.btn-changes{
+  font-size: 11px;
+  margin:10px 0.5pc !important;
+}
+
+.card-profile {
+  height: calc(40vh);
+  margin: 5px;
+  padding: 9px;
+  font-family: sans-serif;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border: 0;
+  font-weight: 400;
+  overflow: auto;
+}
+.card-title {
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+  font-size: 18px;
+  text-transform: uppercase;
+  span {
+    font-size: 11px;
+    float: right;
+    margin-right: 2px;
+  }
+}
+.collection a.collection-item {
+  color: $color-contentgrey;
+}
+.assignment-list{
+  padding-top: 30px;
+}
+sup{
+  padding: 2px;
+  border-radius: 5px;
+}

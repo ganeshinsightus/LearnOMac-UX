@@ -1,0 +1,39 @@
+<div class="dialog">
+        <h5 class="card-title bq-pink-text">Step by step probability
+                <a (click)="closeDialog()">
+                        <span class="btn btn-danger right">
+                                <mat-icon>clear</mat-icon>
+                        </span>
+                </a>
+        </h5>
+        <div class="collection">
+                <div class="">
+                        <mat-form-field>
+                                <input matInput [matDatepicker]="picker" placeholder="Select Due Date">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                </div>
+                <div class="">
+                        <mat-form-field class="example-full-width">
+                                <input type="number" matInput placeholder="Assignees Count" value="01">
+                        </mat-form-field>
+                </div>
+                <div class="">
+                        <div [formGroup]="searchUserForm">
+                                <mat-select placeholder="Add More Students" class="dropdown" formControlName="student" multiple>
+                                        <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">Select All</mat-option>
+                                        <mat-option *ngFor="let student of studentFilters" [value]="student.key">
+                                                {{student.value}}
+                                        </mat-option>
+                                </mat-select>
+                        </div>
+                        <br>
+                        <div class="col s12 right">
+                                <span class="btn btn-success">
+                                        Publish
+                                </span>
+                        </div>
+                </div>
+        </div>
+</div>

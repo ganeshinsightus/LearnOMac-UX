@@ -1,6 +1,6 @@
 <div class="row">
         <div class="col s12 m12 l6">
-                <div class="card-profile bq-black" style="padding-top: 40px;padding-left: 100px">
+                <div class="card-profile bq-purple" style="padding-top: 40px;padding-left: 100px">
                         <div class="col s6 m6 l4 left">
                                 <img class="img-rounded" src="../assets/images/profile1.png" alt="student picture">
                         </div>
@@ -17,8 +17,8 @@
                 </div>
         </div>
         <div class="col s12 m12 l6">
-                <div class="card-profile bq-orange">
-                        <span class="card-title bq-orange-text">Learning Style
+                <div class="card-profile bq-green">
+                        <span class="card-title bq-green-text">Learning Style
                         </span>
                         <div class="profile-content">
 
@@ -29,54 +29,57 @@
         <div class="col s12 m12 l6">
                 <div class="card-profile bq-pink">
                         <span class="card-title bq-pink-text">Achievements
-                                <a>
-                                        <span class="btn btn-pink create-new">Add New</span>
-                                </a>
                         </span>
                         <div class="profile-content">
-
                                 <ul>
-                                        <li class="row list-items">
+                                        <li>
                                                 <span class="left">
-                                                        <b>Academic</b> :
-
+                                                        <b>Academic</b>
                                                 </span>
-                                                <span class="badge-pink right icon">
+                                                <span class="badge-pink right icon" (click)="openAcademicDialog()">
                                                         <mat-icon>add_circle</mat-icon>
                                                 </span>
-                                                <p>80 badges earned</p>
-                                        </li>
-                                        <li class="row list-items">
-                                                <span class="left">
-                                                        <b>Sports</b> :
-
+                                                <span class="badge-pink right icon" (click)="openAcademicList()">
+                                                        <mat-icon>visibility</mat-icon>
                                                 </span>
-                                                <span class="badge-pink right icon">
+                                                <div style="padding: 24px 0;padding-bottom: 8px;">80 badges earned</div>
+                                        </li>
+                                        <li>
+                                                <span class="left">
+                                                        <b>Sports</b>
+                                                </span>
+                                                <span class="badge-pink right icon" (click)="openSportsDialog()">
                                                         <mat-icon>add_circle</mat-icon>
                                                 </span>
-                                                <p>20 medals won</p>
-                                        </li>
-                                        <div *ngIf="showScrolls">
-                                                <li class="row list-items">
-                                                        <span class="left">
-                                                                <b>Awards</b> :
+                                                <span class="badge-pink right icon" (click)="openSportsList()">
+                                                        <mat-icon>visibility</mat-icon>
+                                                </span>
+                                                <div style="padding: 24px 0;padding-bottom: 8px;">20 medals won</div>
 
-                                                        </span>
-                                                        <span class="badge-pink right icon">
-                                                                <mat-icon>add_circle</mat-icon>
-                                                        </span>
-                                                        <p>4 awards</p>
-                                                </li>
-                                        </div>
+                                        </li>
+                                        <li>
+                                                <span class="left">
+                                                        <b>Awards</b>
+                                                </span>
+                                                <span class="badge-pink right icon" (click)="openAwardDialog()">
+                                                        <mat-icon>add_circle</mat-icon>
+                                                </span>
+                                                <span class="badge-pink right icon" (click)="openAwardsList()">
+                                                        <mat-icon>visibility</mat-icon>
+                                                </span>
+                                                <div style="padding: 24px 0;padding-bottom: 8px;">4 awards</div>
+                                        </li>
+
+
                                 </ul>
-                                <a class="badge-pink" (click)="showScrolls = !showScrolls">
+                                <!-- <a class="badge-pink" (click)="showScrolls = !showScrolls">
                                         <p *ngIf="!showScrolls">
                                                 <mat-icon>more_horiz</mat-icon>
                                         </p>
                                         <p *ngIf="showScrolls">
                                                 <mat-icon>expand_less</mat-icon>
                                         </p>
-                                </a>
+                                </a> -->
                         </div>
                 </div>
 
@@ -84,59 +87,32 @@
         <div class="col s12 m12 l6">
                 <div class="card-profile bq-indigo">
                         <span class="card-title bq-indigo-text">Interests
-                                <a>
-                                        <span class="btn btn-indigo create-new" (click)="openCommunicationList()">Add New</span>
+                                <a (click)="openInterestsDialog()">
+                                        <span class="btn btn-indigo create-new" (click)="openInterestsList()">Add New</span>
                                 </a>
                         </span>
                         <div class="profile-content">
-
                                 <ul>
                                         <li class="row">
                                                 <span class="left">
-                                                        <b>Book Reading</b> :
-
+                                                        <b>Book Reading</b><br><br>
                                                 </span>
-                                                <br>
-                                                <p>4 books
-                                                        <span class="right icon badge-indigo">
-                                                                <mat-icon>add_circle</mat-icon>
-                                                        </span>
-                                                </p>
-
-                                                <p>2 comments
-                                                        <span class="right icon badge-indigo">
-                                                                <mat-icon>add_circle</mat-icon>
-                                                        </span>
-                                                </p>
+                                                
                                         </li>
-                                        <div *ngIf="showScroll">
-                                                <li class="row">
-                                                        <span class="left">
-                                                                <b>Arts</b> :
+                                        <li class="row">
+                                                <span class="left">
+                                                        <b>Sports</b><br><br>
+                                                </span>
 
-                                                        </span>
-                                                        <br>
-                                                        <p>2 Arts
-                                                                <span class="right icon badge-indigo">
-                                                                        <mat-icon>add_circle</mat-icon>
-                                                                </span>
-                                                        </p>
-                                                        <p>2 comments
-                                                                <span class="right icon badge-indigo">
-                                                                        <mat-icon>add_circle</mat-icon>
-                                                                </span>
-                                                        </p>
-                                                </li>
-                                        </div>
+                                        </li>
+                                        <li class="row">
+                                                <span class="left">
+                                                        <b>Arts</b><br><br>
+                                                </span>
+                                                
+                                        </li>
                                 </ul>
-                                <a class="badge-indigo" (click)="showScroll = !showScroll">
-                                        <p *ngIf="!showScroll">
-                                                <mat-icon>more_horiz</mat-icon>
-                                        </p>
-                                        <p *ngIf="showScroll">
-                                                <mat-icon>expand_less</mat-icon>
-                                        </p>
-                                </a>
+
                         </div>
                 </div>
 

@@ -9,6 +9,6 @@ export class StudentProfileComponent {
     tabLinks = [
         { path: 'profile', label: 'Profile' },
         { path: 'performance', label: 'Performance' },
-        { path: 'communication', label: 'Communication' },
+        { path: 'parent-communication', label: 'Parent Communication' },
       ];
 }

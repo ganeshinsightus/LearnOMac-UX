@@ -1,0 +1,265 @@
+<div class="row card bq-lightslategrey">
+    <div class="col s12 m6 l6">
+        <div class="card-profile bq-brown">
+            <span class="card-title bq-brown-text">Class Performance Summary - Probability
+            </span>
+            <div class="assignment-list">
+                <ul>
+                    <li>
+                        <div class="col s7" style="padding-left: 2px;padding-top: 10px;">
+                            <doughnut-chart-level5></doughnut-chart-level5>
+                        </div>
+                        <div style="padding: 60px;">
+                            <span class="badge-brown btn-change right" mat-raised-button matTooltip="Update Knowledge Level" (click)="openClassUpdate()">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-brown btn-change right" mat-raised-button (click)="openClassDetails()" matTooltip="View Details">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12 m6 l6">
+        <div class="card-profile bq-purple">
+            <span class="card-title bq-purple-text">Pre-requisite Standards Class Performance Summary
+                <div class="chart-list">
+                    <ul>
+                        <li>
+                            <div class="title left">
+                                Grade 4 - Unit I - Probability . Basics
+                            </div>
+                            <div class="col s10">
+                                <stacked-bar-chart [values]="values1">
+                                </stacked-bar-chart>
+                            </div>
+                            <div>
+                                <span class="badge-purple btn-change right" mat-raised-button matTooltip="Update Knowledge Level" (click)="openStandardUpdate()">
+                                    <mat-icon>border_color</mat-icon>
+                                </span>
+                                <span class="badge-purple btn-change right" mat-raised-button (click)="openStandardDetails()" matTooltip="View Details">
+                                    <mat-icon>visibility</mat-icon>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title left">
+                                Grade 4 - Unit II - Probability . Introduction
+                            </div>
+                            <div class="col s10">
+                                <stacked-bar-chart [values]="values5">
+                                </stacked-bar-chart>
+                            </div>
+                            <span class="badge-purple btn-change right" mat-raised-button matTooltip="Update Knowledge Level" (click)="openStandardUpdate()">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-purple btn-change right" mat-raised-button (click)="openStandardDetails()" matTooltip="View Details">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </li>
+                        <div *ngIf="showScroll1">
+                            <li>
+                                <div class="title left">
+                                    Grade 8 - Unit II - Probability . Advanced
+                                </div>
+                                <div class="col s10">
+                                    <stacked-bar-chart [values]="values4">
+                                    </stacked-bar-chart>
+                                </div>
+                                <span class="badge-purple btn-change right" mat-raised-button matTooltip="Update Knowledge Level" (click)="openStandardUpdate()">
+                                    <mat-icon>border_color</mat-icon>
+                                </span>
+                                <span class="badge-purple btn-change right" mat-raised-button (click)="openStandardDetails()" matTooltip="View Details">
+                                    <mat-icon>visibility</mat-icon>
+                                </span>
+                            </li>
+                        </div>
+                    </ul>
+                    <div class="col s12 right">
+                        <a class="badge-purple" (click)="showScroll1 = !showScroll1">
+                            <p *ngIf="!showScroll1">
+                                <mat-icon>more_horiz</mat-icon>
+                            </p>
+                            <p *ngIf="showScroll1">
+                                <mat-icon>expand_less</mat-icon>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    <div class="col s12 m6 l6">
+        <div class="card-profile bq-green">
+            <span class="card-title bq-green-text">Publish Learning Paths
+                <div class="chart-list">
+                    <ul>
+                        <li>
+                            <div class="title left">
+                                Grade 4 - Unit I - Probability . Basics
+                                <sup class="btn-green">Pre-requisite</sup>
+                            </div>
+                            <div>
+                                <span class="badge-green btn-changes right" mat-raised-button (click)="openLearningPathPublish()" matTooltip="View Details and Publish">
+                                    <mat-icon>note_add</mat-icon>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title left">
+                                Grade 6 - Unit II - Probability . Introduction
+                                <sup class="btn-green">Pre-requisite</sup>
+                            </div>
+                            <span class="badge-green btn-changes right" mat-raised-button (click)="openLearningPathDetails()" matTooltip="View Details">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </li>
+                        <li>
+                            <div class="title left">
+                                Grade 8 - Unit II - Probability . Advanced
+                                <sup class="btn-green">Curiculum</sup>
+                            </div>
+                            <span class="badge-green btn-changes right" mat-raised-button (click)="openLearningPathPublish()" matTooltip="View Details and Publish">
+                                <mat-icon>note_add</mat-icon>
+                            </span>
+                        </li>
+                        <div *ngIf="showScroll2">
+                            <li>
+                                <div class="title left">
+                                    Grade 4 - Unit I - Probability . Basics
+                                    <sup class="btn-green">Pre-requisite</sup>
+                                </div>
+                                <div>
+                                    <span class="badge-green btn-changes right" mat-raised-button matTooltip="View Details and Publish" (click)="openUpdateList()">
+                                        <mat-icon>note_add</mat-icon>
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="title left">
+                                    Grade 4 - Unit II - Probability . Introduction
+                                    <sup class="btn-green">Curriculum</sup>
+                                </div>
+                                <span class="badge-green btn-changes right" mat-raised-button matTooltip="View Details and Publish" (click)="openUpdateList()">
+                                    <mat-icon>note_add</mat-icon>
+                                </span>
+                            </li>
+                            <li>
+                                <div class="title left">
+                                    Grade 8 - Unit II - Probability . Advanced
+                                    <sup class="btn-green">Curiculum</sup>
+                                </div>
+
+                                <span class="badge-green btn-changes right" mat-raised-button (click)="openLearningPathDetails()" matTooltip="View Details">
+                                    <mat-icon>visibility</mat-icon>
+                                </span>
+                            </li>
+                        </div>
+                    </ul>
+                    <div class="col s12 right">
+                        <a class="badge-green" (click)="showScroll2 = !showScroll2">
+                            <p *ngIf="!showScroll2">
+                                <mat-icon>more_horiz</mat-icon>
+                            </p>
+                            <p *ngIf="showScroll2">
+                                <mat-icon>expand_less</mat-icon>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    <div class="col s12 m6 l6">
+        <div class="card-profile bq-indigo">
+            <span class="card-title bq-indigo-text">Projects / Activities - Probability
+                <div class="chart-list">
+                    <ul>
+                        <li>
+                            <div class="title left col s12">
+                                Activity 1
+                            </div>
+                            <div class="col s10">
+                                <stacked-bar-chart-level5 [projectvalues]="project_values1">
+                                </stacked-bar-chart-level5>
+                            </div>
+                            <div>
+                                <span class="badge-indigo btn-change right" mat-raised-button matTooltip="Update Knowledge Level" (click)="openProjectListUpdate()">
+                                    <mat-icon>border_color</mat-icon>
+                                </span>
+                                <span class="badge-indigo btn-change right" mat-raised-button (click)="openProjectList()" matTooltip="View Details">
+                                    <mat-icon>visibility</mat-icon>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="title left col s12">
+                                Activity 2 (Not Yet Assessed)
+                            </div>
+                            <div class="col s10">
+                                <stacked-bar-chart-level5 [projectvalues]="project_values3">
+                                </stacked-bar-chart-level5>
+                            </div>
+                            <div>
+                                <span class="badge-indigo btn-change right" mat-raised-button matTooltip="Update Knowledge Level" (click)="openProjectListUpdate()">
+                                    <mat-icon>border_color</mat-icon>
+                                </span>
+                                <span class="badge-indigo btn-change right" mat-raised-button (click)="openProjectList()" matTooltip="View Details">
+                                    <mat-icon>visibility</mat-icon>
+                                </span>
+                            </div>
+
+                        </li>
+                        <div *ngIf="showScroll">
+                            <li>
+                                <div class="title left col s12">
+                                    Activity 3 (Not Yet Published)
+                                </div>
+                                <div class="col s10">
+                                    <stacked-bar-chart-level5 [projectvalues]="project_values4">
+                                    </stacked-bar-chart-level5>
+                                </div>
+
+                                <span class="badge-indigo btn-change right" mat-raised-button matTooltip="View Details and Publish" (click)="openUpdateList()">
+                                    <mat-icon>note_add</mat-icon>
+                                </span>
+                            </li>
+                            <li>
+                                <div class="title left col s12">
+                                    Activity 4
+                                </div>
+                                <div class="col s10">
+                                    <stacked-bar-chart-level5 [projectvalues]="project_values2">
+                                    </stacked-bar-chart-level5>
+                                </div>
+                                <div>
+                                    <span class="badge-indigo btn-change right" mat-raised-button matTooltip="Update Knowledge Level" (click)="openProjectListUpdate()">
+                                        <mat-icon>border_color</mat-icon>
+                                    </span>
+                                    <span class="badge-indigo btn-change right" mat-raised-button (click)="openProjectList()" matTooltip="View Details">
+                                        <mat-icon>visibility</mat-icon>
+                                    </span>
+                                </div>
+                            </li>
+                        </div>
+                    </ul>
+                    <div class="col s12 right">
+                        <a class="badge-indigo" (click)="showScroll = !showScroll">
+                            <p *ngIf="!showScroll">
+                                <mat-icon>more_horiz</mat-icon>
+                            </p>
+                            <p *ngIf="showScroll">
+                                <mat-icon>expand_less</mat-icon>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>

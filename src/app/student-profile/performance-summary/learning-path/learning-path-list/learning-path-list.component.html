@@ -1,0 +1,33 @@
+<div class="row card bq-green">
+    <div class="col l12 m12 s12">
+        <h5 class="card-title bq-green-text">
+            <!-- Prerequisite Standards , -->
+            <!-- Curiculum Lesson Standard -->
+            Learning Paths 
+            <span class="btn btn-green " (click)="onBack()">Back</span>
+            <span class="col l7" style="margin-top:-9px;">
+                <select class="dropdown col l5 right">
+                    <option value="default" selected="selected">Select Learning Path</option>
+                    <option value="1">
+                        Prerequisite Standard
+                    </option>
+                    <option value="2">
+                        Curiculum Lesson Standard
+                    </option>
+                </select>&nbsp;
+            </span>
+
+        </h5>
+        <br>
+        <div class="col l12 m12 s12" style="padding: 0">
+            <div class="grid">
+                <ag-grid-angular class="ag-theme-balham" style="width: 100%;
+                                height: 70vh;margin-left: 0px;" [enableSorting]="true" [enableFilter]="false" [rowData]="rowData"
+                    [columnDefs]="columnDefs" rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true"
+                    [enableColResize]="true"
+                    [suppressMenuColumnPanel]="true" [floatingFilter]="true" (cellClicked)="onCellClicked($event)">
+                </ag-grid-angular>
+            </div>
+        </div>
+    </div>
+</div>

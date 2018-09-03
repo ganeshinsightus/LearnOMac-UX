@@ -1,0 +1,22 @@
+<div class="row card bq-indigo">
+    <div class="col l12">
+        <h5 class="title bq-text-indigo">
+            Messages
+            <span class="btn btn-indigo right" (click)="onBack()">Back</span>
+        </h5>
+        <div class="grid">
+            <ag-grid-angular class="ag-theme-balham" style="width: 100%;
+            height: 71vh;margin-left: 0px;" [enableSorting]="true" [enableFilter]="false" [rowData]="rowData" [columnDefs]="columnDefs"
+            rowSelection="multiple"
+            [suppressContextMenu]="true"
+            [suppressMenuMainPanel]="true"
+            [suppressMenuColumnPanel]="true"
+            [enableColResize]="true"
+            [floatingFilter]="true"
+            (rowClicked)="onRowClicked($event)"
+            >
+            </ag-grid-angular>
+        </div>
+
+    </div>
+</div>

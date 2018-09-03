@@ -1,0 +1,46 @@
+<div class="dialog">
+    <h5 class="card-title bq-indigo-text">Add New Interest(s)
+        <a (click)="closeDialog()">
+            <span class="btn btn-danger right">
+                <mat-icon>clear</mat-icon>
+            </span>
+        </a>
+    </h5>
+    <div class="collection">
+        <div class="collection-item">
+            <div class="col s12">
+                <mat-form-field class="example-full-width">
+                    <input type="search" matInput placeholder="Search interests">
+                </mat-form-field>
+            </div>
+            <div class="col s12">
+                <mat-checkbox>Book Reading</mat-checkbox> &nbsp;
+                <mat-checkbox>Arts</mat-checkbox>&nbsp;
+                <mat-checkbox>Sports</mat-checkbox>&nbsp;
+                <mat-checkbox>Enterpreneurship</mat-checkbox><br>
+                <mat-checkbox>Martial Arts</mat-checkbox> &nbsp;
+                <mat-checkbox>Engineering</mat-checkbox>&nbsp;
+                <mat-checkbox>Yoga</mat-checkbox>&nbsp;
+                <mat-checkbox>Advanced Mathematics</mat-checkbox><br>
+                <mat-checkbox>Science and Technology</mat-checkbox> &nbsp;
+                <mat-checkbox>Environment</mat-checkbox>&nbsp;
+                <mat-checkbox>Economics</mat-checkbox>&nbsp;
+                <mat-checkbox>Politics</mat-checkbox><br>
+                <mat-checkbox>Social Sciences</mat-checkbox> &nbsp;
+                <mat-checkbox>Foreign Affairs</mat-checkbox>&nbsp;
+            </div>
+
+        </div>
+        <div class="collection-item">
+            <div class="col s12 right">
+                <span class="btn btn-success">
+                    Save
+                </span>
+                <span class="btn btn-danger" (click)="closeDialog()">
+                    Cancel
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>

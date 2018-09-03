@@ -75,13 +75,14 @@
   span {
     font-size: 11px;
     float: right;
+    margin-right: 2px;
   }
 }
 .collection a.collection-item {
   color: $color-contentgrey;
 }
 .icon {
-  padding-right: 30px;
+  padding-right: 10px;
 }
 .chart-list {
   .title {
@@ -94,6 +95,7 @@
 .btn-change{
   font-size: 12px;
   padding: 3px;
+  margin-right: 0.5pc;
 }
 .assignment-list{
   .titles {
@@ -105,4 +107,14 @@
 }
 .courses-list{
  padding: 40px 0;
+}
+.collection a.collection-item {
+  color: $color-contentgrey;
+}
+.btn {
+  font-size: 11px;
+}
+sup {
+  padding: 2px;
+  border-radius: 20px;
 }
