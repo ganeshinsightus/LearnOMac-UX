@@ -33,4 +33,20 @@ export class FilterService {
     get isStudentCommunicationPath(){
         return this.filterPath = "/student/parent-communication";
     }
+
+    get isLessonPlanPath(){
+        return this.filterPath = "/lesson/plans";
+    }
+    
+    get isLessonTrackingPath(){
+        return this.filterPath = "/lesson/tracking";
+    }
+
+    get isAssessmentPath(){
+        return this.filterPath = "/lesson/assessments";
+    }
+
+    get isAttendancePath(){
+        return this.filterPath = "/attendance";
+    }
 }

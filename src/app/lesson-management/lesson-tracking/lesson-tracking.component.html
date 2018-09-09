@@ -1,0 +1,144 @@
+<div class="col l12 m12 s12" style="padding-top:10px;">
+    <mat-accordion>
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+            <mat-expansion-panel-header class="btn btn-lightgreen">
+                <mat-panel-title>
+                    Lesson Progress Summary
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+
+            </mat-expansion-panel-header>
+
+            <div class="col l6 m6 s12 content-panel">
+                <ul>
+                    <li>
+                            Lesson started on 29/9/19
+                    </li>
+                    <li>
+                            Published pre-requisite standards assessments
+                    </li>
+                    <li>
+                            Republished post lesson assessments
+                    </li>
+                    <li>
+                            Activity 1 was published
+                    </li>
+                </ul>
+                   
+                </div>
+
+            <div class="col l6 m6 s12 content-panel" style="text-align:center;">
+                <span>
+                    Total Number of lessons                                   <span class="btn btn-blue">20</span>
+                </span>
+                &nbsp;
+                <span>
+                    Completed <span class="btn btn-green">10</span>
+                </span>
+                &nbsp;
+                <span>
+                    Revision Required <span class="btn btn-danger">5</span>
+                </span>
+                &nbsp;
+                <span>
+                    Revision Completed <span class="btn btn-green">5</span>
+                </span>
+            </div>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="btn btn-warning">
+                <mat-panel-title>
+                    Update Lesson Status
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="content-panel">
+                <mat-checkbox>
+                    Lesson Started
+                </mat-checkbox>
+                <br>
+                <mat-checkbox>
+                    Lesson Completed
+                </mat-checkbox>
+                <br>
+                <mat-checkbox>
+                    Revision Required
+                </mat-checkbox>
+                <br>
+                <mat-checkbox>
+                    Revision Completed
+                </mat-checkbox>
+                <br>
+            </div>
+
+            <mat-action-row>
+                <span class="btn btn-green right">
+                    Save
+                </span>
+            </mat-action-row>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="btn btn-blue">
+                <mat-panel-title>
+                    Publish Assessments
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="content-panel">
+                Pre-requisite Standards Assessments
+
+                <span class="btn btn-green right">
+                    Publish
+                </span>
+                <br> Post Lesson Assessments
+                <span class="btn btn-green right">
+                    Publish
+                </span>
+            </div>
+
+
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="btn btn-lightslategrey">
+                <mat-panel-title>
+                    Publish Projects / Activities
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="content-panel">
+                <mat-checkbox>
+                    Activity 1
+                </mat-checkbox>
+                <br>
+                <mat-checkbox>
+                    Activity 2
+                </mat-checkbox>
+                <br>
+                <mat-checkbox>
+                    Activity 3
+                </mat-checkbox>
+                <br>
+                <mat-checkbox>
+                    Activity 4
+                </mat-checkbox>
+            </div>
+
+            <mat-action-row>
+                <span class="btn btn-green right">
+                    Publish
+                </span>
+            </mat-action-row>
+
+
+        </mat-expansion-panel>
+
+    </mat-accordion>
+</div>

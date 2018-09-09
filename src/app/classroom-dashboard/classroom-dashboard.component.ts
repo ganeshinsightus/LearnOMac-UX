@@ -16,8 +16,9 @@ export class ClassroomDashboardComponent {
   openDialog() {
     this.filterPopupDialogRef = this.dialog.open(ClassroomFilterComponent, {
       width: "30%",
-      height: "57vh"
+      height: "60vh"
     });
+    this.filterPopupDialogRef.componentInstance.showClassroom = true;
     this.filterPopupDialogRef.disableClose = true;
   }
 }

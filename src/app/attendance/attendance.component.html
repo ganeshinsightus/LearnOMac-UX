@@ -1,0 +1,127 @@
+<div class="card bq-orange">
+    <div class="col l12 m12 s12 title bq-orange-text">
+        <h5>Attendance
+            <span class="btn btn-orange right">
+                Students List
+            </span>
+            <span class="btn btn-orange right" style="margin-right:42px;">
+                Select All
+            </span>
+        </h5>
+    </div>
+    <div class="calendar col l8 m8 s12 left">
+        <jqx-calendar></jqx-calendar>
+    </div>
+
+    <div class="col l3 m3 s12 student-list right">
+        <div class="collection">
+            <div class="collection-item valign-wrapper">
+                <div class="col s2">
+                    <img src="../assets/images/profile1.png" alt="" class="circle responsive-img">
+                </div>
+                <div class="col s10 right">
+                    <mat-checkbox [labelPosition]="'before'">
+                        Aravind Raja
+                    </mat-checkbox>
+                </div>
+            </div>
+            <div class="collection-item valign-wrapper">
+                <div class="col s2">
+                    <img src="../assets/images/profile2.png" alt="" class="circle responsive-img">
+                </div>
+                <div class="col s10 right">
+                    <mat-checkbox [labelPosition]="'before'">
+                        Bala Abirami
+                    </mat-checkbox>
+                </div>
+            </div>
+            <div class="collection-item valign-wrapper">
+                <div class="col s2">
+                    <img src="../assets/images/profile1.png" alt="" class="circle responsive-img">
+                </div>
+                <div class="col s10 right">
+                    <mat-checkbox [labelPosition]="'before'">
+                        Daniel Joseph
+                    </mat-checkbox>
+                </div>
+            </div>
+            <div class="collection-item valign-wrapper">
+                <div class="col s2">
+                    <img src="../assets/images/profile2.png" alt="" class="circle responsive-img">
+                </div>
+                <div class="col s10 right">
+                    <mat-checkbox [labelPosition]="'before'">
+                        Eswari Raj
+                    </mat-checkbox>
+                </div>
+            </div>
+            <div class="collection-item valign-wrapper">
+                <div class="col s2">
+                    <img src="../assets/images/profile2.png" alt="" class="circle responsive-img">
+                </div>
+                <div class="col s10 right">
+                    <mat-checkbox [labelPosition]="'before'">
+                        Fathima Faizal
+                    </mat-checkbox>
+                </div>
+            </div>
+            <div class="collection-item valign-wrapper">
+                <div class="col s2">
+                    <img src="../assets/images/profile2.png" alt="" class="circle responsive-img">
+                </div>
+                <div class="col s10 right">
+                    <mat-checkbox [labelPosition]="'before'">
+                        Gayathri Raguram
+                    </mat-checkbox>
+                </div>
+            </div>
+            <div class="collection-item valign-wrapper">
+                <div class="col s2">
+                    <img src="../assets/images/profile1.png" alt="" class="circle responsive-img">
+                </div>
+                <div class="col s10 right">
+                    <mat-checkbox [labelPosition]="'before'">
+                        Halim Hazaan
+                    </mat-checkbox>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-calendar col l8 m8 s12 left">
+        <h5 class="card-title">Attendance Summary</h5>
+        <div class="row">
+            <div class="col l4 m4 s4 count">
+                25 <br>
+                <span class="btn-blue count-span">
+                    Total Number of Students
+                </span>
+            </div>
+            <div class="col l4 m4 s4 count">
+                20 <br>
+                <span class="btn-success count-span">
+                    Presents
+                </span>
+            </div>
+            <div class="col l4 m4 s4 count">
+                <a (click)="openViewAbsentees()">
+                    05
+                </a>
+                <br>
+                <span class="btn-danger count-span">
+                    Absents
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col l3 m3 s12 student-actions right">
+        <span class="btn btn-success" style="margin-right:10px">
+            Save
+        </span>
+        <span class="btn btn-danger">
+            Cancel
+        </span>
+    </div>
+
+</div>

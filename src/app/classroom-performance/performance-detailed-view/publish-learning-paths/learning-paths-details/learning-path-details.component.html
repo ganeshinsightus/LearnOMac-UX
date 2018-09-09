@@ -5,15 +5,15 @@
       Mathematics - Unit 1 - Probability - Advanced
       <span class="btn btn-green right" (click)="onBack()">Back</span>
     </h5>
-    <div class="col l12 m12">
+    <div class="col l12 m12 s12">
       <mat-horizontal-stepper [linear]="isLinear" #stepper>
         <mat-step [stepControl]="firstFormGroup">
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Learning Artifacts</ng-template>
-            <div class="row card ">
+            <div class="row card">
               <mat-accordion>
                 <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
-                  <mat-expansion-panel-header class="btn-green">
+                  <mat-expansion-panel-header class="btn-lightgreen">
                     <mat-panel-title>
                       Videos (3)
                     </mat-panel-title>
@@ -93,36 +93,36 @@
             <ng-template matStepLabel>Assignee Details</ng-template>
             <div class="row card ">
               <div class="card-stepper left col s12 m12 l12">
-                <div class="lesson  left">
-                  <mat-chip class="btn btn-danger">
+                <div class="col l6 m6 s12 lesson left">
+                  <span class="btn btn-danger">
                     Low Performing (10)
-                  </mat-chip><br>
-                  <mat-chip class="btn btn-warning">
+                  </span><br>
+                  <span class="btn btn-warning">
                     Satisfactory (5)
-                  </mat-chip><br>
-                  <mat-chip class="btn btn-blue">
+                  </span><br>
+                  <span class="btn btn-blue">
                     Above Average (15)
-                  </mat-chip><br>
-                  <mat-chip class="btn btn-success">
+                  </span><br>
+                  <span class="btn btn-success">
                     Mastered (20)
-                  </mat-chip><br>
+                  </span><br>
                 </div>
 
-                <div class="lesson right">
-                  Total Number of Assignees : 60 <span class="btn btn-blue">View</span> <br>
+                <div class="col l6 m6 s12 lesson left">
+                  Total Number of Assignees : 60 <span class="btn btn-blue" (click)="openViewAssignees()">View</span> <br>
                   <mat-label>
-                    Due Date
+                    Due Date &nbsp;
                   </mat-label>
                   29/08/18
                 </div>
               </div>
             </div>
-    <div class="right">
-      <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
+            <div class="right">
+              <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
+            </div>
+          </form>
+        </mat-step>
+      </mat-horizontal-stepper>
     </div>
-    </form>
-    </mat-step>
-    </mat-horizontal-stepper>
   </div>
-</div>
 </div>

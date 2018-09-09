@@ -1,175 +1,153 @@
-import { Component } from "@angular/core";
-import { MatDialogRef, MatDialog } from "@angular/material";
+import { Component, ViewChild } from "@angular/core";
+import { MatDialogRef, MatDialog, MatOption } from "@angular/material";
 import { Router } from "@angular/router";
+import { FormControl, Validators, FormBuilder, FormGroup } from "@angular/forms";
+import { SourceDialogComponent } from "../../publish-learning-paths/source-dialog/source-dialog.component";
 
 @Component({
   templateUrl: "./projects-summary-details.component.html",
   styleUrls: ["./projects-summary-details.component.scss"]
 })
 export class ProjectSummaryDetailsComponent {
-  constructor(private routes: Router) {}
+  isLinear = false;
 
-  ngOnInit() {}
+  firstFormGroup: FormGroup;
 
-  columnDefs = [
-    {
-      headerName: "Student Names",
-      field: "student",
-      floatingFilter: "true",
-      width: 405,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Knowledge Level",
-      field: "knowledge",
-      floatingFilter: "true",
-      width: 405,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Updated on",
-      field: "updatedon",
-      width: 405,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
-          );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
-      }
-    },
-  ];
+  secondFormGroup: FormGroup;
 
-  rowData = [
+  thirdFormGroup: FormGroup;
+
+  step = 0;
+
+  @ViewChild("allSelected")
+  private allSelected: MatOption;
+
+  isAssignees: boolean = false;
+
+  checkBox: boolean = true;
+
+  threeStates: boolean = true;
+
+  viewDialogRef:MatDialogRef<SourceDialogComponent>;
+
+  videoSource: any[] = [
     {
-      student:"Ganesh",
-      knowledge: "Satisfactory",
-      updatedon: "20/08/18",
-     },
-    {
-      student:"Kiran",
-      knowledge: "Above Average",
-      updatedon: "20/08/18",
+      label: "Probability - Basics",
+      selected: true
     },
     {
-      student:"Ganesh",
-      knowledge: "Satisfactory",
-      updatedon: "20/08/18",
+      label: "Probability - Real Life Video",
+      selected: true
     },
     {
-      student:"Kiran",
-      knowledge: "Above Average",
-      updatedon: "20/08/18",
-    },
-    {
-      student:"Ganesh",
-      knowledge: "Satisfactory",
-      updatedon: "20/08/18",
-    },
-    {
-      student:"Kiran",
-      knowledge: "Above Average",
-      updatedon: "20/08/18",
-    },
-    {
-      student:"Ganesh",
-      knowledge: "Satisfactory",
-      updatedon: "20/08/18",
-    },
-    {
-      student:"Kiran",
-      knowledge: "Above Average",
-      updatedon: "20/08/18",
-    },
-    {
-      student:"Ganesh",
-      knowledge: "Satisfactory",
-      updatedon: "20/08/18",
-    },
-    {
-      student:"Kiran",
-      knowledge: "Above Average",
-      updatedon: "20/08/18",
-    },
-    {
-      student:"Ganesh",
-      knowledge: "Satisfactory",
-      updatedon: "20/08/18",
-    },
-    {
-      student:"Kiran",
-      knowledge: "Above Average",
-      updatedon: "20/08/18",
-    },
-    {
-      student:"Ganesh",
-      knowledge: "Satisfactory",
-      updatedon: "20/08/18",
-    },
-    {
-      student:"Kiran",
-      knowledge: "Above Average",
-      updatedon: "20/08/18",
+      label: "Probability - Brief Introduction",
+      selected: true
     }
   ];
 
+  documentSource: any[] = [
+    {
+      label: "Probability Explanation pdf",
+      selected: true
+    },
+    {
+      label: "Probability Advance Concepts pdf",
+      selected: true
+    }
+  ];
+
+  projectSource: any[] = [
+    {
+      label: "Probability Problems",
+      selected: true
+    },
+    {
+      label: "Probability Advance Problems",
+      selected: true
+    }
+  ];
+
+  otherSource: any[] = [
+    {
+      label: "Logical games which related to Probability",
+      selected: true
+    },
+    {
+      label: "Mind Quiz - Probability",
+      selected: true
+    }
+  ];
+
+  studentFilters = [
+    {
+      key: 1,
+      value: "Ajith"
+    },
+    {
+      key: 2,
+      value: "Kumar"
+    },
+    {
+      key: 3,
+      value: "Karthik"
+    },
+    {
+      key: 4,
+      value: "Mukesh"
+    }
+  ];
+
+  constructor(
+    private _formBuilder: FormBuilder,
+    private dialog: MatDialog,
+    private routes: Router
+  ) {}
+
+  ngOnInit() {
+    this.firstFormGroup = this._formBuilder.group({
+      // firstCtrl: ["", Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      //secondCtrl: ["", Validators.required]
+    });
+    this.thirdFormGroup = this._formBuilder.group({
+      student: new FormControl(["", Validators.required])
+    });
+  }
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
+
+  toggleAllSelection() {
+    if (this.allSelected.selected) {
+      this.thirdFormGroup.controls.student.patchValue([
+        ...this.studentFilters.map(item => item.key),
+        0
+      ]);
+    } else {
+      this.thirdFormGroup.controls.student.patchValue([]);
+    }
+  }
+
+  openViewAssignees() {
+    this.viewDialogRef = this.dialog.open(SourceDialogComponent, {
+      width: "40%",
+      height: "50vh"
+    });
+    this.viewDialogRef.componentInstance.viewAssignees = true;
+    this.viewDialogRef.disableClose = true;
+  }
+
   onBack() {
-    this.routes.navigateByUrl("classroom/performance/detailed-view");
+    this.routes.navigateByUrl("/classroom/performance/detailed-view");
   }
 }

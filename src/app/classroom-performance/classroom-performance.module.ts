@@ -13,6 +13,7 @@ import { LearningPathPublishComponent } from "./performance-detailed-view/publis
 import { LearningPathDetailsComponent } from "./performance-detailed-view/publish-learning-paths/learning-paths-details/learning-path-details.component";
 import { NgJQWidgetsModule } from "../ng-jqwidgets.module";
 import { SourceDialogComponent } from "./performance-detailed-view/publish-learning-paths/source-dialog/source-dialog.component";
+import { ProjectSummaryPublishComponent } from "./performance-detailed-view/projects-summary/project-summary-publish/project-summary-publish.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SourceDialogComponent } from "./performance-detailed-view/publish-learn
     ProjectSummaryUpdateComponent,
     LearningPathPublishComponent,
     LearningPathDetailsComponent,
-    SourceDialogComponent
+    SourceDialogComponent,
+    ProjectSummaryPublishComponent
   ],
   imports: [
     NgMaterialModule,

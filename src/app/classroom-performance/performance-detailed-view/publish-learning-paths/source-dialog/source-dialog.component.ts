@@ -2,6 +2,21 @@ import { Component, ViewChild, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { MatDialogRef } from "@angular/material";
 
+export interface PeriodicElement {
+    name: string;
+  }
+  
+  const ELEMENT_DATA: PeriodicElement[] = [
+    {name: 'Ajith'},
+    {name: 'Vijay'},
+    {name: 'Arya'},
+    {name: 'Surya'},
+    {name: 'Ganesh'},
+    {name: 'Kapoor'},
+    {name: 'Arjit'},
+  ];
+  
+
 @Component({
   templateUrl: "./source-dialog.component.html",
   styleUrls: ["./source-dialog.component.scss"]
@@ -20,6 +35,7 @@ export class SourceDialogComponent {
   @Input() documents:boolean;
   @Input() projects:boolean;
   @Input() others:boolean;
+  @Input() viewAssignees:boolean;
   
   checkBox: boolean = true;
 
@@ -110,7 +126,10 @@ export class SourceDialogComponent {
       'Café Bombón',
       'Café au lait'
   ];
-  ks
+
+  displayedColumns: string[] = ['name'];
+  dataSource = ELEMENT_DATA;
+
   constructor(public dialogref: MatDialogRef<SourceDialogComponent>) {}
   closeDialog() {
     this.dialogref.close();

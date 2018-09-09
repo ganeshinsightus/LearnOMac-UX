@@ -2,8 +2,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarComponent } from './calendar/calendar.component';
 import { CircularsComponent } from './circulars/circulars.component';
 import { CircularsDialogComponent } from './circulars/circulars-dialog/circulars-dialog.component';
-import { CoursesComponent } from './courses/courses.component';
-import { HomeComponent } from './home.component';
+import { DashboardCoursesComponent } from './courses/dashboard-courses.component';
+import { DashboardComponent } from './dashboard.component';
 import { MessagesComponent } from './messages/messages.component';
 import { NewsComponent } from './news/news.component';
 import { NewsDialogComponent } from './news/news-dialog/news-dialog.component';
@@ -18,7 +18,7 @@ import { MessagesListComponent } from './messages/messages-list/messages-list.co
 
 @NgModule({
     declarations: [
-        HomeComponent,
+        DashboardComponent,
         NewsComponent,
         NewsDialogComponent,
         NewsListComponent,
@@ -30,20 +30,20 @@ import { MessagesListComponent } from './messages/messages-list/messages-list.co
         CircularListComponent,
         MessagesComponent,
         MessagesListComponent,
-        CoursesComponent,
+        DashboardCoursesComponent,
         CalendarComponent
     ],
     imports: [
         BrowserAnimationsModule,
         NgMaterialModule
     ],
-    exports: [HomeComponent],
+    exports: [DashboardComponent],
     entryComponents: [
         NewsDialogComponent,
         CircularsDialogComponent,
         NotificationsDialogComponent,
     ],
 })
-export class HomeModule {
+export class DashboardModule {
 
 }

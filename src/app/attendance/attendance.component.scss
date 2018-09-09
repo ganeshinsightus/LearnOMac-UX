@@ -1,0 +1,90 @@
+@import "../../styles/variables";
+@import "../../styles/common";
+.row {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+.col {
+  padding-left: 0;
+  padding-right: 0;
+}
+.card {
+  height: calc(87.3vh);
+  margin: 10px;
+  padding: 10px;
+  font-family: sans-serif;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border: 0;
+  font-weight: 400;
+  overflow: auto;
+}
+.title {
+  font-family: sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 0px;
+}
+.img-rounded {
+  width: 85%;
+  border-radius: 50%;
+}
+.calendar {
+  min-height: 200px;
+  width: 70%;
+  height: 50%;
+  position: static;
+}
+.student-list {
+  width: 28%;
+  height: 392px;
+  overflow-y: auto;
+  //max-width: 25%;
+  max-height: 392px;
+}
+.collection {
+  margin: 0 !important;
+}
+img.responsive-img {
+  max-width: 70px !important;
+  max-height: 70px;
+  margin-right: 25px;
+}
+.student-actions {
+  float: right;
+  margin-right: 80px;
+  margin-top: 10px;
+}
+.card-calendar {
+  width: 70%;
+  height: calc(25vh);
+  margin: 10px 0;
+  font-family: sans-serif;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border: 0;
+  font-weight: 400;
+  overflow: auto;
+}
+.card-title {
+  font-weight: 600;
+  font-family: sans-serif;
+  font-size: 20px !important;
+  margin: 5px 0;
+  text-transform: uppercase;
+  padding: 5px;
+}
+
+.count {
+  font-size: 40px;
+  padding-top: 10px;
+  color: black;
+  text-align: center;
+}
+.count-span {
+  font-size: 9px;
+  padding: 6px;
+  text-transform: uppercase;
+  border-radius: 20px;
+}

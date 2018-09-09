@@ -57,7 +57,22 @@
   float: right;
   color: $color-green !important;
 }
-.badge-green:active {
+.bq-lightgreen {
+  border-left: 3px solid $color-lightgreen !important;
+  color: $color-green !important;
+}
+.btn-lightgreen {
+  background-color: $color-lightgreen !important;
+  color: white !important;
+}
+.bq-lightgreen-text {
+  color: $color-lightgreen !important;
+}
+.badge-lightgreen {
+  float: right;
+  color: $color-lightgreen !important;
+}
+.badge-lightgreen:active {
   transform: translateY(2px);
 }
 .bq-blue {
@@ -198,6 +213,20 @@
   color: $color-lightslategrey !important;
 }
 .badge-lightslategrey:active {
+  transform: translateY(2px);
+}
+.badge-danger {
+  float: right;
+  color: $color-danger !important;
+}
+.badge-danger:active {
+  transform: translateY(2px);
+}
+.badge-success {
+  float: right;
+  color: $color-success !important;
+}
+.badge-success:active {
   transform: translateY(2px);
 }
 .dropdown {

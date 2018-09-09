@@ -1,11 +1,4 @@
 <div class="dialog">
-    <span class="card-title">Filter
-        <a (click)="closeDialog()">
-            <span class="btn btn-danger right">
-                <mat-icon>clear</mat-icon>
-            </span>
-        </a>
-    </span>
     <div class="collection">
         <form [formGroup]="filterForm">
             <div class="collection-item">
@@ -38,6 +31,9 @@
                     <mat-option value="Geography">Geography</mat-option>
                 </mat-select>
             </div>
+            <span (click)="closeDialog()" class="btn-lightslategrey right">
+                Apply Filter
+            </span>
         </form>
     </div>
 </div>

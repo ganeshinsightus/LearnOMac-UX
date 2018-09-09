@@ -9,7 +9,7 @@ import { CoursesCompletedComponent } from './student-profile/performance-summary
 import { CoursesInprogressComponent } from './student-profile/performance-summary/courses/courses-inprogress/courses-inprogress.component';
 import { CoursesNewComponent } from './student-profile/performance-summary/courses/courses-new/courses-new.component';
 import { CoursesPendingComponent } from './student-profile/performance-summary/courses/courses-pending/courses-pending.component';
-import { HomeComponent } from './dashboard/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { LearningPathsListComponent } from './classroom-dashboard/learning-path/learning-paths-list/learning-paths-list.component';
 import { MessagesListComponent } from './dashboard/messages/messages-list/messages-list.component';
 import { NewsListComponent } from './dashboard/news/news-list/news-list.component';
@@ -40,10 +40,28 @@ import { ProjectSummaryDetailsComponent } from './classroom-performance/performa
 import { LearningPathPublishComponent } from './classroom-performance/performance-detailed-view/publish-learning-paths/learning-paths-publish/learning-path-publish.component';
 import { LearningPathDetailsComponent } from './classroom-performance/performance-detailed-view/publish-learning-paths/learning-paths-details/learning-path-details.component';
 import { TreeNodeCheckBoxComponent } from './dynamic-component/tree-node-checkbox/tree-node-checkbox.component';
+import { ProjectSummaryPublishComponent } from './classroom-performance/performance-detailed-view/projects-summary/project-summary-publish/project-summary-publish.component';
+import { LessonManagementComponent } from './lesson-management/lesson-management.component';
+import { LessonPlansComponent } from './lesson-management/lesson-plans/lesson-plans.component';
+import { LessonTrackingComponent } from './lesson-management/lesson-tracking/lesson-tracking.component';
+import { AssessmentsComponent } from './lesson-management/assessments/assessments.component';
+import { CreateLessonPlanComponent } from './lesson-management/lesson-plans/create-lesson-plan/create-lesson-plan.component';
+import { CollectionDialogComponent } from './lesson-management/lesson-plans/collection-grid-dialog/collection-grid-dialog.component';
+import { AttendanceComponent } from './attendance/attendance.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseSubcriptionsDetailsNewComponent } from './courses/courses-subcriptions-details/courses-subcriptions-details-new/courses-subcriptions-details-new.component';
+import { CourseSubcriptionsDetailsInprogressComponent } from './courses/courses-subcriptions-details/courses-subcriptions-details-inprogress/courses-subcriptions-details-inprogress.component';
+import { CourseSubcriptionsDetailsPendingComponent } from './courses/courses-subcriptions-details/courses-subcriptions-details-pending/courses-subcriptions-details-pending.component';
+import { CourseSubcriptionsDetailsCompletedComponent } from './courses/courses-subcriptions-details/courses-subcriptions-details-completed/courses-subcriptions-details-completed.component';
+import { CoursesDetailsApprovedComponent } from './courses/courses-details/courses-details-approved/courses-details-approved.component';
+import { CoursesDetailsDraftsComponent } from './courses/courses-details/courses-details-drafts/courses-details-drafts.component';
+import { CoursesDetailsPublishedComponent } from './courses/courses-details/courses-details-published/courses-details-published.component';
+import { CoursesDetailsPendingApprovalComponent } from './courses/courses-details/courses-details-pending-approval/courses-details-pending-approval.component';
+import { CoursesDetailsChangesComponent } from './courses/courses-details/courses-details-changes/courses-details-changes.component';
 
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: "", component: DashboardComponent },
   {
     path: "classroom/dashboard",
     component: ClassroomDashboardComponent,
@@ -206,6 +224,11 @@ const routes: Routes = [
     data: { title: "Project Summary Update" }
   },
   {
+    path: "class/project/publish",
+    component: ProjectSummaryPublishComponent,
+    data: { title: "Project Summary Publish" }
+  },
+  {
     path: "class/learning-path/publish",
     component: LearningPathPublishComponent,
     data: { title: "Learning Path Publish" }
@@ -216,9 +239,75 @@ const routes: Routes = [
     data: { title: "Learning Path Details" }
   },
   {
-    path: "tree-node-testing",
-    component: TreeNodeCheckBoxComponent,
-    data: { title: "Tree Node" }
+    path: "lesson",
+    component: LessonManagementComponent,
+    data: { title: "Lesson Management" },
+    children: [
+      { path: "", redirectTo: "plans", pathMatch: "full" },
+      { path: "plans", component:LessonPlansComponent  },
+      { path: "tracking", component:LessonTrackingComponent  },
+      { path: "assessments", component: AssessmentsComponent }
+    ]
+  },
+  {
+    path: "create-lesson-plan",
+    component: CreateLessonPlanComponent,
+    data: { title: "Create Lesson Plan" }
+  },
+  {
+    path: "attendance",
+    component: AttendanceComponent,
+    data: { title: "Student Attendance" }
+  },
+  {
+    path: "courses",
+    component: CoursesComponent,
+    data: { title: "My Courses" }
+  },
+  {
+    path: "courses-subcriptions-details-new",
+    component: CourseSubcriptionsDetailsNewComponent,
+    data: { title: "Courses Subcriptions Details" }
+  },
+  {
+    path: "courses-subcriptions-details-inprogress",
+    component: CourseSubcriptionsDetailsInprogressComponent,
+    data: { title: "Courses Subcriptions Details" }
+  },
+  {
+    path: "courses-subcriptions-details-pending",
+    component: CourseSubcriptionsDetailsPendingComponent,
+    data: { title: "Courses Subcriptions Details" }
+  },
+  {
+    path: "courses-subcriptions-details-completed",
+    component: CourseSubcriptionsDetailsCompletedComponent,
+    data: { title: "Courses Subcriptions Details" }
+  },
+  {
+    path: "courses-details-approved",
+    component: CoursesDetailsApprovedComponent,
+    data: { title: "Courses Details" }
+  },
+  {
+    path: "courses-details-drafts",
+    component: CoursesDetailsDraftsComponent,
+    data: { title: "Courses Details" }
+  },
+  {
+    path: "courses-details-published",
+    component: CoursesDetailsPublishedComponent,
+    data: { title: "Courses Details" }
+  },
+  {
+    path: "courses-details-pending-approval",
+    component: CoursesDetailsPendingApprovalComponent,
+    data: { title: "Courses Details" }
+  },
+  {
+    path: "courses-details-changes",
+    component: CoursesDetailsChangesComponent,
+    data: { title: "Courses Details" }
   },
 ];
 

@@ -5,8 +5,8 @@ import { Router } from "@angular/router";
   templateUrl: "./learning-paths-list.component.html",
   styleUrls: ["./learning-paths-list.component.scss"]
 })
-export class LearningPathsListComponent  {
-  pendingvalue:any;
+export class LearningPathsListComponent {
+  pendingvalue: any;
   constructor(private routes: Router) {}
 
   ngOnInit() {}
@@ -16,7 +16,7 @@ export class LearningPathsListComponent  {
       headerName: "Student Name",
       field: "student",
       floatingFilter: "true",
-      width: 308,
+      width: 305,
       filter: "agTextColumnFilter",
       filterParams: {
         textFormatter: function(r) {
@@ -42,38 +42,32 @@ export class LearningPathsListComponent  {
     {
       headerName: "Completed",
       field: "completed",
-      floatingFilter: "false",
-      width: 308,
-      filter: "false",
-      template: `
-      <button type="button" data-action-type="completed" style="color:white;background-color:green;">
-        {{completed}}
-      </button>
-    `
+      floatingFilter: "true",
+      width: 305,
+      filter: "agNumberColumnFilter",
+      cellRenderer: function(params) {
+        return `<a data-action-type='completed'>` + params.value + `</a>`;
+      }
     },
     {
       headerName: "In progress",
       field: "inprogress",
-      floatingFilter: "false",
-      width: 308,
-      filter: "false",
-      template: `
-      <button type="button" data-action-type="inprogress" style="color:white;background-color:orange;">
-        {{inprogress}}
-      </button>
-    `
+      floatingFilter: "true",
+      width: 305,
+      filter: "agNumberColumnFilter",
+      cellRenderer: function(params) {
+        return `<a data-action-type='inprogress'>` + params.value + `</a>`;
+      }
     },
     {
       headerName: "Pending",
       field: "pending",
-      floatingFilter: "false",
-      width: 308,
-      filter: "false",
-      template: `
-      <button type="button" data-action-type="pending" style="color:white;background-color:red;">
-                {{pendingvalue}}
-      </button>
-    `
+      floatingFilter: "true",
+      width: 305,
+      filter: "agNumberColumnFilter",
+      cellRenderer: function(params) {
+        return `<a data-action-type='pending'>` + params.value + `</a>`;
+      }
     }
   ];
 
