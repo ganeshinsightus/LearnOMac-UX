@@ -1,5 +1,11 @@
 <div class="dialog">
-    <h5 class="card-title bq-pink-text">Probability Content
+    <h5 class="card-title bq-green-text">
+        <span *ngIf="video">
+            Probability Content
+        </span>
+        <span *ngIf="viewAssignees">
+            Number of Assignees
+        </span>
 
         <a (click)="closeDialog()">
             <span class="btn btn-danger right">
@@ -9,37 +15,24 @@
     </h5>
     <div class="collection col l5">
         <div class="collection-item">
-            <div *ngIf="video">
-                <tree-node-checkbox [treeSource]="videoSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
-            </div>
-            <div *ngIf="document">
-                <tree-node-checkbox [treeSource]="documentSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
-            </div>
-            <div *ngIf="project">
-                <tree-node-checkbox [treeSource]="projectSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
-            </div>
-            <div *ngIf="other">
-                <tree-node-checkbox [treeSource]="otherSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
-            </div>
+  
+        <div *ngIf="assignees">
+            <jqxDropDownList [width]="400" [height]="30" [source]="source" [selectedIndex]="1" [checkboxes]="true">
+            </jqxDropDownList>
         </div>
 
-        <div class="collection-item">
-            <div *ngIf="videos">
-                <tree-node-checkbox [treeSource]="videoSource" [checkBox]="false" [threeStates]="false"></tree-node-checkbox>
-            </div>
-            <div *ngIf="documents">
-                <tree-node-checkbox [treeSource]="documentSource" [checkBox]="false" [threeStates]="false"></tree-node-checkbox>
-            </div>
-            <div *ngIf="projects">
-                <tree-node-checkbox [treeSource]="projectSource" [checkBox]="false" [threeStates]="false"></tree-node-checkbox>
-            </div>
-            <div *ngIf="others">
-                <tree-node-checkbox [treeSource]="otherSource" [checkBox]="false" [threeStates]="false"></tree-node-checkbox>
-            </div>
-        </div>
+        <div *ngIf="viewAssignees">
 
-            <div *ngIf="assignees">
-                <jqxDropDownList [width]="400" [height]="30" [source]="source" [selectedIndex]="1" [checkboxes]="true">
-                </jqxDropDownList>
-            </div>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+        </div>
     </div>

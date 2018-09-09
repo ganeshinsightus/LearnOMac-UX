@@ -17,13 +17,7 @@ export class ParentCommunicationComponent {
   constructor(public dialog: MatDialog, private routes: Router) {
 
   }
-  openFilterDialog() {
-    this.performanceFilterDialogRef = this.dialog.open(PerformanceFilterComponent, {
-      width: "30%",
-      height: "71vh"
-    });
-    this.performanceFilterDialogRef.disableClose = true;
-  }
+
   openNewDialog() {
     this.newDialogRef = this.dialog.open(CommunicationNewComponent, {
       width: "50%",
@@ -32,7 +26,6 @@ export class ParentCommunicationComponent {
     this.newDialogRef.disableClose = true;
   }
   ngOnInit(){
-    this.openFilterDialog();
   }
 
   columnDefs = [

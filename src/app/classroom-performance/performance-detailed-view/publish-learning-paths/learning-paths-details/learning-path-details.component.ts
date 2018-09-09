@@ -24,7 +24,6 @@ export class LearningPathDetailsComponent {
 
   step = 0;
 
-  
   @ViewChild("allSelected")
   private allSelected: MatOption;
 
@@ -33,80 +32,52 @@ export class LearningPathDetailsComponent {
   checkBox:boolean = false;
 
   threeStates:boolean = false;
-
+  
   videoSource: any[] = [
     {
-      label: "3 Videos",
-      expanded: true,
-      checkboxes: true,
-      items: [
-        {
-          label: "Probability - Basics",
-          selected: true
-        },
-        {
-          label: "Probability - Real Life Video",
-          selected: true
-        },
-        {
-          label: "Probability - Brief Introduction",
-          selected: true
-        }
-      ]
+      label: "Probability - Basics",
+      selected: true
+    },
+    {
+      label: "Probability - Real Life Video",
+      selected: true
+    },
+    {
+      label: "Probability - Brief Introduction",
+      selected: true
     }
   ];
 
   documentSource: any[] = [
     {
-      label: "2 Document",
-      checkboxes: true,
-      expanded:true,
-      items: [
-        {
-          label: "Probability Explanation pdf",
-          selected: true
-        },
-        {
-          label: "Probability Advance Concepts pdf",
-          selected: true
-        }
-      ]
+      label: "Probability Explanation pdf",
+      selected: true
+    },
+    {
+      label: "Probability Advance Concepts pdf",
+      selected: true
     }
   ];
 
   projectSource: any[] = [
     {
-      label: "2 Activities",
-      checkboxes: true,
-      expanded:true,
-      items: [
-        {
-          label: "Probability Problems",
-          selected: true
-        },
-        {
-          label: "Probability Advance Problems",
-          selected: true
-        }
-      ]
+      label: "Probability Problems",
+      selected: true
+    },
+    {
+      label: "Probability Advance Problems",
+      selected: true
     }
   ];
 
   otherSource: any[] = [
     {
-      label: "2 Other Sources",
-      checkboxes: true,
-      expanded:true,
-      items: [
-        {
-          label: "Logical games which related to Probability",
-          selected: true
-        },
-        {
-          label: "Mind Quiz - Probability",
-          selected: true
-        }
-      ]
+      label: "Logical games which related to Probability",
+      selected: true
+    },
+    {
+      label: "Mind Quiz - Probability",
+      selected: true
     }
   ];
 
@@ -132,10 +103,21 @@ export class LearningPathDetailsComponent {
 
   constructor(
     private dialog: MatDialog,
-    private routes:Router
+    private routes:Router,
+    private _formBuilder:FormBuilder
   ) {}
 
-   setStep(index: number) {
+
+  ngOnInit() {
+    this.firstFormGroup = this._formBuilder.group({
+      // firstCtrl: ["", Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      //secondCtrl: ["", Validators.required]
+    });
+  }
+
+  setStep(index: number) {
     this.step = index;
   }
 
@@ -147,52 +129,15 @@ export class LearningPathDetailsComponent {
     this.step--;
   }
 
-  
-  openVideoDialog() {
-    this.viewDialogRef = this.dialog.open(SourceDialogComponent, {
-      width: "40%",
-      height: "38vh"
-    });
-    this.viewDialogRef.componentInstance.videos = true;
-    this.viewDialogRef.disableClose = true;
-  }
 
-  
-  openDocumentDialog() {
+  openViewAssignees(){
     this.viewDialogRef = this.dialog.open(SourceDialogComponent, {
       width: "40%",
-      height: "38vh"
+      height: "50vh"
     });
-    this.viewDialogRef.componentInstance.documents = true;
+    this.viewDialogRef.componentInstance.viewAssignees = true;
     this.viewDialogRef.disableClose = true;
-  }
-
-  openProjectDialog() {
-    this.viewDialogRef = this.dialog.open(SourceDialogComponent, {
-      width: "40%",
-      height: "38vh"
-    });
-    this.viewDialogRef.componentInstance.projects = true;
-    this.viewDialogRef.disableClose = true;
-  }
-
-  openOtherSourceDialog() {
-    this.viewDialogRef = this.dialog.open(SourceDialogComponent, {
-      width: "40%",
-      height: "38vh"
-    });
-    this.viewDialogRef.componentInstance.others = true;
-    this.viewDialogRef.disableClose = true;
-  }
-
-  openViewDialog() {
-    this.viewDialogRef = this.dialog.open(SourceDialogComponent, {
-      width: "40%",
-      height: "38vh"
-    });
-    this.viewDialogRef.componentInstance.assignees = true;
-    this.viewDialogRef.disableClose = true;
-  }
+}
 
   onBack(){
     this.routes.navigateByUrl('/classroom/performance/detailed-view');

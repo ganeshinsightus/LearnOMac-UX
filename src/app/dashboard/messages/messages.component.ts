@@ -8,14 +8,14 @@ import { CommunicationReplyComponent } from "../../classroom-dashboard/communica
 @Component({
   selector: "home-messages",
   templateUrl: "./messages.component.html",
-  styleUrls: ["../home.component.scss"]
+  styleUrls: ["../dashboard.component.scss"]
 })
 export class MessagesComponent {
   repliedDialogRef: MatDialogRef<CommunicationRepliedComponent>;
   viewDialogRef: MatDialogRef<CommunicationReplyComponent>;
 
   constructor(public dialog: MatDialog ,public routes:Router) {}
-  openRepliedDialog() {
+  openSentDialog() {
     this.repliedDialogRef = this.dialog.open(CommunicationRepliedComponent, {
       width: "50%",
       height: "52vh"

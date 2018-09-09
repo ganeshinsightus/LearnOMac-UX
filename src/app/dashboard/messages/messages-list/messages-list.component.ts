@@ -18,7 +18,7 @@ export class MessagesListComponent {
       headerName: "Messages Title",
       field: "title",
       floatingFilter: "true",
-      width: 420,
+      width: 410,
       filter: "agTextColumnFilter",
       filterParams: {
         textFormatter: function(r) {
@@ -44,7 +44,7 @@ export class MessagesListComponent {
     {
       headerName: "Published on",
       field: "published",
-      width: 420,
+      width: 410,
       floatingFilter: "false",
       filter: "agDateColumnFilter",
       filterParams: {
@@ -73,7 +73,7 @@ export class MessagesListComponent {
       headerName: "Actions",
           suppressMenu: true,
           suppressSorting: true,
-          width:420,
+          width:410,
           filter:"false",
           template:
             `<button type="button" data-action-type="view" style="color:white;background-color:#0d47a1 ;">

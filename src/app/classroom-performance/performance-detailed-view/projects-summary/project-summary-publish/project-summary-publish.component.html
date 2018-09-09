@@ -1,0 +1,118 @@
+<div class="row card-full bq-green">
+  <div class="col l12 m12 s12">
+    <h5 class="card-title bq-green-text col l12 m12 s12">
+      Grade 5 -Mathematics - Unit 1 - Probability - Advanced - Activity 1
+      <span class="btn btn-green right" (click)="onBack()">Back</span>
+    </h5>
+    <div class="col l12 m12 s12">
+      <mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Project / Activity</ng-template>
+            <div class="row card ">
+              <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header class="btn-lightgreen">
+                    <mat-panel-title>
+                      Objective
+                    </mat-panel-title>
+                   
+                  </mat-expansion-panel-header>
+                  <span>Identifying use of real numbers in day to day life.</span>
+    
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header class="btn-orange">
+                    <mat-panel-title>
+                      Step 1
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      Description
+                    </mat-panel-description>
+                   
+                  </mat-expansion-panel-header>
+                  <span>
+                    Count the number of trees
+                  </span>
+                
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header class="btn-purple">
+                    <mat-panel-title>
+                      Step 2
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      Follow the video
+                    </mat-panel-description>
+                   
+                  </mat-expansion-panel-header>
+                  <span>
+                    Probability Video Source <a href="https://www.youtube.com">Click Here</a>
+                  </span>
+                 
+                </mat-expansion-panel>
+
+              </mat-accordion>
+            </div>
+
+            <div style="float:right">
+              <button class="btn btn-green" mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Add or Remove Assignees</ng-template>
+            <div class="row card">
+              <div class="lesson">
+                Total Number of Assignees : 60 <span class="btn btn-green" (click)="openAssignees()">Edit Assignees</span>
+                <br>
+                <br>
+                <div *ngIf="isAssignees">
+                  <mat-select placeholder="Select Students" class="dropdown" formControlName="student" multiple>
+                    <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">All</mat-option>
+                    <mat-option *ngFor="let student of studentFilters" [value]="student.key">
+                      {{student.value}}
+                    </mat-option>
+                  </mat-select>
+                </div>
+              </div>
+            </div>
+
+            <div class="right">
+              <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
+              <button class="btn btn-green" mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="thirdFormGroup">
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Publish Project / Activity</ng-template>
+            <div class="row card">
+              <div class="card-stepper left col s12 m6 l6">
+                <div class="unit">
+                  <mat-label>
+                    Due Date
+                  </mat-label>
+                  <input matInput [matDatepicker]="picker" placeholder="Select Due Date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </div>
+              </div>
+            </div>
+            <div class="right">
+              <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
+              <button class="btn btn-green" mat-button>Publish</button>
+            </div>
+          </form>
+        </mat-step>
+
+      </mat-horizontal-stepper>
+    </div>
+  </div>
+</div>

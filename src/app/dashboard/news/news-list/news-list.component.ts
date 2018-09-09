@@ -17,7 +17,7 @@ export class NewsListComponent {
       headerName: "News Title",
       field: "title",
       floatingFilter: "true",
-      width: 420,
+      width: 410,
       filter: "agTextColumnFilter",
       filterParams: {
         textFormatter: function(r) {
@@ -43,7 +43,7 @@ export class NewsListComponent {
     {
       headerName: "Published on",
       field: "published",
-      width: 420,
+      width: 410,
       floatingFilter: "false",
       filter: "agDateColumnFilter",
       filterParams: {
@@ -73,7 +73,7 @@ export class NewsListComponent {
           suppressMenu: true,
           suppressSorting: true,
           filter: "false",
-          width:420,
+          width:410,
           template:
             `<button type="button" data-action-type="view" style="color:white;background-color:lightslategrey;">
                View

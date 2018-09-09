@@ -102,12 +102,16 @@ export class ClassroomPerformanceDetailedViewComponent {
   openStandardUpdate() {
     this.routes.navigateByUrl("class/prerequisite/update");
   }
-  openProjectList(){
+  openProjectViewDetails(){
     this.routes.navigateByUrl('class/project/details');
   }
   openProjectListUpdate(){
     this.routes.navigateByUrl('class/project/update');
   }
+  openProjectListPublish(){
+    this.routes.navigateByUrl('class/project/publish');
+  }
+
   openLearningPathPublish(){
     this.routes.navigateByUrl('class/learning-path/publish');
   }

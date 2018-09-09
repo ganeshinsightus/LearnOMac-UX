@@ -8,6 +8,8 @@ import { MatDialogRef } from "@angular/material";
   })
 export class ClassroomFilterComponent {
   filterForm: FormGroup;
+  showClassroom:boolean;
+  showAttendance:boolean;
   constructor(
     public dialogref: MatDialogRef<ClassroomFilterComponent>,
     private filterBuilder: FormBuilder

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'home-notifications',
   templateUrl: './notifications.component.html',
-  styleUrls: ['../home.component.scss']
+  styleUrls: ['../dashboard.component.scss']
 })
 export class NotificationsComponent {
   notificationsDialogRef: MatDialogRef<NotificationsDialogComponent>;

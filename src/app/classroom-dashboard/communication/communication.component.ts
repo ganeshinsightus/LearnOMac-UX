@@ -26,7 +26,7 @@ export class CommunicationComponent {
     //this.messagesDialogRef.componentInstance.title = "odioCras justo odio";
     this.replyDialogRef.disableClose = true;
   }
-  openRepliedDialog() {
+  openSentDialog() {
     this.repliedDialogRef = this.dialog.open(CommunicationRepliedComponent, {
       width: "50%",
       height: "52vh"

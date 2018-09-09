@@ -1,0 +1,26 @@
+<div class="dialog">
+    <h5 class="card-title bq-orange-text">
+        <span>
+            Number of Absentees
+        </span>
+
+        <a (click)="closeDialog()">
+            <span class="btn btn-danger right">
+                <mat-icon>clear</mat-icon>
+            </span>
+        </a>
+    </h5>
+    <div >
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Student Names </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+    </div>
+</div>

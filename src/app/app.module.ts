@@ -4,7 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { ClassroomDashboardModule } from "./classroom-dashboard/classroom-dashboard.module";
 import { ClassroomFilterComponent } from "./dynamic-component/classroom-filter/classroom-filter.component";
 import { FilterService } from "./common-services/filter.service";
-import { HomeModule } from "./dashboard/home.module";
+import { DashboardModule } from "./dashboard/dashboard.module";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { NgMaterialModule } from "./ng-material.module";
 import { NgModule } from "@angular/core";
@@ -15,6 +15,11 @@ import { StackedBarTable } from "./dynamic-component/stacked-bar-table/stacked-b
 import { ClassroomPerformanceModule } from "./classroom-performance/classroom-performance.module";
 import { ClassroomPerformanceFilterComponent } from "./dynamic-component/classroom-performance-filter/classroom-performance-filter.component";
 import { NgJQWidgetsModule } from "./ng-jqwidgets.module";
+import { LessonManagementModule } from "./lesson-management/lesson-management.module";
+import { LessonPlanFilterComponent } from "./dynamic-component/lesson-plan-filter/lesson-plan-filter.component";
+import { AttendanceModule } from "./attendance/attendance.module";
+import { FormsModule } from "@angular/forms";
+import { CoursesModule } from "./courses/courses.module";
 
 @NgModule({
   declarations: [
@@ -25,23 +30,29 @@ import { NgJQWidgetsModule } from "./ng-jqwidgets.module";
     ProfileFilterComponent,
     PerformanceFilterComponent,
     StackedBarTable,
+    LessonPlanFilterComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
     NgMaterialModule,
     NgJQWidgetsModule,
-    HomeModule,
+    DashboardModule,
     ClassroomDashboardModule,
     StudentProfileModule,
     ClassroomPerformanceModule,
+    LessonManagementModule,
+    AttendanceModule,
+    CoursesModule
   ],
   providers: [FilterService],
   entryComponents: [
     ClassroomFilterComponent,
     ProfileFilterComponent,
     PerformanceFilterComponent,
-    ClassroomPerformanceFilterComponent
+    ClassroomPerformanceFilterComponent,
+    LessonPlanFilterComponent
   ],
   exports:[
   ],

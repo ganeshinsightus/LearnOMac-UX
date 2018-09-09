@@ -5,82 +5,82 @@
       Mathematics - Unit 1 - Probability - Advanced
       <span class="btn btn-green right" (click)="onBack()">Back</span>
     </h5>
-     <div class="col l12 m12">
+    <div class="col l12 m12 s12">
       <mat-horizontal-stepper [linear]="isLinear" #stepper>
 
         <mat-step [stepControl]="firstFormGroup">
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>Include / Exclude Learning Artifacts</ng-template>
             <div class="row card ">
-            <mat-accordion>
-              <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
-                <mat-expansion-panel-header class="btn-green">
-                  <mat-panel-title>
-                    Videos (3)
-                  </mat-panel-title>
+              <mat-accordion>
+                <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                  <mat-expansion-panel-header class="btn-lightgreen">
+                    <mat-panel-title>
+                      Videos (3)
+                    </mat-panel-title>
 
-                  <mat-icon>
-                    video_library
-                  </mat-icon>
-                </mat-expansion-panel-header>
-                <tree-node-checkbox [treeSource]="videoSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
+                    <mat-icon>
+                      video_library
+                    </mat-icon>
+                  </mat-expansion-panel-header>
+                  <tree-node-checkbox [treeSource]="videoSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
 
-                <mat-action-row>
-                  <button mat-button class="btn btn-primary" (click)="nextStep()">Next Step</button>
-                </mat-action-row>
+                  <mat-action-row>
+                    <button mat-button class="btn btn-primary" (click)="nextStep()">Next Step</button>
+                  </mat-action-row>
 
-              </mat-expansion-panel>
+                </mat-expansion-panel>
 
-              <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
-                <mat-expansion-panel-header class="btn-orange">
-                  <mat-panel-title>
-                    Documents (2)
-                  </mat-panel-title>
-                  <mat-icon>
-                    description
-                  </mat-icon>
-                </mat-expansion-panel-header>
-                <tree-node-checkbox [treeSource]="documentSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
-                <mat-action-row>
-                  <button mat-button class="btn btn-danger" (click)="prevStep()">Previous Step</button>
-                  <button mat-button class="btn btn-primary" (click)="nextStep()">Next Step</button>
-                </mat-action-row>
-              </mat-expansion-panel>
+                <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                  <mat-expansion-panel-header class="btn-orange">
+                    <mat-panel-title>
+                      Documents (2)
+                    </mat-panel-title>
+                    <mat-icon>
+                      description
+                    </mat-icon>
+                  </mat-expansion-panel-header>
+                  <tree-node-checkbox [treeSource]="documentSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
+                  <mat-action-row>
+                    <button mat-button class="btn btn-danger" (click)="prevStep()">Previous Step</button>
+                    <button mat-button class="btn btn-primary" (click)="nextStep()">Next Step</button>
+                  </mat-action-row>
+                </mat-expansion-panel>
 
-              <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
-                <mat-expansion-panel-header class="btn-purple">
-                  <mat-panel-title>
-                    Projects / Activities (2)
-                  </mat-panel-title>
-                  <mat-icon>
-                    ballot
-                  </mat-icon>
-                </mat-expansion-panel-header>
-                <tree-node-checkbox [treeSource]="projectSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
-                <mat-action-row>
-                  <button mat-button class="btn btn-danger" (click)="prevStep()">Previous Step</button>
-                  <button mat-button class="btn btn-primary" (click)="nextStep()">Next Step</button>
-                </mat-action-row>
-              </mat-expansion-panel>
+                <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                  <mat-expansion-panel-header class="btn-purple">
+                    <mat-panel-title>
+                      Projects / Activities (2)
+                    </mat-panel-title>
+                    <mat-icon>
+                      ballot
+                    </mat-icon>
+                  </mat-expansion-panel-header>
+                  <tree-node-checkbox [treeSource]="projectSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
+                  <mat-action-row>
+                    <button mat-button class="btn btn-danger" (click)="prevStep()">Previous Step</button>
+                    <button mat-button class="btn btn-primary" (click)="nextStep()">Next Step</button>
+                  </mat-action-row>
+                </mat-expansion-panel>
 
-              <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
-                <mat-expansion-panel-header class="btn-lightslategrey">
-                  <mat-panel-title>
-                    Other Learning Resources (2)
-                  </mat-panel-title>
-                  <mat-icon>
-                    web
-                  </mat-icon>
-                </mat-expansion-panel-header>
-                <tree-node-checkbox [treeSource]="otherSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
+                <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+                  <mat-expansion-panel-header class="btn-lightslategrey">
+                    <mat-panel-title>
+                      Other Learning Resources (2)
+                    </mat-panel-title>
+                    <mat-icon>
+                      web
+                    </mat-icon>
+                  </mat-expansion-panel-header>
+                  <tree-node-checkbox [treeSource]="otherSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
 
-                <mat-action-row>
-                  <button mat-button class="btn btn-danger" (click)="prevStep()">Previous Step</button>
-                  <button mat-button class="btn btn-primary" (click)="nextStep()">End</button>
-                </mat-action-row>
-              </mat-expansion-panel>
+                  <mat-action-row>
+                    <button mat-button class="btn btn-danger" (click)="prevStep()">Previous Step</button>
+                    <button mat-button class="btn btn-primary" (click)="nextStep()">End</button>
+                  </mat-action-row>
+                </mat-expansion-panel>
 
-            </mat-accordion>
+              </mat-accordion>
             </div>
 
             <div style="float:right">
@@ -96,47 +96,56 @@
               <div class="card-stepper left col s12 m12 l12">
                 <div class="lesson">
                   <mat-checkbox>
-                    Low Performing (10)
+                    <span class="btn btn-danger">
+                      Low Performing (10)
+                    </span>
                   </mat-checkbox><br>
                   <mat-checkbox>
-                    Satisfactory (5)
+                    <span class="btn btn-warning">
+                      Satisfactory (5)
+                    </span>
                   </mat-checkbox><br>
                   <mat-checkbox>
-                    Above Average (15)
+                    <span class="btn btn-blue">
+                      Above Average (15)
+                    </span>
                   </mat-checkbox><br>
                   <mat-checkbox>
-                    Mastered (20)
+                    <span class="btn btn-success">
+                      Mastered (20)
+                    </span>
                   </mat-checkbox>
                 </div>
               </div>
             </div>
 
-              <div class="right">
-                <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
-                <button class="btn btn-green" mat-button matStepperNext>Next</button>
-              </div>
+            <div class="right">
+              <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
+              <button class="btn btn-green" mat-button matStepperNext>Next</button>
+            </div>
           </form>
         </mat-step>
 
         <mat-step [stepControl]="thirdFormGroup">
           <form [formGroup]="thirdFormGroup">
             <ng-template matStepLabel>Add / Remove Assignees</ng-template>
-           <div class="row card">
+            <div class="row card">
               <div class="lesson">
-                Total Number of Assignees : 60 <span class="btn btn-blue">View</span> <br>
-
+                Total Number of Assignees : 60  <span class="btn btn-green" (click)="openAssignees()">Edit Assignees</span> 
+                <br>
+                <br>
                 <div *ngIf="isAssignees">
-                    <mat-select placeholder="Select Students" class="dropdown" formControlName="student" multiple>
-                        <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">All</mat-option>
-                        <mat-option *ngFor="let student of studentFilters" [value]="student.key">
-                          {{student.value}}
-                        </mat-option>
-                      </mat-select>
+                  <mat-select placeholder="Select Students" class="dropdown" formControlName="student" multiple>
+                    <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">All</mat-option>
+                    <mat-option *ngFor="let student of studentFilters" [value]="student.key">
+                      {{student.value}}
+                    </mat-option>
+                  </mat-select>
                 </div>
-                <span class="btn btn-green" (click)="openAssignees()">Add More Assignees</span>
-                </div>
-           </div>
-            
+               
+              </div>
+            </div>
+
 
             <div class="right">
               <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
@@ -152,12 +161,12 @@
               <div class="card-stepper left col s12 m6 l6">
                 <div class="unit">
                   <mat-label>
-                    Due Date 
+                    Due Date
                   </mat-label>
-                      <input matInput [matDatepicker]="picker" placeholder="Select Due Date">
-                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                      <mat-datepicker #picker></mat-datepicker>
-                    </div>
+                  <input matInput [matDatepicker]="picker" placeholder="Select Due Date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </div>
               </div>
             </div>
 
@@ -168,6 +177,6 @@
           </form>
         </mat-step>
       </mat-horizontal-stepper>
-      </div>
     </div>
   </div>
+</div>

@@ -9,14 +9,12 @@
             </span>
         </h5>
         <br>
-        <div class="col l12 m12 s12" style="padding: 0">
-            <div class="grid">
+            <div class="col l12 m12 s12 grid">
                 <ag-grid-angular class="ag-theme-balham" style="width: 100%;
                                 height: 69.5vh;margin-left: 0px;" [enableSorting]="true" [enableFilter]="false" [rowData]="rowData"
                     [columnDefs]="columnDefs" rowSelection="multiple" [suppressContextMenu]="true" [enableColResize]="true" [suppressMenuMainPanel]="true"
                     [suppressMenuColumnPanel]="true" [defaultColDef]="defaultColDef" [floatingFilter]="true" (cellClicked)="onCellClicked($event)">
                 </ag-grid-angular>
             </div>
-        </div>
     </div>
 </div>

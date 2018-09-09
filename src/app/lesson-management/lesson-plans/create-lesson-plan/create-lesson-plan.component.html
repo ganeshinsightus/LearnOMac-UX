@@ -1,0 +1,233 @@
+<div class="row card-full bq-pink">
+  <div class="col l12 m12 s12">
+    <h5 class="card-title bq-pink-text">
+      Create New Lesson Plan <span>(Unit V - Probability) </span>
+
+      <span class="btn btn-pink right" (click)="onBack()">Back</span>
+    </h5>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Create Lesson Plan</ng-template>
+
+          <mat-form-field>
+            <input matInput placeholder="Lesson Plan Title">
+          </mat-form-field> &nbsp;
+
+          <mat-form-field>
+            <mat-select placeholder="Select Template">
+              <mat-option value="1">
+                Template 1
+              </mat-option>
+              <mat-option value="2">
+                Template 2
+              </mat-option>
+              <mat-option value="3">
+                Template 3
+              </mat-option>
+              <mat-option value="4">
+                Template 4
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <span class="btn btn-blue">
+            View
+          </span>
+          <span class="btn btn-lightgreen">
+            Load
+          </span>
+
+          <mat-accordion>
+
+            <div class="col l9 m9 s9">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header class="btn-lightgreen">
+                  <mat-panel-title>
+                    Goal of the Lesson
+                  </mat-panel-title>
+                  <mat-panel-description>
+
+                  </mat-panel-description>
+
+                </mat-expansion-panel-header>
+
+                <mat-form-field class="example-full-width">
+                  <textarea matInput placeholder=""></textarea>
+                </mat-form-field>
+
+              </mat-expansion-panel>
+            </div>
+            <div class="col l3 m3 s3">
+              <span class="badge-danger"  mat-raised-button     matTooltip="Delete Section">
+                <mat-icon>delete</mat-icon>
+              </span>
+              <span class="badge-success"  mat-raised-button     matTooltip="Edit Section">
+                <mat-icon>border_color</mat-icon>
+              </span>
+            </div>
+
+            <div class="col l9 m9 s9">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header class="btn-warning">
+                  <mat-panel-title>
+                    Pre-requisite Knowledge Evaluation
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field class="example-full-width">
+                  <textarea matInput placeholder=""></textarea>
+                </mat-form-field>
+              </mat-expansion-panel>
+            </div>
+            <div class="col l3 m3 s3">
+              <span class="badge-danger"  mat-raised-button     matTooltip="Delete Section">
+                <mat-icon>delete</mat-icon>
+              </span>
+              <span class="badge-success"  mat-raised-button     matTooltip="Edit Section">
+                <mat-icon>border_color</mat-icon>
+              </span>
+            </div>
+
+            <div class="col l9 m9 s9">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header class="btn-blue">
+                  <mat-panel-title>
+                    Introduction
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field class="example-full-width">
+                  <textarea matInput placeholder=""></textarea>
+                </mat-form-field>
+              </mat-expansion-panel>
+
+            </div>
+            <div class="col l3 m3 s3">
+              <span class="badge-danger"  mat-raised-button     matTooltip="Delete Section">
+                <mat-icon>delete</mat-icon>
+              </span>
+              <span class="badge-success"  mat-raised-button     matTooltip="Edit Section">
+                <mat-icon>border_color</mat-icon>
+              </span>
+            </div>
+
+            <div class="col l9 m9 s9">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header class="btn-lightslategrey">
+                  <mat-panel-title>
+                    Activities
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <mat-form-field class="example-full-width">
+                  <textarea matInput placeholder=""></textarea>
+                </mat-form-field>
+
+              </mat-expansion-panel>
+
+            </div>
+            <div class="col l3 m3 s3">
+
+              <span class="badge-danger"  mat-raised-button     matTooltip="Delete Section">
+                <mat-icon>delete</mat-icon>
+              </span>
+              <span class="badge-success"  mat-raised-button     matTooltip="Edit Section" >
+                <mat-icon>border_color</mat-icon>
+              </span>
+              <span class="badge-pink" mat-raised-button matTooltip="Add New Section" >
+                <mat-icon>add_circle</mat-icon> &nbsp;
+              </span>
+
+            </div>
+
+          </mat-accordion>
+
+          <div style="float:right">
+            <button class="btn btn-blue" mat-button>Save as Draft</button>
+            <button class="btn btn-green" mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Add Learing Resources</ng-template>
+
+          <div class="col l5 m5 s1 left">
+            <span class="btn btn-blue" (click)="openContentDialog()">
+              Add From My Learning Resources
+            </span>
+
+          </div>
+
+          <div class="col l6 m6 s12 left">
+            Added Resources
+
+            <div class="collection">
+              <div class="collection-item">
+                <mat-checkbox>
+                  probability pdf
+                </mat-checkbox> &nbsp;
+                <span class="badge-danger"  mat-raised-button     matTooltip="Delete Section">
+                  <mat-icon>delete</mat-icon>
+                </span>
+              </div>
+
+              <div class="collection-item">
+                <mat-checkbox>
+                  set web article
+                </mat-checkbox>&nbsp;
+                <span class="badge-danger"  mat-raised-button     matTooltip="Delete Section">
+                  <mat-icon>delete</mat-icon>
+                </span>
+              </div>
+              <div class="collection-item">
+                <mat-checkbox>
+                  realnumbers pdf
+                </mat-checkbox>&nbsp;
+                <span class="badge-danger"  mat-raised-button     matTooltip="Delete Section">
+                  <mat-icon>delete</mat-icon>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="right">
+            <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
+            <button class="btn btn-green" mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Publish Lesson Plan</ng-template>
+
+          <div class="bq-contentlightgrey-text">
+            Added Resources
+
+            <ul class="list">
+              <li>
+                probability pdf
+              </li>
+              <li>
+                set web article
+              </li>
+              <li>
+                realnumbers pdf
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="right">
+            <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
+            <button class="btn btn-green" mat-button matStepperNext>Publish</button>
+          </div>
+        </form>
+      </mat-step>
+
+    </mat-horizontal-stepper>
+  </div>
+</div>

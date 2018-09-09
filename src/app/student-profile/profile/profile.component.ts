@@ -37,7 +37,7 @@ export class ProfileComponent {
   openDialog() {
     this.profileFilterDialogRef = this.dialog.open(ProfileFilterComponent, {
       width: "30%",
-      height: "57vh"
+      height: "60vh"
     });
     this.profileFilterDialogRef.disableClose = true;
   }

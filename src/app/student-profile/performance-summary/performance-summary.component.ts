@@ -77,7 +77,7 @@ export class ProfilePerformanceComponent {
   openDialog() {
     this.performanceFilterDialogRef = this.dialog.open(PerformanceFilterComponent, {
       width: "30%",
-      height: "71vh"
+      height: "32vh"
     });
     this.performanceFilterDialogRef.disableClose = true;
   }

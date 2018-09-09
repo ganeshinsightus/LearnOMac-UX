@@ -134,7 +134,7 @@
                                     <sup class="btn-green">Pre-requisite</sup>
                                 </div>
                                 <div>
-                                    <span class="badge-green btn-changes right" mat-raised-button matTooltip="View Details and Publish" (click)="openUpdateList()">
+                                    <span class="badge-green btn-changes right" mat-raised-button matTooltip="View Details and Publish" (click)="openLearningPathPublish()">
                                         <mat-icon>note_add</mat-icon>
                                     </span>
                                 </div>
@@ -144,7 +144,7 @@
                                     Grade 4 - Unit II - Probability . Introduction
                                     <sup class="btn-green">Curriculum</sup>
                                 </div>
-                                <span class="badge-green btn-changes right" mat-raised-button matTooltip="View Details and Publish" (click)="openUpdateList()">
+                                <span class="badge-green btn-changes right" mat-raised-button matTooltip="View Details and Publish" (click)="openLearningPathPublish()">
                                     <mat-icon>note_add</mat-icon>
                                 </span>
                             </li>
@@ -192,7 +192,7 @@
                                 <span class="badge-indigo btn-change right" mat-raised-button matTooltip="Update Knowledge Level" (click)="openProjectListUpdate()">
                                     <mat-icon>border_color</mat-icon>
                                 </span>
-                                <span class="badge-indigo btn-change right" mat-raised-button (click)="openProjectList()" matTooltip="View Details">
+                                <span class="badge-indigo btn-change right" mat-raised-button (click)="openProjectViewDetails()" matTooltip="View Details">
                                     <mat-icon>visibility</mat-icon>
                                 </span>
                             </div>
@@ -209,7 +209,7 @@
                                 <span class="badge-indigo btn-change right" mat-raised-button matTooltip="Update Knowledge Level" (click)="openProjectListUpdate()">
                                     <mat-icon>border_color</mat-icon>
                                 </span>
-                                <span class="badge-indigo btn-change right" mat-raised-button (click)="openProjectList()" matTooltip="View Details">
+                                <span class="badge-indigo btn-change right" mat-raised-button (click)="openProjectViewDetails()" matTooltip="View Details">
                                     <mat-icon>visibility</mat-icon>
                                 </span>
                             </div>
@@ -225,7 +225,7 @@
                                     </stacked-bar-chart-level5>
                                 </div>
 
-                                <span class="badge-indigo btn-change right" mat-raised-button matTooltip="View Details and Publish" (click)="openUpdateList()">
+                                <span class="badge-indigo btn-change right" mat-raised-button matTooltip="View Details and Publish" (click)="openProjectListPublish()">
                                     <mat-icon>note_add</mat-icon>
                                 </span>
                             </li>
@@ -241,10 +241,23 @@
                                     <span class="badge-indigo btn-change right" mat-raised-button matTooltip="Update Knowledge Level" (click)="openProjectListUpdate()">
                                         <mat-icon>border_color</mat-icon>
                                     </span>
-                                    <span class="badge-indigo btn-change right" mat-raised-button (click)="openProjectList()" matTooltip="View Details">
+                                    <span class="badge-indigo btn-change right" mat-raised-button (click)="openProjectViewDetails()" matTooltip="View Details">
                                         <mat-icon>visibility</mat-icon>
                                     </span>
                                 </div>
+                            </li>
+                            <li>
+                                <div class="title left col s12">
+                                    Activity 5 (Published)
+                                </div>
+                                <div class="col s10">
+                                    <stacked-bar-chart-level5 [projectvalues]="project_values4">
+                                    </stacked-bar-chart-level5>
+                                </div>
+
+                                <span class="badge-indigo btn-change right" mat-raised-button matTooltip="View Details" (click)="openProjectViewDetails()">
+                                    <mat-icon>visibility</mat-icon>
+                                </span>
                             </li>
                         </div>
                     </ul>
