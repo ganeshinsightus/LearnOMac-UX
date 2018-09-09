@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class NewsComponent {
 
   newsDialogRef: MatDialogRef<NewsDialogComponent>;
+  showScroll:boolean = false;
 
   constructor(public dialog: MatDialog , private routes:Router ) { }
   openDialog() {
