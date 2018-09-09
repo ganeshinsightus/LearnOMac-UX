@@ -1,0 +1,186 @@
+<div class="card bq-brown">
+    <h5 class="title bq-text-indigo">
+        Class Performance
+    </h5>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="chart-list">
+                <ul>
+                    <li>
+                        <div class="col s12 m12 l12 title left">
+                            Probability
+                        </div>
+                        <div class="col s6 m6 l6">
+                            <stacked-bar-chart [values]="values4">
+                            </stacked-bar-chart>
+                        </div>
+                        <div class="col right">
+                            <span class="btn btn-brown btn-change" (click)="openDetailedView()">
+                                Detailed View
+                            </span>
+                            <span class="btn btn btn-brown btn-change ">
+                                Update Knowledge Level
+                            </span>
+                            <span class="btn btn btn-brown btn-change ">
+                                Publish Assessment
+                            </span>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="col s12 m12 l12 title left">
+                            Sets
+                        </div>
+                        <div class="col s6 m6 l6">
+                            <stacked-bar-chart [values]="values3">
+                            </stacked-bar-chart>
+                        </div>
+                        <div class="col right">
+                            <span class="btn btn-brown btn-change"  (click)="openDetailedView()">
+                                Detailed View
+                            </span>
+                            <span class="btn btn btn-brown btn-change ">
+                                Update Knowledge Level
+                            </span>
+                            <span class="btn btn btn-brown btn-change ">
+                                Publish Assessment
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col s12 m12 l12 title left">
+                            Real Numbers
+                        </div>
+                        <div class="col s6 m6 l6">
+                            <stacked-bar-chart [values]="values4">
+                            </stacked-bar-chart>
+                        </div>
+                        <div class="col right">
+                            <span class="btn btn-brown btn-change"  (click)="openDetailedView()" (click)="openDetailedView()">
+                                Detailed View
+                            </span>
+                            <span class="btn btn btn-brown btn-change ">
+                                Update Knowledge Level
+                            </span>
+                            <span class="btn btn btn-brown btn-change ">
+                                Publish Assessment
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col s12 m12 l12 title left">
+                            Quadratic Equations
+                        </div>
+                        <div class="col s6 m6 l6">
+                            <stacked-bar-chart [values]="values2">
+                            </stacked-bar-chart>
+                        </div>
+                        <div class="col right">
+                            <span class="btn btn-brown btn-change"  (click)="openDetailedView()">
+                                Detailed View
+                            </span>
+                            <span class="btn btn btn-brown btn-change ">
+                                Update Knowledge Level
+                            </span>
+                            <span class="btn btn btn-brown btn-change ">
+                                Publish Assessment
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col s12 m12 l12 title left">
+                            Propagation
+                        </div>
+                        <div class="col s6 m6 l6">
+                            <stacked-bar-chart [values]="values1">
+                            </stacked-bar-chart>
+                        </div>
+                        <div class="col right">
+                            <span class="btn btn-brown btn-change"  (click)="openDetailedView()">
+                                Detailed View
+                            </span>
+                            <span class="btn btn btn-brown btn-change ">
+                                Update Knowledge Level
+                            </span>
+                            <span class="btn btn btn-brown btn-change ">
+                                Publish Assessment
+                            </span>
+                        </div>
+                    </li>
+                    <div *ngIf="showScroll">
+                        <li>
+                            <div class="col s12 m12 l12 title left">
+                                Real Numbers
+                            </div>
+                            <div class="col s6 m6 l6">
+                                <stacked-bar-chart [values]="values4">
+                                </stacked-bar-chart>
+                            </div>
+                            <div class="col right">
+                                <span class="btn btn-brown btn-change">
+                                    Detailed View
+                                </span>
+                                <span class="btn btn btn-brown btn-change ">
+                                    Update Knowledge Level
+                                </span>
+                                <span class="btn btn btn-brown btn-change ">
+                                    Publish Assessment
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col s12 m12 l12 title left">
+                                Quadratic Equations
+                            </div>
+                            <div class="col s6 m6 l6">
+                                <stacked-bar-chart [values]="values2">
+                                </stacked-bar-chart>
+                            </div>
+                            <div class="col right">
+                                <span class="btn btn-brown btn-change">
+                                    Detailed View
+                                </span>
+                                <span class="btn btn btn-brown btn-change ">
+                                    Update Knowledge Level
+                                </span>
+                                <span class="btn btn btn-brown btn-change ">
+                                    Publish Assessment
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col s12 m12 l12 title left">
+                                Propagation
+                            </div>
+                            <div class="col s6 m6 l6">
+                                <stacked-bar-chart [values]="values1">
+                                </stacked-bar-chart>
+                            </div>
+                            <div class="col right">
+                                <span class="btn btn-brown btn-change">
+                                    Detailed View
+                                </span>
+                                <span class="btn btn btn-brown btn-change ">
+                                    Update Knowledge Level
+                                </span>
+                                <span class="btn btn btn-brown btn-change ">
+                                    Publish Assessment
+                                </span>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-right: 20px;">
+                <a class="badge-brown" (click)="showScroll = !showScroll">
+                    <p *ngIf="!showScroll">
+                        <mat-icon>more_horiz</mat-icon>
+                    </p>
+                    <p *ngIf="showScroll">
+                        <mat-icon>expand_less</mat-icon>
+                    </p>
+                </a>
+            </div>
+    </div>
+</div>

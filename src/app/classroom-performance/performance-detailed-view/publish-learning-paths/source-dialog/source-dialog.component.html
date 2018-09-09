@@ -1,0 +1,45 @@
+<div class="dialog">
+    <h5 class="card-title bq-pink-text">Probability Content
+
+        <a (click)="closeDialog()">
+            <span class="btn btn-danger right">
+                <mat-icon>clear</mat-icon>
+            </span>
+        </a>
+    </h5>
+    <div class="collection col l5">
+        <div class="collection-item">
+            <div *ngIf="video">
+                <tree-node-checkbox [treeSource]="videoSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
+            </div>
+            <div *ngIf="document">
+                <tree-node-checkbox [treeSource]="documentSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
+            </div>
+            <div *ngIf="project">
+                <tree-node-checkbox [treeSource]="projectSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
+            </div>
+            <div *ngIf="other">
+                <tree-node-checkbox [treeSource]="otherSource" [checkBox]="checkBox" [threeStates]="threeStates"></tree-node-checkbox>
+            </div>
+        </div>
+
+        <div class="collection-item">
+            <div *ngIf="videos">
+                <tree-node-checkbox [treeSource]="videoSource" [checkBox]="false" [threeStates]="false"></tree-node-checkbox>
+            </div>
+            <div *ngIf="documents">
+                <tree-node-checkbox [treeSource]="documentSource" [checkBox]="false" [threeStates]="false"></tree-node-checkbox>
+            </div>
+            <div *ngIf="projects">
+                <tree-node-checkbox [treeSource]="projectSource" [checkBox]="false" [threeStates]="false"></tree-node-checkbox>
+            </div>
+            <div *ngIf="others">
+                <tree-node-checkbox [treeSource]="otherSource" [checkBox]="false" [threeStates]="false"></tree-node-checkbox>
+            </div>
+        </div>
+
+            <div *ngIf="assignees">
+                <jqxDropDownList [width]="400" [height]="30" [source]="source" [selectedIndex]="1" [checkboxes]="true">
+                </jqxDropDownList>
+            </div>
+    </div>

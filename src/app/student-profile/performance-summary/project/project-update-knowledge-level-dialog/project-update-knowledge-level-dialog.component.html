@@ -1,0 +1,37 @@
+<div class="dialog">
+    <h5 class="card-title bq-pink-text">Real Numbers
+        <a (click)="closeDialog()">
+            <span class="btn btn-danger right">
+                <mat-icon>clear</mat-icon>
+            </span>
+        </a>
+    </h5>
+    <div class="collection col l5">
+        <div class="collection-item">
+           <mat-form-field>
+                <mat-select placeholder="Select Knowlege Level">
+                    <mat-option [value]="1">Low Performing</mat-option>
+                    <mat-option [value]="2">Satisfactory</mat-option>
+                    <mat-option [value]="3">Above Average</mat-option>
+                    <mat-option [value]="4">Mastered</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="collection-item">
+              <mat-form-field>
+                <textarea matInput placeholder="Remarks"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="collection-item">
+            <div class="col s12 right">
+                <span class="btn btn-success">
+                    Update
+                </span>
+                <span class="btn btn-danger" (click)="closeDialog()">
+                    Cancel
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>

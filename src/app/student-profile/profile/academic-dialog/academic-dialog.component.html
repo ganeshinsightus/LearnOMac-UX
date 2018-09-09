@@ -1,0 +1,52 @@
+<div class="dialog">
+    <h5 class="card-title bq-pink-text">Add/Edit New Badges
+        <a (click)="closeDialog()">
+            <span class="btn btn-danger right">
+                <mat-icon>clear</mat-icon>
+            </span>
+        </a>
+    </h5>
+    <div class="collection">
+        <div class="collection-item">
+            <mat-form-field>
+                <mat-select placeholder="Badge">
+                    <mat-option [value]="1">Mastered</mat-option>
+                    <mat-option [value]="2">Guru</mat-option>
+                </mat-select>
+            </mat-form-field>          
+        </div>
+        <div class="collection-item">
+            <mat-form-field>
+                <mat-select placeholder="Subject">
+                    <mat-option [value]="1">Mathematics</mat-option>
+                    <mat-option [value]="2">Science</mat-option>
+                    <mat-option [value]="3">General Knowlege</mat-option>
+                    <mat-option [value]="4">English</mat-option>
+                    <mat-option [value]="5">Social</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="collection-item">
+            <mat-form-field>
+                <mat-select placeholder="Topic">
+                    <mat-option [value]="1">Probability</mat-option>
+                    <mat-option [value]="2">Nationality</mat-option>
+                    <mat-option [value]="3">Solid state</mat-option>
+                    <mat-option [value]="4">Liquid State</mat-option>
+                    <mat-option [value]="5">Maps</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="collection-item">
+            <div class="col s12 right">
+                <span class="btn btn-success">
+                    Save
+                </span>
+                <span class="btn btn-danger" (click)="closeDialog()">
+                    Cancel
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>

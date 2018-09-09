@@ -1,0 +1,43 @@
+<div class="row card">
+	<div class="card-stepper left col s12 m6 l6">
+		<b>
+			Curriculum Lesson
+		</b>
+		<div class="curriculum">
+				<jqxTree #treeReference [width]="400" [source]="treeSource" style=" border: none;
+				padding-top: 20px;" (onSelect)="myTreeOnSelect($event)"></jqxTree>
+		</div>
+		
+	</div>
+
+	<div class="card-stepper right col s12 m6 l6 border-left">
+		<b>
+			Pre-requisite Standards
+		</b>
+		<div class="lesson">
+			<jqxPanel #treePanel [width]="400" [height]="200" style=" border: none;
+			padding-top: 20px;">
+			
+				<div *ngIf="isReal">
+					<mat-checkbox>
+						Grade 4 - Real Numbers
+					</mat-checkbox>
+					<mat-checkbox>
+						Grade 5 - Number System and Real Numbers
+					</mat-checkbox>
+				</div>
+
+				<div *ngIf="isSets">
+					<mat-checkbox>
+						Grade 6 - Sets Basics
+					</mat-checkbox><br>
+					<mat-checkbox>
+						Grade 8 - Sets and Venn Diagrams
+					</mat-checkbox>
+				</div>
+			</jqxPanel>
+		</div>
+	</div>
+
+
+</div>

@@ -1,0 +1,7 @@
+<jqxDropDownButton #myDropDownButton [width]="200" [height]="25" style="border-color: white !important;background: white !important;
+        position: relative;top: 4px !important;border-radius: 0 !important;">
+    <jqxTree #treeReference [width]="200" [source]="treeSource" style=" border: none; 
+                overflow: auto;
+                padding-top: 0px;" (onInitialized)="myTreeOnInitialized()" (onSelect)="myTreeOnSelect($event)" [hasThreeStates]="threeStates"
+        [checkboxes]="checkBox"></jqxTree>
+</jqxDropDownButton>

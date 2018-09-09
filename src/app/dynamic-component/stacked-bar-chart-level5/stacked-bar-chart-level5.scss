@@ -1,0 +1,80 @@
+@import "../../../styles/variables";
+@import "../../../styles/common";
+.bg-red {
+  background-color: red !important;
+}
+.bg-grey {
+  background-color: grey !important;
+}
+
+.bg-yellow {
+  background-color: yellow !important;
+}
+
+.bg-blue {
+  background-color: #1fc8f8  !important;
+}
+
+.bg-green {
+  background-color: #76a346 !important;
+}
+.progress {
+  background-color: #f9f9f9;
+  color: #fff;
+ // box-shadow: -1px 1px 3px 0px black;
+  box-sizing: initial;
+  color: #fff;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  height: 8.5px;
+  line-height: 1.182;
+  margin: 6px 0;
+  position: relative;
+  border-radius: 0;
+  text-align: center;
+  width: 99%;
+}
+
+.progress-small {
+  font-size: 9px;
+  font-size: 0.5625rem;
+  height: 6px;
+  line-height: 0.875;
+}
+
+.progress-large {
+  font-size: 16px;
+  font-size: 1rem;
+  height: 25px;
+  line-height: 1.7;
+}
+
+.progress > span {
+  background-color: #2bc253;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+}
+.progress.progress-stacked > span {
+  display: inline-block;
+}
+
+.progress-striped > span:after,
+.progress-striped > span > span {
+  background-size: 50px 50px;
+  bottom: 0;
+  content: "";
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+.progress-striped.progress-animate > span:after,
+.progress-striped.progress-animate > span > span {
+  -webkit-animation: move 2s linear infinite;
+  animation: move 2s linear infinite;
+}

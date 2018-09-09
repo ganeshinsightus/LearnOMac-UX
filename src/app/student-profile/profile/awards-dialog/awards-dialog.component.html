@@ -1,0 +1,43 @@
+<div class="dialog">
+    <h5 class="card-title bq-pink-text">Add/Edit New Awards
+        <a (click)="closeDialog()">
+            <span class="btn btn-danger right">
+                <mat-icon>clear</mat-icon>
+            </span>
+        </a>
+    </h5>
+    <div class="collection">
+        <div class="collection-item">
+            <mat-form-field>
+                <mat-select placeholder="Select Category">
+                    <mat-option [value]="1">Academic</mat-option>
+                    <mat-option [value]="2">Sports</mat-option>
+                    <mat-option [value]="3">General</mat-option>
+                </mat-select>
+            </mat-form-field>          
+        </div>
+        <div class="collection-item">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Award Title">
+                </mat-form-field>
+            </div>
+            <div class="collection-item">
+                    <mat-form-field>
+                            <input matInput [matDatepicker]="picker" placeholder="Awarded on">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+            </div>
+        <div class="collection-item">
+            <div class="col s12 right">
+                <span class="btn btn-success">
+                    Save
+                </span>
+                <span class="btn btn-danger" (click)="closeDialog()">
+                    Cancel
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>

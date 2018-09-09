@@ -1,0 +1,67 @@
+<div class="dialog">
+        <h5 class="card-title bq-indigo-text">Create New Communication
+                <a (click)="closeDialog()">
+                        <span class="btn btn-danger right">
+                                <mat-icon>clear</mat-icon>
+                        </span>
+                </a>
+        </h5>
+        <div class="collection">
+                <div class="collection-item">
+                        <label for="type">Select Communication Type</label>
+                        <span class="right">
+                                <mat-radio-group>
+                                        <mat-radio-button value="1" mat-raised-button matTooltip="Only parents can view and reply to the message">Message </mat-radio-button>&nbsp;&nbsp;
+                                        <mat-radio-button mat-raised-button matTooltip="Parents and students can view the notification" value="2">Notification</mat-radio-button>
+                                </mat-radio-group>
+                        </span>
+                </div>
+                <div class="collection-item">
+
+                        <mat-form-field class="example-chip-list">
+                                <mat-chip-list #chipList>
+                                        <mat-chip *ngFor="let student of studentsList" [selectable]="selectable" [removable]="removable" (removed)="remove(student)">
+                                                {{student.name}}
+                                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                        </mat-chip>
+                                        <input placeholder="To" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                                                (matChipInputTokenEnd)="add($event)" [matAutocomplete]="auto">
+                                        <mat-autocomplete #auto="matAutocomplete">
+                                                <mat-option *ngFor="let student of studentsList" [value]="student.name">
+                                                        {{ student.name }}
+                                                </mat-option>
+                                        </mat-autocomplete>
+                                </mat-chip-list>
+                        </mat-form-field>
+                        <!-- <mat-form-field>
+                                <mat-select placeholder="To" [formControl]="students" multiple>
+                                        <mat-option #allS [value]="-1">Select All</mat-option>
+                                        <mat-option *ngFor="let students of studentsList" [value]="students">{{students}}</mat-option>
+                                </mat-select>
+                        </mat-form-field>-->
+                </div> 
+                <div class="collection-item">
+                        <!-- <b>SUBJECT</b>: -->
+                        <br>
+                        <mat-form-field class="example-full-width" style="width: 100%">
+                                <textarea matInput placeholder="Subject "></textarea>
+                        </mat-form-field>
+                </div>
+                <div class="collection-item">
+                        <!-- <b>MESSAGE</b>:-->
+                        <br>
+                        <mat-form-field class="example-full-width" style="width: 100%">
+                                <textarea matInput placeholder="Message "></textarea>
+                        </mat-form-field>
+                        <div class="col s12 right">
+                                <span class="btn btn-success">
+                                        Send
+                                </span>
+                                <span class="btn btn-danger" (click)="closeDialog()">
+                                        Cancel
+                                </span>
+                        </div>
+                </div>
+
+        </div>
+</div>
