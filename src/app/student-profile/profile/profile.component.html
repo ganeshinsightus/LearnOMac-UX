@@ -1,0 +1,144 @@
+<div class="row">
+        <div class="col s12 m12 l6">
+                <div class="card-profile bq-black" style="padding-top: 40px;padding-left: 100px">
+                        <div class="col s6 m6 l4 left">
+                                <img class="img-rounded" src="../assets/images/profile1.png" alt="student picture">
+                        </div>
+
+                        <div class="col s6 m6 l8 profile-content right">
+                                <h3>Rajesh Kumar T.S </h3>
+                                <p>Date of Birth :
+                                        <b>28-11-2000</b>
+                                </p>
+                                <p>Date of Joining :
+                                        <b>04-06-2012</b>
+                                </p>
+                        </div>
+                </div>
+        </div>
+        <div class="col s12 m12 l6">
+                <div class="card-profile bq-orange">
+                        <span class="card-title bq-orange-text">Learning Style
+                        </span>
+                        <div class="profile-content">
+
+                                <p>Donut Charts</p>
+                        </div>
+                </div>
+        </div>
+        <div class="col s12 m12 l6">
+                <div class="card-profile bq-pink">
+                        <span class="card-title bq-pink-text">Achievements
+                                <a>
+                                        <span class="btn btn-pink create-new">Add New</span>
+                                </a>
+                        </span>
+                        <div class="profile-content">
+
+                                <ul>
+                                        <li class="row list-items">
+                                                <span class="left">
+                                                        <b>Academic</b> :
+
+                                                </span>
+                                                <span class="badge-pink right icon">
+                                                        <mat-icon>add_circle</mat-icon>
+                                                </span>
+                                                <p>80 badges earned</p>
+                                        </li>
+                                        <li class="row list-items">
+                                                <span class="left">
+                                                        <b>Sports</b> :
+
+                                                </span>
+                                                <span class="badge-pink right icon">
+                                                        <mat-icon>add_circle</mat-icon>
+                                                </span>
+                                                <p>20 medals won</p>
+                                        </li>
+                                        <div *ngIf="showScrolls">
+                                                <li class="row list-items">
+                                                        <span class="left">
+                                                                <b>Awards</b> :
+
+                                                        </span>
+                                                        <span class="badge-pink right icon">
+                                                                <mat-icon>add_circle</mat-icon>
+                                                        </span>
+                                                        <p>4 awards</p>
+                                                </li>
+                                        </div>
+                                </ul>
+                                <a class="badge-pink" (click)="showScrolls = !showScrolls">
+                                        <p *ngIf="!showScrolls">
+                                                <mat-icon>more_horiz</mat-icon>
+                                        </p>
+                                        <p *ngIf="showScrolls">
+                                                <mat-icon>expand_less</mat-icon>
+                                        </p>
+                                </a>
+                        </div>
+                </div>
+
+        </div>
+        <div class="col s12 m12 l6">
+                <div class="card-profile bq-indigo">
+                        <span class="card-title bq-indigo-text">Interests
+                                <a>
+                                        <span class="btn btn-indigo create-new" (click)="openCommunicationList()">Add New</span>
+                                </a>
+                        </span>
+                        <div class="profile-content">
+
+                                <ul>
+                                        <li class="row">
+                                                <span class="left">
+                                                        <b>Book Reading</b> :
+
+                                                </span>
+                                                <br>
+                                                <p>4 books
+                                                        <span class="right icon badge-indigo">
+                                                                <mat-icon>add_circle</mat-icon>
+                                                        </span>
+                                                </p>
+
+                                                <p>2 comments
+                                                        <span class="right icon badge-indigo">
+                                                                <mat-icon>add_circle</mat-icon>
+                                                        </span>
+                                                </p>
+                                        </li>
+                                        <div *ngIf="showScroll">
+                                                <li class="row">
+                                                        <span class="left">
+                                                                <b>Arts</b> :
+
+                                                        </span>
+                                                        <br>
+                                                        <p>2 Arts
+                                                                <span class="right icon badge-indigo">
+                                                                        <mat-icon>add_circle</mat-icon>
+                                                                </span>
+                                                        </p>
+                                                        <p>2 comments
+                                                                <span class="right icon badge-indigo">
+                                                                        <mat-icon>add_circle</mat-icon>
+                                                                </span>
+                                                        </p>
+                                                </li>
+                                        </div>
+                                </ul>
+                                <a class="badge-indigo" (click)="showScroll = !showScroll">
+                                        <p *ngIf="!showScroll">
+                                                <mat-icon>more_horiz</mat-icon>
+                                        </p>
+                                        <p *ngIf="showScroll">
+                                                <mat-icon>expand_less</mat-icon>
+                                        </p>
+                                </a>
+                        </div>
+                </div>
+
+        </div>
+</div>

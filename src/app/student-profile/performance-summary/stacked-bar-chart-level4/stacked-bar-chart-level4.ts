@@ -6,11 +6,11 @@ export class Coordinates {
 }
 
 @Component({
-  selector: 'stacked-bar-chart',
-  templateUrl: './stacked-bar-chart.html',
-  styleUrls: ['./stacked-bar-chart.scss']
+  selector: 'stacked-bar-chart-level4',
+  templateUrl: './stacked-bar-chart-level4.html',
+  styleUrls: ['./stacked-bar-chart-level4.scss']
 })
-export class StackedBarChartComponent {
+export class StackedBarChartlevel4Component {
 
   @ViewChild("progresscontainer") progresscontainer: ElementRef;
 

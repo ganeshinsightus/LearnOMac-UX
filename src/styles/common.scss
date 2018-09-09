@@ -179,26 +179,40 @@
 .badge-indigo:active{
     transform: translateY(2px);
 }
-@mixin progress($dark-color,$light-color) {
-    .progress {
-        position: relative;
-        height: 15px;
-        display: block;
-        width: 100px;
-        background-color: $dark-color;
-        border-radius: 2px;
-        background-clip: padding-box;
-        margin: 0.5rem 0 1rem 0;
-        overflow: hidden; }
-        .progress .determinate{
-          position: absolute;
-          background-color: inherit;
-          top: 0;
-          bottom: 0;
-          background-color: $light-color;
-          transition: width .3s linear; 
-        }
+.btn-black{
+    background-color:$color-lightslategrey!important;
+    color: white !important;
 }
-.progress-black{
-    @include progress(darkblue, skyblue);
+.bq-black{
+    border-left: 3px solid $color-lightslategrey !important;
 }
+.bq-black-text{
+    color:$color-lightslategrey !important;
+}
+.badge-black{
+    float: right;
+    color: $color-lightslategrey !important;
+}
+.badge-black:active{
+    transform: translateY(2px);
+}
+.dropdown {
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    outline: none;
+    height: 46px;
+    line-height: 3rem;
+    width: 100%;
+    font-size: 15px;
+    margin: 0 0 8px 0;
+    padding: 0;
+    display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1;
+  }

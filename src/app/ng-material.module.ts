@@ -12,7 +12,8 @@ import {
     MatSidenavModule,
     MatToolbarModule,
     MatProgressBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTabsModule
     } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -32,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatRadioModule,
     MatProgressBarModule,
     MatTooltipModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule
   ],
   exports: [
     AgGridModule,
@@ -49,7 +51,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatRadioModule,
     MatProgressBarModule,
     MatTooltipModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule
   ]
 })
 export class NgMaterialModule {}

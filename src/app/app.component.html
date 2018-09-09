@@ -1,7 +1,7 @@
 <!--Header-->
 <navbar-component></navbar-component>
 <!--Header-->
-<mat-drawer-container style="height: calc(90.4vh);" autosize>
+<mat-drawer-container style="height: calc(90.3vh);" autosize>
 
   <!--Sidenav bar-->
   <mat-drawer #drawer class="sidenav" mode="side" opened>
@@ -11,7 +11,7 @@
       </i>
     </div>
     <div>
-      <a [routerLink]="['dashboard']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
+      <a [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
         <i>
           <mat-icon>dashboard</mat-icon>
         </i>
@@ -21,7 +21,7 @@
       </a>
     </div>
     <div>
-      <a [routerLink]="['dashboard']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
+      <a [routerLink]="['/classroom']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
         <i>
           <mat-icon>dashboard</mat-icon>
         </i>
@@ -41,7 +41,7 @@
       </a>
     </div>
     <div>
-      <a [routerLink]="['studentprofiles']" [routerLinkActive]="'active'">
+      <a [routerLink]="['/student']" [routerLinkActive]="'active'">
         <i>
           <mat-icon>assignment_in</mat-icon>
         </i>
