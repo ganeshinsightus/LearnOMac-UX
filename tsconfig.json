@@ -22,6 +22,6 @@
     "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxcheckbox.ts",
     "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxpanel.ts",
     "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxcalendar.ts",
-
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid.ts",
   ]
 }

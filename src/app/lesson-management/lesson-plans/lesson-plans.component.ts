@@ -13,18 +13,17 @@ export class LessonPlansComponent {
   showScrolls: boolean;
   lessonplanFilterDialogRef: MatDialogRef<LessonPlanFilterComponent>;
 
-  constructor(public dialog: MatDialog, private routes: Router) {}
-
-  ngOnInit() {
-    // this.openDialog();
+  constructor(public dialog: MatDialog, private routes: Router) {
+    this.openDialog();
   }
+
 
   openDialog() {
     this.lessonplanFilterDialogRef = this.dialog.open(
       LessonPlanFilterComponent,
       {
-        width: "30%",
-        height: "60vh"
+        width: "55%",
+        height: "47vh"
       }
     );
     this.lessonplanFilterDialogRef.disableClose = true;

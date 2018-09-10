@@ -4,66 +4,74 @@
         <span class="logo">
         </span>
         <span class="header-spacer">
-                <div *ngIf="showAttendanceFilter">
-                        <div class="filter-card col l12 " style="width:36% !important;left:32% !important;">
-                            <form [formGroup]="filterForm">
-                                <select formControlName="grade">
-                                    <option [ngValue]="">Select Grade</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>&nbsp;
-                                <select formControlName="section">
-                                    <option [ngValue]="">Select Section</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                </select>&nbsp;
-                                <span class="btn-lightslategrey">Apply Filter</span>
-                            </form>
-                        </div>
-                    </div>
+            <div *ngIf="showAttendanceFilter">
+                <div class="filter-card">
+                    <form [formGroup]="filterForm">
+                        <mat-form-field>
+                            <mat-select placeholder="Select Grade" formControlName="grade">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="4">4</mat-option>
+                                <mat-option value="5">5</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Section" formControlName="section">
+                                <mat-option value="">Select Section</mat-option>
+                                <mat-option value="A">A</mat-option>
+                                <mat-option value="B">B</mat-option>
+                                <mat-option value="C">C</mat-option>
+                                <mat-option value="D">D</mat-option>
+                                <mat-option value="E">E</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <span class="btn-lightslategrey">Apply Filter</span>
+                    </form>
+                </div>
+            </div>
 
             <div *ngIf="showClassRoomDashboardFilter">
-                <div class="filter-card col l12">
+                <div class="filter-card">
                     <form [formGroup]="filterForm">
-                        <select formControlName="grade">
-                            <option [ngValue]="">Select Grade</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>&nbsp;
-                        <select formControlName="section">
-                            <option [ngValue]="">Select Section</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                        </select>&nbsp;
-                        <select formControlName="subject">
-                            <option [ngValue]="">Select Subject</option>
-                            <option value="Maths">Mathematics</option>
-                            <option value="Physics">Physics</option>
-                            <option value="Chemistry">Chemistry</option>
-                            <option value="Civics">Civics</option>
-                            <option value="Geography">Geography</option>
-                        </select>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Grade" formControlName="grade">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="4">4</mat-option>
+                                <mat-option value="5">5</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Section" formControlName="section">
+                                <mat-option value="">Select Section</mat-option>
+                                <mat-option value="A">A</mat-option>
+                                <mat-option value="B">B</mat-option>
+                                <mat-option value="C">C</mat-option>
+                                <mat-option value="D">D</mat-option>
+                                <mat-option value="E">E</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Subject" formControlName="subject">
+                                <mat-option value="Maths">Mathematics</mat-option>
+                                <mat-option value="Physics">Physics</mat-option>
+                                <mat-option value="Chemistry">Chemistry</mat-option>
+                                <mat-option value="Civics">Civics</mat-option>
+                                <mat-option value="Geography">Geography</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
                         <div *ngIf="showStudent">
-                            <select formControlName="student">
-                                <option [ngValue]="">Select Subject</option>
-                                <option value="Maths">Rajesh</option>
-                                <option value="Physics">Suresh</option>
-                                <option value="Chemistry">Ramesh</option>
-                                <option value="Civics">Ajith</option>
-                                <option value="Geography">Vijay</option>
-                            </select>
+                            <mat-form-field>
+                                <mat-select placeholder="Select Student" formControlName="student">
+                                    <mat-option value="Maths">Rajesh</mat-option>
+                                    <mat-option value="Physics">Suresh</mat-option>
+                                    <mat-option value="Chemistry">Ramesh</mat-option>
+                                    <mat-option value="Civics">Ajith</mat-option>
+                                    <mat-option value="Geography">Vijay</mat-option>
+                                </mat-select>
+                            </mat-form-field>
                         </div>
                         <span class="btn-lightslategrey">Apply Filter</span>
                     </form>
@@ -73,77 +81,35 @@
             <div *ngIf="showClassRoomPerformanceFilter">
                 <div class="filter-card">
                     <form [formGroup]="filterForm">
-                        <select formControlName="grade">
-                            <option [ngValue]="">Select Grade</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>&nbsp;
-                        <select formControlName="section">
-                            <option [ngValue]="">Select Section</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                        </select>&nbsp;
-                        <select formControlName="subject">
-                            <option [ngValue]="">Select Subject</option>
-                            <option value="Maths">Mathematics</option>
-                            <option value="Physics">Physics</option>
-                            <option value="Chemistry">Chemistry</option>
-                            <option value="Civics">Civics</option>
-                            <option value="Geography">Geography</option>
-                        </select>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Grade" formControlName="grade">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="4">4</mat-option>
+                                <mat-option value="5">5</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Section" formControlName="section">
+                                <mat-option value="">Select Section</mat-option>
+                                <mat-option value="A">A</mat-option>
+                                <mat-option value="B">B</mat-option>
+                                <mat-option value="C">C</mat-option>
+                                <mat-option value="D">D</mat-option>
+                                <mat-option value="E">E</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Subject" formControlName="subject">
+                                <mat-option value="Maths">Mathematics</mat-option>
+                                <mat-option value="Physics">Physics</mat-option>
+                                <mat-option value="Chemistry">Chemistry</mat-option>
+                                <mat-option value="Civics">Civics</mat-option>
+                                <mat-option value="Geography">Geography</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
                         <span class="btn-lightslategrey">Apply Filter</span>
-                    </form>
-                </div>
-            </div>
-
-            <div *ngIf="showClassroomPerformanceDetailedViewFilter">
-                <div class="filter-card" style="width: 80% !important;left: 10% !important;">
-                    <form [formGroup]="filterForm">
-                        <div class="row">
-                            <div class="col ">
-                                <select formControlName="grade">
-                                    <option [ngValue]="">Select Grade</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                            <div class="col ">
-                                <select formControlName="section">
-                                    <option [ngValue]="">Select Section</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                </select>
-                            </div>
-                            <div class="col  ">
-                                <select formControlName="subject">
-                                    <option [ngValue]="">Select Subject</option>
-                                    <option value="Maths">Mathematics</option>
-                                    <option value="Physics">Physics</option>
-                                    <option value="Chemistry">Chemistry</option>
-                                    <option value="Civics">Civics</option>
-                                    <option value="Geography">Geography</option>
-                                </select>&nbsp;
-                            </div>
-                            <div class="col  ">
-                                <dropdown-tree [treeSource]="treeSource">
-                                </dropdown-tree>
-                            </div>
-                            <div class="col  ">
-                                <span class="btn-lightslategrey">Apply Filter</span>
-                            </div>
-                        </div>
                     </form>
                 </div>
             </div>
@@ -151,163 +117,235 @@
             <div *ngIf="showStudentProfile">
                 <div class="filter-card">
                     <form [formGroup]="filterForm">
-                        <select formControlName="grade">
-                            <option [ngValue]="">Select Grade</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>&nbsp;
-                        <select formControlName="section">
-                            <option [ngValue]="">Select Section</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                        </select>&nbsp;
-                        <select formControlName="student">
-                            <option [ngValue]="">Select Student</option>
-                            <option value="Maths">Rajesh</option>
-                            <option value="Physics">Suresh</option>
-                            <option value="Chemistry">Ramesh</option>
-                            <option value="Civics">Ajith</option>
-                            <option value="Geography">Vijay</option>
-                        </select>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Grade" formControlName="grade">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="4">4</mat-option>
+                                <mat-option value="5">5</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Section" formControlName="section">
+                                <mat-option value="">Select Section</mat-option>
+                                <mat-option value="A">A</mat-option>
+                                <mat-option value="B">B</mat-option>
+                                <mat-option value="C">C</mat-option>
+                                <mat-option value="D">D</mat-option>
+                                <mat-option value="E">E</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Student" formControlName="student">
+                                <mat-option value="Maths">Rajesh</mat-option>
+                                <mat-option value="Physics">Suresh</mat-option>
+                                <mat-option value="Chemistry">Ramesh</mat-option>
+                                <mat-option value="Civics">Ajith</mat-option>
+                                <mat-option value="Geography">Vijay</mat-option>
+                            </mat-select>
+                        </mat-form-field>
                         <span class="btn-lightslategrey">Apply Filter</span>
                     </form>
                 </div>
             </div>
 
             <div *ngIf="showStudentPerformance">
-                <div class="filter-card" style="width: 62% !important;left: 18% !important;">
+                <div class="filter-card">
                     <form [formGroup]="filterForm">
-                        <select formControlName="grade">
-                            <option [ngValue]="">Select Grade</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>&nbsp;
-                        <select formControlName="section">
-                            <option [ngValue]="">Select Section</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                        </select>&nbsp;
-                        <select formControlName="subject">
-                            <option [ngValue]="">Select Subject</option>
-                            <option value="Maths">Mathematics</option>
-                            <option value="Physics">Physics</option>
-                            <option value="Chemistry">Chemistry</option>
-                            <option value="Civics">Civics</option>
-                            <option value="Geography">Geography</option>
-                        </select>&nbsp;
-                        <select formControlName="student">
-                            <option [ngValue]="">Select Student</option>
-                            <option value="Maths">Rajesh</option>
-                            <option value="Physics">Suresh</option>
-                            <option value="Chemistry">Ramesh</option>
-                            <option value="Civics">Ajith</option>
-                            <option value="Geography">Vijay</option>
-                        </select> &nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Grade" formControlName="grade">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="4">4</mat-option>
+                                <mat-option value="5">5</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Section" formControlName="section">
+                                <mat-option value="">Select Section</mat-option>
+                                <mat-option value="A">A</mat-option>
+                                <mat-option value="B">B</mat-option>
+                                <mat-option value="C">C</mat-option>
+                                <mat-option value="D">D</mat-option>
+                                <mat-option value="E">E</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Subject" formControlName="subject">
+                                <mat-option value="Maths">Mathematics</mat-option>
+                                <mat-option value="Physics">Physics</mat-option>
+                                <mat-option value="Chemistry">Chemistry</mat-option>
+                                <mat-option value="Civics">Civics</mat-option>
+                                <mat-option value="Geography">Geography</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Student" formControlName="student">
+                                <mat-option value="Maths">Rajesh</mat-option>
+                                <mat-option value="Physics">Suresh</mat-option>
+                                <mat-option value="Chemistry">Ramesh</mat-option>
+                                <mat-option value="Civics">Ajith</mat-option>
+                                <mat-option value="Geography">Vijay</mat-option>
+                            </mat-select>
+                        </mat-form-field>
                         <span class="btn-lightslategrey ">Apply Filter</span> &nbsp;
                     </form>
                 </div>
             </div>
 
             <div *ngIf="showLessonPlan">
-                <div class="filter-card" style="width: 80% !important;left: 10% !important;">
+                <div class="filter-card">
                     <form [formGroup]="filterForm">
                         <div class="row">
-                            <div class="col ">
-                                <select formControlName="grade">
-                                    <option [ngValue]="">Select Grade</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                            <div class="col ">
-                                <select formControlName="section">
-                                    <option [ngValue]="">Select Section</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                </select>
-                            </div>
-                            <div class="col  ">
-                                <select formControlName="subject">
-                                    <option [ngValue]="">Select Subject</option>
-                                    <option value="Maths">Mathematics</option>
-                                    <option value="Physics">Physics</option>
-                                    <option value="Chemistry">Chemistry</option>
-                                    <option value="Civics">Civics</option>
-                                    <option value="Geography">Geography</option>
-                                </select>&nbsp;
-                            </div>
-                            <div class="col  ">
-                                <dropdown-tree [treeSource]="treeSource">
-                                </dropdown-tree>
-                            </div>
-                            <div class="col  ">
-                                <span class="btn-lightslategrey">Apply Filter</span>
-                            </div>
+                            <mat-form-field>
+                                <mat-select placeholder="Select Grade" formControlName="grade">
+                                    <mat-option value="1">1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="3">3</mat-option>
+                                    <mat-option value="4">4</mat-option>
+                                    <mat-option value="5">5</mat-option>
+                                </mat-select>
+                            </mat-form-field>&nbsp;
+                            <mat-form-field>
+                                <mat-select placeholder="Select Section" formControlName="section">
+                                    <mat-option value="">Select Section</mat-option>
+                                    <mat-option value="A">A</mat-option>
+                                    <mat-option value="B">B</mat-option>
+                                    <mat-option value="C">C</mat-option>
+                                    <mat-option value="D">D</mat-option>
+                                    <mat-option value="E">E</mat-option>
+                                </mat-select>
+                            </mat-form-field>&nbsp;
+                            <mat-form-field>
+                                <mat-select placeholder="Select Subject" formControlName="subject">
+                                    <mat-option value="Maths">Mathematics</mat-option>
+                                    <mat-option value="Physics">Physics</mat-option>
+                                    <mat-option value="Chemistry">Chemistry</mat-option>
+                                    <mat-option value="Civics">Civics</mat-option>
+                                    <mat-option value="Geography">Geography</mat-option>
+                                </mat-select>
+                            </mat-form-field>&nbsp;
+                            <!-- <dropdown-tree [treeSource]="treeSource">
+                                </dropdown-tree> -->
+
+                            <mat-form-field>
+                                <mat-select placeholder="Select Lesson" formControlName="lesson">
+                                    <mat-optgroup *ngFor="let group of lessons" [label]="group.name" [disabled]="group.disabled">
+                                        <mat-option *ngFor="let lessonchildren  of group.lessonchildren" [value]="lessonchildren.value">
+                                            {{lessonchildren.viewValue}}
+                                        </mat-option>
+                                    </mat-optgroup>
+                                </mat-select>
+
+                            </mat-form-field>
+                            &nbsp;
+                            <span class="btn-lightslategrey">Apply Filter</span>
                         </div>
                     </form>
                 </div>
             </div>
 
-
             <div *ngIf="showLessonTracking">
-                <div class="filter-card col l12 m12 s12" style="width: 80% !important;left: 10% !important;">
+                <div class="filter-card">
                     <form [formGroup]="filterForm">
                         <div class="row">
-                            <div class="col ">
-                                <select formControlName="grade">
-                                    <option [ngValue]="">Select Grade</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                            <div class="col ">
-                                <select formControlName="section">
-                                    <option [ngValue]="">Select Section</option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="E">E</option>
-                                </select>
-                            </div>
-                            <div class="col  ">
-                                <select formControlName="subject">
-                                    <option [ngValue]="">Select Subject</option>
-                                    <option value="Maths">Mathematics</option>
-                                    <option value="Physics">Physics</option>
-                                    <option value="Chemistry">Chemistry</option>
-                                    <option value="Civics">Civics</option>
-                                    <option value="Geography">Geography</option>
-                                </select>&nbsp;
-                            </div>
-                            <div class="col  ">
-                                <dropdown-tree [treeSource]="treeSource">
-                                </dropdown-tree>
-                            </div>
-                            <div class="col  ">
-                                <span class="btn-lightslategrey">Apply Filter</span>
-                            </div>
+                            <mat-form-field>
+                                <mat-select placeholder="Select Grade" formControlName="grade">
+                                    <mat-option value="1">1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="3">3</mat-option>
+                                    <mat-option value="4">4</mat-option>
+                                    <mat-option value="5">5</mat-option>
+                                </mat-select>
+                            </mat-form-field>&nbsp;
+                            <mat-form-field>
+                                <mat-select placeholder="Select Section" formControlName="section">
+                                    <mat-option value="">Select Section</mat-option>
+                                    <mat-option value="A">A</mat-option>
+                                    <mat-option value="B">B</mat-option>
+                                    <mat-option value="C">C</mat-option>
+                                    <mat-option value="D">D</mat-option>
+                                    <mat-option value="E">E</mat-option>
+                                </mat-select>
+                            </mat-form-field>&nbsp;
+                            <mat-form-field>
+                                <mat-select placeholder="Select Subject" formControlName="subject">
+                                    <mat-option value="Maths">Mathematics</mat-option>
+                                    <mat-option value="Physics">Physics</mat-option>
+                                    <mat-option value="Chemistry">Chemistry</mat-option>
+                                    <mat-option value="Civics">Civics</mat-option>
+                                    <mat-option value="Geography">Geography</mat-option>
+                                </mat-select>
+                            </mat-form-field>&nbsp;
+                            <!-- <dropdown-tree [treeSource]="treeSource">
+                                        </dropdown-tree> -->
+
+                            <mat-form-field>
+                                <mat-select placeholder="Select Lesson" formControlName="lesson">
+                                    <mat-optgroup *ngFor="let group of lessons" [label]="group.name" [disabled]="group.disabled">
+                                        <mat-option *ngFor="let lessonchildren  of group.lessonchildren" [value]="lessonchildren.value">
+                                            {{lessonchildren.viewValue}}
+                                        </mat-option>
+                                    </mat-optgroup>
+                                </mat-select>
+
+                            </mat-form-field>
+                            &nbsp;
+                            <span class="btn-lightslategrey">Apply Filter</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div *ngIf="showClassroomPerformanceDetailedViewFilter">
+                <div class="filter-card">
+                    <form [formGroup]="filterForm">
+                        <div class="row">
+                            <mat-form-field>
+                                <mat-select placeholder="Select Grade" formControlName="grade">
+                                    <mat-option value="1">1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="3">3</mat-option>
+                                    <mat-option value="4">4</mat-option>
+                                    <mat-option value="5">5</mat-option>
+                                </mat-select>
+                            </mat-form-field>&nbsp;
+                            <mat-form-field>
+                                <mat-select placeholder="Select Section" formControlName="section">
+                                    <mat-option value="">Select Section</mat-option>
+                                    <mat-option value="A">A</mat-option>
+                                    <mat-option value="B">B</mat-option>
+                                    <mat-option value="C">C</mat-option>
+                                    <mat-option value="D">D</mat-option>
+                                    <mat-option value="E">E</mat-option>
+                                </mat-select>
+                            </mat-form-field>&nbsp;
+                            <mat-form-field>
+                                <mat-select placeholder="Select Subject" formControlName="subject">
+                                    <mat-option value="Maths">Mathematics</mat-option>
+                                    <mat-option value="Physics">Physics</mat-option>
+                                    <mat-option value="Chemistry">Chemistry</mat-option>
+                                    <mat-option value="Civics">Civics</mat-option>
+                                    <mat-option value="Geography">Geography</mat-option>
+                                </mat-select>
+                            </mat-form-field>&nbsp;
+                            <!-- <dropdown-tree [treeSource]="treeSource">
+                                            </dropdown-tree> -->
+
+                            <mat-form-field>
+                                <mat-select placeholder="Select Lesson" formControlName="lesson">
+                                    <mat-optgroup *ngFor="let group of lessons" [label]="group.name" [disabled]="group.disabled">
+                                        <mat-option *ngFor="let lessonchildren  of group.lessonchildren" [value]="lessonchildren.value">
+                                            {{lessonchildren.viewValue}}
+                                        </mat-option>
+                                    </mat-optgroup>
+                                </mat-select>
+
+                            </mat-form-field>
+                            &nbsp;
+                            <span class="btn-lightslategrey">Apply Filter</span>
                         </div>
                     </form>
                 </div>
@@ -316,7 +354,7 @@
         </span>
         <span class="header-logout">
             <button class="btn btn-royalblue">
-                Logout
+                My Profile
             </button>
         </span>
 

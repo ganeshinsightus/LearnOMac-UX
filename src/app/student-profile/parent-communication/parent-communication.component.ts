@@ -20,14 +20,12 @@ export class ParentCommunicationComponent {
 
   openNewDialog() {
     this.newDialogRef = this.dialog.open(CommunicationNewComponent, {
-      width: "50%",
-      height: "87vh"
+      width: "55%",
+      height: "64vh"
     });
     this.newDialogRef.disableClose = true;
   }
-  ngOnInit(){
-  }
-
+ 
   columnDefs = [
     {
       headerName: "Subject",

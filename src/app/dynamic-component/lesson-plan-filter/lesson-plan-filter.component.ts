@@ -44,6 +44,13 @@ export class LessonPlanFilterComponent {
     public dialogref: MatDialogRef<LessonPlanFilterComponent>,
     private filterBuilder: FormBuilder
   ) {}
+
+  ngOnInit(){
+    this.createForm();
+  }
+
+
+
   closeDialog() {
     this.dialogref.close();
   }

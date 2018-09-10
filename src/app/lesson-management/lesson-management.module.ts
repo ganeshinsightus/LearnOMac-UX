@@ -7,7 +7,6 @@ import { LessonTrackingComponent } from "./lesson-tracking/lesson-tracking.compo
 import { AssessmentsComponent } from "./assessments/assessments.component";
 import { RouterModule } from "@angular/router";
 import { CreateLessonPlanComponent } from "./lesson-plans/create-lesson-plan/create-lesson-plan.component";
-import { ContentDialogComponent } from "./lesson-plans/content-dialog/content-dialog.component";
 import { CollectionDialogComponent } from "./lesson-plans/collection-grid-dialog/collection-grid-dialog.component";
 
 @NgModule({
@@ -17,7 +16,6 @@ import { CollectionDialogComponent } from "./lesson-plans/collection-grid-dialog
    LessonTrackingComponent,
    AssessmentsComponent,
    CreateLessonPlanComponent,
-   ContentDialogComponent,
    CollectionDialogComponent
   ],
   imports: [
@@ -28,7 +26,7 @@ import { CollectionDialogComponent } from "./lesson-plans/collection-grid-dialog
   exports: [
   ],
   entryComponents: [
-    ContentDialogComponent
+    CollectionDialogComponent
   ]
 })
 export class LessonManagementModule {}
