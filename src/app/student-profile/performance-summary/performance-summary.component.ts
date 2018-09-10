@@ -73,21 +73,19 @@ export class ProfilePerformanceComponent {
 
   performanceFilterDialogRef:MatDialogRef<PerformanceFilterComponent>;
 
-  constructor(private dialog:MatDialog,private routes:Router){}
+  constructor(private dialog:MatDialog,private routes:Router){
+    this.openDialog()
+  }
   openDialog() {
     this.performanceFilterDialogRef = this.dialog.open(PerformanceFilterComponent, {
-      width: "30%",
-      height: "32vh"
+      width: "55%",
+      height: "47vh"
     });
     this.performanceFilterDialogRef.disableClose = true;
   }
   openCreatePath(){
     this.routes.navigateByUrl('/learning-path-new');
   }
-  ngOnInit(){
-    this.openDialog();
-  }
-
   openAssessmentList(){
     this.routes.navigateByUrl('/assessment-summary-list');
   }

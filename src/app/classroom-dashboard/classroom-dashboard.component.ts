@@ -9,14 +9,14 @@ import { MatDialog, MatDialogRef } from "@angular/material";
 export class ClassroomDashboardComponent {
   filterPopupDialogRef: MatDialogRef<ClassroomFilterComponent>;
 
-  constructor(private dialog: MatDialog) {}
-  ngOnInit() {
+  constructor(private dialog: MatDialog) {
     this.openDialog();
   }
+  
   openDialog() {
     this.filterPopupDialogRef = this.dialog.open(ClassroomFilterComponent, {
-      width: "30%",
-      height: "60vh"
+      width: "55%",
+      height: "47vh"
     });
     this.filterPopupDialogRef.componentInstance.showClassroom = true;
     this.filterPopupDialogRef.disableClose = true;

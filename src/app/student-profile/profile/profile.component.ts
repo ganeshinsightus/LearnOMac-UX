@@ -20,11 +20,10 @@ export class ProfileComponent {
   awardDialogRef: MatDialogRef<AwardsDialogComponent>;
   sportsDialogRef: MatDialogRef<SportsDialogComponent>;
 
-  constructor(public dialog: MatDialog, private routes: Router) {}
-
-  ngOnInit() {
+  constructor(public dialog: MatDialog, private routes: Router) {
     this.openDialog();
   }
+
   openAcademicList() {
     this.routes.navigateByUrl("/academic");
   }
@@ -36,8 +35,8 @@ export class ProfileComponent {
   }
   openDialog() {
     this.profileFilterDialogRef = this.dialog.open(ProfileFilterComponent, {
-      width: "30%",
-      height: "60vh"
+      width: "55%",
+      height: "47vh"
     });
     this.profileFilterDialogRef.disableClose = true;
   }

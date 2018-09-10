@@ -84,8 +84,6 @@ export class ClassroomPerformanceDetailedViewComponent {
   ];
 
   constructor(private routes: Router) {}
-  ngOnInit() {
-  }
  
   openClassDetails() {
     this.routes.navigateByUrl("class/performance/details");

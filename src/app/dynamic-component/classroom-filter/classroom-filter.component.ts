@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 
@@ -12,8 +12,14 @@ export class ClassroomFilterComponent {
   showAttendance:boolean;
   constructor(
     public dialogref: MatDialogRef<ClassroomFilterComponent>,
-    private filterBuilder: FormBuilder
-  ) {}
+    private filterBuilder: FormBuilder){
+
+  }
+
+  ngOnInit(){
+    this.createForm();
+  }
+
   closeDialog() {
     this.dialogref.close();
   }

@@ -17,6 +17,10 @@ export class PerformanceFilterComponent {
     this.dialogref.close();
   }
 
+  ngOnInit(){
+    this.createForm();
+  }
+  
   createForm() {
     this.filterForm = this.filterBuilder.group({
       grade: new FormControl(0),

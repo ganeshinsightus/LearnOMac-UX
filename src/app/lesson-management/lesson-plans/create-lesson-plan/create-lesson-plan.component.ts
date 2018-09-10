@@ -7,7 +7,7 @@ import {
   FormControl
 } from "@angular/forms";
 import { Router } from "@angular/router";
-import { ContentDialogComponent } from "../content-dialog/content-dialog.component";
+import { CollectionDialogComponent } from "../collection-grid-dialog/collection-grid-dialog.component";
 
 @Component({
   templateUrl: "./create-lesson-plan.component.html",
@@ -22,7 +22,7 @@ export class CreateLessonPlanComponent {
   fourthFormGroup: FormGroup;
   @ViewChild("allSelected")
   private allSelected: MatOption;
-  contentDialogRef:MatDialogRef<ContentDialogComponent>;
+  collectionDialogRef:MatDialogRef<CollectionDialogComponent>;
 
   constructor(private _formBuilder: FormBuilder, private routes: Router,private dialog:MatDialog) {}
 
@@ -44,30 +44,17 @@ export class CreateLessonPlanComponent {
     this.hideData = true;
   }
 
-  openContentDialog(){
-    this.hideData = false;
-    this.contentDialogRef = this.dialog.open(
-      ContentDialogComponent,
-      {
-        width: "30%",
-        height: "34vh"
-      }
-    );
-    this.contentDialogRef.componentInstance.content = true;
-    this.contentDialogRef.disableClose = true;
-  }
-
   openResourcesDialog(){
     this.hideData = false;
-    this.contentDialogRef = this.dialog.open(
-      ContentDialogComponent,
+    this.collectionDialogRef = this.dialog.open(
+      CollectionDialogComponent,
       {
-        width: "30%",
-        height: "34vh"
+        width: "60%",
+        height: "60vh"
       }
     );
-    this.contentDialogRef.componentInstance.resources = true;
-    this.contentDialogRef.disableClose = true;
+    //this.contentDialogRef.componentInstance.content = true;
+    this.collectionDialogRef.disableClose = true;
   }
 
    onBack() {
