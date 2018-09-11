@@ -5,111 +5,23 @@
 
   <!--Sidenav bar-->
   <mat-drawer #drawer class="sidenav" mode="side" opened>
+
     <div mode="side" (click)="showFiller = !showFiller">
       <i>
         <mat-icon>menu</mat-icon>
       </i>
     </div>
-    <div>
-      <a [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
+
+    <div *ngFor="let item of menuItems">
+      <a [routerLink]="[item.url]" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
         <i>
-          <mat-icon>dashboard</mat-icon>
+          <mat-icon>{{ item.iconName }}</mat-icon>
         </i>
         <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          My Dashboard
+          {{ item.title}}
         </span>
       </a>
-    </div>
-    <div>
-      <a [routerLink]="['/classroom/dashboard']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
-        <i>
-          <mat-icon>dashboard</mat-icon>
-        </i>
-        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          Classroom Dashboard
-        </span>
-      </a>
-    </div>
-    <div>
-      <a [routerLink]="['attendance']" [routerLinkActive]="'active'">
-        <i>
-          <mat-icon>playlist_add_check</mat-icon>
-        </i>
-        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          Attendance
-        </span>
-      </a>
-    </div>
-    <div>
-      <a [routerLink]="['/student']" [routerLinkActive]="'active'">
-        <i>
-          <mat-icon>assignment_in</mat-icon>
-        </i>
-        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          Student Profiles
-        </span>
-      </a>
-    </div>
-    <div>
-      <a [routerLink]="['lesson']" [routerLinkActive]="'active'">
-        <i>
-          <mat-icon>track_changes</mat-icon>
-        </i>
-        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          Lesson Management
-        </span>
-      </a>
-    </div>
-    <div>
-      <a [routerLink]="['dashboard']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" href="#">
-        <i>
-          <mat-icon>dashboard</mat-icon>
-        </i>
-        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          Curriculum Content
-        </span>
-      </a>
-    </div>
-    <div>
-      <a [routerLink]="['classroom/performance']" [routerLinkActive]="'active'">
-        <i>
-          <mat-icon>insert_chart</mat-icon>
-        </i>
-        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          Class Performance
-        </span>
-      </a>
-    </div>
-    <!-- <div>
-      <a [routerLink]="['/assessment']" [routerLinkActive]="'active'">
-        <i>
-          <mat-icon>dashboard</mat-icon>
-        </i>
-        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          Assessment
-        </span>
-      </a>
-    </div> -->
-    <div>
-      <a [routerLink]="['courses']" [routerLinkActive]="'active'">
-        <i>
-          <mat-icon>insert_drive_file</mat-icon>
-        </i>
-        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          Courses
-        </span>
-      </a>
-    </div>
-    <div>
-      <a [routerLink]="['resources']" [routerLinkActive]="'active'">
-        <i>
-          <mat-icon>library_books</mat-icon>
-        </i>
-        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          My Learning Resources
-        </span>
-      </a>
-    </div>
+    </div>    
 
   </mat-drawer>
   <!--Sidenav bar-->
