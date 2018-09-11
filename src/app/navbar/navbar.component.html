@@ -4,6 +4,7 @@
         <span class="logo">
         </span>
         <span class="header-spacer">
+
             <div *ngIf="showAttendanceFilter">
                 <div class="filter-card">
                     <form [formGroup]="filterForm">
@@ -353,6 +354,9 @@
 
         </span>
         <span class="header-logout">
+            <span class="filter-icon" (click)="openFilterDialog()">
+                <mat-icon>tune</mat-icon>
+            </span>
             <button class="btn btn-royalblue">
                 My Profile
             </button>

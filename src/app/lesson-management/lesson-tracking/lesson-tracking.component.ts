@@ -27,7 +27,7 @@ export class LessonTrackingComponent {
   openDialog() {
     this.profileFilterDialogRef = this.dialog.open(ProfileFilterComponent, {
       width: "55%",
-      height: "47vh"
+      height: "34vh"
     });
     this.profileFilterDialogRef.disableClose = true;
   }

@@ -5,42 +5,41 @@
                                 <span class="btn btn-green" (click)="openLearningPathsList()">VIEW ALL</span>
                         </a>
                 </span>
-                <div class="col s12">
-                        <select class="dropdown col s5 right">
-                                <option value="default">Select Learning paths Type</option>
-                                <option value="all">All</option>
-                                <option value="prerequisite">
-                                        Pre-requisite Standard
-                                </option>
-                                <option value="curiculum">Curriculum Lesson Standard</option>
-
-                        </select>&nbsp;
-                </div>
+                <span class="dropdown-style right col xl6  l6 m10 s12">
+                        <mat-form-field>
+                                <mat-select placeholder="Select Learning paths Type">
+                                        <mat-option value="1">All</mat-option>
+                                        <mat-option value="2">Pre-requisite Standard</mat-option>
+                                        <mat-option value="3">Curriculum Lesson Standard</mat-option>
+                                </mat-select>
+                        </mat-form-field>
+                </span>
 
 
-                <div class="row">
-                        <div class="col s12 m6 l4 xl4 count">
+
+                <div class="row col xl12  l12 m12 s12">
+                        <div class="col xl4  l4 m6 s12 count">
                                 20 <br>
                                 <span class="count-span btn-primary">
                                         Total Learning Paths
                                 </span>
 
                         </div>
-                        <div class="col s12 m6 l3 xl3 count">
+                        <div class="col xl2  l2 m6 s12 count">
                                 10 <br>
                                 <span class="count-span  btn-success">
                                         Completed
                                 </span>
 
                         </div>
-                        <div class="col s12 m6 l3 xl3 count">
+                        <div class="col xl3  l3 m6 s12 count">
                                 05 <br>
                                 <span class="count-span btn-warning">
                                         In Progress
                                 </span>
 
                         </div>
-                        <div class="col s12 m6 l2 xl2 count">
+                        <div class="col xl3  l3 m6 s12 count">
                                 05 <br>
                                 <span class="count-span btn-danger">
                                         Pending

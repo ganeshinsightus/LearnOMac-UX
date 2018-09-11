@@ -218,7 +218,7 @@ export class CommunicationListComponent {
       CommunicationRepliedComponent,
       {
         width: "50%",
-        height: "60vh"
+        height: "calc(60vh)"
       }
     );
     //this.communicationDialogRef.componentInstance.title = "odioCras justo odio";
@@ -230,7 +230,7 @@ export class CommunicationListComponent {
       CommunicationReplyComponent,
       {
         width: "50%",
-        height: "78vh"
+        height: "calc(78vh)"
       }
     );
     

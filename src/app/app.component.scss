@@ -1,6 +1,10 @@
 @import "../styles/variables";
 @import "../styles/responsive";
 
+.drawer-height{
+  height: calc(90.3vh) !important;
+}
+
 .sidenav-content {
   display: flex;
   align-items: center;
@@ -13,7 +17,7 @@
   padding: 20px;
   cursor: pointer;
   background-color: $color-royalblue;
-  line-height: 3.3rem;
+  line-height: calc(8.2vh);
   color: $color-white;
 }
 
@@ -45,10 +49,23 @@
   color: $color-orange;
 }
 
+
+@media #{$ipad-tab} {
+  .drawer-height{
+    height: calc(95.5vh) !important;
+  }
+  .sidenav{
+    line-height:calc(9vh) !important;
+  }
+}
+
+
 @media #{$tab} {
+  .drawer-height{
+    height: calc(94vh) !important;
+  }
   .sidenav {
     padding: 10px;
-    line-height: 3.5rem !important;
   }
     .sidenav div {
       a {
