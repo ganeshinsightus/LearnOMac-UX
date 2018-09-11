@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { FilterService } from "../common-services/filter.service";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
+import { FilterDialogService } from "../common-services/filter-dialog.service.";
 
 export interface Lesson {
   value: string;
@@ -31,7 +32,6 @@ export class NavbarComponent {
   showLessonTracking: boolean;
   showAttendanceFilter: boolean;
   checkPath: string;
-
 
   lessons: Lessons[] = [
     {
@@ -84,7 +84,8 @@ export class NavbarComponent {
   constructor(
     private filterBuilder: FormBuilder,
     private filterService: FilterService,
-    private routes: Router
+    private filterDialogService: FilterDialogService,
+    private routes: Router,
   ) {
     this.createForm();
   }
@@ -203,5 +204,10 @@ export class NavbarComponent {
       student: new FormControl(),
       lesson: new FormControl()
     });
+  }
+
+  
+  openFilterDialog() {
+    this.filterDialogService.openAttendanceFilter()
   }
 }

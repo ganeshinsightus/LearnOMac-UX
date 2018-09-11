@@ -1,6 +1,4 @@
 import { Injectable } from "@angular/core";
-import { Observable, BehaviorSubject } from "rxjs";
-
 @Injectable()
 export class FilterService {
     private activateFilter:boolean;
@@ -49,4 +47,5 @@ export class FilterService {
     get isAttendancePath(){
         return this.filterPath = "/attendance";
     }
+
 }

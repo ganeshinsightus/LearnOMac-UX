@@ -18,14 +18,14 @@ export class MessagesComponent {
   openSentDialog() {
     this.repliedDialogRef = this.dialog.open(CommunicationRepliedComponent, {
       width: "50%",
-      height: "52vh"
+      height: "calc(52vh)"
     });
     this.repliedDialogRef.disableClose = true;
   }
   openViewDialog() {
     this.viewDialogRef = this.dialog.open(CommunicationReplyComponent, {
       width: "50%",
-      height: "78vh"
+      height: "calc(78vh)"
     });
   }
   openMessageList(){

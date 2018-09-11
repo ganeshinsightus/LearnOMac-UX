@@ -55,7 +55,7 @@ export class ClassroomPerformanceComponent {
       ClassroomPerformanceFilterComponent,
       {
         width: "55%",
-        height: "50%"
+        height: "34vh"
       }
     );
     this.filterPopupDialogRef.disableClose = true;

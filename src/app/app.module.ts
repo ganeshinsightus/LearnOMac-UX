@@ -21,6 +21,7 @@ import { AttendanceModule } from "./attendance/attendance.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CoursesModule } from "./courses/courses.module";
 import { CommonModule } from "@angular/common";
+import { FilterDialogService } from "./common-services/filter-dialog.service.";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { CommonModule } from "@angular/common";
     AttendanceModule,
     CoursesModule
   ],
-  providers: [FilterService],
+  providers: [FilterService,FilterDialogService],
   entryComponents: [
     ClassroomFilterComponent,
     ProfileFilterComponent,

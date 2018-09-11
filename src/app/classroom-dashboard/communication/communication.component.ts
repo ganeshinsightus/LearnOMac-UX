@@ -7,7 +7,7 @@ import { CommunicationViewComponent } from "./communication-view/communication-v
 import { Router } from "@angular/router";
 
 @Component({
-  selector: "communication",
+  selector: "teacher-communication",
   templateUrl: "./communication.component.html",
   styleUrls: ["../classroom-dashboard.component.scss"]
 })
@@ -21,7 +21,7 @@ export class CommunicationComponent {
   openReplyDialog() {
     this.replyDialogRef = this.dialog.open(CommunicationReplyComponent, {
       width: "50%",
-      height: "78vh"
+      height: "cal(78vh)"
     });
     //this.messagesDialogRef.componentInstance.title = "odioCras justo odio";
     this.replyDialogRef.disableClose = true;
@@ -29,7 +29,7 @@ export class CommunicationComponent {
   openSentDialog() {
     this.repliedDialogRef = this.dialog.open(CommunicationRepliedComponent, {
       width: "50%",
-      height: "52vh"
+      height: "cal(52vh)"
     });
     //this.messagesDialogRef.componentInstance.title = "odioCras justo odio";
     this.repliedDialogRef.disableClose = true;
@@ -37,7 +37,7 @@ export class CommunicationComponent {
   openNewDialog() {
     this.newDialogRef = this.dialog.open(CommunicationNewComponent, {
       width: "50%",
-      height: "87vh"
+      height: "cal(87vh)"
     });
     //this.messagesDialogRef.componentInstance.title = "odioCras justo odio";
     this.newDialogRef.disableClose = true;
@@ -45,7 +45,7 @@ export class CommunicationComponent {
   openViewDialog() {
     this.viewDialogRef = this.dialog.open(CommunicationViewComponent, {
       width: "50%",
-      height: "42vh"
+      height: "cal(42vh)"
     });
     //this.messagesDialogRef.componentInstance.title = "odioCras justo odio";
     this.viewDialogRef.disableClose = true;

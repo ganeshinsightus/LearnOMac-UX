@@ -1,5 +1,6 @@
 @import "../../styles/variables";
 @import "../../styles/common";
+@import "../../styles/responsive";
 //lesson path, lesson summary, parent communication, performance summary
 select {
   text-transform: uppercase;
@@ -37,6 +38,13 @@ select {
     float: right;
   }
 }
+.actions{
+  
+  float: right;
+  span {
+    font-size: 11px;
+  }
+}
 .collection a.collection-item {
   color: $color-contentgrey;
 }
@@ -49,9 +57,6 @@ label {
   font-weight: 600;
   text-transform: uppercase;
 }
-.content-list {
-  padding-top: 40px;
-}
 input,
 select {
   font-size: 12px;
@@ -60,6 +65,7 @@ select {
 .content-list ul li {
   color: $color-contentgrey;
   padding: 10px 0px;
+  line-height: 1.5rem;
 }
 .btn-green {
   font-size: 11px;
@@ -69,7 +75,7 @@ sup {
   border-radius: 20px;
 }
 .create-new {
-  margin-left: 3px;
+  margin-right: 3px;
 }
 .count {
   font-size: 52px;
@@ -101,5 +107,62 @@ sup {
     font-size: 18px;
     font-family: sans-serif;
     color: $color-contentgrey;
+  }
+}
+
+.mat-select {
+  display: inline-block;
+  width: 100% !important;
+  outline: 0;
+  color: white !important;
+}
+.dropdown-style {
+  padding-left: 75px;
+  margin-top: 5px;
+}
+.mat-form-field{
+  width:95%;
+}
+@media #{$small-medium} {
+  .count {
+    font-size: 40px;
+  }
+  .count-span{
+    font-size: 8px; 
+  }
+}
+
+
+@media #{$ipad-tab} {  
+  .count-span{
+    font-size: 10px; 
+  }
+  .card {
+    height: calc(23vh);
+  }
+}
+
+@media #{$tab} {
+  .card {
+    height: calc(46vh);
+  }
+  .card-title {
+    span {
+      padding: 1px 10px;
+    }
+  }
+  .count {
+    font-size: 40px;
+    padding:25px 0 0 0;
+     
+  }
+}
+
+@media #{$phone} {
+  .card-title {
+    font-size: 20px;
+  }
+  .count {
+    font-size: 30px;
   }
 }
