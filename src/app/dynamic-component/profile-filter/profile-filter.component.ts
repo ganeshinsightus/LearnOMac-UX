@@ -12,17 +12,23 @@ export class ProfileFilterComponent {
   constructor(
     public dialogref: MatDialogRef<ProfileFilterComponent>,
     private filterBuilder: FormBuilder
-  ) {}
+  ) {
+    
+  }
   closeDialog() {
     this.dialogref.close();
   }
 
+  ngOnInit(){
+    this.createForm();
+  }
+
   createForm() {
     this.filterForm = this.filterBuilder.group({
-      grade: new FormControl(0),
-      section: new FormControl(0),
-      subject: new FormControl(0),
-      student: new FormControl(0)
+      grade: new FormControl(),
+      section: new FormControl(),
+      subject: new FormControl(),
+      student: new FormControl()
     });
   }
 }

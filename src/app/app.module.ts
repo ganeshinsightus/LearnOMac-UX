@@ -18,8 +18,9 @@ import { NgJQWidgetsModule } from "./ng-jqwidgets.module";
 import { LessonManagementModule } from "./lesson-management/lesson-management.module";
 import { LessonPlanFilterComponent } from "./dynamic-component/lesson-plan-filter/lesson-plan-filter.component";
 import { AttendanceModule } from "./attendance/attendance.module";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CoursesModule } from "./courses/courses.module";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import { CoursesModule } from "./courses/courses.module";
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
     NgMaterialModule,
     NgJQWidgetsModule,
     DashboardModule,
