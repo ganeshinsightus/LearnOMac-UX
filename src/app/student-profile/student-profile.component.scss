@@ -1,5 +1,6 @@
 @import "../../styles/variables";
 @import "../../styles/common";
+@import "../../styles/responsive";
 .row {
   margin-left: 0;
   margin-right: 0;
@@ -68,6 +69,10 @@
   font-weight: 400;
   overflow: auto;
 }
+.profile {
+  padding-top: 40px !important;
+  padding-left: 100px !important;
+}
 .card-title {
   font-weight: 400;
   margin-bottom: 0.25rem;
@@ -92,12 +97,12 @@
     line-height: 35px;
   }
 }
-.btn-change{
+.btn-change {
   font-size: 12px;
   padding: 3px;
   margin-right: 0.5pc;
 }
-.assignment-list{
+.assignment-list {
   .titles {
     font-size: 18px;
     font-family: sans-serif;
@@ -105,8 +110,11 @@
     line-height: 18px;
   }
 }
-.courses-list{
- padding: 40px 0;
+.chart-style{
+  padding: 10px 2px 0 0;
+}
+.courses-list {
+  padding: 40px 0;
 }
 .collection a.collection-item {
   color: $color-contentgrey;
@@ -117,4 +125,48 @@
 sup {
   padding: 2px;
   border-radius: 20px;
+}
+
+@media #{$ipad-tab} {
+  .card {
+    height: calc(93vh);
+  }
+  .card-profile {
+    height: calc(21.5vh);
+  }
+  .profile-content{
+    padding-top:30px; 
+  }
+  .chart-style{
+    padding-top: 25px;
+  }
+}
+
+@media #{$tab} {
+  .card {
+    height: calc(92.5vh);
+  }
+  .card-profile {
+    height: calc(20.5vh);
+  }
+  .profile{
+    padding-top: 25px;
+  }
+  .profile-content{
+    padding-top:0px; 
+  }
+  .chart-style{
+    padding-top: 0;
+    padding-left: 0;
+  }
+}
+
+@media #{$phone} {
+  .card {
+    height: calc(90vh);
+  }
+  .chart-style{
+    padding-top: 0;
+    padding-left: 0;
+  }
 }

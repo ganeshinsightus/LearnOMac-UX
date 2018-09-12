@@ -21,7 +21,7 @@ export class ParentCommunicationComponent {
   openNewDialog() {
     this.newDialogRef = this.dialog.open(CommunicationNewComponent, {
       width: "55%",
-      height: "44vh"
+      height: "calc(44vh)"
     });
     this.newDialogRef.disableClose = true;
   }
@@ -182,7 +182,7 @@ export class ParentCommunicationComponent {
       CommunicationRepliedComponent,
       {
         width: "50%",
-        height: "60vh"
+        height: "calc(60vh)"
       }
     );
     //this.communicationDialogRef.componentInstance.title = "odioCras justo odio";
@@ -194,7 +194,7 @@ export class ParentCommunicationComponent {
       CommunicationReplyComponent,
       {
         width: "50%",
-        height: "78vh"
+        height: "calc(78vh)"
       }
     );
     //this.communicationDialogRef.componentInstance.title = "odioCras justo odio";

@@ -1,37 +1,41 @@
 <div class="row">
-    <div class="col l12 m12 s12">
+    <div class="col xl12 l12 m12 s12">
         <h5 class="card-title bq-indigo-text">
             Parent Communication
             <span class="btn btn-indigo " (click)="openNewDialog()">Create New</span>
-            <span class="col l4 m8 s12 " style="margin-top:-9px;" >
-                <select class="dropdown col l8 m8 s8">
-                    <option value="default" selected="selected">Select Message Type</option>
-                    <option value="Messages">
-                        Messages
-                    </option>
-                    <option value="Notifications">
-                        Notifications
-                    </option>
-                </select>&nbsp;
-                <select class="dropdown col l3 m3 s3 right" style="margin-left: 20px;">
-                    <option value="inbox" selected="selected">
-                        Inbox
-                    </option>
-                    <option value="sent">
-                        Sent
-                    </option>
-                </select>
+            <span class="col s12 m12 l12 xl6 right " style="padding: 0;">
+                <div [formGroup]="searchUserForm">
+                    <mat-form-field class="col s6 m6 l6 xl6">
+                        <mat-select placeholder="Select Message Status">
+                            <mat-option [value]="1">
+                                Inbox
+                            </mat-option>
+                            <mat-option [value]="2">
+                                Sent
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="col s5 m5 l5 xl5 right">
+                        <mat-select placeholder="Select Message Type">
+                            <mat-option [value]="1">
+                                Messages
+                            </mat-option>
+                            <mat-option [value]="2">
+                                Notifications
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </span>
-           
         </h5>
         <br>
-            <div class="col l12 m12 s12 grid">
-                <ag-grid-angular class="ag-theme-balham" style="width: 100%;
-                                height: 63vh;margin-left: 0px;" [enableSorting]="true" [enableFilter]="false" [rowData]="rowData"
-                    [columnDefs]="columnDefs" rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true"
-                    [enableColResize]="true"
-                    [suppressMenuColumnPanel]="true" [floatingFilter]="true" (cellClicked)="onCellClicked($event)">
-                </ag-grid-angular>
-            </div>
+        <div class="col xl12 l12 m12 s12 grid">
+            <ag-grid-angular class="ag-theme-balham" style="width: 100%;
+                                height: calc(63vh);margin-left: 0px;"
+                [enableSorting]="true" [enableFilter]="false" [rowData]="rowData" [columnDefs]="columnDefs"
+                rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true" [enableColResize]="true"
+                [suppressMenuColumnPanel]="true" [floatingFilter]="true" (cellClicked)="onCellClicked($event)">
+            </ag-grid-angular>
+        </div>
     </div>
 </div>

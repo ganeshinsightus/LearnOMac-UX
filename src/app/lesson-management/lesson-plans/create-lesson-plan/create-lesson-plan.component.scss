@@ -1,5 +1,6 @@
 @import "../../../../styles/variables";
 @import "../../../../styles/common";
+@import "../../../../styles/responsive";
 .row{
   margin: 0;
   padding: 0;
@@ -101,4 +102,24 @@ ul.list > li {
 }
 .bq-contentlightgrey-text{
   color : $color-contentgrey;
+}
+
+
+
+@media #{$ipad-tab} {
+  .card-full {
+    height: calc(93vh);
+  }
+}
+
+@media #{$tab} {
+  .card-full {
+    height: calc(92.5vh);
+  }
+}
+
+@media #{$phone} {
+  .card-full {
+    height: calc(90vh);
+  }
 }

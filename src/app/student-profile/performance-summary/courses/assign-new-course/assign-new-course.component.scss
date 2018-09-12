@@ -1,5 +1,6 @@
-@import '../../../../../styles/variables';
-@import '../../../../../styles/common';
+@import "../../../../../styles/variables";
+@import "../../../../../styles/common";
+@import "../../../../../styles/responsive";
 .row {
   margin-left: 0;
   margin-right: 0;
@@ -12,7 +13,7 @@
   padding-right: 0;
 }
 .card {
-  height: calc(88.2vh);
+  height: calc(88.7vh);
   margin: 5px;
   padding: 10px;
   font-family: sans-serif;
@@ -21,27 +22,38 @@
   font-weight: 400;
   overflow: auto;
 }
+
 .title{
-    font-family: sans-serif;
-    font-size: 24px;
-    text-transform: uppercase;
-    padding: 0;
-    margin: 20px 0;
-   }
-.dropdown{
-    
-    width: 25%;
-    margin: 0;
-    padding: 0;
-    float: right;
-}
+  font-family: sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 20px 0;
+ }
 
-.dropdown{
-    margin-right: 10px;
-}
-
-.material-dropdown{
-  position: fixed;
-  top: 90px;
-  right: 8%;
-}
+@media #{$ipad-tab} {
+    .card {
+      height: calc(93vh);
+    }
+  }
+  
+  @media #{$tab} {
+    .card {
+      height: calc(92.5vh);
+    }
+  }
+  
+  @media #{$phone} {
+    .card {
+      height: calc(90vh);
+    }
+    .title{
+      font-size: 18px;
+      margin-top: 10px;
+      span{
+              font-size: 10px;
+              padding: 1px 16px;
+      }
+    }
+   
+  }

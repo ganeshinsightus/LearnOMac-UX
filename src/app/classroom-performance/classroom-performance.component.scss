@@ -87,7 +87,46 @@ sup {
   padding: 2px;
   border-radius: 5px;
 }
+.actions{
+  padding: 0 5px;
+}
+
+@media #{$ipad-tab} {
+  .card {
+    height: calc(93vh);
+  }
+  .card-profile{
+    height: calc(21.5vh);
+  }
+}
 
 @media #{$tab} {
- 
+  .card {
+    height: calc(92.5vh);
+  }
+  .actions{
+    padding: 10px 5px;
+  }
+  .content-panel {
+    font-size: 12px !important;
+  }
+  .card-profile{
+    height: calc(20.5vh);
+  }
+}
+
+@media #{$phone} {
+  .card {
+    height: calc(90vh);
+  }
+  .actions{
+    padding: 10px 0;
+    span{
+      margin:5px;
+      float: right;
+    }
+  }
+  .card-profile{
+    height: calc(20.5vh);
+  }
 }

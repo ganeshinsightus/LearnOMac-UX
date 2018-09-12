@@ -1,5 +1,7 @@
 @import "../../../../../styles/common";
 @import "../../../../../styles/variables";
+@import "../../../../../styles/responsive";
+
 .row{
   margin: 0;
   padding: 0;
@@ -110,4 +112,22 @@ mat-panel-title,mat-panel-description{
 }
 mat-select{
   width: 31% !important;
+}
+
+@media #{$ipad-tab} {
+  .card-full {
+    height: calc(93vh);
+  }
+}
+
+@media #{$tab} {
+  .card-full {
+    height: calc(92.5vh);
+  }
+}
+
+@media #{$phone} {
+  .card-full {
+    height: calc(90vh);
+  }
 }

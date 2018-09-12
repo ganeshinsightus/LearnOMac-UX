@@ -23,7 +23,7 @@ export class LessonPlansComponent {
       LessonPlanFilterComponent,
       {
         width: "55%",
-        height: "44vh"
+        height: "calc(44vh)"
       }
     );
     this.lessonplanFilterDialogRef.disableClose = true;
