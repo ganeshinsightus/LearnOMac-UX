@@ -8,7 +8,10 @@ import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqx
   styleUrls: ["./collection-grid-dialog.component.scss"]
 })
 export class CollectionDialogComponent {
-    dialogRef: MatDialogRef<CollectionDialogComponent>;
+  
+  constructor(private dialogRef: MatDialogRef<CollectionDialogComponent>){
+
+  }
 
   @ViewChild("TreeGrid")
   treeGrid: jqxTreeGridComponent;

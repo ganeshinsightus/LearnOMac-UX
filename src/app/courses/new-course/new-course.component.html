@@ -1,0 +1,304 @@
+<div class="row card-full bq-pink">
+  <div class="col xl12 l12 m12 s12">
+    <h5 class="card-title bq-pink-text">
+      Create New Course
+      <span class="btn btn-pink " (click)="onBack()">Back</span>
+    </h5>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Course Details</ng-template>
+          <div class="stepper-container col xl6 l12 m12 x12">
+            <mat-form-field>
+              <input matInput placeholder="Course Title">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select [(value)]="selected" formControlName="subject" id="subject" placeholder="Select Subject" name="subject">
+                <mat-option *ngFor="let subject of subjects1" [value]="subject">
+                  {{subject.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div *ngIf="selected">
+              <mat-form-field *ngIf="selected.valueFieldType === 'true'" style="width:100%">
+                <input matInput placeholder="General">
+              </mat-form-field>
+            </div>
+
+            <mat-form-field>
+              <textarea matInput placeholder="Course Objective" style="height:150px;"></textarea>
+            </mat-form-field>
+
+            <div class="right">
+              <button class="btn btn-pink" mat-button matStepperNext>Next</button>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Select Target Audience</ng-template>
+          <div class="stepper-container col xl6 l12 m12 x12">
+
+            <mat-label>Select Roles</mat-label> &nbsp;
+            <div>
+              <mat-checkbox [checked]="checkTeacher">Teachers</mat-checkbox> <br>
+              <mat-radio-button>
+                All Teachers
+              </mat-radio-button> &nbsp;
+              <mat-radio-button>
+                Subject Wise
+              </mat-radio-button>&nbsp;
+              <mat-radio-button>
+                Grade Wise
+              </mat-radio-button><br>
+              <mat-form-field>
+                <mat-select [(value)]="selected" formControlName="subject" id="subject" placeholder="Select Subjectwise"
+                  name="subject" multiple>
+                  <mat-option *ngFor="let subject of subjects2" [value]="subject">
+                    {{subject.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              &nbsp;
+              <mat-form-field>
+                <mat-select [(value)]="selected" formControlName="grade" id="grade" placeholder="Select Gradewise" name="grade"
+                  multiple>
+                  <mat-option *ngFor="let grade of grades1" [value]="grade">
+                    {{grade.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+
+            <div>
+              <mat-checkbox [checked]="checkStudent">Students</mat-checkbox> <br>
+              <mat-radio-button>
+                All Students
+              </mat-radio-button>&nbsp;
+              <mat-radio-button>
+                Gradewise
+              </mat-radio-button>
+              <br>
+              <mat-form-field>
+                <mat-select [(value)]="selected" formControlName="grade" id="grade" placeholder="Select Gradewise" name="grade"
+                  multiple>
+                  <mat-option *ngFor="let grade of grades2" [value]="grade">
+                    {{grade.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+            <div>
+              <mat-checkbox [checked]="checkParent">Parents</mat-checkbox> <br>
+              <mat-radio-button>
+                All Parents
+              </mat-radio-button>&nbsp;
+              <mat-radio-button>
+                Gradewise
+              </mat-radio-button><br>
+
+              <mat-form-field>
+                <mat-select [(value)]="selected" formControlName="grade" id="grade" placeholder="Select Gradewise" name="grade"
+                  multiple>
+                  <mat-option *ngFor="let grade of grades3" [value]="grade">
+                    {{grade.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="right">
+              <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
+              <button class="btn btn-green" mat-button matStepperNext>Next</button>
+            </div>
+          </div>
+
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Add Course Sections</ng-template>
+          <div class="row stepper-container col xl6 l6 m12 s12 left">
+            <mat-form-field>
+              <input matInput placeholder="Course Section Title">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Select Course Resource Type">
+                <mat-option [value]="1">
+                  Learning Resource
+                </mat-option>
+                <mat-option [value]="1">
+                  Questions
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <span class="btn btn-blue" (click)="openResourcesDialog()">
+              Add From My Learning Resources
+            </span>
+            <mat-label>
+              Added Resources
+            </mat-label>
+            <mat-list>
+              <mat-list-item>
+                Probability Web URL
+                <span class="right badge-danger">
+                  <mat-icon>
+                    delete
+                  </mat-icon>
+                </span>
+              </mat-list-item>
+              <mat-list-item>
+                some data
+                <span class="right badge-danger">
+                  <mat-icon>
+                    delete
+                  </mat-icon>
+                </span>
+              </mat-list-item>
+              <mat-list-item>
+                some data
+                <span class="right badge-danger">
+                  <mat-icon>
+                    delete
+                  </mat-icon>
+                </span>
+              </mat-list-item>
+            </mat-list>
+          </div>
+
+          <div class="row col xl5 l5 m12 s12 right">
+            <div class="col  xl9 l9 m9 s9">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header class="btn-warning">
+                  <mat-panel-title>
+                    Course Section 1
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                  <mat-list-item>
+                    Probability URL
+                  </mat-list-item>
+                  <mat-list-item>
+                    Probability URL
+                  </mat-list-item>
+                  <mat-list-item>
+                    Probability URL
+                  </mat-list-item>
+                </mat-list>
+              </mat-expansion-panel>
+            </div>
+
+            <div class="col xl3 l3 m3 s3">
+              <span class="badge-danger" mat-raised-button matTooltip="Delete Section">
+                <mat-icon>delete</mat-icon>
+              </span>
+              <span class="badge-success" mat-raised-button matTooltip="Edit Section">
+                <mat-icon>border_color</mat-icon>
+              </span>
+            </div>
+
+            <div class="col  xl9 l9 m9 s9">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header class="btn-blue">
+                  <mat-panel-title>
+                    Course Section 2
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                  <mat-list-item>
+                    Probability URL
+                  </mat-list-item>
+                  <mat-list-item>
+                    Probability URL
+                  </mat-list-item>
+                  <mat-list-item>
+                    Probability URL
+                  </mat-list-item>
+                </mat-list>
+              </mat-expansion-panel>
+
+            </div>
+
+            <div class="col  xl3 l3 m3 s3">
+              <span class="badge-danger" mat-raised-button matTooltip="Delete Section">
+                <mat-icon>delete</mat-icon>
+              </span>
+              <span class="badge-success" mat-raised-button matTooltip="Edit Section">
+                <mat-icon>border_color</mat-icon>
+              </span>
+            </div>
+
+            <div class="col  xl9 l9 m9 s9">
+              <mat-expansion-panel>
+                <mat-expansion-panel-header class="btn-lightslategrey">
+                  <mat-panel-title>
+                    Course Section 3
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                  <mat-list-item>
+                    Probability URL
+                  </mat-list-item>
+                  <mat-list-item>
+                    Probability URL
+                  </mat-list-item>
+                  <mat-list-item>
+                    Probability URL
+                  </mat-list-item>
+                </mat-list>
+              </mat-expansion-panel>
+
+            </div>
+
+            <div class="col  xl3 l3 m3 s3">
+              <span class="badge-danger" mat-raised-button matTooltip="Delete Section">
+                <mat-icon>delete</mat-icon>
+              </span>
+              <span class="badge-success" mat-raised-button matTooltip="Edit Section">
+                <mat-icon>border_color</mat-icon>
+              </span>
+            </div>
+
+            <div class="right">
+              <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
+              <button class="btn btn-blue" mat-button>Save As Draft</button>
+              <button class="btn btn-pink" mat-button>Add New Section</button>
+              <button class="btn btn-green" mat-button matStepperNext>Next</button>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="fourthFormGroup">
+        <form [formGroup]="fourthFormGroup">
+          <ng-template matStepLabel>Publish</ng-template>
+          <div class="row card">
+            <div class="left col s12 m6 l6 xl6">
+              <mat-label>Course Sections</mat-label>
+              <tree-node-checkbox [treeSource]="sectionSource"></tree-node-checkbox>
+            </div>
+            <div class="right col s12 m6 l6 xl6">
+              <mat-label>Target Audience Sections</mat-label>
+              <tree-node-checkbox [treeSource]="targetSource"></tree-node-checkbox>
+            </div>
+          </div>
+
+          <div class="right">
+            <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
+            <button class="btn btn-pink" mat-button>Publish</button>
+          </div>
+        </form>
+      </mat-step>
+
+    </mat-horizontal-stepper>
+  </div>
+</div>

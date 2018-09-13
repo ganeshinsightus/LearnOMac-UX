@@ -50,7 +50,7 @@ export class CreateLessonPlanComponent {
       CollectionDialogComponent,
       {
         width: "60%",
-        height: "60vh"
+        height: "calc(60vh)"
       }
     );
     //this.contentDialogRef.componentInstance.content = true;
