@@ -1,5 +1,6 @@
 @import "../../../../../styles/variables";
 @import "../../../../../styles/common";
+@import "../../../../../styles/responsive";
 .card {
     height: calc(87.3vh);
     margin: 10px;
@@ -24,3 +25,31 @@
     color: $color-royalblue;
     text-transform: uppercase;
   }
+
+  
+@media #{$ipad-tab} {
+  .card {
+    height: calc(93vh);
+  }
+}
+
+@media #{$tab} {
+  .card {
+    height: calc(92.5vh);
+  }
+}
+
+@media #{$phone} {
+  .card {
+    height: calc(90vh);
+  }
+  .card-title{
+    font-size: 18px;
+    margin-top: 10px;
+    span{
+            font-size: 10px;
+            padding: 1px 16px;
+    }
+  }
+ 
+}

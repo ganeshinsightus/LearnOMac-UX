@@ -1,35 +1,38 @@
-<div class="card bq-pink">
-    <div class="col l12 m12 s12">
+<div class="row card bq-pink">
+    <div class="col xl12 l12 m12 s12">
         <h5 class="title bq-text-pink">
             Assign a new course
             <span class="btn btn-pink right" (click)="onBack()">Back</span>
         </h5>
-
-        <span class="material-dropdown">
+        <span class="col s12 m6 l6 xl6 right " style="padding: 0;">
             <div [formGroup]="searchUserForm">
-                <mat-select placeholder="Select Subjects" class="dropdown" formControlName="subject" multiple>
-                    <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">All</mat-option>
-                    <mat-option *ngFor="let subject of subjectFilters" [value]="subject.key">
-                        {{subject.value}}
-                    </mat-option>
-                </mat-select>
-                <mat-select placeholder="Select Applicable Grades" class="dropdown right" formControlName="grade" multiple>
-                    <mat-option #allSelecteds (click)="toggleAllGradeSelection()" [value]="0">All</mat-option>
-                    <mat-option *ngFor="let grade of gradeFilters" [value]="grade.key">
-                        {{grade.value}}
-                    </mat-option>
-                </mat-select>
+                <mat-form-field class="col s5 m5 l5 xl5 right">
+                    <mat-select placeholder="Select Subjects" formControlName="subject" multiple>
+                        <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">All</mat-option>
+                        <mat-option *ngFor="let subject of subjectFilters" [value]="subject.key">
+                            {{subject.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="col s6 m6 l6 xl6">
+                    <mat-select placeholder="Select Applicable Grades" formControlName="grade"
+                        multiple>
+                        <mat-option #allSelecteds (click)="toggleAllGradeSelection()" [value]="0">All</mat-option>
+                        <mat-option *ngFor="let grade of gradeFilters" [value]="grade.key">
+                            {{grade.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
         </span>
     </div>
-    <div class="col l12 m12 s12">
+    <div class="col xl12 l12 m12 s12">
         <div class="grid">
             <ag-grid-angular class="ag-theme-balham" style="width: 100%;
-                            height: 75vh;margin-left: 0px;" [enableSorting]="true" [enableFilter]="false" 
-                            [enableColResize]="true"
-                            [rowData]="rowData"
-                [columnDefs]="columnDefs" rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true"
-                [suppressMenuColumnPanel]="true" [floatingFilter]="true" (cellClicked)="oncellClicked($event)">
+                        height: calc(66vh);margin-left: 0px;"
+                [enableSorting]="true" [enableFilter]="false" [rowData]="rowData" [columnDefs]="columnDefs"
+                rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true"
+                [suppressMenuColumnPanel]="true" [enableColResize]="true" [floatingFilter]="true" (rowClicked)="onRowClicked($event)">
             </ag-grid-angular>
         </div>
     </div>

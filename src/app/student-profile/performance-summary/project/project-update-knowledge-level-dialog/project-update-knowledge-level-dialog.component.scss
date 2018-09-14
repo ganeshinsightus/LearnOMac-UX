@@ -1,4 +1,6 @@
 @import "../../../../../styles/common";
+@import "../../../../../styles/responsive";
+
 .dialog {
   .card-title {
     font-family: sans-serif;
@@ -34,3 +36,4 @@ mat-icon{
   .mat-form-field {
     width: 450px !important;
   }
+  

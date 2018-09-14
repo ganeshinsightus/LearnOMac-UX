@@ -36,7 +36,7 @@ export class ProfileComponent {
   openDialog() {
     this.profileFilterDialogRef = this.dialog.open(ProfileFilterComponent, {
       width: "55%",
-      height: "47vh"
+      height: "calc(59vh)"
     });
     this.profileFilterDialogRef.disableClose = true;
   }
@@ -44,7 +44,7 @@ export class ProfileComponent {
   openAcademicDialog() {
     this.academicDialogRef = this.dialog.open(AcademicDialogComponent, {
       width: "50%",
-      height: "70vh"
+      height: "calc(70vh)"
     });
     this.academicDialogRef.disableClose = true;
   }
@@ -52,7 +52,7 @@ export class ProfileComponent {
   openAwardDialog() {
     this.academicDialogRef = this.dialog.open(AwardsDialogComponent, {
       width: "50%",
-      height: "70vh"
+      height: "calc(70vh)"
     });
     this.academicDialogRef.disableClose = true;
   }
@@ -60,7 +60,7 @@ export class ProfileComponent {
   openSportsDialog() {
     this.academicDialogRef = this.dialog.open(SportsDialogComponent, {
       width: "50%",
-      height: "83vh"
+      height: "calc(83vh)"
     });
     this.academicDialogRef.disableClose = true;
   }
@@ -68,7 +68,7 @@ export class ProfileComponent {
   openInterestsDialog() {
     this.academicDialogRef = this.dialog.open(InterestsDialogComponent, {
       width: "50%",
-      height: "70vh"
+      height: "calc(70vh)"
     });
     this.academicDialogRef.disableClose = true;
   }
