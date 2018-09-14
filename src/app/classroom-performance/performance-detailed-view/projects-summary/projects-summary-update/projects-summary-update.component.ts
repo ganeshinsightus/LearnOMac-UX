@@ -10,6 +10,7 @@ import { DebugHelper } from "protractor/built/debugger";
 })
 export class ProjectSummaryUpdateComponent {
   showSave: boolean = false;
+  editType:any;
   private gridApi;
   private gridColumnApi;
   index:number;

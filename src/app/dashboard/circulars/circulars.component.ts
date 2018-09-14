@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CircularsComponent {
 
+  showScroll:boolean;
   circularsDialogRef: MatDialogRef<CircularsDialogComponent>;
   constructor(public dialog: MatDialog , private routes:Router) { }
 

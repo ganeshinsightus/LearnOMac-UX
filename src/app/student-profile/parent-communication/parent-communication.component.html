@@ -4,7 +4,6 @@
             Parent Communication
             <span class="btn btn-indigo " (click)="openNewDialog()">Create New</span>
             <span class="col s12 m12 l12 xl6 right " style="padding: 0;">
-                <div [formGroup]="searchUserForm">
                     <mat-form-field class="col s6 m6 l6 xl6">
                         <mat-select placeholder="Select Message Status">
                             <mat-option [value]="1">
@@ -25,7 +24,6 @@
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
-                </div>
             </span>
         </h5>
         <br>

@@ -309,11 +309,9 @@ export class PrerequisiteUpdateComponent {
     }
   ];
   
-
   onEdit() {
     this.showSave = true;
   }
-
 
   onSave() {
     alert("Data saved successfully");

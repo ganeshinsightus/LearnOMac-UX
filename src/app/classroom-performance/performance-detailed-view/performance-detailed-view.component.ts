@@ -9,6 +9,10 @@ import { Router } from "@angular/router";
 })
 export class ClassroomPerformanceDetailedViewComponent {
 
+  showScroll:boolean;
+  showScroll1:boolean;
+  showScroll2:boolean;
+
   values1: Coordinates[] = [
     { title: "Low Performing", value: 40 },
     { title: "Averge", value: 21 },
