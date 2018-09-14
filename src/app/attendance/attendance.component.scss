@@ -1,5 +1,6 @@
 @import "../../styles/variables";
 @import "../../styles/common";
+@import "../../styles/responsive";
 .row {
   margin-left: 0;
   margin-right: 0;
@@ -27,22 +28,24 @@
   text-transform: uppercase;
   padding: 0px;
 }
+.select-all {
+  margin-right: 104px;
+  margin-bottom: 10px;
+}
 .img-rounded {
   width: 85%;
   border-radius: 50%;
 }
 .calendar {
-  min-height: 200px;
-  width: 70%;
-  height: 50%;
+  height: calc(42vh);
+  width: 68%;
   position: static;
 }
 .student-list {
-  width: 28%;
-  height: 392px;
+  width: 30%;
+  height: calc(55vh);
   overflow-y: auto;
   //max-width: 25%;
-  max-height: 392px;
 }
 .collection {
   margin: 0 !important;
@@ -53,12 +56,14 @@ img.responsive-img {
   margin-right: 25px;
 }
 .student-actions {
-  float: right;
-  margin-right: 80px;
+  width: 30%;
+  height: calc(7vh);
+  margin-right: 0;
   margin-top: 10px;
+  text-align: center;
 }
 .card-calendar {
-  width: 70%;
+  width: 68%;
   height: calc(25vh);
   margin: 10px 0;
   font-family: sans-serif;
@@ -87,4 +92,102 @@ img.responsive-img {
   padding: 6px;
   text-transform: uppercase;
   border-radius: 20px;
+}
+
+@media #{$small-medium} {
+  .select-all {
+    margin-right: 20px;
+    margin-bottom: 10px; 
+  }
+}
+
+@media #{$ipad-tab} {
+  .card {
+    height: calc(94vh);
+  }
+  .student-list {
+    height: calc(72vh);
+    width: 30%;
+  }
+  .student-actions {
+    width: 30%;
+  }
+  .card-calendar {
+    width: 68%;
+    height: calc(21vh);
+    margin-top: 20px;
+  }
+  .calendar {
+    height: calc(60vh);
+    width: 68%;
+  }
+  .count {
+    padding-top: 60px;
+  }
+  .select-all {
+    margin-right: 2px;
+    margin-bottom: 10px; 
+  }
+}
+
+@media #{$tab} {
+  .card {
+    height: calc(93vh);
+  }
+  .student-list {
+    height: calc(71vh);
+    width: 42%;
+  }
+  .card-calendar {
+    width: 54%;
+    height: calc(21vh);
+    margin-top: 10px;
+  }
+  .student-actions {
+    width: 42%;
+  }
+  .calendar {
+    height: calc(60vh);
+    width: 54%;
+  }
+  .count {
+    padding-top: 30px;
+  }
+  .select-all {
+    margin-right: 12px;
+    margin-bottom: 10px;
+  }
+}
+
+@media #{$phone} {
+  .card {
+    height: calc(94vh);
+  }
+  .student-list {
+    height: calc(40vh);
+    width: 100%;
+  }
+  .card-calendar {
+    width: 100%;
+    height: calc(30vh);
+    margin-top: 10px;
+  }
+  .student-actions {
+    width: 100%;
+  }
+  .calendar {
+    height: calc(36vh);
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .count {
+    padding-top: 30px;
+  }
+  .student{
+   margin-right: 16px;
+  }
+  .select-all {
+   margin-right: 10px;
+   margin-top:0; 
+  }
 }
