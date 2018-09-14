@@ -106,13 +106,10 @@ export class NotificationsListComponent {
     }
 }
 
-public onActionViewClick(data: any){
-    console.log("View action clicked", data);
-}
   public openDialog() {
     this.notificationsDialogRef = this.dialog.open(NotificationsDialogComponent, {
       width: '50%',
-      height: '60vh'
+      height: 'calc(60vh)'
     });
     //this.notificationsDialogRef.componentInstance.title = "odioCras justo odio";
     this.notificationsDialogRef.disableClose = true;

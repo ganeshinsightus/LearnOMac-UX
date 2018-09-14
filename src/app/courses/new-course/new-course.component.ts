@@ -245,6 +245,6 @@ export class NewCourseComponent {
 
 
   onBack() {
-    this.routes.navigateByUrl("/student/performance");
+    this.routes.navigateByUrl("/courses");
   }
 }

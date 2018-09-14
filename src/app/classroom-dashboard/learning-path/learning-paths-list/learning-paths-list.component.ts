@@ -173,6 +173,6 @@ export class LearningPathsListComponent {
   }
 
   onBack() {
-    this.routes.navigateByUrl("/classroom/dashboard");
+    this.routes.navigateByUrl("/class-dashboard");
   }
 }

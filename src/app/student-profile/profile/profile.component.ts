@@ -25,13 +25,13 @@ export class ProfileComponent {
   }
 
   openAcademicList() {
-    this.routes.navigateByUrl("/academic");
+    this.routes.navigateByUrl("/student/profile/academic");
   }
   openAwardsList() {
-    this.routes.navigateByUrl("/awards");
+    this.routes.navigateByUrl("/student/profile/awards");
   }
   openSportsList() {
-    this.routes.navigateByUrl("/sports");
+    this.routes.navigateByUrl("/student/profile/sports");
   }
   openDialog() {
     this.profileFilterDialogRef = this.dialog.open(ProfileFilterComponent, {

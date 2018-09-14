@@ -17,13 +17,13 @@ export class NewsComponent {
   openDialog() {
     this.newsDialogRef = this.dialog.open(NewsDialogComponent, {
       width: '50%',
-      height: '30vh'
+      height: 'calc(30vh)'
     });
     //this.newsDialogRef.componentInstance.title = "odioCras justo odio";
     this.newsDialogRef.disableClose = true;
   }
 
   openNewsList(){
-    this.routes.navigateByUrl('/news-list');
+    this.routes.navigateByUrl('/dashboard/news-list');
   }
 }

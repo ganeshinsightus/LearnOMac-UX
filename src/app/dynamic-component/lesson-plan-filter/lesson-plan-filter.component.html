@@ -22,10 +22,14 @@
                 </mat-select>
             </div>
             <div class="collection-item">
-                <div>
-                    <dropdown-tree [treeSource]="treeSource">
-                    </dropdown-tree>
-                </div>
+                <mat-label>Lesson :</mat-label>
+                <mat-select placeholder="Select Lesson" formControlName="lesson">
+                    <mat-optgroup *ngFor="let group of lessons" [label]="group.name" [disabled]="group.disabled">
+                        <mat-option *ngFor="let lessonchildren  of group.lessonchildren" [value]="lessonchildren.value">
+                            {{lessonchildren.viewValue}}
+                        </mat-option>
+                    </mat-optgroup>
+                </mat-select>
             </div>
             <span (click)="closeDialog()" class="btn-lightslategrey right">
                 Apply Filter

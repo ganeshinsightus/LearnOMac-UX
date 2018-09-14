@@ -29,6 +29,6 @@ export class MessagesComponent {
     });
   }
   openMessageList(){
-    this.routes.navigateByUrl('/message-list');
+    this.routes.navigateByUrl('/dashboard/message-list');
   }
 }

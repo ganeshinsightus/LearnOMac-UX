@@ -13,14 +13,10 @@ export class ProfileFilterComponent {
     public dialogref: MatDialogRef<ProfileFilterComponent>,
     private filterBuilder: FormBuilder
   ) {
-    
+    this.createForm();
   }
   closeDialog() {
     this.dialogref.close();
-  }
-
-  ngOnInit(){
-    this.createForm();
   }
 
   createForm() {

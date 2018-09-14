@@ -17,12 +17,12 @@ export class CircularsComponent {
   openDialog() {
     this.circularsDialogRef = this.dialog.open(CircularsDialogComponent, {
       width: '50%',
-      height: '30vh'
+      height: 'calc(30vh)'
     });
     //this.circularsDialogRef.componentInstance.title = "odioCras justo odio";
     this.circularsDialogRef.disableClose = true;
   }
   openCircularList(){
-    this.routes.navigateByUrl('/circular-list');
+    this.routes.navigateByUrl('/dashboard/circular-list');
   }
 }

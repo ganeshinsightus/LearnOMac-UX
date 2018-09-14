@@ -27,6 +27,9 @@
     text-transform: uppercase;
   }
   
+  .grid{
+    padding: 0;
+  }
 @media #{$ipad-tab} {
   .card {
     height: calc(93vh);

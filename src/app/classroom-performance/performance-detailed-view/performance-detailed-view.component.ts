@@ -90,35 +90,35 @@ export class ClassroomPerformanceDetailedViewComponent {
   constructor(private routes: Router) {}
  
   openClassDetails() {
-    this.routes.navigateByUrl("class/performance/details");
+    this.routes.navigateByUrl("class-performance/details");
   }
 
   openClassUpdate() {
-    this.routes.navigateByUrl("class/performance/update");
+    this.routes.navigateByUrl("class-performance/update");
   }
 
   openStandardDetails() {
-    this.routes.navigateByUrl("class/prerequisite/details");
+    this.routes.navigateByUrl("class-performance/prerequisite-details");
   }
 
   openStandardUpdate() {
-    this.routes.navigateByUrl("class/prerequisite/update");
+    this.routes.navigateByUrl("class-performance/prerequisite-update");
   }
   openProjectViewDetails(){
-    this.routes.navigateByUrl('class/project/details');
+    this.routes.navigateByUrl('class-performance/project-details');
   }
   openProjectListUpdate(){
-    this.routes.navigateByUrl('class/project/update');
+    this.routes.navigateByUrl('class-performance/project-update');
   }
   openProjectListPublish(){
-    this.routes.navigateByUrl('class/project/publish');
+    this.routes.navigateByUrl('class-performance/project-publish');
   }
 
   openLearningPathPublish(){
-    this.routes.navigateByUrl('class/learning-path/publish');
+    this.routes.navigateByUrl('class-performance/learning-path-publish');
   }
   openLearningPathDetails(){
-    this.routes.navigateByUrl('class/learning-path/details');
+    this.routes.navigateByUrl('class-performance/learning-path-details');
   }
   
 }

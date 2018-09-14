@@ -239,6 +239,6 @@ export class CommunicationListComponent {
 
 
   onBack() {
-    this.routes.navigateByUrl("/classroom/dashboard");
+    this.routes.navigateByUrl("/class-dashboard");
   }
 }

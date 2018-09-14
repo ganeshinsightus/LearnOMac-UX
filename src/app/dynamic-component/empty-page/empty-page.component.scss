@@ -1,0 +1,11 @@
+.empty-image {
+  background-color: rgb(216, 118, 93);
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  span {
+    position: relative;
+    left: 20%;
+  }
+}

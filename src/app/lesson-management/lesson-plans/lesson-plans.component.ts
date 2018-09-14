@@ -23,7 +23,7 @@ export class LessonPlansComponent {
       LessonPlanFilterComponent,
       {
         width: "55%",
-        height: "calc(44vh)"
+        height: "calc(58vh)"
       }
     );
     this.lessonplanFilterDialogRef.disableClose = true;
@@ -294,6 +294,6 @@ export class LessonPlansComponent {
   }
 
   openNewLessonPlan(){
-      this.routes.navigateByUrl('/create-lesson-plan')
+      this.routes.navigateByUrl('/lesson/plans/create-new')
   }
 }

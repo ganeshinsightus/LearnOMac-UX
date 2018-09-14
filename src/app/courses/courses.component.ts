@@ -13,22 +13,22 @@ export class CoursesComponent {
   ngOnInit() {}
 
   openCoursesDetails() {
-    this.routes.navigateByUrl("courses-subcriptions-details-new");
+    this.routes.navigateByUrl("/courses/courses-subcriptions-details-new");
   }
 
   openAssignCourse() {
-    this.routes.navigateByUrl("/assign-new-course");
+    this.routes.navigateByUrl("/courses/assign-new-course");
   }
 
   openStudentCourseDetails() {
-    this.routes.navigateByUrl("/courses-new");
+    this.routes.navigateByUrl("/courses/courses-new");
   }
 
   openMyCourseDetails() {
-    this.routes.navigateByUrl("/courses-details-approved");
+    this.routes.navigateByUrl("/courses/courses-details-approved");
   }
 
   openNewCourse(){
-    this.routes.navigateByUrl("new-course");
+    this.routes.navigateByUrl("/courses/new-course");
   }
 }

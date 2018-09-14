@@ -341,6 +341,6 @@ export class ClassPerformanceUpdateComponent {
   }
 
   onBack() {
-    this.routes.navigateByUrl("classroom/performance/detailed-view");
+    this.routes.navigateByUrl("class-performance/detailed-view");
   }
 }
