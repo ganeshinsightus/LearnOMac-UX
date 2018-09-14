@@ -1,39 +1,40 @@
 <div class="row card bq-pink">
-        <div class="col l12 m12 s12">
-            <h5 class="card-title bq-pink-text">
-                My Course Details
-                <span class="btn btn-pink " (click)="onBack()">Back</span>
-                <span class="col l6" style="margin-top:-9px;">
-                    <select class="dropdown col l6 right" (change)="onNavigate($event.target.value)">
-                        <option value="default">Select Course Status</option>
-                        <option value="courses-details-approved">
-                            Approved
-                        </option>
-                        <option value="courses-details-drafts" >
-                            Drafts
-                        </option>
-                        <option value="courses-details-published">
-                            Published
-                        </option>
-                        <option value="courses-details-pending-approval" >
-                            Pending Approval
-                        </option>
-                        <option value="courses-details-changes" selected="selected">
-                                Changes Required
-                            </option>
-                    </select>&nbsp;
-                </span>
-    
-            </h5>
-            <br>
-            <div class="col l12 m12 s12" style="padding: 0">
-                <div class="grid">
-                    <ag-grid-angular class="ag-theme-balham" style="width: 100%;
-                                        height: 69.5vh;margin-left: 0px;" [enableSorting]="true" [enableFilter]="false" [rowData]="rowData"
-                        [columnDefs]="columnDefs" rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true"
-                        [enableColResize]="true" [suppressMenuColumnPanel]="true" [floatingFilter]="true" (cellClicked)="onCellClicked($event)">
-                    </ag-grid-angular>
-                </div>
+    <div class="col l12 m12 s12">
+        <h5 class="card-title bq-pink-text">
+            My Course Details
+            <span class="btn btn-pink " (click)="onBack()">Back</span>
+            <span class="col xl12 l12 m12 s12">
+                <select class="dropdown col s6 m4 l4 xl4 right" (change)="onNavigate($event.target.value)">
+                    <option value="default">Select Course Status</option>
+                    <option value="courses-details-approved">
+                        Approved
+                    </option>
+                    <option value="courses-details-drafts">
+                        Drafts
+                    </option>
+                    <option value="courses-details-published">
+                        Published
+                    </option>
+                    <option value="courses-details-pending-approval">
+                        Pending Approval
+                    </option>
+                    <option value="courses-details-changes" selected="selected">
+                        Changes Required
+                    </option>
+                </select>&nbsp;
+            </span>
+
+        </h5>
+        <br>
+        <div class="col l12 m12 s12" style="padding: 0">
+            <div class="grid">
+                <ag-grid-angular class="ag-theme-balham" style="width: 100%;
+                                        height: 69.5vh;margin-left: 0px;"
+                    [enableSorting]="true" [enableFilter]="false" [rowData]="rowData" [columnDefs]="columnDefs"
+                    rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true"
+                    [enableColResize]="true" [suppressMenuColumnPanel]="true" [floatingFilter]="true" (cellClicked)="onCellClicked($event)">
+                </ag-grid-angular>
             </div>
         </div>
     </div>
+</div>

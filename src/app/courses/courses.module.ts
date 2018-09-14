@@ -12,6 +12,7 @@ import { CoursesDetailsApprovedComponent } from "./courses-details/courses-detai
 import { CoursesDetailsPendingApprovalComponent } from "./courses-details/courses-details-pending-approval/courses-details-pending-approval.component";
 import { CoursesDetailsChangesComponent } from "./courses-details/courses-details-changes/courses-details-changes.component";
 import { CoursesDetailsPublishedComponent } from "./courses-details/courses-details-published/courses-details-published.component";
+import { NewCourseComponent } from "./new-course/new-course.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CoursesDetailsPublishedComponent } from "./courses-details/courses-deta
     CoursesDetailsApprovedComponent,
     CoursesDetailsPendingApprovalComponent,
     CoursesDetailsChangesComponent,
-    CoursesDetailsPublishedComponent
+    CoursesDetailsPublishedComponent,
+    NewCourseComponent
   ],
   imports: [
     RouterModule,

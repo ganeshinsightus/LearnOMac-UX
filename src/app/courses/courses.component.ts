@@ -27,4 +27,8 @@ export class CoursesComponent {
   openMyCourseDetails() {
     this.routes.navigateByUrl("/courses-details-approved");
   }
+
+  openNewCourse(){
+    this.routes.navigateByUrl("new-course");
+  }
 }
