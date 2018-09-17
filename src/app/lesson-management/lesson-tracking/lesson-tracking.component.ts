@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
-import { ProfileFilterComponent } from "../../dynamic-component/profile-filter/profile-filter.component";
 import { Router } from "@angular/router";
+import { FilterComponent } from "../../common-component/filter/filter.component";
 
 @Component({
   selector: "lesson-tracking",
@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 export class LessonTrackingComponent {
   showScroll: boolean;
   showScrolls: boolean;
-  profileFilterDialogRef: MatDialogRef<ProfileFilterComponent>;
+  profileFilterDialogRef: MatDialogRef<FilterComponent>;
 
   constructor(public dialog: MatDialog, private routes: Router) {}
 
@@ -25,10 +25,11 @@ export class LessonTrackingComponent {
   }
 
   openDialog() {
-    this.profileFilterDialogRef = this.dialog.open(ProfileFilterComponent, {
+    this.profileFilterDialogRef = this.dialog.open(FilterComponent, {
       width: "55%",
-      height: "calc(34vh)"
+      height: "calc(58vh)"
     });
+    this.profileFilterDialogRef.componentInstance.showLessonPlan = true;
     this.profileFilterDialogRef.disableClose = true;
   }
 

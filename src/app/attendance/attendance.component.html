@@ -8,12 +8,13 @@
         <jqx-calendar></jqx-calendar>
     </div>
 
-    <span class="btn btn-orange right student">
-        Students List
+    <span class="btn btn-orange right select-all" *ngIf="showDeselect">
+        Deselect All
     </span>
-    <span class="btn btn-orange right select-all">
+    <span class="btn btn-orange right select-all" (click)="showDeselect = !showDeselect">
         Select All
     </span>
+
 
     <div class="student-list right">
         <div class="collection">

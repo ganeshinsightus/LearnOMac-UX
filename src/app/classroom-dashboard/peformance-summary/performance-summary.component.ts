@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Coordinates } from '../../dynamic-component/stacked-bar-chart/stacked-bar-chart';
+import { Coordinates } from '../../common-component/stacked-bar-chart/stacked-bar-chart';
 
 @Component({
   selector: 'performance-summary',

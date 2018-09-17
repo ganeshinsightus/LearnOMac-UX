@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { MatDialogRef, MatDialog } from "@angular/material";
-import { ClassroomPerformanceFilterComponent } from "../dynamic-component/classroom-performance-filter/classroom-performance-filter.component";
-import { Coordinates } from "../dynamic-component/stacked-bar-chart/stacked-bar-chart";
+import { Coordinates } from "../common-component/stacked-bar-chart/stacked-bar-chart";
 import { Router } from "@angular/router";
+import { FilterComponent } from "../common-component/filter/filter.component";
 
 @Component({
   templateUrl: "classroom-performance.component.html",
@@ -46,20 +46,18 @@ export class ClassroomPerformanceComponent {
     { title: "Mastered", value: 45 }
   ];
 
-  filterPopupDialogRef: MatDialogRef<ClassroomPerformanceFilterComponent>;
+  filterPopupDialogRef: MatDialogRef<FilterComponent>;
 
   constructor(private dialog: MatDialog, private routes: Router) {
     this.openDialog();
   }
 
   openDialog() {
-    this.filterPopupDialogRef = this.dialog.open(
-      ClassroomPerformanceFilterComponent,
-      {
-        width: "55%",
-        height: "calc(59vh)"
-      }
-    );
+    this.filterPopupDialogRef = this.dialog.open(FilterComponent, {
+      width: "55%",
+      height: "cal(59vh)"
+    });
+    this.filterPopupDialogRef.componentInstance.showClassroomPerformance = true;
     this.filterPopupDialogRef.disableClose = true;
   }
 

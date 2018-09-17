@@ -3,10 +3,14 @@ import { MatDialog, MatDialogRef } from "@angular/material";
 import { FilterComponent } from "../common-component/filter/filter.component";
 
 @Component({
-  templateUrl: "classroom-dashboard.component.html",
-  styleUrls: ["classroom-dashboard.component.scss"]
+  templateUrl: "curriculum-content.component.html",
+  styleUrls: ["curriculum-content.component.scss"]
 })
-export class ClassroomDashboardComponent {
+export class CurriculumContentComponent {
+  showScroll1:boolean;
+  showScroll2:boolean;
+  showScroll3:boolean;
+  showScroll4:boolean;
   filterPopupDialogRef: MatDialogRef<FilterComponent>;
 
   constructor(private dialog: MatDialog) {
@@ -18,7 +22,8 @@ export class ClassroomDashboardComponent {
       width: "55%",
       height: "cal(59vh)"
     });
-    this.filterPopupDialogRef.componentInstance.showClassroom = true;
+    this.filterPopupDialogRef.componentInstance.showCurriculumContent = true;
     this.filterPopupDialogRef.disableClose = true;
   }
+
 }

@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
-import { PerformanceFilterComponent } from "../../dynamic-component/performance-filter/performance-filter.component";
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { Router } from "@angular/router";
-import { Coordinates } from "../../dynamic-component/stacked-bar-chart-level4/stacked-bar-chart-level4";
+import { Coordinates } from "../../common-component/stacked-bar-chart-level4/stacked-bar-chart-level4";
+import { FilterComponent } from "../../common-component/filter/filter.component";
 
 @Component({
   selector: "profile-performance",
@@ -69,19 +69,20 @@ export class ProfilePerformanceComponent {
     { title: "Mastered", value: 0 }
   ];
 
-  performanceFilterDialogRef: MatDialogRef<PerformanceFilterComponent>;
+  performanceFilterDialogRef: MatDialogRef<FilterComponent>;
 
   constructor(private dialog: MatDialog, private routes: Router) {
     this.openDialog();
   }
   openDialog() {
     this.performanceFilterDialogRef = this.dialog.open(
-      PerformanceFilterComponent,
+      FilterComponent,
       {
         width: "55%",
         height: "calc(32vh)"
       }
     );
+    this.performanceFilterDialogRef.componentInstance.showPerformance = true ;
     this.performanceFilterDialogRef.disableClose = true;
   }
   openCreatePath() {

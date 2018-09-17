@@ -1,6 +1,6 @@
-import { Component } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { MatDialogRef } from "@angular/material";
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
 
 export interface Lesson {
   value: string;
@@ -14,13 +14,20 @@ export interface Lessons {
 }
 
 @Component({
-  selector: "lesson-plan-filter",
-  templateUrl: "./lesson-plan-filter.component.html",
-  styleUrls: ["./lesson-plan-filter.component.scss"]
+  templateUrl: "./filter.component.html",
+  styleUrls: ["./filter.component.scss"]
 })
-export class LessonPlanFilterComponent {
+export class FilterComponent {
   filterForm: FormGroup;
-
+  showClassroom: boolean;
+  showAttendance: boolean;
+  showClassroomPerformance: boolean;
+  showCurriculumContent: boolean;
+  showProfile: boolean;
+  showPerformance: boolean;
+  showLessonPlan: boolean;
+  showPerformanceDetailedView:boolean;
+  
   lessons: Lessons[] = [
     {
       name: "Unit I - Number System",
@@ -40,7 +47,7 @@ export class LessonPlanFilterComponent {
   ];
 
   constructor(
-    public dialogref: MatDialogRef<LessonPlanFilterComponent>,
+    public dialogref: MatDialogRef<FilterComponent>,
     private filterBuilder: FormBuilder
   ) {
     this.createForm();
@@ -55,7 +62,7 @@ export class LessonPlanFilterComponent {
       grade: new FormControl(0),
       section: new FormControl(0),
       subject: new FormControl(0),
-      lesson: new FormControl(0)
+      student: new FormControl(0)
     });
   }
 }

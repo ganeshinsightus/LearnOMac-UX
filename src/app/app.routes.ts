@@ -13,6 +13,7 @@ import { ProfileComponent } from "./student-profile/profile/profile.component";
 import { ProfilePerformanceComponent } from "./student-profile/performance-summary/performance-summary.component";
 import { RouterModule, Routes } from "@angular/router";
 import { StudentProfileComponent } from "./student-profile/student-profile.component";
+import { CurriculumContentComponent } from "./curriculum-content/curriculum-content.component";
 
 const routes: Routes = [
   {
@@ -87,7 +88,13 @@ const routes: Routes = [
         pathMatch: "full"
       }
     ]
-  }
+  },
+  {
+    path: "curriculum-content",
+    component: CurriculumContentComponent,
+    data: { title: "Curriculum Content" },
+    pathMatch: "full"
+  },
 ];
 
 @NgModule({
