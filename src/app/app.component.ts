@@ -17,7 +17,7 @@ export class AppComponent {
       { url: "/attendance", iconName: "ballot", title: "Attendance" },
       { url: "/student/profile", iconName: "assignment_in", title: "Student Profiles" },
       { url: "/lesson/plans", iconName: "track_changes", title: "Lesson Management" },
-      { url: "/curriculum-content", iconName: "dashboard", title: "Content Library" },
+      { url: "/content-library", iconName: "dashboard", title: "Content Library" },
       { url: "/class-performance", iconName: "insert_chart", title: "Class Performance" },
       { url: "/courses", iconName: "insert_drive_file", title: "Courses" },
       { url: "/resources", iconName: "library_books", title: "My Learning Resources" }

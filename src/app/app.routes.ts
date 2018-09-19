@@ -90,7 +90,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: "curriculum-content",
+    path: "content-library",
     component: CurriculumContentComponent,
     data: { title: "Curriculum Content" },
     pathMatch: "full"

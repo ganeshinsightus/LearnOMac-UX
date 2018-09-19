@@ -1,7 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
 import { UpdateKnowledgeLevelDialogComponent } from "../../assessment-summary/update-knowledge-level-dialog/update-knowledge-level-dialog.component";
+import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
   templateUrl: "./courses-new.component.html",
@@ -12,319 +13,283 @@ export class CoursesNewComponent {
 
   constructor(public dialog: MatDialog, private routes: Router) {}
 
-  ngOnInit() {}
+  @ViewChild("TreeGrid")
+  treeGrid: jqxTreeGridComponent;
 
-  columnDefs = [
+  getWidth(): any {
+    return "100%";
+  }
+
+  getHeight(): any {
+    return "calc(64vh)";
+  }
+
+  data: any[] = [
     {
-      headerName: "Title",
-      field: "title",
-      floatingFilter: "true",
-      width: 176,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+      concepts: "Probability,Trignometry"
     },
     {
-      headerName: "Created by",
-      field: "createdby",
-      floatingFilter: "true",
-      width: 176,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
     },
     {
-      headerName: "Course Objective",
-      field: "objective",
-      floatingFilter: "true",
-      width: 176,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
     },
     {
-      headerName: "Prerequisite Concepts",
-      field: "prerequisite",
-      floatingFilter: "true",
-      width: 176,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
     },
     {
-      headerName: "Published on",
-      field: "publishedon",
-      width: 176,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      publishedby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry",
+      course: "Course 1"
+    }
+  ];
+  source: any = {
+    dataType: "json",
+    dataFields: [
+      { name: "title", type: "string" },
+      { name: "objective", type: "string" },
+      { name: "concepts", type: "string" },
+      { name: "publishedon", type: "date" },
+      { name: "publishedby", type: "string" },
+      { name: "grades", type: "string" }
+    ],
+    localData: this.data,
+    id: "id"
+  };
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+  columns: any[] = [
+    {
+      text: "Course Title",
+      dataField: "title",
+      align: "center",
+      cellsAlign: "center",
+      width: 174
+    },
+    {
+      text: "Course Objective",
+      dataField: "objective",
+      align: "center",
+      cellsAlign: "center",
+      width: 174
+    },
+    {
+      text: "Pre-requisite Concepts",
+      dataField: "concepts",
+      align: "center",
+      cellsAlign: "center",
+      width: 174
+    },
+    {
+      text: "Grades Applicable",
+      align: "center",
+      cellsAlign: "center",
+      dataField: "grades",
+      width: 174
+    },
+    {
+      text: "Published by",
+      align: "center",
+      cellsAlign: "center",
+      dataField: "publishedby",
+      width: 174
+    },
+    {
+      text: "Published on",
+      align: "center",
+      cellsAlign: "center",
+      cellsFormat: "d",
+      dataField: "publishedon",
+      width: 174
+    },
+    {
+      text: "Actions",
+      cellsAlign: "center",
+      align: "center",
+      width: 174,
+      columnType: "none",
+      editable: false,
+      sortable: false,
+      dataField: null,
+      cellsRenderer: (row: number, column: any, value: any): string => {
+        return (
+          `<div data-row='` +
+          row +
+          `' class='viewButton' style='color:white;background-color:green;margin-left: 58px;'></div>`
+        );
+      }
+    }
+  ];
+  editSettings: any = {
+    saveOnPageChange: true,
+    saveOnBlur: true,
+    saveOnSelectionChange: false,
+    cancelOnEsc: true,
+    saveOnEnter: true,
+    editOnDoubleClick: false,
+    editOnF2: false
+  };
+  rendered = (): void => {
+    let uglyviewButtons = jqwidgets.createInstance(".viewButton", "jqxButton", {
+      width: 80,
+      height: 24,
+      value: "Assign"
+    });
+    let flattenviewButtons = flatten(uglyviewButtons);
+
+    function flatten(arr: any[]): any[] {
+      if (arr.length) {
+        return arr.reduce((flat: any[], toFlatten: any[]): any[] => {
+          return flat.concat(
+            Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten
           );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
+        }, []);
       }
-    },
-    {
-      headerName: "Grades Applicable",
-      field: "grades",
-      floatingFilter: "true",
-      width: 176,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Actions",
-      suppressMenu: true,
-      suppressSorting: true,
-      width: 176,
-      filter: "false",
-      template: `
-            <button type="button" data-action-type="assign" style="color:white;background-color:#d81b60   ;">
-              Assign
-            </button>
-          `
     }
-  ];
-
-  rowData = [
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdby: "Ganesh" ,objective:"view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    }
-  ];
-
-  public onCellClicked(e) {
-    if (e.event.target !== undefined) {
-      let data = e.data;
-      let actionType = e.event.target.getAttribute("data-action-type");
-
-      switch (actionType) {
-        case "assign":
-          return this.openUpdateKnowledgeLevelDialog();
+    if (flattenviewButtons) {
+      for (let i = 0; i < flattenviewButtons.length; i++) {
+        flattenviewButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
       }
+    }
+  };
+
+  rowKey: number = -1;
+  cellClick(event: any): void {
+    this.rowKey = event.args.key;
+  }
+  editClick(event: any): void {
+    let value = event.target.innerText;
+    if (value === "View") {
+      // this.openDialog();
     }
   }
 
-  onNavigate(value){
+  onNavigate(value) {
     this.routes.navigate([value]);
-  }
-
-  openUpdateKnowledgeLevelDialog() {
-    alert("updated soon");
   }
 
   onBack() {

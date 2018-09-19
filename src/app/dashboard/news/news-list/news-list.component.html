@@ -1,22 +1,17 @@
 <div class="row card bq-lightslategrey">
-        <div class="col l12 m12 s12">
-            <h5 class="title bq-text-lightslategrey">
-                News 
-                <span class="btn btn-lightslategrey right" (click)="onBack()">Back</span>
-            </h5>
-            <div class="col l12 m12 s12 grid">
-                <ag-grid-angular class="ag-theme-balham" style="width: 100%;
-                height: 71vh;margin-left: 0px;" [enableSorting]="true" [enableFilter]="false" [rowData]="rowData" [columnDefs]="columnDefs"
-                rowSelection="multiple"
-                [suppressContextMenu]="true"
-                [suppressMenuMainPanel]="true"
-                [suppressMenuColumnPanel]="true"
-                [floatingFilter]="true"
-                [enableColResize]="true"
-                (rowClicked)="onRowClicked($event)"
-                >
-                </ag-grid-angular>
-            </div>
-    
+    <div class="col l12 m12 s12">
+        <h5 class="title bq-text-lightslategrey">
+            News
+            <span class="btn btn-lightslategrey right" (click)="onBack()">Back</span>
+        </h5>
+        <div class="col l12 m12 s12 grid">
+
+            <jqxTreeGrid #TreeGrid (onCellClick)="cellClick($event)" [width]="getWidth()" [height]="getHeight()" [source]="dataAdapter"
+                [columns]="columns" [rendered]="rendered" [altRows]="true" [columnsResize]="true" [sortable]="true" [filterable]="true" [filterMode]="'advanced'" [autoRowHeight]="true" [editSettings]="editSettings"
+                [ready]="ready">
+            </jqxTreeGrid>
+
         </div>
+
     </div>
+</div>

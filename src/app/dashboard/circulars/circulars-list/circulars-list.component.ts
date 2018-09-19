@@ -1,7 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { CircularsDialogComponent } from "../circulars-dialog/circulars-dialog.component";
 import { Router } from "@angular/router";
+import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
   selector: "circulars-list",
@@ -12,104 +13,129 @@ export class CircularListComponent {
   circularsDialogRef: MatDialogRef<CircularsDialogComponent>;
   constructor(public dialog: MatDialog, private routes: Router) {}
 
-  columnDefs = [
+  
+  @ViewChild  ("TreeGrid")
+  treeGrid: jqxTreeGridComponent;
+
+  getWidth(): any {
+    return "100%";
+  }
+
+  getHeight(): any {
+    return "calc(76vh)";
+  }
+
+  data: any[] = [
+    { title: " justo justo odioCras", publishedon: "22/03/2018" },
+    { title: "odioCras Cras justo ", publishedon: "24/03/2018" },
+    { title: "Cras justo odioCras", publishedon: "18/08/2018" },
+    { title: "odioCras Cras justo ", publishedon: "24/03/2018" },
+    { title: "Cras justo odioCras", publishedon: "18/08/2018" },
+    { title: " justo justo odioCras", publishedon: "13/08/2018" },
+    { title: "odioCras Cras justo ", publishedon: "24/03/2018" },
+    { title: "Cras justo odioCras", publishedon: "18/08/2018" },
+    { title: "odioCras Cras justo ", publishedon: "24/03/2018" },
+    { title: "Cras justo odioCras", publishedon: "18/08/2018" },
+    { title: "odioCras Cras justo ", publishedon: "24/03/2018" },
+  ];
+  source: any = {
+    dataType: "json",
+    dataFields: [
+      { name: "title", type: "string" },
+      { name: "publishedon", type: "date" }
+    ],
+    localData: this.data,
+    id: "id"
+  };
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+  columns: any[] = [
     {
-      headerName: "Circular Title",
-      field: "title",
-      floatingFilter: "true",
-      width: 410,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
+      text: "Circulars Title",
+      dataField: "title",
+      align: "center",
+      cellsAlign: "center",
+      width: 420
     },
     {
-      headerName: "Published on",
-      field: "published",
-      width: 410,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
-          );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
-      }
+      text: "Published on",
+      align: "center",
+      cellsAlign: "center",
+      cellsFormat: "d",
+      dataField: "publishedon",
+      width: 420
     },
     {
-      headerName: "Actions",
-      suppressMenu: true,
-      suppressSorting: true,
-      filter: "false",
-      width:410,
-      template: `<button type="button" data-action-type="view" style="color:white;background-color:green;">
-               View
-             </button>
-          `
+      text: "Actions",
+      cellsAlign: "center",
+      align: "center",
+      width: 420,
+      columnType: "none",
+      editable: false,
+      sortable: false,
+      dataField: null,
+      cellsRenderer: (row: number, column: any, value: any): string => {
+        return (
+          `<div data-row='` +
+          row +
+          `' class='viewButton' style='color:white;background-color:#368836 ;margin-left: 178px;'></div>`
+        );
+      }
     }
   ];
+  editSettings: any = {
+    saveOnPageChange: true,
+    saveOnBlur: true,
+    saveOnSelectionChange: false,
+    cancelOnEsc: true,
+    saveOnEnter: true,
+    editOnDoubleClick: false,
+    editOnF2: false
+  };
+  rendered = (): void => {
+    let uglyviewButtons = jqwidgets.createInstance(".viewButton", "jqxButton", {
+      width: 60,
+      height: 24,
+      value: "View"
+    });
+    let flattenviewButtons = flatten(uglyviewButtons);
 
-  rowData = [
-    { title: "Cras justo odioCras", published: "29/01/18", action: "view" },
-    { title: " justo justo odioCras", published: "27/02/18", action: "view" },
-    { title: "odioCras Cras justo ", published: "29/03/18", action: "view" },
-    { title: "Cras justo odioCras", published: "29/01/18", action: "view" },
-    { title: "odioCras Cras justo ", published: "29/03/18", action: "view" },
-    { title: "Cras justo odioCras", published: "29/01/18", action: "view" },
-    { title: " justo justo odioCras", published: "27/02/18", action: "view" },
-    { title: "odioCras Cras justo ", published: "29/03/18", action: "view" },
-    { title: "odioCras Cras justo ", published: "29/03/18", action: "view" },
-    { title: " justo justo odioCras", published: "27/02/18", action: "view" },
-    { title: "Cras justo odioCras", published: "29/01/18", action: "view" },
-    { title: "odioCras Cras justo ", published: "29/03/18", action: "view" },
-    { title: "Cras justo odioCras", published: "29/01/18", action: "view" },
-    { title: "odioCras Cras justo ", published: "29/03/18", action: "view" }
-  ];
+    function flatten(arr: any[]): any[] {
+      if (arr.length) {
+        return arr.reduce((flat: any[], toFlatten: any[]): any[] => {
+          return flat.concat(
+            Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten
+          );
+        }, []);
+      }
+    }
+    if (flattenviewButtons) {
+      for (let i = 0; i < flattenviewButtons.length; i++) {
+        flattenviewButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
+      }
+    }
+  };
 
-  public onRowClicked(e) {
-    if (e.event.target !== undefined) {
-      return this.openDialog();
+  rowKey: number = -1;
+  cellClick(event: any): void {
+    this.rowKey = event.args.key;
+  }
+  editClick(event: any): void {
+    let value = event.target.innerText;
+    if (value === "View") {
+      this.openDialog();
     }
   }
 
   public openDialog() {
     this.circularsDialogRef = this.dialog.open(CircularsDialogComponent, {
       width: "50%",
-      height: "calc(60vh)"
+      height: "calc(30vh)"
     });
-    //this.circularsDialogRef.componentInstance.title = "odioCras justo odio";
     this.circularsDialogRef.disableClose = true;
   }
 

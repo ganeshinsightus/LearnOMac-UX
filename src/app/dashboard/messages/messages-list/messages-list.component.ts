@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { Component, ViewChild } from "@angular/core";
+import { MatDialog, MatDialogRef } from "@angular/material";
 
-import { Router } from '@angular/router';
-import { CommunicationRepliedComponent } from '../../../classroom-dashboard/communication/communication-replied/communication-replied.component';
+import { Router } from "@angular/router";
+import { CommunicationRepliedComponent } from "../../../classroom-dashboard/communication/communication-replied/communication-replied.component";
+import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
   selector: "messages-list",
@@ -11,107 +12,133 @@ import { CommunicationRepliedComponent } from '../../../classroom-dashboard/comm
 })
 export class MessagesListComponent {
   communicationDialogRef: MatDialogRef<CommunicationRepliedComponent>;
-  constructor(public dialog: MatDialog , private routes: Router) {}
+  constructor(public dialog: MatDialog, private routes: Router) {}
 
-  columnDefs = [
+  @ViewChild("TreeGrid")
+  treeGrid: jqxTreeGridComponent;
+
+  getWidth(): any {
+    return "100%";
+  }
+
+  getHeight(): any {
+    return "calc(76vh)";
+  }
+
+  data: any[] = [
+    { title: "Could not do well in Maths", publishedon: "18/08/2018" },
+    { title: " Could not do well in Science", publishedon: "22/03/2018" },
+    { title: "Could not do well in Social Science ", publishedon: "24/03/2018" },
+    { title: "Could not do well in Maths", publishedon: "18/08/2018" },
+    { title: "Could not do well in Social Science ", publishedon: "24/03/2018" },
+    { title: "Could not do well in Maths", publishedon: "18/08/2018" },
+    { title: " Could not do well in Science", publishedon: "13/08/2018" },
+    { title: "Could not do well in Social Science ", publishedon: "24/03/2018" },
+    { title: "Could not do well in Maths", publishedon: "18/08/2018" },
+    { title: "Could not do well in Maths", publishedon: "18/08/2018" },
+    { title: "Could not do well in Social Science ", publishedon: "24/03/2018" }
+  ];
+  source: any = {
+    dataType: "json",
+    dataFields: [
+      { name: "title", type: "string" },
+      { name: "publishedon", type: "date" }
+    ],
+    localData: this.data,
+    id: "id"
+  };
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+  columns: any[] = [
     {
-      headerName: "Messages Title",
-      field: "title",
-      floatingFilter: "true",
-      width: 410,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
+      text: "Messages Title",
+      dataField: "title",
+      align: "center",
+      cellsAlign: "center",
+      width: 420
     },
     {
-      headerName: "Published on",
-      field: "published",
-      width: 410,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
+      text: "Published on",
+      align: "center",
+      cellsAlign: "center",
+      cellsFormat: "d",
+      dataField: "publishedon",
+      width: 420
+    },
+    {
+      text: "Actions",
+      cellsAlign: "center",
+      align: "center",
+      width: 420,
+      columnType: "none",
+      editable: false,
+      sortable: false,
+      dataField: null,
+      cellsRenderer: (row: number, column: any, value: any): string => {
+        return (
+          `<div data-row='` +
+          row +
+          `' class='viewButton' style='color:white;background-color:#0d47a1;margin-left: 178px;'></div>`
+        );
+      }
+    }
+  ];
+  editSettings: any = {
+    saveOnPageChange: true,
+    saveOnBlur: true,
+    saveOnSelectionChange: false,
+    cancelOnEsc: true,
+    saveOnEnter: true,
+    editOnDoubleClick: false,
+    editOnF2: false
+  };
+  rendered = (): void => {
+    let uglyviewButtons = jqwidgets.createInstance(".viewButton", "jqxButton", {
+      width: 60,
+      height: 24,
+      value: "View"
+    });
+    let flattenviewButtons = flatten(uglyviewButtons);
+
+    function flatten(arr: any[]): any[] {
+      if (arr.length) {
+        return arr.reduce((flat: any[], toFlatten: any[]): any[] => {
+          return flat.concat(
+            Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten
           );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
+        }, []);
       }
-    },
-    {
-      headerName: "Actions",
-          suppressMenu: true,
-          suppressSorting: true,
-          width:410,
-          filter:"false",
-          template:
-            `<button type="button" data-action-type="view" style="color:white;background-color:#0d47a1 ;">
-               View
-             </button>
-          `
     }
-  ];
-
-  rowData = [
-    { title: "Could not do well in Maths", published: "29/01/18", action: "view" },
-    { title: " Could not do well in Social", published: "27/02/18", action: "view" },
-    { title: "Could not do well in Science ", published: "29/03/18", action: "view" },
-    { title: "Could not do well in Maths", published: "29/01/18", action: "view" },
-    { title: "Could not do well in Science ", published: "29/03/18", action: "view" },
-    { title: "Could not do well in Maths", published: "29/01/18", action: "view" },
-    { title: " Could not do well in Science", published: "27/02/18", action: "view" },
-    { title: "Could not do well in Maths", published: "29/01/18", action: "view" },
-    { title: "Could not do well in Science ", published: "29/03/18", action: "view" },
-    { title: "Could not do well in Maths", published: "29/01/18", action: "view" },
-    { title: " Could not do well in Science", published: "27/02/18", action: "view" },
-    { title: "Could not do well in Maths", published: "29/01/18", action: "view" },
-    { title: "Could not do well in Science ", published: "29/03/18", action: "view" },
-    { title: "Could not do well in Maths", published: "29/01/18", action: "view" },   
-  ];
-
-
-  public onRowClicked(e) {
-    if (e.event.target !== undefined) {
-        return this.openDialog();
+    if (flattenviewButtons) {
+      for (let i = 0; i < flattenviewButtons.length; i++) {
+        flattenviewButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
+      }
     }
-}
+  };
+
+  rowKey: number = -1;
+  cellClick(event: any): void {
+    this.rowKey = event.args.key;
+  }
+  editClick(event: any): void {
+    let value = event.target.innerText;
+    if (value === "View") {
+      this.openDialog();
+    }
+  }
 
   public openDialog() {
-    this.communicationDialogRef = this.dialog.open(CommunicationRepliedComponent, {
-      width: '50%',
-      height: 'calc(60vh)'
-    });
+    this.communicationDialogRef = this.dialog.open(
+      CommunicationRepliedComponent,
+      {
+        width: "50%",
+        height: "calc(60vh)"
+      }
+    );
     //this.communicationDialogRef.componentInstance.title = "odioCras justo odio";
     this.communicationDialogRef.disableClose = true;
   }

@@ -23,7 +23,7 @@ export class LessonPlansComponent {
       FilterComponent,
       {
         width: "55%",
-        height: "calc(58vh)"
+        height: "calc(69vh)"
       }
     );
     this.lessonplanFilterDialogRef.componentInstance.showLessonPlan = true;

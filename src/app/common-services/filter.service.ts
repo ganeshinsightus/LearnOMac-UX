@@ -49,7 +49,7 @@ export class FilterService {
     }
 
     get isCurriculumContent(){
-        return this.filterPath = "/curriculum-content";
+        return this.filterPath = "/content-library";
     }
 
 }
