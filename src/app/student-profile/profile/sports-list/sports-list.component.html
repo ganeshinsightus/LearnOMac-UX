@@ -4,22 +4,22 @@
             Achievements - Sports
             <span class="btn btn-pink right" (click)="onBack()">Back</span>
         </h5>
-        <span class="col s6 m3 l3 xl3 right" style="padding: 0;">
-                <select class="dropdown" (change)="onNavigation($event.target.value)">
-                    <option >Select Achievements</option>
-                    <option value="student/profile/academic">Academic</option>
-                    <option value="student/profile/sports" selected="selected">Sports</option>
-                    <option value="student/profile/awards">Awards</option>
-                </select>
-            </span>
+        <span class="col s6 m3 l3 xl2 right" style="padding: 0;">
+            <select class="dropdown" (change)="onNavigation($event.target.value)">
+                <option>Select Achievements</option>
+                <option value="student/profile/academic">Academic</option>
+                <option value="student/profile/sports" selected="selected">Sports</option>
+                <option value="student/profile/awards">Awards</option>
+            </select>
+        </span>
     </div>
     <div class="col xl12 l12 m12 s12">
         <div class="grid">
-            <ag-grid-angular class="ag-theme-balham" style="width: 100%;
-                        height:calc(66vh);margin-left: 0px;" [enableSorting]="true" [enableFilter]="false" [rowData]="rowData"
-                [columnDefs]="columnDefs" rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true"
-                [suppressMenuColumnPanel]="true" [floatingFilter]="true"[enableColResize]="true" (rowClicked)="onRowClicked($event)">
-            </ag-grid-angular>
+            <jqxTreeGrid #TreeGrid (onCellClick)="cellClick($event)" [width]="getWidth()" [height]="getHeight()"
+                [source]="dataAdapter" [columns]="columns" [rendered]="rendered" [altRows]="true" [autoRowHeight]="true"
+                [columnsResize]="true" [sortable]="true" [filterable]="true" [filterMode]="'advanced'" [editSettings]="editSettings"
+                [ready]="ready">
+            </jqxTreeGrid>
         </div>
     </div>
 </div>

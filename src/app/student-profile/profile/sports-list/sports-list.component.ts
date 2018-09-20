@@ -1,7 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { Router } from "@angular/router";
 import { SportsDialogComponent } from "../sports-dialog/sports-dialog.component";
+import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
   selector: "sports-list",
@@ -12,134 +13,10 @@ export class SportsListComponent {
   public academicDialogRef: MatDialogRef<SportsDialogComponent>;
   constructor(public dialog: MatDialog, private routes: Router) {}
 
-  columnDefs = [
-    {
-      headerName: "Medals",
-      field: "medal",
-      floatingFilter: "true",
-      width: 252,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Sports",
-      field: "sports",
-      floatingFilter: "true",
-      width: 252,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Competition Level",
-      field: "competitionlevel",
-      floatingFilter: "true",
-      width: 252,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Received on",
-      field: "receivedon",
-      width: 252,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
-          );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
-      }
-    },
+  @ViewChild("TreeGrid")
+  treeGrid: jqxTreeGridComponent;
 
-    {
-      headerName: "Actions",
-      suppressMenu: true,
-      suppressSorting: true,
-      filter: "false",
-      width: 252,
-      template: `<button type="button" data-action-type="edit" style="background-color:pink;color:red;">
-               Edit
-             </button>
-             <button type="button" data-action-type="delete" style="color:white";background-color:red;">
-               Delete
-             </button>
-          `
-    }
-  ];
-
-  rowData = [
+  data: any[] = [
     {
       medal: "Gold",
       sports: "Cricket",
@@ -233,15 +110,157 @@ export class SportsListComponent {
     }
   ];
 
-  public onRowClicked(e) {
-    if (e.event.target !== undefined) {
-      return this.openSportsDialog();
-    }
+  getWidth(): any {
+    return "100%";
   }
-  openSportsDialog() {
+
+  getHeight(): any {
+    return "calc(67vh)";
+  }
+  
+    source: any = {
+    dataType: "json",
+    dataFields: [
+      { name: "medal", type: "string" },
+      { name: "sports", type: "string" },
+      { name: "competitionlevel", type: "string" },
+      { name: "receivedon", type: "date" },
+    ],
+    localData: this.data,
+    id: "id"
+  };
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+  columns: any[] = [
+    {
+      text: "Medals",
+      dataField: "medal",
+      align: "center",
+      cellsAlign: "center",
+      width: 250
+    },
+    {
+      text: "Sports",
+      dataField: "sports",
+      align: "center",
+      cellsAlign: "center",
+      width: 250
+    },
+    {
+      text: "Competition Level",
+      dataField: "competitionlevel",
+      align: "center",
+      cellsAlign: "center",
+      width: 250
+    },
+    {
+      text: "Received on",
+      align: "center",
+      cellsAlign: "center",
+      cellsFormat: "d",
+      dataField: "receivedon",
+      width: 250
+    },
+    {
+      text: "Actions",
+      cellsAlign: "center",
+      align: "center",
+      width: 250,
+      columnType: "none",
+      editable: false,
+      sortable: false,
+      dataField: null,
+      cellsRenderer: (row: number, column: any, value: any): string => {
+        return (
+          `<div data-row='` +
+          row +
+          `' class='editButton' style='color:white;background-color:skyblue;margin-left: 115px;'></div>
+          <div data-row='` +
+          row +
+          `' class='deleteButton' style='color:white;background-color:red;margin-left: 115px;
+          margin-top: 2px;'></div>`
+        );
+      }
+    }
+  ];
+  editSettings: any = {
+    saveOnPageChange: true,
+    saveOnBlur: true,
+    saveOnSelectionChange: false,
+    cancelOnEsc: true,
+    saveOnEnter: true,
+    editOnDoubleClick: false,
+    editOnF2: false
+  };
+  rendered = (): void => {
+    let uglyeditButtons = jqwidgets.createInstance(
+      ".editButton",
+      "jqxButton",
+      {
+        width: 60,
+        height: 24,
+        value: "Edit"
+      }
+    );
+    let uglydeleteButtons = jqwidgets.createInstance(
+      ".deleteButton",
+      "jqxButton",
+      {
+        width: 60,
+        height: 24,
+        value: "Delete"
+      }
+    );
+    let flatteneditButtons = flatten(uglyeditButtons);
+    let flattendeleteButtons = flatten(uglydeleteButtons);
+
+    function flatten(arr: any[]): any[] {
+      if (arr.length) {
+        return arr.reduce((flat: any[], toFlatten: any[]): any[] => {
+          return flat.concat(
+            Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten
+          );
+        }, []);
+      }
+    }
+    if (flatteneditButtons) {
+      for (let i = 0; i < flatteneditButtons.length; i++) {
+        flatteneditButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
+      }
+    }
+    if (flattendeleteButtons) {
+      for (let i = 0; i < flattendeleteButtons.length; i++) {
+        flattendeleteButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
+      }
+    }
+  };
+
+  rowKey: number = -1;
+  cellClick(event: any): void {
+    this.rowKey = event.args.key;
+  }
+  editClick(event: any): void {
+    let value = event.target.innerText;
+    if (value === "Edit") {
+       this.openSportsDialog();
+    }
+    if (value === "Delete") {
+     alert("Data Deleted Successfully");
+   }
+  }
+public openSportsDialog() {
     this.academicDialogRef = this.dialog.open(SportsDialogComponent, {
       width: "50%",
-      height: "83vh"
+      height: "calc(83vh)"
     });
     this.academicDialogRef.disableClose = true;
   }

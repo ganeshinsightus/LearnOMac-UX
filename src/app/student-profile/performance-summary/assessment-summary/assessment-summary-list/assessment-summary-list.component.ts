@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
+import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 
 @Component({
@@ -12,139 +13,20 @@ export class AssessmentSummaryListComponent {
   constructor(public dialog: MatDialog, private routes: Router) {
 
   }
-
  
-  ngOnInit(){
+  @ViewChild("TreeGrid")
+  treeGrid: jqxTreeGridComponent;
+
+  getWidth(): any {
+    return "100%";
   }
 
-  columnDefs = [
-    {
-      headerName: "Prerequisite Standards",
-      field: "prerequisitestds",
-      floatingFilter: "true",
-      width: 405,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Curiculum Lesson Mapping",
-      field: "mapping",
-      floatingFilter: "true",
-      width: 405,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Knowledge Level",
-      field: "knowledge",
-      floatingFilter: "true",
-      width: 405,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    // {
-    //   headerName: "Received on",
-    //   field: "receivedon",
-    //   width: 405,
-    //   floatingFilter: "false",
-    //   filter: "agDateColumnFilter",
-    //   filterParams: {
-    //     comparator: function(filterLocalDateAtMidnight, cellValue) {
-    //       var dateAsString = cellValue;
-    //       var dateParts = dateAsString.split("/");
-    //       var cellDate = new Date(
-    //         Number(dateParts[2]),
-    //         Number(dateParts[1]) - 1,
-    //         Number(dateParts[0])
-    //       );
-    //       if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-    //         return 0;
-    //       }
-    //       if (cellDate < filterLocalDateAtMidnight) {
-    //         return -1;
-    //       }
-    //       if (cellDate > filterLocalDateAtMidnight) {
-    //         return 1;
-    //       }
-    //     },
-    //     clearButton: true
-    //   }
-    // },
-    // {
-    //   headerName: "Actions",
-    //   suppressMenu: true,
-    //   suppressSorting: true,
-    //   width: 405,
-    //   filter: "false",
-    //   template: `
-    //         <button type="button" data-action-type="view" style="color:white;background-color:#0d47a1;">
-    //           View
-    //         </button>
-    //         <button type="button" data-action-type="reply" style="color:white;background-color:#0d47a1;">
-    //           Reply
-    //        </button>
-    //       `
-    // }
-  ];
+  getHeight(): any {
+    return "calc(67vh)";
+  }
 
-  rowData = [
+  
+  data: any[]  = [
     {
       prerequisitestds:"Grade 5-Maths",
       mapping:"Unit 3 - Probability",
@@ -216,22 +98,52 @@ export class AssessmentSummaryListComponent {
       knowledge:"Low performing"
      },
   ]
-  
-  
-  public onCellClicked(e) {
-    if (e.event.target !== undefined) {
-      let data = e.data;
-      let actionType = e.event.target.getAttribute("data-action-type");
+ 
 
-      switch (actionType) {
-        case "view":
-        //  return this.openDialog();
-        case "reply":
-        //  return this.openReplyDialog();
-      }
-    }
-  }
-
+  source: any = {
+    dataType: "json",
+    dataFields: [
+      { name: "prerequisitestds", type: "string" },
+      { name: "mapping", type: "string" },
+      { name: "knowledge", type: "string" },
+    ],
+    localData: this.data,
+    id: "id"
+  };
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+  columns: any[] = [
+    {
+      text: "Pre-requisite Standard",
+      dataField: "prerequisitestds",
+      align: "center",
+      cellsAlign: "center",
+      width: 400
+    },
+    {
+      text: "Curriculum Mapping",
+      dataField: "mapping",
+      align: "center",
+      cellsAlign: "center",
+      width: 400
+    },
+    {
+      text: "Knowledge Level",
+      dataField: "knowledge",
+      align: "center",
+      cellsAlign: "center",
+      width: 400
+    },
+  
+  ];
+  editSettings: any = {
+    saveOnPageChange: true,
+    saveOnBlur: true,
+    saveOnSelectionChange: false,
+    cancelOnEsc: true,
+    saveOnEnter: true,
+    editOnDoubleClick: false,
+    editOnF2: false
+  };
  
 
   onBack() {

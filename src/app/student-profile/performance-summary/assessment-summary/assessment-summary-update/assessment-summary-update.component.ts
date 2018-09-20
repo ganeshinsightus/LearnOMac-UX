@@ -1,7 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
 import { UpdateKnowledgeLevelDialogComponent } from "../update-knowledge-level-dialog/update-knowledge-level-dialog.component";
+import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
   templateUrl: "./assessment-summary-update.component.html",
@@ -12,214 +13,18 @@ export class AssessmentSummaryUpdateComponent {
 
   constructor(public dialog: MatDialog, private routes: Router) {}
 
-  ngOnInit() {}
+  @ViewChild("TreeGrid")
+  treeGrid: jqxTreeGridComponent;
 
-  columnDefs = [
-    {
-      headerName: "Prerequisite Standards",
-      field: "prerequisitestds",
-      floatingFilter: "true",
-      width: 152,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Curiculum Lesson Mapping",
-      field: "mapping",
-      floatingFilter: "true",
-      width: 152,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Knowledge Level",
-      field: "knowledge",
-      floatingFilter: "true",
-      width: 152,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Updated on",
-      field: "updatedon",
-      width: 152,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
-          );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
-      }
-    },
-    {
-      headerName: "Updated by",
-      field: "updatedby",
-      floatingFilter: "true",
-      width: 152,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Learning Method",
-      field: "lmethods",
-      floatingFilter: "true",
-      width: 152,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Remarks",
-      field: "remarks",
-      floatingFilter: "true",
-      width: 152,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Actions",
-      suppressMenu: true,
-      suppressSorting: true,
-      width: 152,
-      filter: "false",
-      template: `
-            <button type="button" data-action-type="update" style="color:white;background-color:#512da8 ;">
-              UpdateKnowledge Level
-            </button>
-          `
-    }
-  ];
+  getWidth(): any {
+    return "100%";
+  }
 
-  rowData = [
+  getHeight(): any {
+    return "calc(67vh)";
+  }
+
+  data: any[] = [
     {
       prerequisitestds: "Grade 5-Maths",
       mapping: "Unit 3 - Probability",
@@ -348,22 +153,144 @@ export class AssessmentSummaryUpdateComponent {
     }
   ];
 
-  public onCellClicked(e) {
-    if (e.event.target !== undefined) {
-      let data = e.data;
-      let actionType = e.event.target.getAttribute("data-action-type");
-
-      switch (actionType) {
-        case "update":
-          return this.openUpdateKnowledgeLevelDialog();
+  source: any = {
+    dataType: "json",
+    dataFields: [
+      { name: "prerequisitestds", type: "string" },
+      { name: "mapping", type: "string" },
+      { name: "knowledge", type: "string" },
+      { name: "updatedon", type: "date" },
+      { name: "updatedby", type: "string" },
+      { name: "lmethods", type: "string" },
+      { name: "remarks", type: "string" }
+    ],
+    localData: this.data,
+    id: "id"
+  };
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+  columns: any[] = [
+    {
+      text: "Pre-requisite Standards",
+      dataField: "prerequisitestds",
+      align: "center",
+      cellsAlign: "center",
+      width: 150
+    },
+    {
+      text: "Curriculum Mapping",
+      dataField: "mapping",
+      align: "center",
+      cellsAlign: "center",
+      width: 150
+    },
+    {
+      text: "Update Knowledge Level",
+      dataField: "knowledge",
+      align: "center",
+      cellsAlign: "center",
+      width: 150
+    },
+    {
+      text: "Updated on",
+      align: "center",
+      cellsAlign: "center",
+      cellsFormat: "d",
+      dataField: "updatedon",
+      width: 150
+    },
+    {
+      text: "Updated by",
+      dataField: "updatedby",
+      align: "center",
+      cellsAlign: "center",
+      width: 150
+    },
+    {
+      text: "Learning Methods",
+      dataField: "lmethods",
+      align: "center",
+      cellsAlign: "center",
+      width: 150
+    },
+    {
+      text: "Remarks",
+      dataField: "remarks",
+      align: "center",
+      cellsAlign: "center",
+      width: 150
+    },
+    {
+      text: "Actions",
+      cellsAlign: "center",
+      align: "center",
+      width: 250,
+      columnType: "none",
+      editable: false,
+      sortable: false,
+      dataField: null,
+      cellsRenderer: (row: number, column: any, value: any): string => {
+        return (
+          `<div data-row='` +
+          row +
+          `' class='updateButton' style='color:white;background-color:skyblue;margin-left:25px;'></div>`
+        );
       }
+    }
+  ];
+  editSettings: any = {
+    saveOnPageChange: true,
+    saveOnBlur: true,
+    saveOnSelectionChange: false,
+    cancelOnEsc: true,
+    saveOnEnter: true,
+    editOnDoubleClick: false,
+    editOnF2: false
+  };
+  rendered = (): void => {
+    let uglyupdateButtons = jqwidgets.createInstance(".updateButton", "jqxButton", {
+      width: 200,
+      height: 24,
+      value: "Update Knowledge Level"
+    });
+  
+    let flattenupdateButtons = flatten(uglyupdateButtons);
+  
+    function flatten(arr: any[]): any[] {
+      if (arr.length) {
+        return arr.reduce((flat: any[], toFlatten: any[]): any[] => {
+          return flat.concat(
+            Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten
+          );
+        }, []);
+      }
+    }
+    if (flattenupdateButtons) {
+      for (let i = 0; i < flattenupdateButtons.length; i++) {
+        flattenupdateButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
+      }
+    }
+  };
+
+  rowKey: number = -1;
+  cellClick(event: any): void {
+    this.rowKey = event.args.key;
+  }
+  editClick(event: any): void {
+    let value = event.target.innerText;
+    if (value === "Update Knowledge Level") {
+      this.openUpdateKnowledgeLevelDialog();
     }
   }
 
   openUpdateKnowledgeLevelDialog() {
     this.uklDialogRef = this.dialog.open(UpdateKnowledgeLevelDialogComponent, {
       width: "40%",
-      height: "72vh"
+      height: "calc(72vh)"
     });
     this.uklDialogRef.disableClose = true;
   }
