@@ -62,7 +62,8 @@ export class FilterComponent {
       grade: new FormControl(0),
       section: new FormControl(0),
       subject: new FormControl(0),
-      student: new FormControl(0)
+      student: new FormControl(0),
+      lesson: new FormControl(0)
     });
   }
 }

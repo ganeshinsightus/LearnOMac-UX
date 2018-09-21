@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
+import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
   templateUrl: "./pre-requisite-details.component.html",
@@ -9,95 +10,10 @@ import { Router } from "@angular/router";
 export class PrerequisiteDetailsComponent {
 
   constructor(private routes: Router) {}
+  @ViewChild("TreeGrid")
+  treeGrid: jqxTreeGridComponent;
 
-  ngOnInit() {}
-
-  columnDefs = [
-    {
-      headerName: "Student Names",
-      field: "student",
-      floatingFilter: "true",
-      width: 405,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Knowledge Level",
-      field: "knowledge",
-      floatingFilter: "true",
-      width: 405,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Updated on",
-      field: "updatedon",
-      width: 405,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
-          );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
-      }
-    },
-  ];
-
-  rowData = [
+  data: any[] = [
     {
       student:"Ganesh",
       knowledge: "Satisfactory",
@@ -169,6 +85,52 @@ export class PrerequisiteDetailsComponent {
       updatedon: "20/08/18",
     }
   ];
+
+  getWidth(): any {
+    return "100%";
+  }
+
+  getHeight(): any {
+    return "calc(67vh)";
+  }
+
+    
+  source: any = {
+    dataType: "json",
+    dataFields: [
+      { name: "student", type: "string" },
+      { name: "knowledge", type: "string" },
+      { name: "updatedon", type: "date" },
+    ],
+    localData: this.data,
+    id: "id"
+  };
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+  columns: any[] = [
+    {
+      text: "Student Name",
+      dataField: "student",
+      align: "center",
+      cellsAlign: "center",
+      width: 400
+    },
+    {
+      text: "Knowledge Level",
+      dataField: "knowledge",
+      align: "center",
+      cellsAlign: "center",
+      width: 400
+    },
+    {
+      text: "Updated on",
+      dataField: "updatedon",
+      align: "center",
+      cellsFormat: "d",
+      cellsAlign: "center",
+      width: 400
+    }
+  ];
+ 
 
   onBack() {
     this.routes.navigateByUrl("class-performance/detailed-view");
