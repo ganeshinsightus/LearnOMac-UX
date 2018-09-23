@@ -7,8 +7,7 @@
         <div class="col l12 m12 s12 grid">
             <jqxTreeGrid #TreeGrid (onCellClick)="cellClick($event)" [width]="getWidth()" [height]="getHeight()"
                 [source]="dataAdapter" [columns]="columns" [rendered]="rendered" [altRows]="true" [autoRowHeight]="true"
-                [columnsResize]="true" [sortable]="true" [filterable]="true" [filterMode]="'advanced'" [editSettings]="editSettings"
-                [ready]="ready">
+                [columnsResize]="true" [sortable]="true" [filterable]="true" [filterMode]="'advanced'" [editSettings]="editSettings">
             </jqxTreeGrid>
         </div>
 

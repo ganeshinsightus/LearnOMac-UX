@@ -1,7 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { Router } from "@angular/router";
 import { FilterComponent } from "../../common-component/filter/filter.component";
+import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
   selector: "lesson-plans",
@@ -30,213 +31,18 @@ export class LessonPlansComponent {
     this.lessonplanFilterDialogRef.disableClose = true;
   }
 
-  columnDefs = [
-    {
-      headerName: "Lesson Plan Title",
-      field: "title",
-      floatingFilter: "true",
-      width: 155,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Lesson Plan Template",
-      field: "template",
-      floatingFilter: "true",
-      width: 155,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Created on",
-      field: "createdon",
-      width: 155,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
-          );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
-      }
-    },
-    {
-      headerName: "Last Updated on",
-      field: "updatedon",
-      width: 155,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
-          );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
-      }
-    },
-    {
-      headerName: "Created by",
-      field: "createdby",
-      floatingFilter: "true",
-      width: 155,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Last Updated by",
-      field: "updatedby",
-      floatingFilter: "true",
-      width: 155,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Status",
-      field: "status",
-      floatingFilter: "true",
-      width: 155,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Actions",
-      suppressMenu: true,
-      suppressSorting: true,
-      width: 155,
-      filter: "false",
-      template: `
-            <button type="button" data-action-type="view" style="color:white;background-color:#0d47a1;">
-              View
-            </button>
-          `
-    }
-  ];
+  @ViewChild("TreeGrid")
+  treeGrid: jqxTreeGridComponent;
 
-  rowData = [
+  getWidth(): any {
+    return "100%";
+  }
+
+  getHeight(): any {
+    return "calc(63vh)";
+  }
+
+  data: any[] = [
     {
       title: "Probability with samples",
       template: "Math 1 with samples",
@@ -280,19 +86,171 @@ export class LessonPlansComponent {
     
   ];
 
-  public onCellClicked(e) {
-    if (e.event.target !== undefined) {
-      let data = e.data;
-      let actionType = e.event.target.getAttribute("data-action-type");
-
-      switch (actionType) {
-        case "view":
-        //  return this.openDialog();
-        case "reply":
-        // return this.openReplyDialog();
+  source: any = {
+    dataType: "json",
+    dataFields: [
+      { name: "title", type: "string" },
+      { name: "template", type: "string" },
+      { name: "createdon", type: "date" }, 
+      { name: "createdby", type: "string" },
+      { name: "updatedon", type: "date" }, 
+      { name: "updatedby", type: "string" },
+      { name: "status", type: "string" }
+    ],
+    localData: this.data,
+    id: "id"
+  };
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+  columns: any[] = [
+    {
+      text: "Lesson Plan Title",
+      dataField: "title",
+      align: "center",
+      cellsAlign: "center",
+      width: 157
+    },
+    {
+      text: "Lesson Plan Template",
+      dataField: "template",
+      align: "center",
+      cellsAlign: "center",
+      width: 157
+    },
+    {
+      text: "Created on",
+      align: "center",
+      cellsAlign: "center",
+      cellsFormat: "d",
+      dataField: "createdon",
+      width: 157
+    },
+    {
+      text: "Created by",
+      dataField: "createdby",
+      align: "center",
+      cellsAlign: "center",
+      width: 157
+    },
+    {
+      text: "Updated on",
+      align: "center",
+      cellsAlign: "center",
+      cellsFormat: "d",
+      dataField: "updatedon",
+      width: 157
+    },
+    {
+      text: "Updated by",
+      dataField: "updatedby",
+      align: "center",
+      cellsAlign: "center",
+      width: 157
+    },
+    {
+      text: "Status",
+      dataField: "status",
+      align: "center",
+      cellsAlign: "center",
+      width: 157
+    },
+    {
+      text: "Actions",
+      cellsAlign: "center",
+      align: "center",
+      width: 157,
+      columnType: "none",
+      editable: false,
+      sortable: false,
+      dataField: null,
+      cellsRenderer: (row: number, column: any, value: any): string => {
+        return (
+          `<div data-row='` +
+          row +
+          `' class='viewButton' style='color:white;background-color:skyblue;margin-left:48px'></div>
+          <div data-row='` +
+          row +
+          `' class='replyButton' style='color:white;background-color:green;margin-left:48px;
+          margin-top: 2px;'></div>`
+        );
       }
     }
+  ];
+  editSettings: any = {
+    saveOnPageChange: true,
+    saveOnBlur: true,
+    saveOnSelectionChange: false,
+    cancelOnEsc: true,
+    saveOnEnter: true,
+    editOnDoubleClick: false,
+    editOnF2: false
+  };
+  rendered = (): void => {
+    let uglyviewButtons = jqwidgets.createInstance(
+      ".viewButton",
+      "jqxButton",
+      {
+        width: 60,
+        height: 24,
+        value: "View"
+      }
+    );
+    let uglyreplyButtons = jqwidgets.createInstance(
+      ".replyButton",
+      "jqxButton",
+      {
+        width: 60,
+        height: 24,
+        value: "Copy"
+      }
+    );
+    let flattenviewButtons = flatten(uglyviewButtons);
+    let flattenreplyButtons = flatten(uglyreplyButtons);
+
+    function flatten(arr: any[]): any[] {
+      if (arr.length) {
+        return arr.reduce((flat: any[], toFlatten: any[]): any[] => {
+          return flat.concat(
+            Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten
+          );
+        }, []);
+      }
+    }
+    if (flattenviewButtons) {
+      for (let i = 0; i < flattenviewButtons.length; i++) {
+        flattenviewButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
+      }
+    }
+    if (flattenreplyButtons) {
+      for (let i = 0; i < flattenreplyButtons.length; i++) {
+        flattenreplyButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
+      }
+    }
+  };
+
+  rowKey: number = -1;
+  cellClick(event: any): void {
+    this.rowKey = event.args.key;
   }
+  editClick(event: any): void {
+    let value = event.target.innerText;
+    if (value === "View") {
+     //  this.openDialog();
+    }
+    if (value === "Reply") {
+     // this.openReplyDialog();
+   }
+  }
+
 
   openNewLessonPlan(){
       this.routes.navigateByUrl('/lesson/plans/create-new')
