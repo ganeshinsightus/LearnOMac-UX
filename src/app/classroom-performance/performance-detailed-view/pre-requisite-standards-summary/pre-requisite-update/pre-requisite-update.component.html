@@ -3,19 +3,13 @@
         <h5 class="card-title bq-purple-text">
             Pre-requisite Standard Performance - Grade 4 - Unit I Probability . Basics
             <span class="btn btn-purple " (click)="onBack()">Back</span>
-            <span class="btn btn-purple " (click)="onEdit()">Edit</span>
-            <span *ngIf="showSave">
-                <span class="btn btn-purple " (click)="onSave()">Save</span>
-            </span>
         </h5>
         <br>
         <div class="col xl12 l12 m12 s12 grid">
-            <ag-grid-angular class="ag-theme-balham" style="width: 100%;
-                                height: calc(69.5vh);margin-left: 0px;padding: 0;"
-                [enableSorting]="true" [enableFilter]="false" [rowData]="rowData" [columnDefs]="columnDefs"
-                rowSelection="multiple" [suppressContextMenu]="true" [enableColResize]="true" [suppressMenuMainPanel]="true"
-                [suppressMenuColumnPanel]="true" [floatingFilter]="true">
-            </ag-grid-angular>
+            <jqxTreeGrid #myTreeGrid (onRowClick)="rowClick($event)" [width]="getWidth()" [height]="getHeight()"
+                [source]="dataAdapter" [columns]="columns" [rendered]="rendered" [altRows]="true" [autoRowHeight]="true"
+                [editSettings]="editSettings" [ready]="ready">
+            </jqxTreeGrid>
         </div>
     </div>
 </div>
