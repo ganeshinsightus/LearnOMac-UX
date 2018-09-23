@@ -25,10 +25,10 @@
         <br>
         <div class="col xl12 l12 m12 s12" style="padding: 0">
             <div class="grid">
-                <jqxTreeGrid #TreeGrid (onCellClick)="cellClick($event)" [width]="getWidth()" [height]="getHeight()"
-                    [source]="dataAdapter" [columns]="columns" [rendered]="rendered" [altRows]="true" [autoRowHeight]="true"
+                <jqxTreeGrid #TreeGrid [width]="getWidth()" [height]="getHeight()"
+                    [source]="dataAdapter" [columns]="columns" [altRows]="true" [autoRowHeight]="true"
                     [columnsResize]="true" [sortable]="true" [filterable]="true" [filterMode]="'advanced'"
-                    [editSettings]="editSettings" [ready]="ready">
+                    [editSettings]="editSettings">
                 </jqxTreeGrid>
             </div>
         </div>
