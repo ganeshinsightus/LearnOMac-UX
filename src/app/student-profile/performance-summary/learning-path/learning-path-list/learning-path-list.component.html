@@ -6,7 +6,7 @@
             Learning Paths
             <span class="btn btn-green " (click)="onBack()">Back</span>
             <span class="col xl12 l12 m12 s12">
-                <select class="dropdown col s6 m4 l4 xl4 right">
+                <select class="dropdown col s6 m4 l3 xl2 right">
                     <option value="default" selected="selected">Select Learning Path</option>
                     <option value="1">
                         Prerequisite Standard
@@ -21,12 +21,11 @@
         <br>
         <div class="col xl12 l12 m12 s12" style="padding: 0">
             <div class="grid">
-                <ag-grid-angular class="ag-theme-balham" style="width: 100%;
-                                height: calc(69vh);margin-left: 0px;"
-                    [enableSorting]="true" [enableFilter]="false" [rowData]="rowData" [columnDefs]="columnDefs"
-                    rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true"
-                    [enableColResize]="true" [suppressMenuColumnPanel]="true" [floatingFilter]="true" (cellClicked)="onCellClicked($event)">
-                </ag-grid-angular>
+                <jqxTreeGrid #TreeGrid (onCellClick)="cellClick($event)" [width]="getWidth()" [height]="getHeight()"
+                [source]="dataAdapter" [columns]="columns" [rendered]="rendered" [altRows]="true" [autoRowHeight]="true"
+                [columnsResize]="true" [sortable]="true" [filterable]="true" [filterMode]="'advanced'"
+                [editSettings]="editSettings" [ready]="ready">
+            </jqxTreeGrid>
             </div>
         </div>
     </div>

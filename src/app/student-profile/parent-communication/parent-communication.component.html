@@ -3,37 +3,36 @@
         <h5 class="card-title bq-indigo-text">
             Parent Communication
             <span class="btn btn-indigo " (click)="openNewDialog()">Create New</span>
-            <span class="col s12 m12 l12 xl6 right " style="padding: 0;">
-                    <mat-form-field class="col s6 m6 l6 xl6">
-                        <mat-select placeholder="Select Message Status">
-                            <mat-option [value]="1">
-                                Inbox
-                            </mat-option>
-                            <mat-option [value]="2">
-                                Sent
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field class="col s5 m5 l5 xl5 right">
-                        <mat-select placeholder="Select Message Type">
-                            <mat-option [value]="1">
-                                Messages
-                            </mat-option>
-                            <mat-option [value]="2">
-                                Notifications
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+            <span class="col s12 m6 l5 xl4 right " style="padding: 0;">
+                <mat-form-field class="col s6 m6 l6 xl6">
+                    <mat-select placeholder="Select Message Status">
+                        <mat-option [value]="1">
+                            Inbox
+                        </mat-option>
+                        <mat-option [value]="2">
+                            Sent
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="col s5 m5 l5 xl5 right">
+                    <mat-select placeholder="Select Message Type">
+                        <mat-option [value]="1">
+                            Messages
+                        </mat-option>
+                        <mat-option [value]="2">
+                            Notifications
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
             </span>
         </h5>
         <br>
         <div class="col xl12 l12 m12 s12 grid">
-            <ag-grid-angular class="ag-theme-balham" style="width: 100%;
-                                height: calc(63vh);margin-left: 0px;"
-                [enableSorting]="true" [enableFilter]="false" [rowData]="rowData" [columnDefs]="columnDefs"
-                rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true" [enableColResize]="true"
-                [suppressMenuColumnPanel]="true" [floatingFilter]="true" (cellClicked)="onCellClicked($event)">
-            </ag-grid-angular>
+            <jqxTreeGrid #TreeGrid (onCellClick)="cellClick($event)" [width]="getWidth()" [height]="getHeight()"
+                [source]="dataAdapter" [columns]="columns" [rendered]="rendered" [altRows]="true" [autoRowHeight]="true"
+                [columnsResize]="true" [sortable]="true" [filterable]="true" [filterMode]="'advanced'" [editSettings]="editSettings"
+                [ready]="ready">
+            </jqxTreeGrid>
         </div>
     </div>
 </div>

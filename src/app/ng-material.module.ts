@@ -1,6 +1,5 @@
 import { AgGridModule } from 'ag-grid-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ChartsModule } from 'ng2-charts';
 import { DoughnutChartComponent } from './common-component/doughnut-chart/doughnut-chart.component';
 import { DoughnutChartLevel5Component } from './common-component/doughnut-chart-level5/doughnut-chart-level5.component';
 import {
@@ -60,7 +59,6 @@ import { StackedBarChartlevel5Component } from './common-component/stacked-bar-c
     MatTooltipModule,
     ReactiveFormsModule,
     MatTabsModule,
-    ChartsModule,
     MatStepperModule,
     MatDividerModule,
     MatListModule,
@@ -92,7 +90,6 @@ import { StackedBarChartlevel5Component } from './common-component/stacked-bar-c
     MatTooltipModule,
     ReactiveFormsModule,
     MatTabsModule,
-    ChartsModule,
     DoughnutChartComponent,
     DoughnutChartLevel5Component,
     StackedBarChartComponent,

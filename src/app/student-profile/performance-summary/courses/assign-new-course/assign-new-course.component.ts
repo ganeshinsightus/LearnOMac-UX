@@ -4,6 +4,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 import { FormControl, FormGroup, FormBuilder } from "@angular/forms";
 import { MatOption, MatDialogRef, MatDialog } from "@angular/material";
 import { AssigneesComponent } from "../assignees/assignees.component";
+import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
   templateUrl: "./assign-new-course.component.html",
@@ -57,7 +58,11 @@ export class AssignNewCourseComponent {
 
   newDialogRef: MatDialogRef<AssigneesComponent>;
 
-  constructor(private routes: Router, private fb: FormBuilder, private dialog:MatDialog) {}
+  constructor(
+    private routes: Router,
+    private fb: FormBuilder,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.searchUserForm = this.fb.group({
@@ -65,333 +70,270 @@ export class AssignNewCourseComponent {
       grade: new FormControl("")
     });
   }
- 
 
-  columnDefs = [
+  @ViewChild("TreeGrid")
+  treeGrid: jqxTreeGridComponent;
+
+  getWidth(): any {
+    return "100%";
+  }
+
+  getHeight(): any {
+    return "calc(64vh)";
+  }
+
+  data: any[] = [
     {
-      headerName: "Title",
-      field: "title",
-      floatingFilter: "true",
-      width: 175,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+      concepts: "Probability,Trignometry"
     },
     {
-      headerName: "Created by",
-      field: "createdby",
-      floatingFilter: "true",
-      width: 175,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+      concepts: "Probability,Trignometry"
     },
     {
-      headerName: "Course Objective",
-      field: "objective",
-      floatingFilter: "true",
-      width: 175,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
     },
     {
-      headerName: "Prerequisite Concepts",
-      field: "prerequisite",
-      floatingFilter: "true",
-      width: 175,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
     },
     {
-      headerName: "Published on",
-      field: "publishedon",
-      width: 175,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
+    },
+    {
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
+    },
+    {
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
+    },
+    {
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
+    },
+    {
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
+    },
+    {
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
+    },
+    {
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
+    },
+    {
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
+    },
+    {
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
+    },
+    {
+      title: "Step by step probability",
+      createdby: "Ganesh",
+      objective: "To understand a probability problems ..",
+      publishedon: "31/08/18",
+      grades: "6,8,9",
+
+      concepts: "Probability,Trignometry"
+    }
+  ];
+  source: any = {
+    dataType: "json",
+    dataFields: [
+      { name: "title", type: "string" },
+      { name: "objective", type: "string" },
+      { name: "concepts", type: "string" },
+      { name: "publishedon", type: "date" },
+      { name: "createdby", type: "string" },
+      { name: "grades", type: "string" }
+    ],
+    localData: this.data,
+    id: "id"
+  };
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+  columns: any[] = [
+    {
+      text: "Course Title",
+      dataField: "title",
+      align: "center",
+      cellsAlign: "center",
+      width: 178
+    },
+    {
+      text: "Course Objective",
+      dataField: "objective",
+      align: "center",
+      cellsAlign: "center",
+      width: 178
+    },
+    {
+      text: "Pre-requisite Concepts",
+      dataField: "concepts",
+      align: "center",
+      cellsAlign: "center",
+      width: 178
+    },
+    {
+      text: "Grades Applicable",
+      align: "center",
+      cellsAlign: "center",
+      dataField: "grades",
+      width: 178
+    },
+    {
+      text: "Created by",
+      align: "center",
+      cellsAlign: "center",
+      dataField: "createdby",
+      width: 178
+    },
+    {
+      text: "Published on",
+      align: "center",
+      cellsAlign: "center",
+      cellsFormat: "d",
+      dataField: "publishedon",
+      width: 178
+    },
+    {
+      text: "Actions",
+      cellsAlign: "center",
+      align: "center",
+      width: 178,
+      columnType: "none",
+      editable: false,
+      sortable: false,
+      dataField: null,
+      cellsRenderer: (row: number, column: any, value: any): string => {
+        return (
+          `<div data-row='` +
+          row +
+          `' class='assignButton' style='color:white ;background-color:#d81b60;margin-left: 58px;'></div>`
+        );
+      }
+    }
+  ];
+  editSettings: any = {
+    saveOnPageChange: true,
+    saveOnBlur: true,
+    saveOnSelectionChange: false,
+    cancelOnEsc: true,
+    saveOnEnter: true,
+    editOnDoubleClick: false,
+    editOnF2: false
+  };
+  rendered = (): void => {
+    let uglyassignButtons = jqwidgets.createInstance(
+      ".assignButton",
+      "jqxButton",
+      {
+        width: 80,
+        height: 24,
+        value: "Assign"
+      }
+    );
+    let flattenassignButtons = flatten(uglyassignButtons);
+
+    function flatten(arr: any[]): any[] {
+      if (arr.length) {
+        return arr.reduce((flat: any[], toFlatten: any[]): any[] => {
+          return flat.concat(
+            Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten
           );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
+        }, []);
       }
-    },
-    {
-      headerName: "Grades Applicable",
-      field: "grades",
-      floatingFilter: "true",
-      width: 175,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Actions",
-      suppressMenu: true,
-      suppressSorting: true,
-      width: 175,
-      filter: "false",
-      template: `
-            <button type="button" data-action-type="assign" style="color:white;background-color:#d81b60 ;">
-              Assign
-            </button>
-          `
     }
-  ];
-
-  rowData = [
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    },
-    {
-      title: "Step by step probability",
-      createdby: "Ganesh",
-      objective: "view",
-      publishedon: "31/08/18",
-      grades: "6,8,9",
-      prerequisite: "Probability,Trignometry",
-      course: "Course 1"
-    }
-  ];
-
-  public oncellClicked(e) {
-    if (e.event.target !== undefined) {
-      let data = e.data;
-      let actionType = e.event.target.getAttribute("data-action-type");
-
-      switch (actionType) {
-        case "assign":
-          return this.openAssignees();
+    if (flattenassignButtons) {
+      for (let i = 0; i < flattenassignButtons.length; i++) {
+        flattenassignButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
       }
+    }
+  };
+
+  rowKey: number = -1;
+  cellClick(event: any): void {
+    this.rowKey = event.args.key;
+  }
+  editClick(event: any): void {
+    let value = event.target.innerText;
+    if (value === "Assign") {
+      this.openAssignees();
     }
   }
 
@@ -400,11 +342,11 @@ export class AssignNewCourseComponent {
   }
 
   openAssignees() {
-      this.newDialogRef = this.dialog.open(AssigneesComponent, {
-        width: "39%",
-        height: "60vh"
-      });
-      this.newDialogRef.disableClose = true;
+    this.newDialogRef = this.dialog.open(AssigneesComponent, {
+      width: "39%",
+      height: "calc(60vh)"
+    });
+    this.newDialogRef.disableClose = true;
   }
 
   onBack() {
