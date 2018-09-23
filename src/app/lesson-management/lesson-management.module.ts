@@ -8,6 +8,7 @@ import { AssessmentsComponent } from "./assessments/assessments.component";
 import { RouterModule } from "@angular/router";
 import { CreateLessonPlanComponent } from "./lesson-plans/create-lesson-plan/create-lesson-plan.component";
 import { CollectionDialogComponent } from "./lesson-plans/collection-grid-dialog/collection-grid-dialog.component";
+import { LessonManagementRoutesModule } from "./lessonmanagement-routes.module";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CollectionDialogComponent } from "./lesson-plans/collection-grid-dialog
     RouterModule,
     NgMaterialModule,
     NgJQWidgetsModule,
+    LessonManagementRoutesModule
   ],
   exports: [
   ],

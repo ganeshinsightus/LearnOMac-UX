@@ -10,6 +10,6 @@ export class DashboardCoursesComponent {
   constructor(private routes: Router) {}
 
   openCourseDetails() {
-    this.routes.navigateByUrl("/courses-subcriptions-details-new");
+    this.routes.navigateByUrl("/courses/courses-subcriptions-details-new");
   }
 }

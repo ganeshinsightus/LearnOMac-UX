@@ -107,13 +107,10 @@ export class MessagesListComponent {
     }
 }
 
-public onActionViewClick(data: any){
-    console.log("View action clicked", data);
-}
   public openDialog() {
     this.communicationDialogRef = this.dialog.open(CommunicationRepliedComponent, {
       width: '50%',
-      height: '60vh'
+      height: 'calc(60vh)'
     });
     //this.communicationDialogRef.componentInstance.title = "odioCras justo odio";
     this.communicationDialogRef.disableClose = true;

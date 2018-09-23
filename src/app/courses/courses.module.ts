@@ -13,6 +13,7 @@ import { CoursesDetailsPendingApprovalComponent } from "./courses-details/course
 import { CoursesDetailsChangesComponent } from "./courses-details/courses-details-changes/courses-details-changes.component";
 import { CoursesDetailsPublishedComponent } from "./courses-details/courses-details-published/courses-details-published.component";
 import { NewCourseComponent } from "./new-course/new-course.component";
+import { CoursesRoutesModule } from "./courses-routes.module";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NewCourseComponent } from "./new-course/new-course.component";
     RouterModule,
     NgMaterialModule,
     NgJQWidgetsModule,
+    CoursesRoutesModule
   ],
   exports: [
   ],

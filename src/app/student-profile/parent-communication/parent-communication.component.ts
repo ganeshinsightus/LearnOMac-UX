@@ -21,7 +21,7 @@ export class ParentCommunicationComponent {
   openNewDialog() {
     this.newDialogRef = this.dialog.open(CommunicationNewComponent, {
       width: "55%",
-      height: "calc(44vh)"
+      height: "calc(87vh)"
     });
     this.newDialogRef.disableClose = true;
   }

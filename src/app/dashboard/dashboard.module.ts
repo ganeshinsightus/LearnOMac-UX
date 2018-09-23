@@ -15,6 +15,7 @@ import { NewsListComponent } from './news/news-list/news-list.component';
 import { CircularListComponent } from './circulars/circulars-list/circulars-list.component';
 import { NotificationsListComponent } from './notifications/notifications-list/notifications-list.component';
 import { MessagesListComponent } from './messages/messages-list/messages-list.component';
+import { DashboardRoutesModule } from './dashboard-routes.module';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import { MessagesListComponent } from './messages/messages-list/messages-list.co
     ],
     imports: [
         BrowserAnimationsModule,
-        NgMaterialModule
+        NgMaterialModule,
+        DashboardRoutesModule
     ],
     exports: [DashboardComponent],
     entryComponents: [

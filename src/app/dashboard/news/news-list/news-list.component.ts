@@ -112,7 +112,7 @@ public onActionViewClick(data: any){
   public openDialog() {
     this.newsDialogRef = this.dialog.open(NewsDialogComponent, {
       width: '50%',
-      height: '60vh'
+      height: 'calc(60vh)'
     });
     //this.newsDialogRef.componentInstance.title = "odioCras justo odio";
     this.newsDialogRef.disableClose = true;

@@ -9,15 +9,15 @@ export class FilterService {
     }
 
     get isClassroomDashboardPath(){
-        return this.filterPath = "/classroom/dashboard";
+        return this.filterPath = "/class-dashboard";
     }
 
     get isClassroomPerformancePath(){
-        return this.filterPath = "/classroom/performance";
+        return this.filterPath = "/class-performance";
     }
 
     get isClassroomPerformanceDetailedViewPath(){
-        return this.filterPath = "/classroom/performance/detailed-view";
+        return this.filterPath = "/class-performance/detailed-view";
     }
 
     get isStudentProfilePath(){

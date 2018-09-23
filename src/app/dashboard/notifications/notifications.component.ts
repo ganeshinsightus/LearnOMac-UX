@@ -16,13 +16,13 @@ export class NotificationsComponent {
   openDialog() {
     this.notificationsDialogRef = this.dialog.open(NotificationsDialogComponent, {
       width: '50%',
-      height: '30vh'
+      height: 'calc(30vh)'
     });
     //this.notificationsDialogRef.componentInstance.title = "odioCras justo odio";
     this.notificationsDialogRef.disableClose = true;
   }
 
   openNotificationsList(){
-    this.routes.navigateByUrl('/notifications-list')
+    this.routes.navigateByUrl('/dashboard/notifications-list')
   }
 }

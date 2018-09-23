@@ -26,14 +26,12 @@
             </div>
         </span>
     </div>
-    <div class="col xl12 l12 m12 s12">
-        <div class="grid">
+    <div class="col xl12 l12 m12 s12 grid">
             <ag-grid-angular class="ag-theme-balham" style="width: 100%;
-                        height: calc(66vh);margin-left: 0px;"
+                        height: calc(64vh);margin-left: 0px;"
                 [enableSorting]="true" [enableFilter]="false" [rowData]="rowData" [columnDefs]="columnDefs"
                 rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true"
                 [suppressMenuColumnPanel]="true" [enableColResize]="true" [floatingFilter]="true" (cellClicked)="oncellClicked($event)">
             </ag-grid-angular>
-        </div>
     </div>
 </div>

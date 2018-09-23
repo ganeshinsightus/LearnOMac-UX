@@ -2,40 +2,39 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 
+export interface Lesson {
+  value: string;
+  viewValue: string;
+}
+
+export interface Lessons {
+  disabled?: boolean;
+  name: string;
+  lessonchildren: Lesson[];
+}
+
 @Component({
-    selector: "lesson-plan-filter",
-    templateUrl: "./lesson-plan-filter.component.html",
-    styleUrls: ["./lesson-plan-filter.component.scss"]
-  })
+  selector: "lesson-plan-filter",
+  templateUrl: "./lesson-plan-filter.component.html",
+  styleUrls: ["./lesson-plan-filter.component.scss"]
+})
 export class LessonPlanFilterComponent {
   filterForm: FormGroup;
-  
-  treeSource: any[] = [
+
+  lessons: Lessons[] = [
     {
-      label: "Unit I - Number System ",
-      selected: false,
-      items: [
-        {
-          label: "Real Numbers",
-          selected: true
-        },
-        {
-          label: "Sets",
-          selected: true
-        }
+      name: "Unit I - Number System",
+      lessonchildren: [
+        { value: "realnumbers", viewValue: "Real Numbers" },
+        { value: "sets", viewValue: "Sets" }
       ]
     },
     {
-      label: "Unit II - Algebra",
-      items: [
-        {
-          label: "Propogation",
-          selected: true
-        },
-        {
-          label: "Quadratic Equations",
-          selected: true
-        }
+      name: "Unit II - Algebra",
+      lessonchildren: [
+        { value: "propagation", viewValue: "Propogation" },
+        { value: "quadraticequations", viewValue: "Quadratic Equations" },
+        { value: "sin and cos degree", viewValue: "Horsea" }
       ]
     }
   ];
@@ -43,13 +42,9 @@ export class LessonPlanFilterComponent {
   constructor(
     public dialogref: MatDialogRef<LessonPlanFilterComponent>,
     private filterBuilder: FormBuilder
-  ) {}
-
-  ngOnInit(){
+  ) {
     this.createForm();
   }
-
-
 
   closeDialog() {
     this.dialogref.close();

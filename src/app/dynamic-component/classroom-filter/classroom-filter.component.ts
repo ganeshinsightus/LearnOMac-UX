@@ -13,13 +13,11 @@ export class ClassroomFilterComponent {
   constructor(
     public dialogref: MatDialogRef<ClassroomFilterComponent>,
     private filterBuilder: FormBuilder){
+      this.createForm();
 
   }
 
-  ngOnInit(){
-    this.createForm();
-  }
-
+ 
   closeDialog() {
     this.dialogref.close();
   }

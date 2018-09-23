@@ -64,10 +64,10 @@ export class ClassroomPerformanceComponent {
   }
 
   openPerformanceUpdate() {
-    this.routes.navigateByUrl("class/performance/update");
+    this.routes.navigateByUrl("class-performance/update");
   }
 
   openDetailedView() {
-    this.routes.navigateByUrl("/classroom/performance/detailed-view");
+    this.routes.navigateByUrl("/class-performance/detailed-view");
   }
 }

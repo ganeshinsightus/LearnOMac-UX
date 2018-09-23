@@ -13,6 +13,7 @@ import { CommunicationViewComponent } from './communication/communication-view/c
 import { CommunicationListComponent } from './communication/communication-list/communication-list.component';
 import { PerformanceSummaryListComponent } from './peformance-summary/performance-summary-list/performance-summary-list.component';
 import { LearningPathsListComponent } from './learning-path/learning-paths-list/learning-paths-list.component';
+import { ClassroomDashboardRoutesModule } from './classroomdashboard-routes.module';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { LearningPathsListComponent } from './learning-path/learning-paths-list/
     ],
     imports: [
         BrowserAnimationsModule,
-        NgMaterialModule
+        NgMaterialModule,
+        ClassroomDashboardRoutesModule
     ],
     exports: [ClassroomDashboardComponent],
     entryComponents: [

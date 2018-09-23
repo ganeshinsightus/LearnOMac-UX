@@ -11,10 +11,12 @@ export class ClassroomPerformanceFilterComponent {
   constructor(
     public dialogref: MatDialogRef<ClassroomPerformanceFilterComponent>,
     private filterBuilder: FormBuilder
-  ) {}
+  ) {
+    
+    this.createForm();
+  }
 
   ngOnInit(){
-    this.createForm();
   }
 
   closeDialog() {

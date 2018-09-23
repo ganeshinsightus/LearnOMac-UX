@@ -12,9 +12,9 @@ export class AcademicListComponent {
   public academicDialogRef: MatDialogRef<AcademicDialogComponent>;
 
   tabLinks = [
-    { path: 'academic', label: 'Academic' },
-    { path: 'sports', label: 'Sports' },
-    { path: 'awards', label: 'Awards' }
+    { path: 'student/profile/academic', label: 'Academic' },
+    { path: 'student/profile/sports', label: 'Sports' },
+    { path: 'student/profile/awards', label: 'Awards' }
   ];
 
   constructor(public dialog: MatDialog, private routes: Router) {}

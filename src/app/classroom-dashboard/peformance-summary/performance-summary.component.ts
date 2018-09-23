@@ -43,6 +43,6 @@ export class PerformanceSummaryComponent {
 
   }
   openPerformanceList(){
-    this.routes.navigateByUrl('/performance-summary-list');
+    this.routes.navigateByUrl('/class-dashboard/performance-summary-list');
   }
 }

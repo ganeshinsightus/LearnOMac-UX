@@ -25,6 +25,9 @@
     color: $color-royalblue;
     text-transform: uppercase;
   }
+  .grid{
+    padding: 0;
+  }
   
 @media #{$ipad-tab} {
   .card {

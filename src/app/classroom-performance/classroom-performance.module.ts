@@ -14,6 +14,7 @@ import { LearningPathDetailsComponent } from "./performance-detailed-view/publis
 import { NgJQWidgetsModule } from "../ng-jqwidgets.module";
 import { SourceDialogComponent } from "./performance-detailed-view/publish-learning-paths/source-dialog/source-dialog.component";
 import { ProjectSummaryPublishComponent } from "./performance-detailed-view/projects-summary/project-summary-publish/project-summary-publish.component";
+import { ClassPerformanceRoutesModule } from "./classroomperformance-routes.module";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProjectSummaryPublishComponent } from "./performance-detailed-view/proj
     NgMaterialModule,
     NgJQWidgetsModule,
     AppRoutingModule,
+    ClassPerformanceRoutesModule
   ],
   exports: [],
   entryComponents: [

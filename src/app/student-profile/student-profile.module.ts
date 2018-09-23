@@ -30,6 +30,7 @@ import { SportsListComponent } from "./profile/sports-list/sports-list.component
 import { StudentProfileComponent } from "./student-profile.component";
 import { UpdateKnowledgeLevelDialogComponent } from "./performance-summary/assessment-summary/update-knowledge-level-dialog/update-knowledge-level-dialog.component";
 import { NgJQWidgetsModule } from "../ng-jqwidgets.module";
+import { StudentProfileRoutesModule } from "./studentprofile-routes.module";
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { NgJQWidgetsModule } from "../ng-jqwidgets.module";
     NgJQWidgetsModule,
     ClassroomDashboardModule,
     AppRoutingModule,
+    StudentProfileRoutesModule
   ],
   exports: [
     StudentProfileComponent,

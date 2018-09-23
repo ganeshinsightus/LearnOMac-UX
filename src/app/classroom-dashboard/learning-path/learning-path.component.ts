@@ -12,7 +12,7 @@ export class LearningPathComponent {
   constructor(private routes:Router) { }
  
   openLearningPathsList(){
-    this.routes.navigateByUrl('/learning-paths-list')
+    this.routes.navigateByUrl('/class-dashboard/learning-paths-list')
   }
 
 }

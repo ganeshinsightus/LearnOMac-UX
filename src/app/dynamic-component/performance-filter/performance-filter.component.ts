@@ -12,13 +12,11 @@ export class PerformanceFilterComponent {
   constructor(
     public dialogref: MatDialogRef<PerformanceFilterComponent>,
     private filterBuilder: FormBuilder
-  ) {}
+  ) {
+    this.createForm();
+  }
   closeDialog() {
     this.dialogref.close();
-  }
-
-  ngOnInit(){
-    this.createForm();
   }
   
   createForm() {

@@ -17,7 +17,7 @@ export class CommunicationComponent {
   newDialogRef: MatDialogRef<CommunicationNewComponent>;
   viewDialogRef: MatDialogRef<CommunicationViewComponent>;
   showScroll:boolean;
-  
+
   constructor(public dialog: MatDialog , private routes:Router) {}
   openReplyDialog() {
     this.replyDialogRef = this.dialog.open(CommunicationReplyComponent, {
@@ -53,7 +53,7 @@ export class CommunicationComponent {
   }
 
   openCommunicationList(){
-    this.routes.navigateByUrl('/communication-list');
+    this.routes.navigateByUrl('/class-dashboard/communication-list');
   }
 
 }

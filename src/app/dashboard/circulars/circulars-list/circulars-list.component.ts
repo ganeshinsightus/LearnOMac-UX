@@ -104,13 +104,10 @@ export class CircularListComponent {
     }
   }
 
-  public onActionViewClick(data: any) {
-    console.log("View action clicked", data);
-  }
   public openDialog() {
     this.circularsDialogRef = this.dialog.open(CircularsDialogComponent, {
       width: "50%",
-      height: "60vh"
+      height: "calc(60vh)"
     });
     //this.circularsDialogRef.componentInstance.title = "odioCras justo odio";
     this.circularsDialogRef.disableClose = true;
