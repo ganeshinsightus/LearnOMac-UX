@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['../dashboard.component.scss']
 })
 export class NotificationsComponent {
+  showScroll:boolean;
   notificationsDialogRef: MatDialogRef<NotificationsDialogComponent>;
   constructor(public dialog: MatDialog , public routes: Router) { }
 

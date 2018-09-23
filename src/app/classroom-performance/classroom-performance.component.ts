@@ -9,6 +9,8 @@ import { Router } from "@angular/router";
   styleUrls: ["classroom-performance.component.scss"]
 })
 export class ClassroomPerformanceComponent {
+  showScroll:boolean;
+
   values1: Coordinates[] = [
     { title: "Low Performing", value: 40 },
     { title: "Averge", value: 21 },

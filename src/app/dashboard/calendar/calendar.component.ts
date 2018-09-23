@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['../dashboard.component.scss']
 })
 export class CalendarComponent {
-
+  selectedDate:any;
+  selectedChange:any;
+  yearSelected:any;
+  monthSelected:any;
+  userSelection:any;
+  cdkAutofill:any;
 }

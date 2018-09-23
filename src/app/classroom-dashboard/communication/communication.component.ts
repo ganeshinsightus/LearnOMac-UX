@@ -16,7 +16,8 @@ export class CommunicationComponent {
   repliedDialogRef: MatDialogRef<CommunicationRepliedComponent>;
   newDialogRef: MatDialogRef<CommunicationNewComponent>;
   viewDialogRef: MatDialogRef<CommunicationViewComponent>;
-
+  showScroll:boolean;
+  
   constructor(public dialog: MatDialog , private routes:Router) {}
   openReplyDialog() {
     this.replyDialogRef = this.dialog.open(CommunicationReplyComponent, {

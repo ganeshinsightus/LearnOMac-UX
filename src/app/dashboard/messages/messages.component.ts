@@ -13,7 +13,7 @@ import { CommunicationReplyComponent } from "../../classroom-dashboard/communica
 export class MessagesComponent {
   repliedDialogRef: MatDialogRef<CommunicationRepliedComponent>;
   viewDialogRef: MatDialogRef<CommunicationReplyComponent>;
-
+  showScroll:boolean;
   constructor(public dialog: MatDialog ,public routes:Router) {}
   openSentDialog() {
     this.repliedDialogRef = this.dialog.open(CommunicationRepliedComponent, {

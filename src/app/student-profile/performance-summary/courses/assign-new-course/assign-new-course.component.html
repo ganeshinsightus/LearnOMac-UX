@@ -32,7 +32,7 @@
                         height: calc(66vh);margin-left: 0px;"
                 [enableSorting]="true" [enableFilter]="false" [rowData]="rowData" [columnDefs]="columnDefs"
                 rowSelection="multiple" [suppressContextMenu]="true" [suppressMenuMainPanel]="true"
-                [suppressMenuColumnPanel]="true" [enableColResize]="true" [floatingFilter]="true" (rowClicked)="onRowClicked($event)">
+                [suppressMenuColumnPanel]="true" [enableColResize]="true" [floatingFilter]="true" (cellClicked)="oncellClicked($event)">
             </ag-grid-angular>
         </div>
     </div>

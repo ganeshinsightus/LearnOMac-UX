@@ -170,7 +170,6 @@ export class PrerequisiteDetailsComponent {
     }
   ];
 
-
   onBack() {
     this.routes.navigateByUrl("classroom/performance/detailed-view");
   }
