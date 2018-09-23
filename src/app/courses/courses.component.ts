@@ -8,8 +8,6 @@ import { Router } from "@angular/router";
 export class CoursesComponent {
   constructor(private routes: Router) {}
 
-  ngOnInit() {}
-
   openCoursesDetails() {
     this.routes.navigateByUrl("/courses/courses-subcriptions-details-new");
   }

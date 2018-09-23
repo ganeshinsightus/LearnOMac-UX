@@ -24,6 +24,7 @@
 select {
   color: $color-royalblue;
   text-transform: uppercase;
+  height: 35px !important;
 }
 
 @media #{$ipad-tab} {

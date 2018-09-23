@@ -1,5 +1,4 @@
 import { CommunicationRepliedComponent } from "../../classroom-dashboard/communication/communication-replied/communication-replied.component";
-import { CommunicationViewComponent } from "../../classroom-dashboard/communication/communication-view/communication-view.component";
 import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { Router } from "@angular/router";

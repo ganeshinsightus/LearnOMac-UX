@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
+import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
   templateUrl: "./courses-details-approved.component.html",
@@ -8,178 +9,189 @@ import { Router } from "@angular/router";
 })
 export class CoursesDetailsApprovedComponent {
   constructor(public dialog: MatDialog, private routes: Router) {}
+  
+  @ViewChild("TreeGrid")
+  treeGrid: jqxTreeGridComponent;
 
-  ngOnInit() {}
+  getWidth(): any {
+    return "100%";
+  }
 
-  columnDefs = [
+  getHeight(): any {
+    return "calc(65vh)";
+  }
+
+  data: any[] = [
     {
-      headerName: "Course Title",
-      field: "title",
-      floatingFilter: "true",
-      width: 308,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
     },
     {
-      headerName: "Created on",
-      field: "createdon",
-      width: 308,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
-          );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
-      }
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
     },
     {
-      headerName: "Approved on",
-      field: "approvedon",
-      width: 308,
-      floatingFilter: "false",
-      filter: "agDateColumnFilter",
-      filterParams: {
-        comparator: function(filterLocalDateAtMidnight, cellValue) {
-          var dateAsString = cellValue;
-          var dateParts = dateAsString.split("/");
-          var cellDate = new Date(
-            Number(dateParts[2]),
-            Number(dateParts[1]) - 1,
-            Number(dateParts[0])
-          );
-          if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-            return 0;
-          }
-          if (cellDate < filterLocalDateAtMidnight) {
-            return -1;
-          }
-          if (cellDate > filterLocalDateAtMidnight) {
-            return 1;
-          }
-        },
-        clearButton: true
-      }
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
     },
     {
-      headerName: "Actions",
-      suppressMenu: true,
-      suppressSorting: true,
-      width: 308,
-      filter: "false",
-      template: `
-            <button type="button" data-action-type="publish" style="color:white;background-color:green;">
-              Publish Course
-            </button>
-          `
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
+    },
+    {
+      title: "Grade 5-Maths.Unit 4- Probability",
+      createdon:"30/08/18",
+      approvedon: "31/08/18",
+    },
+  ];
+  source: any = {
+    dataType: "json",
+    dataFields: [
+      { name: "title", type: "string" },
+      { name: "createdon", type: "date" },
+      { name: "approvedon", type: "date" },
+    ],
+    localData: this.data,
+    id: "id"
+  };
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+  columns: any[] = [
+    {
+      text: "Course title",
+      dataField: "title",
+      align: "center",
+      cellsAlign: "center",
+      width: 300
+    },
+    {
+      text: "Created on",
+      align: "center",
+      cellsAlign: "center",
+      cellsFormat: "d",
+      dataField: "createdon",
+      width: 300
+    },
+    {
+      text: "Approved on",
+      align: "center",
+      cellsAlign: "center",
+      cellsFormat: "d",
+      dataField: "approvedon",
+      width: 300
+    },
+    {
+      text: "Actions",
+      cellsAlign: "center",
+      align: "center",
+      width: 300,
+      columnType: "none",
+      editable: false,
+      sortable: false,
+      dataField: null,
+      cellsRenderer: (row: number, column: any, value: any): string => {
+        return (
+          `<div data-row='` +
+          row +
+          `' class='viewButton' style='color:white;background-color:green;margin-left: 72px;'></div>`
+        );
+      }
     }
   ];
+  editSettings: any = {
+    saveOnPageChange: true,
+    saveOnBlur: true,
+    saveOnSelectionChange: false,
+    cancelOnEsc: true,
+    saveOnEnter: true,
+    editOnDoubleClick: false,
+    editOnF2: false
+  };
+  rendered = (): void => {
+    let uglyviewButtons = jqwidgets.createInstance(".viewButton", "jqxButton", {
+      height: 26,
+      width: 150,
+      value: "Publish Course"
+    });
+    let flattenviewButtons = flatten(uglyviewButtons);
 
-  rowData = [
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    },
-    {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }, {
-      title: "Grade 5-Maths.Unit 4- Probability",
-      createdon: "20/08/18",
-      approvedon: "31/08/18",
-    }
-  ];
-
-  public onCellClicked(e) {
-    if (e.event.target !== undefined) {
-      let data = e.data;
-      let actionType = e.event.target.getAttribute("data-action-type");
-
-      switch (actionType) {
-        case "publish":
-          return this.openUpdateKnowledgeLevelDialog();
-        
+    function flatten(arr: any[]): any[] {
+      if (arr.length) {
+        return arr.reduce((flat: any[], toFlatten: any[]): any[] => {
+          return flat.concat(
+            Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten
+          );
+        }, []);
       }
+    }
+    if (flattenviewButtons) {
+      for (let i = 0; i < flattenviewButtons.length; i++) {
+        flattenviewButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
+      }
+    }
+  };
+
+  rowKey: number = -1;
+  cellClick(event: any): void {
+    this.rowKey = event.args.key;
+  }
+  editClick(event: any): void {
+    let value = event.target.innerText;
+    if (value === "View") {
+      // this.openDialog();
     }
   }
 

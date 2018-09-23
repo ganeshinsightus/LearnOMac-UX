@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
+import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
   templateUrl: "./performance-summary-list.component.html",
@@ -8,147 +9,19 @@ import { Router } from "@angular/router";
 export class PerformanceSummaryListComponent {
   constructor(private routes: Router) {}
 
-  ngOnInit() {}
+  
+  @ViewChild("TreeGrid")
+  treeGrid: jqxTreeGridComponent;
 
-  columnDefs = [
-    {
-      headerName: "Assessment Type",
-      field: "assessmenttype",
-      floatingFilter: "true",
-      width: 245,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Standard",
-      field: "standard",
-      floatingFilter: "true",
-      width: 245,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Lesson",
-      field: "lesson",
-      floatingFilter: "true",
-      width: 245,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Student Name",
-      field: "student",
-      floatingFilter: "true",
-      width: 245,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    },
-    {
-      headerName: "Knowledge Level",
-      field: "knowledgelevel",
-      floatingFilter: "true",
-      width: 245,
-      filter: "agTextColumnFilter",
-      filterParams: {
-        textFormatter: function(r) {
-          if (r == null) return null;
-          r = r.replace(new RegExp("[àáâãäå]", "g"), "a");
-          r = r.replace(new RegExp("æ", "g"), "ae");
-          r = r.replace(new RegExp("ç", "g"), "c");
-          r = r.replace(new RegExp("[èéêë]", "g"), "e");
-          r = r.replace(new RegExp("[ìíîï]", "g"), "i");
-          r = r.replace(new RegExp("ñ", "g"), "n");
-          r = r.replace(new RegExp("[òóôõøö]", "g"), "o");
-          r = r.replace(new RegExp("œ", "g"), "oe");
-          r = r.replace(new RegExp("[ùúûü]", "g"), "u");
-          r = r.replace(new RegExp("[ýÿ]", "g"), "y");
-          return r;
-        },
-        debounceMs: 0,
-        caseSensitive: true,
-        clearButton: true,
-        suppressAndOrCondition: true
-      }
-    }
-  ];
+  getWidth(): any {
+    return "100%";
+  }
 
-  rowData = [
+  getHeight(): any {
+    return "calc(64vh)";
+  }
+
+  data: any[] = [
     {
       assessmenttype: "Pre-requisite",
       standard: "Grade 8",
@@ -248,6 +121,60 @@ export class PerformanceSummaryListComponent {
       knowledgelevel: "Mastered"
     }
   ];
+
+    
+  source: any = {
+    dataType: "json",
+    dataFields: [
+      { name: "assessmenttype", type: "string" },
+      { name: "standard", type: "string" },
+      { name: "lesson", type: "string" },
+      { name: "student", type: "string" },
+      { name: "knowledgelevel", type: "string" },
+    ],
+    localData: this.data,
+    id: "id"
+  };
+  dataAdapter: any = new jqx.dataAdapter(this.source);
+  columns: any[] = [
+    {
+      text: "Assessment Type",
+      dataField: "assessmenttype",
+      align: "center",
+      cellsAlign: "center",
+      width: 244
+    },
+    {
+      text: "Standard",
+      dataField: "standard",
+      align: "center",
+      cellsAlign: "center",
+      width: 244
+    },
+    {
+      text: "Lesson",
+      dataField: "lesson",
+      align: "center",
+      cellsAlign: "center",
+      width: 244
+    },
+    {
+      text: "Student Name",
+      dataField: "student",
+      align: "center",
+      cellsAlign: "center",
+      width: 244
+    },
+    {
+      text: "Knowledge Level",
+      dataField: "knowledgelevel",
+      align: "center",
+      cellsAlign: "center",
+      width: 244
+    },
+  ];
+ 
+
 
   onBack() {
     this.routes.navigateByUrl("/class-dashboard");

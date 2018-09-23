@@ -14,6 +14,7 @@ import { CommunicationListComponent } from './communication/communication-list/c
 import { PerformanceSummaryListComponent } from './peformance-summary/performance-summary-list/performance-summary-list.component';
 import { LearningPathsListComponent } from './learning-path/learning-paths-list/learning-paths-list.component';
 import { ClassroomDashboardRoutesModule } from './classroomdashboard-routes.module';
+import { NgJQWidgetsModule } from '../ng-jqwidgets.module';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { ClassroomDashboardRoutesModule } from './classroomdashboard-routes.modu
     imports: [
         BrowserAnimationsModule,
         NgMaterialModule,
+        NgJQWidgetsModule,
         ClassroomDashboardRoutesModule
     ],
     exports: [ClassroomDashboardComponent],
