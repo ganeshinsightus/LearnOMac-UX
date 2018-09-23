@@ -1,6 +1,4 @@
 import { Component } from "@angular/core";
-import { MatDialog, MatDialogRef } from "@angular/material";
-import { ClassroomFilterComponent } from "../dynamic-component/classroom-filter/classroom-filter.component";
 import { Router } from "@angular/router";
 
 @Component({

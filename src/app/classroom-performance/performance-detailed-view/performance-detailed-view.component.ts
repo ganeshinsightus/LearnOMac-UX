@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
-import { MatDialogRef, MatDialog } from "@angular/material";
-import { Coordinates } from "../../dynamic-component/stacked-bar-chart/stacked-bar-chart";
+import { Coordinates } from "../../common-component/stacked-bar-chart/stacked-bar-chart";
 import { Router } from "@angular/router";
+import { MatDialog, MatDialogRef } from "@angular/material";
+import { FilterComponent } from "../../common-component/filter/filter.component";
 
 @Component({
   templateUrl: "performance-detailed-view.component.html",
@@ -12,6 +13,8 @@ export class ClassroomPerformanceDetailedViewComponent {
   showScroll:boolean;
   showScroll1:boolean;
   showScroll2:boolean;
+
+  performanceFilterDialogRef:MatDialogRef<FilterComponent>;
 
   values1: Coordinates[] = [
     { title: "Low Performing", value: 40 },
@@ -87,7 +90,21 @@ export class ClassroomPerformanceDetailedViewComponent {
     { title: "Mastered", value: 0 }
   ];
 
-  constructor(private routes: Router) {}
+  constructor(private routes: Router , private dialog: MatDialog) {
+    this.openDialog()
+  }
+
+  openDialog() {
+    this.performanceFilterDialogRef = this.dialog.open(
+      FilterComponent,
+      {
+        width: "55%",
+        height: "calc(32vh)"
+      }
+    );
+    this.performanceFilterDialogRef.componentInstance.showPerformanceDetailedView = true ;
+    this.performanceFilterDialogRef.disableClose = true;
+  }
  
   openClassDetails() {
     this.routes.navigateByUrl("class-performance/details");

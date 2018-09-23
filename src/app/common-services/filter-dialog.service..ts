@@ -1,16 +1,16 @@
 import { Injectable } from "@angular/core";
-import { ClassroomFilterComponent } from "../dynamic-component/classroom-filter/classroom-filter.component";
 import { MatDialogRef, MatDialog } from "@angular/material";
+import { FilterComponent } from "../common-component/filter/filter.component";
 
 @Injectable()
 export class FilterDialogService{
-    filterPopupDialogRef: MatDialogRef<ClassroomFilterComponent>;
+    filterPopupDialogRef: MatDialogRef<FilterComponent>;
     
     constructor(private dialog:MatDialog){
     }
 
     openAttendanceFilter() {
-        this.filterPopupDialogRef = this.dialog.open(ClassroomFilterComponent, {
+        this.filterPopupDialogRef = this.dialog.open(FilterComponent, {
           width: "55%",
           height: "calc(46vh)"
         });

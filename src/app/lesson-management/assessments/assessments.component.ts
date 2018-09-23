@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
-import { ProfileFilterComponent } from "../../dynamic-component/profile-filter/profile-filter.component";
 import { Router } from "@angular/router";
 
 @Component({
@@ -11,7 +10,7 @@ import { Router } from "@angular/router";
 export class AssessmentsComponent {
   showScroll: boolean;
   showScrolls: boolean;
-  profileFilterDialogRef: MatDialogRef<ProfileFilterComponent>;
+  //profileFilterDialogRef: MatDialogRef<ProfileFilterComponent>;
 
   constructor(public dialog: MatDialog, private routes: Router) {}
 
@@ -19,12 +18,5 @@ export class AssessmentsComponent {
    // this.openDialog();
   }
   
-  openDialog() {
-    this.profileFilterDialogRef = this.dialog.open(ProfileFilterComponent, {
-      width: "30%",
-      height: "60vh"
-    });
-    this.profileFilterDialogRef.disableClose = true;
-  }
-
+ 
 }

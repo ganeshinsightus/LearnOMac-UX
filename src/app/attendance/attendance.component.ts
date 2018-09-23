@@ -9,6 +9,8 @@ import { FilterDialogService } from "../common-services/filter-dialog.service.";
   styleUrls: ["attendance.component.scss"]
 })
 export class AttendanceComponent {
+  showDeselect:boolean;
+  
   viewDialogRef: MatDialogRef<AbsenceDialogComponent>;
   constructor(private dialog: MatDialog , private filter:FilterDialogService) {
    this.filter.openAttendanceFilter()

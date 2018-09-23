@@ -3,7 +3,6 @@ import { CommunicationReplyComponent } from "../../classroom-dashboard/communica
 import { CommunicationRepliedComponent } from "../../classroom-dashboard/communication/communication-replied/communication-replied.component";
 import { MatDialogRef, MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
-import { PerformanceFilterComponent } from "../../dynamic-component/performance-filter/performance-filter.component";
 import { CommunicationNewComponent } from "../../classroom-dashboard/communication/communication-new/communication-new.component";
 
 @Component({
@@ -11,21 +10,10 @@ import { CommunicationNewComponent } from "../../classroom-dashboard/communicati
   styleUrls: ["../student-profile.component.scss"]
 })
 export class ParentCommunicationComponent {
-  performanceFilterDialogRef:MatDialogRef<PerformanceFilterComponent>;
   communicationDialogRef: MatDialogRef<CommunicationRepliedComponent>;
   newDialogRef: MatDialogRef<CommunicationNewComponent>;
-  constructor(public dialog: MatDialog, private routes: Router) {
+  constructor(public dialog: MatDialog, private routes: Router) {}
 
-  }
-
-  openNewDialog() {
-    this.newDialogRef = this.dialog.open(CommunicationNewComponent, {
-      width: "55%",
-      height: "calc(87vh)"
-    });
-    this.newDialogRef.disableClose = true;
-  }
- 
   columnDefs = [
     {
       headerName: "Subject",
@@ -159,8 +147,7 @@ export class ParentCommunicationComponent {
       subject: "Could not do well in Maths",
       receivedon: "29/01/18",
       action: "view , reply"
-    },
-   
+    }
   ];
 
   public onCellClicked(e) {
@@ -185,7 +172,6 @@ export class ParentCommunicationComponent {
         height: "calc(60vh)"
       }
     );
-    //this.communicationDialogRef.componentInstance.title = "odioCras justo odio";
     this.communicationDialogRef.disableClose = true;
   }
 
@@ -201,9 +187,15 @@ export class ParentCommunicationComponent {
     this.communicationDialogRef.disableClose = true;
   }
 
+  openNewDialog() {
+    this.newDialogRef = this.dialog.open(CommunicationNewComponent, {
+      width: "55%",
+      height: "calc(87vh)"
+    });
+    this.newDialogRef.disableClose = true;
+  }
 
   onBack() {
     this.routes.navigateByUrl("/");
   }
- 
 }

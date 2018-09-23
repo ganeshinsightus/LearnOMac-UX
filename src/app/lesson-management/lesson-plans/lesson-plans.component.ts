@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { Router } from "@angular/router";
-import { LessonPlanFilterComponent } from "../../dynamic-component/lesson-plan-filter/lesson-plan-filter.component";
+import { FilterComponent } from "../../common-component/filter/filter.component";
 
 @Component({
   selector: "lesson-plans",
@@ -11,7 +11,7 @@ import { LessonPlanFilterComponent } from "../../dynamic-component/lesson-plan-f
 export class LessonPlansComponent {
   showScroll: boolean;
   showScrolls: boolean;
-  lessonplanFilterDialogRef: MatDialogRef<LessonPlanFilterComponent>;
+  lessonplanFilterDialogRef: MatDialogRef<FilterComponent>;
 
   constructor(public dialog: MatDialog, private routes: Router) {
     this.openDialog();
@@ -20,12 +20,13 @@ export class LessonPlansComponent {
 
   openDialog() {
     this.lessonplanFilterDialogRef = this.dialog.open(
-      LessonPlanFilterComponent,
+      FilterComponent,
       {
         width: "55%",
         height: "calc(58vh)"
       }
     );
+    this.lessonplanFilterDialogRef.componentInstance.showLessonPlan = true;
     this.lessonplanFilterDialogRef.disableClose = true;
   }
 

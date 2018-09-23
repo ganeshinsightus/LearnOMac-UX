@@ -1,8 +1,8 @@
 import { AgGridModule } from 'ag-grid-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
-import { DoughnutChartComponent } from './dynamic-component/doughnut-chart/doughnut-chart.component';
-import { DoughnutChartLevel5Component } from './dynamic-component/doughnut-chart-level5/doughnut-chart-level5.component';
+import { DoughnutChartComponent } from './common-component/doughnut-chart/doughnut-chart.component';
+import { DoughnutChartLevel5Component } from './common-component/doughnut-chart-level5/doughnut-chart-level5.component';
 import {
   MatAutocompleteModule,
   MatCheckboxModule,
@@ -29,9 +29,9 @@ import {
   } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { StackedBarChartComponent } from './dynamic-component/stacked-bar-chart/stacked-bar-chart';
-import { StackedBarChartlevel4Component } from './dynamic-component/stacked-bar-chart-level4/stacked-bar-chart-level4';
-import { StackedBarChartlevel5Component } from './dynamic-component/stacked-bar-chart-level5/stacked-bar-chart-level5';
+import { StackedBarChartComponent } from './common-component/stacked-bar-chart/stacked-bar-chart';
+import { StackedBarChartlevel4Component } from './common-component/stacked-bar-chart-level4/stacked-bar-chart-level4';
+import { StackedBarChartlevel5Component } from './common-component/stacked-bar-chart-level5/stacked-bar-chart-level5';
 @NgModule({
   declarations: [
     DoughnutChartComponent,

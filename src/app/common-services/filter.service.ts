@@ -48,4 +48,8 @@ export class FilterService {
         return this.filterPath = "/attendance";
     }
 
+    get isCurriculumContent(){
+        return this.filterPath = "/curriculum-content";
+    }
+
 }
