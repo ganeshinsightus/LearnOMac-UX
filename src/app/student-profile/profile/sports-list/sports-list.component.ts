@@ -1,7 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
-import { MatDialog, MatDialogRef } from "@angular/material";
 import { Router } from "@angular/router";
-import { SportsDialogComponent } from "../sports-dialog/sports-dialog.component";
 import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
@@ -10,8 +8,7 @@ import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqx
   styleUrls: ["./sports-list.component.scss"]
 })
 export class SportsListComponent {
-  public academicDialogRef: MatDialogRef<SportsDialogComponent>;
-  constructor(public dialog: MatDialog, private routes: Router) {}
+  constructor(private routes: Router) {}
 
   @ViewChild("TreeGrid")
   treeGrid: jqxTreeGridComponent;
@@ -117,17 +114,16 @@ export class SportsListComponent {
   getHeight(): any {
     return "calc(67vh)";
   }
-  
-    source: any = {
+
+  source: any = {
     dataType: "json",
     dataFields: [
       { name: "medal", type: "string" },
       { name: "sports", type: "string" },
       { name: "competitionlevel", type: "string" },
-      { name: "receivedon", type: "date" },
+      { name: "receivedon", type: "date" }
     ],
-    localData: this.data,
-    id: "id"
+    localData: this.data
   };
   dataAdapter: any = new jqx.dataAdapter(this.source);
   columns: any[] = [
@@ -136,20 +132,49 @@ export class SportsListComponent {
       dataField: "medal",
       align: "center",
       cellsAlign: "center",
-      width: 250
+      width: 250,
+      columnType: "template",
+      createEditor: (row, cellvalue, editor, cellText, width, height) => {
+        // construct the editor.
+        let medals = ["Gold", "Silver", "Bronze"];
+        editor.jqxDropDownList({
+          autoDropDownHeight: true,
+          source: medals,
+          width: "100%",
+          height: "100%"
+        });
+      }
     },
     {
       text: "Sports",
       dataField: "sports",
       align: "center",
       cellsAlign: "center",
-      width: 250
+      width: 250,
+      columnType: "template",
+      createEditor: (row, cellvalue, editor, cellText, width, height) => {
+        // construct the editor.
+        let sports = [
+          "Chess",
+          "Cricket",
+          "Volley Ball",
+          "Hockey",
+          "Basket Ball"
+        ];
+        editor.jqxDropDownList({
+          autoDropDownHeight: true,
+          source: sports,
+          width: "100%",
+          height: "100%"
+        });
+      }
     },
     {
       text: "Competition Level",
       dataField: "competitionlevel",
       align: "center",
       cellsAlign: "center",
+      editable: true,
       width: 250
     },
     {
@@ -157,8 +182,10 @@ export class SportsListComponent {
       align: "center",
       cellsAlign: "center",
       cellsFormat: "d",
+      editable: true,
       dataField: "receivedon",
-      width: 250
+      width: 250,
+      columnType: "datetimeinput"
     },
     {
       text: "Actions",
@@ -173,10 +200,13 @@ export class SportsListComponent {
         return (
           `<div data-row='` +
           row +
-          `' class='editButton' style='color:white;background-color:skyblue;margin-left: 115px;'></div>
+          `' class='editButton' style='margin-left: 5em;background-color:#004d73; color:white;float:left'></div>
+                    <div data-row='` +
+          row +
+          `' class='cancelButton' style='display: none; float: left; margin-left: 1em ;background-color:red; color:white'></div>
           <div data-row='` +
           row +
-          `' class='deleteButton' style='color:white;background-color:red;margin-left: 115px;
+          `' class='deleteButton' style='color:white;background-color:red;margin-left: 5em;
           margin-top: 2px;'></div>`
         );
       }
@@ -192,15 +222,19 @@ export class SportsListComponent {
     editOnF2: false
   };
   rendered = (): void => {
-    let uglyeditButtons = jqwidgets.createInstance(
-      ".editButton",
+    let uglyEditButtons = jqwidgets.createInstance(".editButton", "jqxButton", {
+      width: 60,
+      height: 24,
+      value: "Edit"
+    });
+    let flattenEditButtons = flatten(uglyEditButtons);
+    let uglyCancelButtons = jqwidgets.createInstance(
+      ".cancelButton",
       "jqxButton",
-      {
-        width: 60,
-        height: 24,
-        value: "Edit"
-      }
+      { width: 60, height: 24, value: "Cancel" }
     );
+    let flattenCancelButtons = flatten(uglyCancelButtons);
+
     let uglydeleteButtons = jqwidgets.createInstance(
       ".deleteButton",
       "jqxButton",
@@ -210,7 +244,6 @@ export class SportsListComponent {
         value: "Delete"
       }
     );
-    let flatteneditButtons = flatten(uglyeditButtons);
     let flattendeleteButtons = flatten(uglydeleteButtons);
 
     function flatten(arr: any[]): any[] {
@@ -220,16 +253,6 @@ export class SportsListComponent {
             Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten
           );
         }, []);
-      }
-    }
-    if (flatteneditButtons) {
-      for (let i = 0; i < flatteneditButtons.length; i++) {
-        flatteneditButtons[i].addEventHandler(
-          "click",
-          (event: any): void => {
-            this.editClick(event);
-          }
-        );
       }
     }
     if (flattendeleteButtons) {
@@ -242,34 +265,70 @@ export class SportsListComponent {
         );
       }
     }
+    if (flattenEditButtons) {
+      for (let i = 0; i < flattenEditButtons.length; i++) {
+        flattenEditButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
+      }
+    }
+    if (flattenCancelButtons) {
+      for (let i = 0; i < flattenCancelButtons.length; i++) {
+        flattenCancelButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            let rowKey = event.target.getAttribute("data-row");
+            this.treeGrid.endRowEdit(rowKey, true);
+          }
+        );
+      }
+    }
   };
 
   rowKey: number = -1;
-  cellClick(event: any): void {
+  rowClick(event: any): void {
     this.rowKey = event.args.key;
   }
+
   editClick(event: any): void {
+    let editButtonsContainers = document.getElementsByClassName("editButton");
+    let cancelButtonsContainers = document.getElementsByClassName(
+      "cancelButton"
+    );
     let value = event.target.innerText;
-    if (value === "Edit") {
-       this.openSportsDialog();
-    }
     if (value === "Delete") {
-     alert("Data Deleted Successfully");
-   }
+      alert("Data Deleted Successfully");
+    }
+    if (value === "Edit") {
+      this.treeGrid.beginRowEdit(this.rowKey.toString());
+      for (let i = 0; i < editButtonsContainers.length; i++) {
+        (<HTMLElement>editButtonsContainers[i]).style.marginLeft = "5em";
+        (<HTMLElement>cancelButtonsContainers[i]).style.display = "none";
+      }
+      (<HTMLElement>editButtonsContainers[this.rowKey]).innerText = "Save";
+      (<HTMLElement>editButtonsContainers[this.rowKey]).style.marginLeft =
+        "1em";
+      (<HTMLElement>cancelButtonsContainers[this.rowKey]).style.display =
+        "inline-block";
+    } else {
+      (<HTMLElement>editButtonsContainers[this.rowKey]).innerText = "Edit";
+      (<HTMLElement>editButtonsContainers[this.rowKey]).style.marginLeft =
+        "5em";
+      (<HTMLElement>cancelButtonsContainers[this.rowKey]).style.display =
+        "none";
+      this.treeGrid.endRowEdit(this.rowKey.toString());
+    }
   }
-public openSportsDialog() {
-    this.academicDialogRef = this.dialog.open(SportsDialogComponent, {
-      width: "50%",
-      height: "calc(83vh)"
-    });
-    this.academicDialogRef.disableClose = true;
-  }
+
   onNavigation(value) {
     if (value) {
-        this.routes.navigate([value]);
+      this.routes.navigate([value]);
     }
     return false;
-}
+  }
   onBack() {
     this.routes.navigateByUrl("/student/profile");
   }
