@@ -232,7 +232,7 @@ export class AssessmentSummaryUpdateComponent {
         return (
           `<div data-row='` +
           row +
-          `' class='updateButton' style='color:white;background-color:skyblue;margin-left:25px;'></div>`
+          `' class='updateButton' style='color:white;background-color:#512da8;margin-left:25px;'></div>`
         );
       }
     }
