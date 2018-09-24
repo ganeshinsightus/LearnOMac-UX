@@ -225,7 +225,7 @@ export class LearningPathListComponent {
         return (
           `<div data-row='` +
           row +
-          `' class='reassignButton' style='color:white;background-color:skyblue;margin-left:50px;'></div>`
+          `' class='reassignButton' style='color:white;background-color:#368836;margin-left:50px;'></div>`
         );
       }
     }

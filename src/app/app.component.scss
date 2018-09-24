@@ -3,6 +3,7 @@
 
 .drawer-height{
   height: calc(90.3vh) !important;
+  overflow: hidden !important;
 }
 
 .sidenav-content {
@@ -49,6 +50,10 @@
   color: $color-orange;
 }
 
+mat-drawer-content{
+  background-color: #dfebf7;
+  overflow: hidden;
+}
 
 @media #{$ipad-tab} {
   .drawer-height{
