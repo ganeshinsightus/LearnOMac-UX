@@ -1,7 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
-import { MatDialogRef, MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
-import { UpdateKnowledgeLevelDialogComponent } from "../update-knowledge-level-dialog/update-knowledge-level-dialog.component";
 import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
@@ -9,9 +7,8 @@ import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqx
   styleUrls: ["./assessment-summary-update.component.scss"]
 })
 export class AssessmentSummaryUpdateComponent {
-  uklDialogRef: MatDialogRef<UpdateKnowledgeLevelDialogComponent>;
 
-  constructor(public dialog: MatDialog, private routes: Router) {}
+  constructor(private routes: Router) {}
 
   @ViewChild("TreeGrid")
   treeGrid: jqxTreeGridComponent;
@@ -173,6 +170,7 @@ export class AssessmentSummaryUpdateComponent {
       text: "Pre-requisite Standards",
       dataField: "prerequisitestds",
       align: "center",
+      editable:false,
       cellsAlign: "center",
       width: 150
     },
@@ -180,51 +178,104 @@ export class AssessmentSummaryUpdateComponent {
       text: "Curriculum Mapping",
       dataField: "mapping",
       align: "center",
+      editable:false,
       cellsAlign: "center",
       width: 150
     },
     {
-      text: "Update Knowledge Level",
+      text: "Knowledge Level",
       dataField: "knowledge",
-      align: "center",
+      width: 200,
       cellsAlign: "center",
-      width: 150
+      align: "center",
+      columnType: "template",
+      createEditor: (row, cellvalue, editor, cellText, width, height) => {
+        // construct the editor.
+        let newknowledgelevels = [
+          "Low Performing",
+          "Satisfactory",
+          "Above Average",
+          "Mastered"
+        ];
+        editor.jqxDropDownList({
+          autoDropDownHeight: true,
+          source: newknowledgelevels,
+          width: "100%",
+          height: "100%"
+        });
+      },
+      initEditor: (row, cellvalue, editor, celltext, width, height) => {
+        // set the editor's current value. The callback is called each time the editor is displayed.
+        editor.jqxDropDownList("selectItem", cellvalue);
+      },
+      getEditorValue: (row, cellvalue, editor) => {
+        // return the editor's value.
+        return editor.val();
+      }
     },
     {
       text: "Updated on",
       align: "center",
       cellsAlign: "center",
       cellsFormat: "d",
+      editable:false,
       dataField: "updatedon",
+      columnType:"datetimeinput",
       width: 150
     },
     {
       text: "Updated by",
       dataField: "updatedby",
       align: "center",
+      editable:false,
       cellsAlign: "center",
       width: 150
     },
     {
-      text: "Learning Methods",
+      text: "Learning Method",
       dataField: "lmethods",
-      align: "center",
+      width: 200,
       cellsAlign: "center",
-      width: 150
+      align: "center",
+      columnType: "template",
+      createEditor: (row, cellvalue, editor, cellText, width, height) => {
+        // construct the editor.
+        let learningMethods = [
+          "Special one to one session",
+          "Independent Study",
+          "Learned from peers",
+          "Classroom presentation by Student",
+          "Revision by Teacher"
+        ];
+        editor.jqxDropDownList({
+          autoDropDownHeight: true,
+          source: learningMethods,
+          width: "100%",
+          height: "100%"
+        });
+      },
+      initEditor: (row, cellvalue, editor, celltext, width, height) => {
+        // set the editor's current value. The callback is called each time the editor is displayed.
+        editor.jqxDropDownList("selectItem", cellvalue);
+      },
+      getEditorValue: (row, cellvalue, editor) => {
+        // return the editor's value.
+        return editor.val();
+      }
     },
     {
       text: "Remarks",
       dataField: "remarks",
+      width: 200,
       align: "center",
-      cellsAlign: "center",
-      width: 150
+      cellsAlign: "center"
     },
     {
       text: "Actions",
       cellsAlign: "center",
       align: "center",
-      width: 250,
       columnType: "none",
+      width:200,
       editable: false,
       sortable: false,
       dataField: null,
@@ -232,7 +283,10 @@ export class AssessmentSummaryUpdateComponent {
         return (
           `<div data-row='` +
           row +
-          `' class='updateButton' style='color:white;background-color:#512da8;margin-left:25px;'></div>`
+          `' class='editButton' style='margin-left: 5em; float: left ; background-color:#512da8; color:white'></div>
+                    <div data-row='` +
+          row +
+          `' class='cancelButton' style='display: none; float: left; margin-left: 1em ;background-color:red; color:white'></div>`
         );
       }
     }
@@ -247,14 +301,18 @@ export class AssessmentSummaryUpdateComponent {
     editOnF2: false
   };
   rendered = (): void => {
-    let uglyupdateButtons = jqwidgets.createInstance(".updateButton", "jqxButton", {
-      width: 200,
+    let uglyEditButtons = jqwidgets.createInstance(".editButton", "jqxButton", {
+      width: 60,
       height: 24,
-      value: "Update Knowledge Level"
+      value: "Edit"
     });
-  
-    let flattenupdateButtons = flatten(uglyupdateButtons);
-  
+    let flattenEditButtons = flatten(uglyEditButtons);
+    let uglyCancelButtons = jqwidgets.createInstance(
+      ".cancelButton",
+      "jqxButton",
+      { width: 60, height: 24, value: "Cancel" }
+    );
+    let flattenCancelButtons = flatten(uglyCancelButtons);
     function flatten(arr: any[]): any[] {
       if (arr.length) {
         return arr.reduce((flat: any[], toFlatten: any[]): any[] => {
@@ -264,9 +322,9 @@ export class AssessmentSummaryUpdateComponent {
         }, []);
       }
     }
-    if (flattenupdateButtons) {
-      for (let i = 0; i < flattenupdateButtons.length; i++) {
-        flattenupdateButtons[i].addEventHandler(
+    if (flattenEditButtons) {
+      for (let i = 0; i < flattenEditButtons.length; i++) {
+        flattenEditButtons[i].addEventHandler(
           "click",
           (event: any): void => {
             this.editClick(event);
@@ -274,25 +332,49 @@ export class AssessmentSummaryUpdateComponent {
         );
       }
     }
+    if (flattenCancelButtons) {
+      for (let i = 0; i < flattenCancelButtons.length; i++) {
+        flattenCancelButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            let rowKey = event.target.getAttribute("data-row");
+            this.treeGrid.endRowEdit(rowKey, true);
+          }
+        );
+      }
+    }
   };
-
+  
   rowKey: number = -1;
-  cellClick(event: any): void {
+  rowClick(event: any): void {
     this.rowKey = event.args.key;
   }
+  
   editClick(event: any): void {
+    let editButtonsContainers = document.getElementsByClassName("editButton");
+    let cancelButtonsContainers = document.getElementsByClassName(
+      "cancelButton"
+    );
     let value = event.target.innerText;
-    if (value === "Update Knowledge Level") {
-      this.openUpdateKnowledgeLevelDialog();
+    if (value === "Edit") {
+      this.treeGrid.beginRowEdit(this.rowKey.toString());
+      for (let i = 0; i < editButtonsContainers.length; i++) {
+        (<HTMLElement>editButtonsContainers[i]).style.marginLeft = "5em";
+        (<HTMLElement>cancelButtonsContainers[i]).style.display = "none";
+      }
+      (<HTMLElement>editButtonsContainers[this.rowKey]).innerText = "Save";
+      (<HTMLElement>editButtonsContainers[this.rowKey]).style.marginLeft =
+        "1em";
+      (<HTMLElement>cancelButtonsContainers[this.rowKey]).style.display =
+        "inline-block";
+    } else {
+      (<HTMLElement>editButtonsContainers[this.rowKey]).innerText = "Edit";
+      (<HTMLElement>editButtonsContainers[this.rowKey]).style.marginLeft =
+        "5em";
+      (<HTMLElement>cancelButtonsContainers[this.rowKey]).style.display =
+        "none";
+      this.treeGrid.endRowEdit(this.rowKey.toString());
     }
-  }
-
-  openUpdateKnowledgeLevelDialog() {
-    this.uklDialogRef = this.dialog.open(UpdateKnowledgeLevelDialogComponent, {
-      width: "40%",
-      height: "calc(72vh)"
-    });
-    this.uklDialogRef.disableClose = true;
   }
 
   onBack() {
