@@ -52,4 +52,8 @@ export class FilterService {
         return this.filterPath = "/content-library";
     }
 
+    get isManageSubjects(){
+        return this.filterPath = "/manage-subjects";
+    }
+
 }

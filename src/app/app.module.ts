@@ -1,3 +1,4 @@
+import { AdminModule } from './admin/admin.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 import { AttendanceModule } from './attendance/attendance.module';
@@ -44,7 +45,8 @@ import { StudentProfileModule } from './student-profile/student-profile.module';
     LessonManagementModule,
     AttendanceModule,
     CoursesModule,
-    CurriculumContentModule
+    CurriculumContentModule,
+    AdminModule
   ],
   providers: [FilterService, FilterDialogService],
   entryComponents: [FilterComponent],

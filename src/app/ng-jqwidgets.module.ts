@@ -11,6 +11,7 @@ import { NgMaterialModule } from "./ng-material.module";
 import { DropdownBoxComponent } from "./common-component/dropdown-tree/dropdown-tree.component";
 import { CalendarjqxComponent } from "./common-component/calendar/calendar-jqx.component";
 import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
+import { jqxListBoxComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxlistbox";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqx
     jqxTreeComponent,
     jqxDropDownButtonComponent,
     jqxCheckBoxComponent,
+    jqxListBoxComponent,
     jqxPanelComponent,
     jqxCalendarComponent,
     jqxTreeGridComponent
@@ -39,6 +41,7 @@ import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqx
     jqxDropDownButtonComponent,
     jqxCheckBoxComponent,
     jqxPanelComponent,
+    jqxListBoxComponent,
     jqxTreeGridComponent
   ]
 })
