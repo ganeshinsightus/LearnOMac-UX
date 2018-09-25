@@ -29,6 +29,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -36,6 +37,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Low performing",
       updatedby: "teacher"
@@ -43,6 +45,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -50,6 +53,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -57,6 +61,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -64,6 +69,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -71,6 +77,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -78,6 +85,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -85,6 +93,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -92,6 +101,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -99,6 +109,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -106,6 +117,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -113,6 +125,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -120,6 +133,7 @@ export class ProjectListUpdateComponent {
     {
       title: "Real Numbers in day to day life",
       lesson: "Real Numbers",
+      remarks: "-",
 
       knowledge: "Satisfactory",
       updatedby: "system"
@@ -131,6 +145,7 @@ export class ProjectListUpdateComponent {
       { name: "title", type: "string" },
       { name: "lesson", type: "string" },
       { name: "knowledge", type: "string" },
+      { name: "remarks", type: "string" },
       { name: "updatedby", type: "string" }
     ],
     localData: this.data,
@@ -141,6 +156,7 @@ export class ProjectListUpdateComponent {
     {
       text: "Project Title",
       dataField: "title",
+      editable: false,
       align: "center",
       cellsAlign: "center",
       width: 203
@@ -149,20 +165,53 @@ export class ProjectListUpdateComponent {
       text: "Lesson Name",
       dataField: "lesson",
       align: "center",
+      editable: false,
       cellsAlign: "center",
       width: 203
     },
     {
       text: "Knowledge Level",
       dataField: "knowledge",
-      align: "center",
+      width: 200,
       cellsAlign: "center",
-      width: 203
+      align: "center",
+      columnType: "template",
+      createEditor: (row, cellvalue, editor, cellText, width, height) => {
+        // construct the editor.
+        let newknowledgelevels = [
+          "Low Performing",
+          "Satisfactory",
+          "Above Average",
+          "Mastered"
+        ];
+        editor.jqxDropDownList({
+          autoDropDownHeight: true,
+          source: newknowledgelevels,
+          width: "100%",
+          height: "100%"
+        });
+      },
+      initEditor: (row, cellvalue, editor, celltext, width, height) => {
+        // set the editor's current value. The callback is called each time the editor is displayed.
+        editor.jqxDropDownList("selectItem", cellvalue);
+      },
+      getEditorValue: (row, cellvalue, editor) => {
+        // return the editor's value.
+        return editor.val();
+      }
+    },
+    {
+      text: "Remarks",
+      dataField: "remarks",
+      width: 200,
+      align: "center",
+      cellsAlign: "center"
     },
     {
       text: "Updated by",
       align: "center",
       cellsAlign: "center",
+      editable: false,
       dataField: "updatedby",
       width: 203
     },
@@ -187,8 +236,8 @@ export class ProjectListUpdateComponent {
       text: "Actions",
       cellsAlign: "center",
       align: "center",
-      width: 203,
       columnType: "none",
+      width: 200,
       editable: false,
       sortable: false,
       dataField: null,
@@ -196,7 +245,10 @@ export class ProjectListUpdateComponent {
         return (
           `<div data-row='` +
           row +
-          `' class='updateButton' style='color:white ;background-color:#0d47a1;margin-left: 58px;'></div>`
+          `' class='editButton' style='margin-left: 5em; float: left ; background-color:#0d47a1; color:white'></div>
+                    <div data-row='` +
+          row +
+          `' class='cancelButton' style='display: none; float: left; margin-left: 1em ;background-color:red; color:white'></div>`
         );
       }
     }
@@ -211,24 +263,24 @@ export class ProjectListUpdateComponent {
     editOnF2: false
   };
   rendered = (): void => {
-    let uglyviewButtons = jqwidgets.createInstance(".viewButton", "jqxButton", {
-      width: 80,
+    let uglyEditButtons = jqwidgets.createInstance(".editButton", "jqxButton", {
+      width: 60,
+      height: 24,
+      value: "Edit"
+    });
+    let flattenEditButtons = flatten(uglyEditButtons);
+    let uglyViewButtons = jqwidgets.createInstance(".viewButton", "jqxButton", {
+      width: 60,
       height: 24,
       value: "View"
     });
-    let flattenviewButtons = flatten(uglyviewButtons);
-
-    let uglyupdateButtons = jqwidgets.createInstance(
-      ".updateButton",
+    let flattenViewButtons = flatten(uglyViewButtons);
+    let uglyCancelButtons = jqwidgets.createInstance(
+      ".cancelButton",
       "jqxButton",
-      {
-        width: 80,
-        height: 24,
-        value: "Update Knowledge Level"
-      }
+      { width: 60, height: 24, value: "Cancel" }
     );
-    let flattenupdateButtons = flatten(uglyupdateButtons);
-
+    let flattenCancelButtons = flatten(uglyCancelButtons);
     function flatten(arr: any[]): any[] {
       if (arr.length) {
         return arr.reduce((flat: any[], toFlatten: any[]): any[] => {
@@ -238,9 +290,9 @@ export class ProjectListUpdateComponent {
         }, []);
       }
     }
-    if (flattenviewButtons) {
-      for (let i = 0; i < flattenviewButtons.length; i++) {
-        flattenviewButtons[i].addEventHandler(
+    if (flattenEditButtons) {
+      for (let i = 0; i < flattenEditButtons.length; i++) {
+        flattenEditButtons[i].addEventHandler(
           "click",
           (event: any): void => {
             this.editClick(event);
@@ -248,12 +300,23 @@ export class ProjectListUpdateComponent {
         );
       }
     }
-    if (flattenupdateButtons) {
-      for (let i = 0; i < flattenupdateButtons.length; i++) {
-        flattenupdateButtons[i].addEventHandler(
+    if (flattenViewButtons) {
+      for (let i = 0; i < flattenViewButtons.length; i++) {
+        flattenViewButtons[i].addEventHandler(
           "click",
           (event: any): void => {
             this.editClick(event);
+          }
+        );
+      }
+    }
+    if (flattenCancelButtons) {
+      for (let i = 0; i < flattenCancelButtons.length; i++) {
+        flattenCancelButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            let rowKey = event.target.getAttribute("data-row");
+            this.treeGrid.endRowEdit(rowKey, true);
           }
         );
       }
@@ -261,28 +324,38 @@ export class ProjectListUpdateComponent {
   };
 
   rowKey: number = -1;
-  cellClick(event: any): void {
+  rowClick(event: any): void {
     this.rowKey = event.args.key;
   }
+
   editClick(event: any): void {
+    let editButtonsContainers = document.getElementsByClassName("editButton");
+    let cancelButtonsContainers = document.getElementsByClassName(
+      "cancelButton"
+    );
     let value = event.target.innerText;
+    if (value === "Edit") {
+      this.treeGrid.beginRowEdit(this.rowKey.toString());
+      for (let i = 0; i < editButtonsContainers.length; i++) {
+        (<HTMLElement>editButtonsContainers[i]).style.marginLeft = "5em";
+        (<HTMLElement>cancelButtonsContainers[i]).style.display = "none";
+      }
+      (<HTMLElement>editButtonsContainers[this.rowKey]).innerText = "Save";
+      (<HTMLElement>editButtonsContainers[this.rowKey]).style.marginLeft =
+        "1em";
+      (<HTMLElement>cancelButtonsContainers[this.rowKey]).style.display =
+        "inline-block";
+    } else {
+      (<HTMLElement>editButtonsContainers[this.rowKey]).innerText = "Edit";
+      (<HTMLElement>editButtonsContainers[this.rowKey]).style.marginLeft =
+        "5em";
+      (<HTMLElement>cancelButtonsContainers[this.rowKey]).style.display =
+        "none";
+      this.treeGrid.endRowEdit(this.rowKey.toString());
+    }
     if (value === "View") {
       this.openViewDialog();
     }
-    if (value === "Update Knowledge Level") {
-      this.openUpdateKnowledgeLevelDialog();
-    }
-  }
-
-  openUpdateKnowledgeLevelDialog() {
-    this.uklDialogRef = this.dialog.open(
-      ProjectUpdateKnowledgeLevelDialogComponent,
-      {
-        width: "40%",
-        height: "60vh"
-      }
-    );
-    this.uklDialogRef.disableClose = true;
   }
 
   openViewDialog() {

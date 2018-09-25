@@ -12,22 +12,38 @@
       </i>
     </div>
 
-    <div *ngFor="let item of menuItems">
-      <a [routerLink]="[item.url]" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
-        <i>
-          <mat-icon>{{ item.iconName }}</mat-icon>
-        </i>
-        <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
-          {{ item.title}}
-        </span>
-      </a>
-    </div>    
+    <div *ngIf="showTeacherMenu">
+      <div *ngFor="let item of teacherMenuItems">
+        <a [routerLink]="[item.url]" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+          <i>
+            <mat-icon>{{ item.iconName }}</mat-icon>
+          </i>
+          <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+            {{ item.title}}
+          </span>
+        </a>
+      </div>    
+    </div>
+
+    <div *ngIf="showAdminMenu">
+      <div *ngFor="let item of adminMenuItems">
+        <a [routerLink]="[item.url]" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+          <i>
+            <mat-icon>{{ item.iconName }}</mat-icon>
+          </i>
+          <span *ngIf="showFiller" mode="side" (click)="showFiller = !showFiller">
+            {{ item.title}}
+          </span>
+        </a>
+      </div>    
+    </div>
+    
 
   </mat-drawer>
   <!--Sidenav bar-->
 
   <!--main content-->
-  <mat-drawer-content style="background-color: #dfebf7;overflow: auto;">
+  <mat-drawer-content>
     <router-outlet></router-outlet>
   </mat-drawer-content>
   <!--main content-->

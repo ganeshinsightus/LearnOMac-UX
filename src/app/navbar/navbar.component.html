@@ -5,6 +5,30 @@
         </span>
         <span class="header-spacer">
 
+            <div *ngIf="showManageSubjectsFilter">
+                <div class="filter-card">
+                    <form [formGroup]="filterForm">
+                        <mat-form-field>
+                            <mat-select placeholder="Select Curriculum" formControlName="curriculum">
+                                <mat-option value="A">CBSE</mat-option>
+                                <mat-option value="B">Stateboard</mat-option>
+                                <mat-option value="C">Extra Curricular</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Grade" formControlName="grade">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="4">4</mat-option>
+                                <mat-option value="5">5</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <span class="btn-lightslategrey">Apply Filter</span>
+                    </form>
+                </div>
+            </div>
+
             <div *ngIf="showAttendanceFilter">
                 <div class="filter-card">
                     <form [formGroup]="filterForm">
