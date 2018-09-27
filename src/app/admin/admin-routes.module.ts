@@ -5,6 +5,7 @@ import { AffiliationsComponent } from "./manage-curriculums/affiliations/affilia
 import { CurriculumNewComponent } from "./manage-curriculums/curriculum-new/curriculum-new.component";
 import { ManageSubjectsComponent } from "./manage-subjects/manage-subjects.component";
 import { SubjectNewComponent } from "./manage-subjects/subject-new/subject-new.component";
+import { ManageSyllabusComponent } from "./manage-syllabus/manage-syllabus.component";
 
 const routes: Routes = [
   {
@@ -35,6 +36,12 @@ const routes: Routes = [
     path: "create-subject",
     data: { title: "Create Subject" },
     component: SubjectNewComponent,
+    pathMatch: "full"
+  },
+  {
+    path: "manage-syllabus",
+    data: { title: "Manage Syllabus" },
+    component: ManageSyllabusComponent,
     pathMatch: "full"
   },
 ];

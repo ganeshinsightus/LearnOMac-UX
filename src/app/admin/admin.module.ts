@@ -9,6 +9,7 @@ import { CurriculumNewComponent } from './manage-curriculums/curriculum-new/curr
 import { ManageSubjectsComponent } from './manage-subjects/manage-subjects.component';
 import { Subject } from 'rxjs';
 import { SubjectNewComponent } from './manage-subjects/subject-new/subject-new.component';
+import { ManageSyllabusComponent } from './manage-syllabus/manage-syllabus.component';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { SubjectNewComponent } from './manage-subjects/subject-new/subject-new.c
         CurriculumNewComponent,
         AffiliationsComponent,
         ManageSubjectsComponent,
-        SubjectNewComponent
+        SubjectNewComponent,
+        ManageSyllabusComponent
     ],
     imports: [
         BrowserAnimationsModule,
@@ -29,7 +31,8 @@ import { SubjectNewComponent } from './manage-subjects/subject-new/subject-new.c
         AffiliationsComponent,
         CurriculumNewComponent,
         ManageSubjectsComponent,
-        SubjectNewComponent
+        SubjectNewComponent,
+        ManageSyllabusComponent
     ],
     entryComponents: [
     ],

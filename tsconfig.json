@@ -16,13 +16,16 @@
   "files": [
     "src/app/app.module.ts",
     //"src/app/ng-jqwidgets.module.ts",
-    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxdropdownlist.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets/jqx-all.js",
     "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxtree.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxdropdownlist.ts",
     "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxdropdownbutton.ts",
     "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxcheckbox.ts",
     "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxpanel.ts",
     "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxcalendar.ts",
     "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid.ts",
     "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxlistbox.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxbuttons.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxmenu.ts"
   ]
 }

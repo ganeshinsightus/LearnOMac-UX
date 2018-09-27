@@ -61,9 +61,9 @@ export class AppComponent {
         title: "Manage Subjects"
       },
       {
-        url: "/manage-lessons",
+        url: "/manage-syllabus",
         iconName: "assignment_in",
-        title: "Manage Lessons"
+        title: "Manage Syllabus"
       },
       {
         url: "/prerequisite-standards-mapping",
