@@ -1,7 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
-import { MatDialog, MatDialogRef } from "@angular/material";
 import { Router } from "@angular/router";
-import { AwardsDialogComponent } from "../awards-dialog/awards-dialog.component";
 import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
 
 @Component({
@@ -10,8 +8,7 @@ import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqx
   styleUrls: ["./awards-list.component.scss"]
 })
 export class AwardsListComponent {
-  public academicDialogRef: MatDialogRef<AwardsDialogComponent>;
-  constructor(public dialog: MatDialog, private routes: Router) {}
+  constructor(private routes: Router) {}
 
   @ViewChild("TreeGrid")
   treeGrid: jqxTreeGridComponent;
@@ -20,83 +17,69 @@ export class AwardsListComponent {
     {
       category: "Academic",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     },
     {
       category: "General",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     },
     {
       category: "Sports",
       award: "Best Batsman Award",
-      awardedon: "30-11-2018",
-      
+      awardedon: "30-11-2018"
     },
     {
       category: "Academic",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     },
     {
       category: "Academic",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     },
     {
       category: "Academic",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     },
     {
       category: "Academic",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     },
     {
       category: "Academic",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     },
     {
       category: "Academic",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     },
     {
       category: "Academic",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     },
     {
       category: "Academic",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     },
     {
       category: "Academic",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     },
     {
       category: "Academic",
       award: "Achiever Award",
-      awardedon: "29-11-2018",
-      
+      awardedon: "29-11-2018"
     }
   ];
-   
 
   getWidth(): any {
     return "100%";
@@ -105,16 +88,15 @@ export class AwardsListComponent {
   getHeight(): any {
     return "calc(67vh)";
   }
-  
-    source: any = {
+
+  source: any = {
     dataType: "json",
     dataFields: [
       { name: "category", type: "string" },
       { name: "award", type: "string" },
-      { name: "awardedon", type: "date" },
+      { name: "awardedon", type: "date" }
     ],
-    localData: this.data,
-    id: "id"
+    localData: this.data
   };
   dataAdapter: any = new jqx.dataAdapter(this.source);
   columns: any[] = [
@@ -122,22 +104,57 @@ export class AwardsListComponent {
       text: "Category",
       dataField: "category",
       align: "center",
+      editable: true,
       cellsAlign: "center",
-      width: 312
+      width: 312,
+      columnType: "template",
+      createEditor: (row, cellvalue, editor, cellText, width, height) => {
+        // construct the editor.
+        let categories = ["Academic", "Sports", "General"];
+        editor.jqxDropDownList({
+          autoDropDownHeight: true,
+          source: categories,
+          width: "100%",
+          height: "100%"
+        });
+      },
+      initEditor: (row, cellvalue, editor, celltext, width, height) => {
+        // set the editor's current value. The callback is called each time the editor is displayed.
+        editor.jqxDropDownList("selectItem", cellvalue);
+      },
+      getEditorValue: (row, cellvalue, editor) => {
+        // return the editor's value.
+        return editor.val();
+      }
     },
     {
       text: "Awarded Title",
       dataField: "award",
       align: "center",
       cellsAlign: "center",
-      width: 312
+      editable: true,
+      width: 312,
+      columntype: "datetimeinput",
+      validation: (cell: any, value: any): any => {
+        if (value == "") return true;
+        let year = value.getFullYear();
+        if (year >= 2017) {
+          return {
+            result: false,
+            message: "Ship Date should be before 1/1/2017"
+          };
+        }
+        return true;
+      }
     },
     {
       text: "Awarded on",
       align: "center",
       cellsAlign: "center",
+      editable: true,
       cellsFormat: "d",
       dataField: "awardedon",
+      columnType:"datetimeinput",
       width: 312
     },
     {
@@ -153,10 +170,13 @@ export class AwardsListComponent {
         return (
           `<div data-row='` +
           row +
-          `' class='editButton' style='color:white;background-color:skyblue;margin-left: 108px;'></div>
+          `' class='editButton' style='margin-left: 5em;background-color:#004d73; color:white;float:left'></div>
+                    <div data-row='` +
+          row +
+          `' class='cancelButton' style='display: none; float: left; margin-left: 1em ;background-color:red; color:white'></div>
           <div data-row='` +
           row +
-          `' class='deleteButton' style='color:white;background-color:red;margin-left: 108px;
+          `' class='deleteButton' style='color:white;background-color:red;margin-left: 5em;
           margin-top: 2px;'></div>`
         );
       }
@@ -172,15 +192,19 @@ export class AwardsListComponent {
     editOnF2: false
   };
   rendered = (): void => {
-    let uglyeditButtons = jqwidgets.createInstance(
-      ".editButton",
+    let uglyEditButtons = jqwidgets.createInstance(".editButton", "jqxButton", {
+      width: 60,
+      height: 24,
+      value: "Edit"
+    });
+    let flattenEditButtons = flatten(uglyEditButtons);
+    let uglyCancelButtons = jqwidgets.createInstance(
+      ".cancelButton",
       "jqxButton",
-      {
-        width: 60,
-        height: 24,
-        value: "Edit"
-      }
+      { width: 60, height: 24, value: "Cancel" }
     );
+    let flattenCancelButtons = flatten(uglyCancelButtons);
+
     let uglydeleteButtons = jqwidgets.createInstance(
       ".deleteButton",
       "jqxButton",
@@ -190,7 +214,6 @@ export class AwardsListComponent {
         value: "Delete"
       }
     );
-    let flatteneditButtons = flatten(uglyeditButtons);
     let flattendeleteButtons = flatten(uglydeleteButtons);
 
     function flatten(arr: any[]): any[] {
@@ -200,16 +223,6 @@ export class AwardsListComponent {
             Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten
           );
         }, []);
-      }
-    }
-    if (flatteneditButtons) {
-      for (let i = 0; i < flatteneditButtons.length; i++) {
-        flatteneditButtons[i].addEventHandler(
-          "click",
-          (event: any): void => {
-            this.editClick(event);
-          }
-        );
       }
     }
     if (flattendeleteButtons) {
@@ -222,36 +235,70 @@ export class AwardsListComponent {
         );
       }
     }
+    if (flattenEditButtons) {
+      for (let i = 0; i < flattenEditButtons.length; i++) {
+        flattenEditButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
+      }
+    }
+    if (flattenCancelButtons) {
+      for (let i = 0; i < flattenCancelButtons.length; i++) {
+        flattenCancelButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            let rowKey = event.target.getAttribute("data-row");
+            this.treeGrid.endRowEdit(rowKey, true);
+          }
+        );
+      }
+    }
   };
 
   rowKey: number = -1;
-  cellClick(event: any): void {
+  rowClick(event: any): void {
     this.rowKey = event.args.key;
   }
-  editClick(event: any): void {
-    let value = event.target.innerText;
-    if (value === "Edit") {
-       this.openAwardsDialog();
-    }
-    if (value === "Delete") {
-     alert("Data Deleted Successfully");
-   }
-  }
 
-  openAwardsDialog() {
-    this.academicDialogRef = this.dialog.open(AwardsDialogComponent, {
-      width: "50%",
-      height: "calc(70vh)"
-    });
-    this.academicDialogRef.disableClose = true;
+  editClick(event: any): void {
+    let editButtonsContainers = document.getElementsByClassName("editButton");
+    let cancelButtonsContainers = document.getElementsByClassName(
+      "cancelButton"
+    );
+    let value = event.target.innerText;
+    if (value === "Delete") {
+      alert("Data Deleted Successfully");
+    }
+    if (value === "Edit") {
+      this.treeGrid.beginRowEdit(this.rowKey.toString());
+      for (let i = 0; i < editButtonsContainers.length; i++) {
+        (<HTMLElement>editButtonsContainers[i]).style.marginLeft = "5em";
+        (<HTMLElement>cancelButtonsContainers[i]).style.display = "none";
+      }
+      (<HTMLElement>editButtonsContainers[this.rowKey]).innerText = "Save";
+      (<HTMLElement>editButtonsContainers[this.rowKey]).style.marginLeft =
+        "1em";
+      (<HTMLElement>cancelButtonsContainers[this.rowKey]).style.display =
+        "inline-block";
+    } else {
+      (<HTMLElement>editButtonsContainers[this.rowKey]).innerText = "Edit";
+      (<HTMLElement>editButtonsContainers[this.rowKey]).style.marginLeft =
+        "5em";
+      (<HTMLElement>cancelButtonsContainers[this.rowKey]).style.display =
+        "none";
+      this.treeGrid.endRowEdit(this.rowKey.toString());
+    }
   }
 
   onNavigation(value) {
     if (value) {
-        this.routes.navigate([value]);
+      this.routes.navigate([value]);
     }
     return false;
-}
+  }
 
   onBack() {
     this.routes.navigateByUrl("/student/profile");

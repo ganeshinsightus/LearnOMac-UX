@@ -341,9 +341,6 @@ export class ClassPerformanceUpdateComponent {
     }
   };
   
-  ready = (): void => {
-    this.myTreeGrid.expandAll();
-  };
   rowKey: number = -1;
   rowClick(event: any): void {
     this.rowKey = event.args.key;

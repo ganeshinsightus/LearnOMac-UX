@@ -1,0 +1,52 @@
+@import "../../../../styles/common";
+@import "../../../../styles/variables";
+@import "../../../../styles/responsive";
+.title {
+  font-family: sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 20px 0;
+}
+.card {
+  margin: 5px 5px;
+  height: 88.7vh;
+}
+.collection,
+.collection-item {
+  font-family: sans-serif;
+  padding: 10px;
+}
+.btn {
+  margin: 3px;
+  padding: 0 10px !important;
+  text-transform: uppercase;
+}
+mat-icon {
+  padding: 5px 0;
+}
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.mat-form-full-width {
+  width: 100%;
+}
+
+.mat-form-half-width {
+  width: 50%;
+}
+
+.mat-form-quad-width {
+  width: 41%;
+}
+mat-label{
+  font-size: 16px;
+  color:lightslategray;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+span{
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}

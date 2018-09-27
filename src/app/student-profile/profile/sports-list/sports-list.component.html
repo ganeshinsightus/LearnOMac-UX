@@ -15,10 +15,8 @@
     </div>
     <div class="col xl12 l12 m12 s12">
         <div class="grid">
-            <jqxTreeGrid #TreeGrid (onCellClick)="cellClick($event)" [width]="getWidth()" [height]="getHeight()"
-                [source]="dataAdapter" [columns]="columns" [rendered]="rendered" [altRows]="true" [autoRowHeight]="true"
-                [columnsResize]="true" [sortable]="true" [filterable]="true" [filterMode]="'advanced'" [editSettings]="editSettings"
-                [ready]="ready">
+            <jqxTreeGrid #TreeGrid (onRowClick)="rowClick($event)" [width]="getWidth()" [height]="getHeight()" [source]="dataAdapter"
+                [columns]="columns" [rendered]="rendered" [altRows]="true" [autoRowHeight]="true" [editSettings]="editSettings">
             </jqxTreeGrid>
         </div>
     </div>

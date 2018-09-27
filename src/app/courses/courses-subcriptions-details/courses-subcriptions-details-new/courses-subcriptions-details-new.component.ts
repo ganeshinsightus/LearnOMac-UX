@@ -210,7 +210,7 @@ export class CourseSubcriptionsDetailsNewComponent {
         return (
           `<div data-row='` +
           row +
-          `' class='viewButton' style='color:white;background-color:green;margin-left: 58px;'></div>`
+          `' class='viewButton' style='color:white;background-color:#d81b60;margin-left: 58px;'></div>`
         );
       }
     }

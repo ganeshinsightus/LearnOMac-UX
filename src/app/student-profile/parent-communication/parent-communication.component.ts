@@ -150,10 +150,10 @@ export class ParentCommunicationComponent {
         return (
           `<div data-row='` +
           row +
-          `' class='viewButton' style='color:white;background-color:skyblue;margin-left: 108px;'></div>
+          `' class='viewButton' style='color:white;background-color:#0d47a1;margin-left: 108px;'></div>
           <div data-row='` +
           row +
-          `' class='replyButton' style='color:white;background-color:green;margin-left: 108px;
+          `' class='replyButton' style='color:black;background-color:lightgrey;margin-left: 108px;
           margin-top: 2px;'></div>`
         );
       }
