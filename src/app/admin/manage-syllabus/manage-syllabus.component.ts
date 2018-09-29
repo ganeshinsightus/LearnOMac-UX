@@ -77,7 +77,6 @@ export class ManageSyllabusComponent {
     }
   ];
 
-  
   template4Source: any[] = [
     {
       label: "Volume 1",
@@ -501,6 +500,7 @@ export class ManageSyllabusComponent {
       ]
     }
   ];
+  
   constructor(
     private dialog: MatDialog,
     private routes: Router,

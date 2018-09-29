@@ -1,0 +1,481 @@
+<div class="row">
+    <div class="col s12 m6 l12 xl6">
+        <div class="card bq-pink">
+            <div class="card-content">
+                <span class="card-title bq-pink-text">Video Content
+                    <span class="btn btn-pink right" (click)="openVideoContent()">
+                        Add New
+                    </span>
+                </span>
+
+                <div class="content-list col xl12 l12 m12 s12">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            1.1 Basic probability video - 2 mins
+
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-pink file" mat-raised-button matTooltip="Preview">
+                                <mat-icon>play_circle_filled</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            2.1 Probability Video - 4 mins
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-pink file" mat-raised-button matTooltip="Preview">
+                                <mat-icon>play_circle_filled</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            1.2 Advance Algebra video - 6 mins
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-pink file" mat-raised-button matTooltip="Preview">
+                                <mat-icon>play_circle_filled</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            1.1 Basic probability video - 2 mins
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-pink file" mat-raised-button matTooltip="Preview">
+                                <mat-icon>play_circle_filled</mat-icon>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <ul *ngIf="showScroll1" id="scroll">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            2.3 Probability Video - 3 mins
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-pink file" mat-raised-button matTooltip="Preview">
+                                <mat-icon>play_circle_filled</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            1.2 Advance Algebra video - 6 mins
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-pink file" mat-raised-button matTooltip="Preview">
+                                <mat-icon>play_circle_filled</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            2.1 Probability Video - 3 mins
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-pink file" mat-raised-button matTooltip="Preview">
+                                <mat-icon>play_circle_filled</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            1.2 Advance Algebra video - 6 mins
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-pink file" mat-raised-button matTooltip="Preview">
+                                <mat-icon>play_circle_filled</mat-icon>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <a class="badge-pink" mat-raised-button matTooltip="Click" (click)="showScroll1 = !showScroll1">
+                        <p *ngIf="!showScroll1">
+                            <mat-icon>more_horiz</mat-icon>
+                        </p>
+                        <p *ngIf="showScroll1">
+                            <mat-icon>expand_less</mat-icon>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12 m6 l12 xl6">
+        <div class="card bq-green">
+            <div class="card-content">
+                <span class="card-title bq-green-text">Documents Content
+                    <span class="btn btn-green right" (click)="openDocumentContent()">
+                        Add New
+                    </span>
+                </span>
+
+                <div class="content-list col xl12 l12 m12 s12">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            1.1 Basic probability pdf
+
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-green file" mat-raised-button matTooltip="Preview PDF">
+                                <mat-icon>file_copy</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            2.1 Probability Document
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-green file" mat-raised-button matTooltip="Preview Doc">
+                                <mat-icon>file_copy</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            1.2 Advance Algebra pdf
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-green file" mat-raised-button matTooltip="Preview PDF">
+                                <mat-icon>file_copy</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            1.1 Basic probability Document - 2 mins
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-green file" mat-raised-button matTooltip="Preview Doc">
+                                <mat-icon>file_copy</mat-icon>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <ul *ngIf="showScroll1" id="scroll">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            1.1 Basic probability pdf
+
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-green file" mat-raised-button matTooltip="Preview PDF">
+                                <mat-icon>file_copy</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            2.1 Probability Document
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-green file" mat-raised-button matTooltip="Preview Doc">
+                                <mat-icon>file_copy</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            1.2 Advance Algebra pdf
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-green file" mat-raised-button matTooltip="Preview PDF">
+                                <mat-icon>file_copy</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            1.1 Basic probability Document - 2 mins
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-green file" mat-raised-button matTooltip="Preview Doc">
+                                <mat-icon>file_copy</mat-icon>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <a class="badge-green" mat-raised-button matTooltip="Click" (click)="showScroll2 = !showScroll2">
+                        <p *ngIf="!showScroll2">
+                            <mat-icon>more_horiz</mat-icon>
+                        </p>
+                        <p *ngIf="showScroll2">
+                            <mat-icon>expand_less</mat-icon>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12 m6 l12 xl6">
+        <div class="card bq-brown">
+            <div class="card-content">
+                <span class="card-title bq-brown-text" (click)="openOtherResourcesContent()">Other Learning Resources
+                    <span class="btn btn-brown right">
+                        Add New
+                    </span>
+                </span>
+
+
+                <div class="content-list col xl12 l12 m12 s12">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Step by step probability
+
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-brown file" mat-raised-button matTooltip="Preview Web Source">
+                                <mat-icon>web</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Step by step algebra
+
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-brown file" mat-raised-button matTooltip="Preview Web Source">
+                                <mat-icon>web</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Step by step sets
+
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-brown file" mat-raised-button matTooltip="Preview Web Source">
+                                <mat-icon>web</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Step by step trignometry
+
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-brown file" mat-raised-button matTooltip="Preview Web Source">
+                                <mat-icon>web</mat-icon>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <ul *ngIf="showScroll1" id="scroll">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Step by step probability
+
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-brown file" mat-raised-button matTooltip="Preview Web Source">
+                                <mat-icon>web</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Step by step algebra
+
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-brown file" mat-raised-button matTooltip="Preview Web Source">
+                                <mat-icon>web</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Step by step sets
+
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-brown file" mat-raised-button matTooltip="Preview Web Source">
+                                <mat-icon>web</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Step by step trignometry
+
+                            <span class="badge-danger" mat-raised-button matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </span>
+                            <span class="badge-success edit" mat-raised-button matTooltip="Edit">
+                                <mat-icon>border_color</mat-icon>
+                            </span>
+                            <span class="badge-brown file" mat-raised-button matTooltip="Preview Web Source">
+                                <mat-icon>web</mat-icon>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <a class="badge-brown" mat-raised-button matTooltip="Click" (click)="showScroll3 = !showScroll3">
+                        <p *ngIf="!showScroll3">
+                            <mat-icon>more_horiz</mat-icon>
+                        </p>
+                        <p *ngIf="showScroll3">
+                            <mat-icon>expand_less</mat-icon>
+                        </p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12 m6 l12 xl6">
+        <div class="card bq-indigo">
+            <div class="card-content">
+                <span class="card-title bq-indigo-text">Projects / Activities
+                    <span class="btn btn-indigo right" (click)="openProjectContent()">
+                        Add New
+                    </span>
+                </span>
+
+                <div class="content-list col xl12 l12 m12 s12">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Probability - Activity 1
+
+                            <span class="badge-indigo">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Algebra - Activity 3
+
+                            <span class="badge-indigo">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Probability - Activity 1
+
+                            <span class="badge-indigo">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Algebra - Activity 4
+
+                            <span class="badge-indigo">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <ul *ngIf="showScroll4" id="scroll">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Probability - Activity 1
+
+                            <span class="badge-indigo">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Algebra - Activity 3
+
+                            <span class="badge-indigo">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Probability - Activity 1
+
+                            <span class="badge-indigo">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Probability - Activity 1
+
+                            <span class="badge-indigo">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Algebra - Activity 3
+
+                            <span class="badge-indigo">
+                                <mat-icon>visibility</mat-icon>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <a class="badge-indigo" (click)="showScroll4 = !showScroll4">
+                        <p *ngIf="!showScroll4">
+                            <mat-icon>more_horiz</mat-icon>
+                        </p>
+                        <p *ngIf="showScroll4">
+                            <mat-icon>expand_less</mat-icon>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

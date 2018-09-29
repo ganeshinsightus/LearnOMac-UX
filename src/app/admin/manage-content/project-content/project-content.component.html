@@ -1,0 +1,90 @@
+<div class="row card bq-indigo">
+    <div class="col xl12 l12 m12 s12">
+        <h5 class="title bq-text-indigo">
+            Add New Project / Activity Content
+            <span class="btn btn-indigo right" (click)="onBack()">Back</span>
+            <span class="btn btn-indigo right" style="margin-right:10px;" (click)="onViewDetails()">View Details</span>
+        </h5>
+        <div class="col xl12 l12 m12 s12" style="padding:10px;overflow: auto;">
+
+            <div class="col xl12 l12 m12 s12">
+                <mat-form-field class="mat-form-half-width">
+                    <input type="text" matInput placeholder="Activity Title">
+                </mat-form-field>
+            </div>
+            <div class="col xl12 l12 m12 s12">
+                <mat-form-field class="mat-form-half-width">
+                    <textarea matInput placeholder="Objective"></textarea>
+                </mat-form-field>
+            </div>
+
+            <div class="col xl12 l12 m12 s12">
+                <mat-form-field class="mat-form-half-width">
+                    <input type="text" matInput placeholder="Action step 1">
+                </mat-form-field>
+            </div>
+            <div class="col xl12 l12 m12 s12">
+                <mat-form-field class="mat-form-half-width">
+                    <textarea matInput placeholder="Description"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="col xl12 l12 m12 s12">
+                <select class="dropdown mat-form-half-width" (change)="onResourceType($event)">
+                    <option value="-1">
+                        Select Learning Resource Type
+                    </option>
+                    <option value="1">
+                        File upload
+                    </option>
+                    <option value="2">
+                        Web URL
+                    </option>
+                </select>
+                <div *ngIf="showWebURL">
+                    <div class="col xl12 l12 m12 s12">
+                        <mat-form-field class="mat-form-half-width">
+                            <input matInput type="text" placeholder="Display Name">
+                        </mat-form-field>
+                    </div>
+                    <div class="col xl12 l12 m12 s12">
+                        <mat-form-field class="mat-form-half-width">
+                            <input matInput type="url" placeholder="URL">
+                        </mat-form-field>
+                    </div>
+                    <div class="col xl6 l6 m6 s6">
+                        <span class="badge-indigo" mat-raised-button matTooltip="Add more learning resources">
+                            <mat-icon>add_circle</mat-icon>
+                        </span>
+                    </div>
+                </div>
+                <div *ngIf="showFileUpload">
+                    <div class="col xl12 l12 m12 s12">
+                        <div class="mat-form-half-width">
+                            <input type="file" placeholder="Upload File">
+                        </div>
+                    </div>
+                    <div class="col xl6 l6 m6 s6">
+                        <span class="badge-indigo" mat-raised-button matTooltip="Add more learning resources">
+                            <mat-icon>add_circle</mat-icon>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col xl6 l6 m6 s6">
+                <span class="badge-indigo" mat-raised-button matTooltip="Add more action steps">
+                    <mat-icon >add_circle</mat-icon>
+                </span>
+            </div>
+
+            <div class="col xl12 l12 m12 s12" style="margin:10px 0;">
+                <span class="btn btn-success">
+                    Save
+                </span>
+                <span class="btn btn-danger" style="margin-left: 10px;">
+                    Cancel
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,39 @@
+@import "../../../../styles/common";
+@import "../../../../styles/responsive";
+@import "../../../../styles/variables";
+.col {
+  padding: 0;
+}
+.title {
+  font-family: sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 20px 0;
+  padding: 0 10px;
+}
+span {
+  font-family: sans-serif;
+  font-size: 11px;
+}
+.card {
+  margin: 5px 5px;
+  height: 88.7vh;
+  overflow: auto;
+}
+.grid {
+  padding: 0;
+  margin: 0 10px !important;
+  padding-bottom: 10px;
+}
+.mat-form-full-width {
+  width: 100%;
+}
+
+.mat-form-half-width {
+  width: 50%;
+}
+
+.mat-form-quad-width {
+  width: 41%;
+}

@@ -66,7 +66,7 @@ export class AppComponent {
         title: "Manage Syllabus"
       },
       {
-        url: "/prerequisite-standards-mapping",
+        url: "/prerequisite-mapping",
         iconName: "track_changes",
         title: "Prerequisite Standards Mapping"
       },
@@ -76,7 +76,7 @@ export class AppComponent {
         title: "Manage Lesson Plan Templates"
       },
       {
-        url: "/manage-content",
+        url: "/manage-contents",
         iconName: "insert_drive_file",
         title: "Manage Content"
       },

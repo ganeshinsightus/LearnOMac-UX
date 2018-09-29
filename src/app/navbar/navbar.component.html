@@ -5,6 +5,51 @@
         </span>
         <span class="header-spacer">
 
+
+            <div *ngIf="showManageContent">
+                <div class="filter-card">
+                    <form [formGroup]="filterForm">
+                        <mat-form-field>
+                            <mat-select placeholder="Select Curriculum" formControlName="curriculum">
+                                <mat-option value="A">CBSE</mat-option>
+                                <mat-option value="B">Stateboard</mat-option>
+                                <mat-option value="C">Extra Curricular</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Grade" formControlName="grade">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="4">4</mat-option>
+                                <mat-option value="5">5</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Subject" formControlName="subject">
+                                <mat-option value="Maths">Mathematics</mat-option>
+                                <mat-option value="Physics">Physics</mat-option>
+                                <mat-option value="Chemistry">Chemistry</mat-option>
+                                <mat-option value="Civics">Civics</mat-option>
+                                <mat-option value="Geography">Geography</mat-option>
+                            </mat-select>
+                        </mat-form-field>&nbsp;
+                        <mat-form-field>
+                            <mat-select placeholder="Select Lesson" formControlName="lesson">
+                                <mat-optgroup *ngFor="let group of lessons" [label]="group.name" [disabled]="group.disabled">
+                                    <mat-option *ngFor="let lessonchildren  of group.lessonchildren" [value]="lessonchildren.value">
+                                        {{lessonchildren.viewValue}}
+                                    </mat-option>
+                                </mat-optgroup>
+                            </mat-select>
+                        </mat-form-field>
+                        &nbsp;
+
+                        <span class="btn-lightslategrey ">Apply Filter</span> &nbsp;
+                    </form>
+                </div>
+            </div>
+
             <div *ngIf="showManageSubjectsFilter">
                 <div class="filter-card">
                     <form [formGroup]="filterForm">

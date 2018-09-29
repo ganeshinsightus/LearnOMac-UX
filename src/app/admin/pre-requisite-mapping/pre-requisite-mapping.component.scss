@@ -1,0 +1,86 @@
+@import "../../../styles/common";
+@import "../../../styles/variables";
+@import "../../../styles/responsive";
+.row {
+  margin: 0;
+  padding: 0;
+}
+.col {
+  margin: 0;
+  padding: 0;
+}
+.card-full {
+  height: calc(87.2vh);
+  margin: 10px;
+  padding: 10px;
+  font-family: sans-serif;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  border: 0;
+  font-weight: 400;
+  overflow: auto;
+  background: $color-white;
+}
+.title {
+  font-family: sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 20px 0;
+}
+.card-subtitle {
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+.mat-list {
+  padding: 30px !important;
+}
+.mat-form-field {
+  width: 48%;
+}
+select {
+  color: $color-royalblue;
+  text-transform: uppercase;
+}
+span {
+  padding: 5px;
+  font-family: sans-serif;
+}
+jqxTree{
+    margin: 3px !important;
+}
+.collection,
+.collection-item {
+  font-family: sans-serif;
+  padding: 10px;
+  border-color: #c7c7c7;
+  margin: 0 !important;
+  height: 330px;
+}
+.btn {
+  margin: 3px;
+  padding: 0 10px !important;
+  text-transform: uppercase;
+}
+
+
+
+@media #{$ipad-tab} {
+  .card-full {
+    height: calc(93vh);
+  }
+}
+
+@media #{$tab} {
+  .card-full {
+    height: calc(92.5vh);
+  }
+}
+
+@media #{$phone} {
+  .card-full {
+    height: calc(90vh);
+  }
+}

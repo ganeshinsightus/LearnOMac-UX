@@ -326,8 +326,4 @@ export class ManageCurriculumsComponent {
   openNewCurriculum(){
     this.routes.navigateByUrl('create-curriculum');
   }
-
-  onBack() {
-    this.routes.navigateByUrl("/class-dashboard");
-  }
 }

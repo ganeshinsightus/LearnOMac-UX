@@ -33,6 +33,7 @@ export class NavbarComponent {
   showAttendanceFilter: boolean;
   showCurriculumContent: boolean;
   showManageSubjectsFilter: boolean;
+  showManageContent: boolean;
   checkPath: string;
 
   lessons: Lessons[] = [
@@ -103,6 +104,7 @@ export class NavbarComponent {
         this.showClassRoomPerformanceFilter = false;
         this.showClassroomPerformanceDetailedViewFilter = false;
         this.showLessonPlan = false;
+        this.showManageContent = false;
         this.showLessonTracking = false;
         this.showAttendanceFilter = false;
         this.showCurriculumContent = false;
@@ -117,6 +119,7 @@ export class NavbarComponent {
         this.showClassroomPerformanceDetailedViewFilter = false;
         this.showLessonPlan = false;
         this.showLessonTracking = false;
+        this.showManageContent = false;
         this.showAttendanceFilter = false;
         this.showCurriculumContent = false;
       } else if (this.checkPath === this.filterService.isCurriculumContent) {
@@ -127,6 +130,7 @@ export class NavbarComponent {
         this.showClassRoomPerformanceFilter = false;
         this.showClassroomPerformanceDetailedViewFilter = false;
         this.showLessonPlan = false;
+        this.showManageContent = false;
         this.showLessonTracking = false;
         this.showAttendanceFilter = false;
         this.showClassRoomDashboardFilter = false;
@@ -139,6 +143,7 @@ export class NavbarComponent {
         this.showStudentPerformance = false;
         this.showClassRoomPerformanceFilter = false;
         this.showLessonTracking = false;
+        this.showManageContent = false;
         this.showLessonPlan = false;
         this.showCurriculumContent = false;
       } else if (this.checkPath === this.filterService.isLessonPlanPath) {
@@ -150,6 +155,7 @@ export class NavbarComponent {
         this.showStudentPerformance = false;
         this.showClassRoomPerformanceFilter = false;
         this.showLessonTracking = false;
+        this.showManageContent = false;
         this.showAttendanceFilter = false;
         this.showCurriculumContent = false;
       } else if (this.checkPath === this.filterService.isLessonTrackingPath) {
@@ -161,6 +167,7 @@ export class NavbarComponent {
         this.showStudentPerformance = false;
         this.showClassRoomPerformanceFilter = false;
         this.showLessonPlan = false;
+        this.showManageContent = false;
         this.showAttendanceFilter = false;
         this.showCurriculumContent = false;
       } else if (
@@ -175,6 +182,7 @@ export class NavbarComponent {
         this.showLessonPlan = false;
         this.showLessonTracking = false;
         this.showAttendanceFilter = false;
+        this.showManageContent = false;
         this.showCurriculumContent = false;
       } else if (
         this.checkPath ===
@@ -188,6 +196,7 @@ export class NavbarComponent {
         this.showStudentPerformance = false;
         this.showLessonPlan = false;
         this.showLessonTracking = false;
+        this.showManageContent = false;
         this.showAttendanceFilter = false;
         this.showCurriculumContent = false;
       } else if (this.checkPath === this.filterService.isStudentProfilePath) {
@@ -200,6 +209,7 @@ export class NavbarComponent {
         this.showLessonPlan = false;
         this.showLessonTracking = false;
         this.showAttendanceFilter = false;
+        this.showManageContent = false;
         this.showCurriculumContent = false;
       } else if (
         this.checkPath === this.filterService.isStudentPerformancePath
@@ -213,11 +223,25 @@ export class NavbarComponent {
         this.showLessonPlan = false;
         this.showLessonTracking = false;
         this.showAttendanceFilter = false;
+        this.showManageContent = false;
         this.showCurriculumContent = false;
       } else if (
         this.checkPath === this.filterService.isStudentCommunicationPath
       ) {
         this.showStudentPerformance = this.filterService.isShowFilter;
+        this.showStudentProfile = false;
+        this.showClassRoomDashboardFilter = false;
+        this.showClassRoomPerformanceFilter = false;
+        this.showClassroomPerformanceDetailedViewFilter = false;
+        this.showManageSubjectsFilter = false;
+        this.showLessonPlan = false;
+        this.showLessonTracking = false;
+        this.showAttendanceFilter = false;
+        this.showCurriculumContent = false;
+        this.showManageContent = false;
+      } else if (this.checkPath === this.filterService.isManageContent) {
+        this.showManageContent = this.filterService.isShowFilter;
+        this.showStudentPerformance = false;
         this.showStudentProfile = false;
         this.showClassRoomDashboardFilter = false;
         this.showClassRoomPerformanceFilter = false;
@@ -238,6 +262,7 @@ export class NavbarComponent {
         this.showLessonTracking = false;
         this.showAttendanceFilter = false;
         this.showCurriculumContent = false;
+        this.showManageContent = false;
       }
     });
   }

@@ -42,6 +42,7 @@ import { StackedBarChartlevel5Component } from './common-component/stacked-bar-c
   imports: [
     AgGridModule.withComponents([]),
     MatAutocompleteModule,
+    MatInputModule,
     MatCheckboxModule,
     MatSidenavModule,
     MatChipsModule,
