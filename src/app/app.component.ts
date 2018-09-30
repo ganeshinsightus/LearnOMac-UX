@@ -8,7 +8,7 @@ import { Component } from "@angular/core";
 export class AppComponent {
   showFiller: boolean;
   showAdminMenu: boolean = true;
-  showTeacherMenu: boolean = false;
+  showTeacherMenu: boolean = true;
   public teacherMenuItems: any[];
   public adminMenuItems: any[];
 
