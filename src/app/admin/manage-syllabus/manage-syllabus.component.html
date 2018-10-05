@@ -1,0 +1,164 @@
+<div class="row card-full bq-indigo">
+  <div class="col xl12 l12 m12 s12">
+    <h5 class="title bq-text-indigo">
+      Manage Syllabus
+    </h5>
+
+    <div class="card col xl12 l12 m12 s12">
+      <mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Select Template</ng-template>
+            <div class="row">
+              <div class="filter">
+                <form [formGroup]="firstFormGroup">
+                  <mat-form-field>
+                    <mat-select placeholder="Select Curriculum" formControlName="curriculum">
+                      <mat-option value="A">CBSE</mat-option>
+                      <mat-option value="B">Stateboard</mat-option>
+                      <mat-option value="C">Extra Curricular</mat-option>
+                    </mat-select>
+                  </mat-form-field>&nbsp;
+                  <mat-form-field>
+                    <mat-select placeholder="Select Grade" formControlName="grade">
+                      <mat-option value="1">1</mat-option>
+                      <mat-option value="2">2</mat-option>
+                      <mat-option value="3">3</mat-option>
+                      <mat-option value="4">4</mat-option>
+                      <mat-option value="5">5</mat-option>
+                    </mat-select>
+                  </mat-form-field>&nbsp;
+                  <mat-form-field>
+                    <mat-select placeholder="Select Subject" formControlName="subject">
+                      <mat-option value="Maths">Mathematics</mat-option>
+                      <mat-option value="Physics">Physics</mat-option>
+                      <mat-option value="Chemistry">Chemistry</mat-option>
+                      <mat-option value="Civics">Civics</mat-option>
+                      <mat-option value="Geography">Geography</mat-option>
+                    </mat-select>
+                  </mat-form-field>&nbsp;
+                  <span class="btn btn-lightslategrey">Apply Filter</span>
+                </form>
+              </div>
+              <div class="template col xl12 l12 m12 s12">
+                <span class="col xl12 l12 m12 s12" style="padding: 20px 0;">
+                  Select Template Category
+                </span>
+                <mat-radio-group>
+                  <mat-radio-button value="1" class="col xl4 l4 m4 s4">
+                    <tree-node-checkbox [treeSource]="template1Source"></tree-node-checkbox>
+                  </mat-radio-button>
+                  <mat-radio-button value="2" class="col xl4 l4 m4 s4">
+                    <tree-node-checkbox [treeSource]="template2Source"></tree-node-checkbox>
+                  </mat-radio-button>
+                  <mat-radio-button value="3" class="col xl4 l4 m4 s4">
+                    <tree-node-checkbox [treeSource]="template3Source"></tree-node-checkbox>
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+
+            <div style="float:right">
+              <button class="btn btn-green" mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Edit Templates</ng-template>
+            <div class="row">
+                <div class="col xl12 l12 m12 s12">
+
+                  <div class="col xl6 l6 m6 s6">
+                    <jqxTree #myTree (onInitialized)="myTreeOnInitialized()" [width]="600" [source]="template1Source"
+                      [height]="330">
+                    </jqxTree>
+                    <jqxMenu #myMenu (onItemclick)="myMenuOnItemClick($event)" [width]="170" [height]="190"
+                      [autoOpenPopup]="false" [mode]="'popup'">
+                      <ul style="text-align:center;padding: 10px">
+                        <li style="background-color: skyblue;color: white ;margin:5px 0px ;padding: 10px">
+                          Add Item
+                        </li>
+                        <li style="background-color: orange;color: white ; margin:5px 0px ;padding: 10px ">
+                          Add Sub Item
+                        </li>
+                        <li style="background-color: seagreen;color: white ;margin:5px 0px ;padding: 10px">
+                          Edit Item
+                        </li>
+                        <li style="background-color: red;color: white ;margin:5px 0px ;padding: 10px">
+                          Remove Item
+                        </li>
+                      </ul>
+                    </jqxMenu>
+                  </div>
+
+                  <div *ngIf="showEdit">
+                    <div class="col xl6 l6 m6 s6 collection">
+                      <div class="col xl12 l12 m12 s12">
+                        <mat-form-field>
+                          <input type="text" #item placeholder="Edit Item" matInput [value]="updatedItem">
+                        </mat-form-field>
+                      </div>
+                      <div class="col xl12 l12 m12 s12">
+                        <span class="btn btn-success" (click)="updateItem($event , item.value)">
+                          Update
+                        </span>
+                        <span class="btn btn-danger" (click)="item.value =''">
+                          Cancel
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="showAdd">
+                    <div class="col xl6 l6 m6 s6 collection">
+                      <div class="col xl12 l12 m12 s12">
+                        <mat-form-field>
+                          <input type="text" #item placeholder="Add New Item" matInput [value]="addedItem">
+                        </mat-form-field>
+                      </div>
+                      <div class="col xl12 l12 m12 s12">
+                        <span class="btn btn-success" (click)="saveItem($event , item.value)">
+                          Save
+                        </span>
+                        <span class="btn btn-danger" (click)="item.value =''">
+                          Cancel
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+               </div>
+            </div>
+
+            <div class="right">
+              <button class="btn btn-danger" mat-button matStepperPrevious>Previous</button>
+              <button class="btn btn-green" mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="thirdFormGroup">
+          <form [formGroup]="fourthFormGroup">
+            <ng-template matStepLabel>Publish Lesson</ng-template>
+            <div class="row collection">
+              <div class="col xl12 l12 m12 s12">
+                <tree-node-checkbox [treeSource]="template4Source">
+                </tree-node-checkbox>
+              </div>
+            </div>
+
+            <div class="right">
+              <button class="btn btn-primary" mat-button matStepperPrevious>Previous</button>
+              <button class="btn btn-danger" mat-button>Delete</button>
+              <button class="btn btn-green" mat-button>Publish</button>
+            </div>
+          </form>
+        </mat-step>
+
+      </mat-horizontal-stepper>
+    </div>
+  </div>
+</div>

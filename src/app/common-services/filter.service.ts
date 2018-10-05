@@ -52,4 +52,31 @@ export class FilterService {
         return this.filterPath = "/content-library";
     }
 
+    get isManageSubjects(){
+        return this.filterPath = "/manage-subjects";
+    }
+
+    get isManageContent(){
+        return this.filterPath = "/manage-contents";
+    }
+
+    
+    get isManageVideoContent(){
+        return this.filterPath = "/video-content";
+    }
+
+    
+    get isManageDocumentContent(){
+        return this.filterPath = "/document-content";
+    }
+
+    
+    get isManageOtherResourcesContent(){
+        return this.filterPath = "/otherresources-content";
+    }
+
+    
+    get isManageProjectContent(){
+        return this.filterPath = "/project-content";
+    }
 }

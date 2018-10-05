@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from "@angular/material";
 import { Router } from "@angular/router";
 import { CommunicationRepliedComponent } from "../../../classroom-dashboard/communication/communication-replied/communication-replied.component";
 import { jqxTreeGridComponent } from "jqwidgets-scripts/jqwidgets-ts/angular_jqxtreegrid";
+import { CommunicationReplyComponent } from "../../../classroom-dashboard/communication/communication-reply/communication-reply.component";
 
 @Component({
   selector: "messages-list",
@@ -25,24 +26,94 @@ export class MessagesListComponent {
     return "calc(76vh)";
   }
 
-  data: any[] = [
-    { title: "Could not do well in Maths", publishedon: "18/08/2018" },
-    { title: " Could not do well in Science", publishedon: "22/03/2018" },
-    { title: "Could not do well in Social Science ", publishedon: "24/03/2018" },
-    { title: "Could not do well in Maths", publishedon: "18/08/2018" },
-    { title: "Could not do well in Social Science ", publishedon: "24/03/2018" },
-    { title: "Could not do well in Maths", publishedon: "18/08/2018" },
-    { title: " Could not do well in Science", publishedon: "13/08/2018" },
-    { title: "Could not do well in Social Science ", publishedon: "24/03/2018" },
-    { title: "Could not do well in Maths", publishedon: "18/08/2018" },
-    { title: "Could not do well in Maths", publishedon: "18/08/2018" },
-    { title: "Could not do well in Social Science ", publishedon: "24/03/2018" }
+  data: any[] =  [
+    {
+      subject: "Could not do well in Maths",
+      receivedon: "29/01/18"
+    },
+    {
+      subject: "Could not do well in Science",
+      
+      receivedon: "29/01/18",
+      
+    },
+    {
+      subject: "Could not do well in Maths",
+      
+      receivedon: "29/01/18",
+      
+    },
+    {
+      subject: "Could not do well in Science",
+      
+      receivedon: "29/01/18",
+      
+    },
+    {
+      subject: "Could not do well in Maths",
+      
+      receivedon: "29/01/18",
+      
+    },
+    {
+      subject: "Could not do well in Maths",
+      
+      receivedon: "29/01/18",
+      
+    },
+    {
+      subject: "Could not do well in Science",
+      
+      receivedon: "29/01/18",
+      
+    },
+    {
+      subject: "Could not do well in Maths",
+      
+      receivedon: "29/01/18",
+      
+    },
+    {
+      subject: "Could not do well in Maths",
+      
+      receivedon: "29/01/18",
+      
+    },
+    {
+      subject: "Could not do well in Science ",
+      
+      receivedon: "29/01/18",
+      
+    },
+    {
+      subject: "Could not do well in Maths",
+      
+      receivedon: "29/01/18",
+      
+    },
+    {
+      subject: "Could not do well in Maths",
+      
+      receivedon: "29/01/18",
+      
+    },
+    {
+      subject: "Could not do well in Maths",
+      
+      receivedon: "29/01/18",
+    },
+    {
+      subject: "Could not do well in Maths",
+      
+      receivedon: "29/01/18",
+      
+    }
   ];
   source: any = {
     dataType: "json",
     dataFields: [
-      { name: "title", type: "string" },
-      { name: "publishedon", type: "date" }
+      { name: "subject", type: "string" },
+      { name: "receivedon", type: "date" },
     ],
     localData: this.data,
     id: "id"
@@ -50,18 +121,18 @@ export class MessagesListComponent {
   dataAdapter: any = new jqx.dataAdapter(this.source);
   columns: any[] = [
     {
-      text: "Messages Title",
-      dataField: "title",
+      text: "Subject",
+      dataField: "subject",
       align: "center",
       cellsAlign: "center",
       width: 420
     },
     {
-      text: "Published on",
+      text: "Received on",
       align: "center",
       cellsAlign: "center",
       cellsFormat: "d",
-      dataField: "publishedon",
+      dataField: "receivedon",
       width: 420
     },
     {
@@ -77,7 +148,11 @@ export class MessagesListComponent {
         return (
           `<div data-row='` +
           row +
-          `' class='viewButton' style='color:white;background-color:#0d47a1;margin-left: 178px;'></div>`
+          `' class='viewButton' style='color:white;background-color:skyblue;margin-left: 108px;'></div>
+          <div data-row='` +
+          row +
+          `' class='replyButton' style='color:white;background-color:green;margin-left: 108px;
+          margin-top: 2px;'></div>`
         );
       }
     }
@@ -92,12 +167,26 @@ export class MessagesListComponent {
     editOnF2: false
   };
   rendered = (): void => {
-    let uglyviewButtons = jqwidgets.createInstance(".viewButton", "jqxButton", {
-      width: 60,
-      height: 24,
-      value: "View"
-    });
+    let uglyviewButtons = jqwidgets.createInstance(
+      ".viewButton",
+      "jqxButton",
+      {
+        width: 60,
+        height: 24,
+        value: "View"
+      }
+    );
+    let uglyreplyButtons = jqwidgets.createInstance(
+      ".replyButton",
+      "jqxButton",
+      {
+        width: 60,
+        height: 24,
+        value: "Reply"
+      }
+    );
     let flattenviewButtons = flatten(uglyviewButtons);
+    let flattenreplyButtons = flatten(uglyreplyButtons);
 
     function flatten(arr: any[]): any[] {
       if (arr.length) {
@@ -118,6 +207,16 @@ export class MessagesListComponent {
         );
       }
     }
+    if (flattenreplyButtons) {
+      for (let i = 0; i < flattenreplyButtons.length; i++) {
+        flattenreplyButtons[i].addEventHandler(
+          "click",
+          (event: any): void => {
+            this.editClick(event);
+          }
+        );
+      }
+    }
   };
 
   rowKey: number = -1;
@@ -127,8 +226,11 @@ export class MessagesListComponent {
   editClick(event: any): void {
     let value = event.target.innerText;
     if (value === "View") {
-      this.openDialog();
+       this.openDialog();
     }
+    if (value === "Reply") {
+      this.openReplyDialog();
+   }
   }
 
   public openDialog() {
@@ -142,6 +244,19 @@ export class MessagesListComponent {
     //this.communicationDialogRef.componentInstance.title = "odioCras justo odio";
     this.communicationDialogRef.disableClose = true;
   }
+
+  public openReplyDialog() {
+    this.communicationDialogRef = this.dialog.open(
+      CommunicationReplyComponent,
+      {
+        width: "50%",
+        height: "calc(78vh)"
+      }
+    );
+    
+    this.communicationDialogRef.disableClose = true;
+  }
+
 
   onBack() {
     this.routes.navigateByUrl("/");
